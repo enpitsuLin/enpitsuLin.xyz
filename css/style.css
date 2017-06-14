@@ -112,7 +112,7 @@ button::-moz-focus-inner {
 body {
   background: #fff;
   color: #4f5759;
-  font: 100% 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font: 100% 'PT Serif', 'Microsoft Yahei', sans-serif;
   text-rendering: optimizelegibility;
   -webkit-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
@@ -191,7 +191,7 @@ h6 a:hover {
 }
 pre,
 code {
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family: "PT Serif", "Microsoft Yahei", monospace;
   font-size: 1em;
 }
 .left,
@@ -225,7 +225,7 @@ code {
 }
 .entry-content .gist .gist-file .gist-data pre {
   padding: 0 !important;
-  font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace;
+  font-family: "PT Serif", "Microsoft Yahei", monospace;
 }
 .entry-content .gist .gist-file .gist-meta {
   background: none;
@@ -504,7 +504,7 @@ pre .deletion {
   color: #4f5759;
   letter-spacing: 1px;
   width: 90%;
-  font: 13px 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font: 13px 'PT Serif', 'Microsoft Yahei', sans-serif;
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -674,7 +674,7 @@ pre .deletion {
   padding: 10px 0;
 }
 .entry-content blockquote {
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "PT Serif", serif;
   margin: 1.5em 3em;
   padding: 5px 20px;
   border-left: 2px solid #aaa;
@@ -685,7 +685,7 @@ pre .deletion {
 }
 .entry-content blockquote footer {
   font-size: 100%;
-  font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+  font-family: 'PT Serif', 'Microsoft Yahei', sans-serif;
 }
 .entry-content blockquote footer cite:before {
   content: "—";
@@ -693,7 +693,7 @@ pre .deletion {
 }
 .entry-content .pullquote {
   border-left: 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: "PT Serif", serif;
   text-align: left;
   width: 45%;
   margin: 10px 0 0 0;
@@ -1128,7 +1128,7 @@ pre .deletion {
   }
   .mb-search input {
     background: #fff;
-    font-family: 'Open Sans', 'Helvetica Neue', 'Helvetica', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    font-family: 'PT Serif', 'Microsoft Yahei', sans-serif;
     font-size: 15px;
     padding: 5px 10px;
     border-bottom: 2px solid #ddd !important;
