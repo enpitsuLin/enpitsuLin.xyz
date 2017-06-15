@@ -1,0 +1,14 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: /about
+rss: false
+
+# Content
+excerpt_link: Read More
+fancybox: true
+
+# Miscellaneous
+google_analytics:
+favicon: /favicon.png
