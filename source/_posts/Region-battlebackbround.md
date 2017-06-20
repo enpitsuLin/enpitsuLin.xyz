@@ -7,13 +7,28 @@ categories: MV插件
 ### 区域更改战斗背景图
 
 想下图一样在地图备注加上[regionX filename1 filename2]这样子的备注
+
+
 ![notelikethis](Region-battlebackbround/notelikethis.png)
+
+
 然后在游戏里就是下面的效果 被标记1的区域
+
+
 ![region1](Region-battlebackbround/region1.png)
+
+
 被标记2的区域
+
+
 ![region2](Region-battlebackbround/region2.png)
+
+
 如果是默认 那会调用地图的战斗背景设置 下图是没设置地图的默认情况会把地图截图来当背景
+
+
 ![default](Region-battlebackbround/default.png)
+
 
 下面是插件脚本  
 

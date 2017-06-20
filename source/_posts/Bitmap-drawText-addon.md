@@ -6,9 +6,12 @@ categories: MV插件
 ---
 
 canvas中fill渐变的应用bitmap&drawTextEx
+
 ![example](Bitmap-drawText-addon/bitmap_drawTextEx.png)
 
-　　因为单纯的颜色会很单调。加上渐变并运用的得当会很有效。
+
+因为单纯的颜色会很单调。加上渐变并运用的得当会很有效。
+
 
 ```javascript
 //=============================================================================
