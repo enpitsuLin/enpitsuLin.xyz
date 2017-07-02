@@ -1,7 +1,7 @@
 ---
 title: 在hexo使用本地资源文件
 date: 2017-06-14 22:19:07
-tags: [hexo,markdown]
+tags: [hexo,Markdown]
 categories: 心得体会
 ---
 
