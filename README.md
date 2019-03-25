@@ -1,5 +1,6 @@
-# enpitsuLin.github.io
+# Source of github page blog
 
-这里存放的是我的blog的源文件，生成的页面文件在master分支。。
+The source file here and the generated page file is in the master branch.
 
-把源文件存一份以防万一嘛
+这里存放的是我的blog的源文件，生成的页面文件在master分支。
+
