@@ -4,12 +4,12 @@
 
 # Site
 title: EnpitsuLin's blog
-subtitle:
-description:
+subtitle: 铅笔de博客
+description: 大道至简,知易行难
 keywords:
 author: EnpitsuLin
-language:
-timezone:
+language: zh-CN
+timezone: 
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
@@ -35,13 +35,13 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
   enable: true
+  auto_detect: true
   line_number: true
-  auto_detect: false
   tab_replace:
   
 # Home page setting
@@ -74,8 +74,17 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: maupassant
-
+#RSS订阅
+plugins:
+    hexo-generator-feed
+#Feed Atom
+feed:
+    type: atom
+    path: atom.xml
+    limit: 20
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:enpitsuLin/enpitsuLin.github.io.git
+  branch: master
