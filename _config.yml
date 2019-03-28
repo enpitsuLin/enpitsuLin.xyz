@@ -76,12 +76,24 @@ pagination_dir: page
 theme: maupassant
 #RSS订阅
 plugins:
-    hexo-generator-feed
 #Feed Atom
 feed:
     type: atom
     path: atom.xml
     limit: 20
+#live2d-widget
+live2d:
+  enable: true
+  model:
+    use: live2d-widget-model-hijiki
+  display:
+    width: 100
+    height: 200
+    position: left
+    hOffset: 0
+    vOffset: -90
+  mobile:
+    show: false
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
