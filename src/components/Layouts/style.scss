@@ -1,58 +1,49 @@
-#header {
-    padding: 58px 0 0;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    position: relative;
+.body-container {
+	padding: 0 60px;
+	max-width: 1150px;
+	margin: 0 auto;
+}
+/* Media query */
 
-    .site-name {
-        margin-bottom: 40px;
+/* middle*/
 
-        h1 {
-            padding: 0;
-            margin: 0;
-            height: 0;
-            overflow: hidden;
-        }
+@media print, screen and (max-width: 48em) {
+	.body-container {
+		padding: 0 30px;
+	}
+	.content_container {
+		padding-right: 15px;
+	}
+	.hidden_mid_and_down {
+		display: none !important;
+	}
+	#sidebar {
+		border-left-width: 0px;
+	}
+	#header {
+		.site-name {
+			margin-bottom: 20px;
+			text-align: center;
+		}
+		#nav-menu {
+			position: relative;
+			text-align: center;
+			a {
+				padding: 0 15px;
+				line-height: 27px;
+				height: 27px;
+				font-size: 13px;
+			}
+		}
+	}
+}
+/* small*/
 
-        #logo {
-            font: bold 38px/1.12 'Times New Roman', Georgia, Times, sans-serif;
-            color: #555;
-
-            span,
-            &:hover {
-                color: #777;
-            }
-        }
-
-        .description {
-            margin: 0.2em 0 0;
-            color: #999;
-        }
-    }
-
-    #nav-menu {
-        margin: 10px 0 -1px;
-        padding: 0;
-        position: absolute;
-        right: 0;
-        bottom: 0;
-
-        a {
-            display: inline-block;
-            padding: 3px 20px 3px;
-            line-height: 30px;
-            color: #444;
-            font-size: 13px;
-            border: 1px solid transparent;
-
-            &:hover {
-                border-bottom-color: #444;
-            }
-
-            &.current {
-                border: 1px solid #ddd;
-                border-bottom-color: #fff;
-            }
-        }
-    }
+@media print, screen and (max-width: 35.5em) {
+	.body-container {
+		padding: 0 20px;
+	}
+	.content_container {
+		padding-right: 0;
+	}
 }
