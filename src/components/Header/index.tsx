@@ -7,7 +7,7 @@ interface Props {
   siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
 }
 
-const Header: React.FC<Props> = ({ siteMetadata }) => {
+const Header: React.FC<Props> = ({ location, siteMetadata }) => {
   const { title, description } = siteMetadata;
 
   const navList = [

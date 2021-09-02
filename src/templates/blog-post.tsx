@@ -1,8 +1,9 @@
 import * as React from 'react';
 import { Link, graphql } from 'gatsby';
-
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
+import '../styles/core/highlight.css';
+
 
 const BlogPostTemplate = ({ data, location }) => {
   const post = data.markdownRemark;
