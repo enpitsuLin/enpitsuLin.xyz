@@ -1,0 +1,114 @@
+body {
+    background-color: #FFF;
+    color: #444;
+    font-size: 14px;
+    font-family: "TIBch", "Classic Grotesque W01", "Helvetica Neue", Arial, "Hiragino Sans GB", "STHeiti", "Microsoft YaHei", "WenQuanYi Micro Hei", SimSun, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a,
+button.submit {
+    color: #6E7173;
+    text-decoration: none;
+    -webkit-transition: all .1s ease-in;
+    -moz-transition: all .1s ease-in;
+    -o-transition: all .1s ease-in;
+    transition: all .1s ease-in;
+}
+
+a:hover,
+a:active {
+    color: #6E7173;
+}
+
+mark {
+    padding: 3px 3px 3px 5px;
+    background: #fffdd1;
+}
+
+pre,
+code {
+    background: #f8f8f8;
+    font-family: Menlo, Monaco, Consolas, "Lucida Console", "Courier New", monospace;
+    font-size: .92857em;
+    display: block;
+}
+
+pre {
+    margin: 2em 0;
+    overflow: auto;
+    background: none;
+    border: 1px solid #ddd;
+}
+
+blockquote {
+    margin: 2em 1.5em;
+    padding-left: 1.5em;
+    border-left: 4px solid #ddd;
+    color: #777;
+}
+
+blockquote:first-letter {
+    font-size: 2.5em;
+    line-height: 1.15;
+    padding: 0 7px 0 0;
+    color: #666;
+    font-weight: bolder;
+    float: left;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+textarea {
+    padding: 6px;
+    border: 1px solid #ddd;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button.submit {
+    border: 1px solid #272727;
+    display: block;
+    line-height: 32px;
+    width: 100%;
+    outline: none;
+    color: #fff;
+    background: #272727;
+    height: 38px;
+}
+
+button.submit:hover {
+    background: #505050;
+    border-color: #505050;
+}
+
+textarea.textarea {
+    line-height: 1.8;
+    padding: 5px 10px 5px 10px;
+    width: 100%;
+    height: 174px;
+    padding: 10px;
+    overflow: auto;
+    margin: 0;
+    line-height: 1.8;
+    color: #222;
+    font-size: 14px;
+    background: #fdfdfd !important;
+    color: #555;
+}

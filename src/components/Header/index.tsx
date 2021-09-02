@@ -25,19 +25,18 @@ const Header: React.FC<Props> = ({ siteMetadata }) => {
             </a>
             <p className="description">{description || ''}</p>
           </div>
-          <div>
-            <nav id="nav-menu" className="clearfix">
-              {navList.map((item, index) => {
-                const isCurrentPage =
-                  location.pathname === item.path || (location.pathname.startsWith('/post/') && item.path == '/');
-                return (
-                  <Link key={index} to={item.path} className={isCurrentPage ? 'current' : ''}>
-                    {item.title}
-                  </Link>
-                );
-              })}
-            </nav>
-          </div>
+
+          <nav id="nav-menu" className="clearfix">
+            {navList.map((item, index) => {
+              const isCurrentPage =
+                location.pathname === item.path || (location.pathname.startsWith('/post/') && item.path == '/');
+              return (
+                <Link key={index} to={item.path} className={isCurrentPage ? 'current' : ''}>
+                  {item.title}
+                </Link>
+              );
+            })}
+          </nav>
         </div>
       </div>
     </header>

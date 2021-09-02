@@ -1,0 +1,302 @@
+#main {
+    padding-top: 20px;
+    float: left;
+}
+
+#secondary {
+    float: right;
+    width: 245px;
+    border-left: 1px solid #ddd;
+    padding-left: 35px;
+    word-wrap: break-word;
+    display: block;
+    padding-top: 40px;
+}
+
+.widget {
+    margin-bottom: 30px;
+}
+
+.widget-title {
+    color: #6E7173;
+    line-height: 2.7;
+    margin-top: 0;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    display: block;
+}
+
+#response {
+    margin-bottom: .8em;
+}
+
+#search {
+    position: relative;
+    overflow: hidden;
+}
+
+#search input {
+    padding: 15px 30px 11px 15px;
+    line-height: 1.5;
+}
+
+#search button {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 20px;
+    line-height: 1.5;
+    border: none;
+    padding: 11px 0;
+    width: 20px;
+    height: 48px;
+    color: #444;
+    background: none;
+}
+
+.widget-list {
+    list-style: none;
+    padding: 0;
+}
+
+.widget-list li {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+// post
+.post {
+    padding: 25px 0 15px;
+}
+
+.post-title {
+    margin: 0;
+    color: #555;
+    text-align: left;
+    font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+}
+
+.post-title a {
+    color: #555;
+}
+
+.post-meta {
+    padding: 0;
+    margin: 9px 0 0;
+    color: #999;
+    text-align: left;
+    display: block;
+}
+
+.post-content {
+    font-size: 15px;
+    line-height: 1.715;
+    color: #444;
+    padding-top: 27px;
+}
+
+.page-content {
+    padding-top: 40px;
+}
+
+.post-content h3,
+.post-content h2 {
+    margin: 1.4em 0 1.1em;
+}
+
+.post-content pre,
+.comment-content pre {
+    max-height: 320px;
+}
+
+.post-content pre code,
+.comment-content pre code {
+    padding: 1.5em 2em;
+}
+
+.post-content p code,
+.comment-content p code {
+    display: inline;
+    margin: 0 5px;
+    padding: 3px 5px;
+    border: 1px solid #ddd;
+}
+
+.post-content p {
+    margin: 0 0 1.234em;
+}
+
+.post-content img {
+    padding: 1em 0;
+}
+
+.post-content ul {
+    overflow: auto;
+    padding: .5em 2.4em;
+    border-radius: 3px;
+    margin: 1.8em 0;
+}
+
+.post-content ul li {
+    text-indent: .5em;
+}
+
+.archive-title {
+    padding-top: 20px;
+    color: #999;
+    font-size: 1em;
+}
+
+.more {
+    padding: 10px 0 0;
+}
+
+.more a {
+    border: none;
+}
+
+// media query
+@media print,
+screen and (max-width:1290px) {
+    .container {
+        width: auto;
+    }
+
+    #main {
+        width: 100%;
+        margin-right: -320px;
+        float: left;
+    }
+
+    .res-cons {
+        width: auto;
+        margin-right: 320px;
+    }
+
+    .post-content img {
+        max-width: 100%;
+    }
+}
+
+@media print,
+screen and (max-width:1057px) {
+    .container {
+        width: auto;
+    }
+
+    #main {
+        width: 100%;
+        margin-right: -260px;
+        float: left;
+    }
+
+    .res-cons {
+        width: auto;
+        margin-right: 260px;
+    }
+
+    #secondary {
+        width: 175px;
+        margin-top: 35px;
+        padding-top: 5px;
+    }
+
+    .post-content {
+        font-size: 14px;
+    }
+}
+
+@media print,
+screen and (max-width:860px) {
+    #header {
+        text-align: center;
+    }
+
+    #main {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #nav-menu {
+        margin: 35px 0 -1px;
+    }
+
+    .res-cons {
+        width: auto;
+        margin-right: 0;
+    }
+
+    #secondary {
+        display: none;
+    }
+}
+
+@media print,
+screen and (max-width:680px) {
+    .container {
+        padding: 0 20px;
+    }
+
+    .post-title {
+        font-size: 22px;
+    }
+
+    .page-navigator {
+        padding: 15px 0 0;
+    }
+
+    #footer {
+        padding-top: 10px;
+    }
+
+    .page-navigator a {
+        padding: 0 6px;
+    }
+
+    .post-content img {
+        padding: 0.2em 0;
+    }
+
+    .post {
+        padding: 12px 0;
+    }
+
+    #nav-menu a {
+        padding: 0 15px;
+        line-height: 27px;
+        height: 27px;
+        font-size: 13px;
+    }
+}
+
+@media print,
+screen and (max-width:500px) {
+    .col2 {
+        width: 140px;
+    }
+
+    .post-meta li.comment-count {
+        display: none;
+    }
+
+    .col1 p {
+        margin-right: 160px;
+    }
+
+    .col1 {
+        margin-right: -160px;
+    }
+
+    .post-content-pages {
+        font-size: 14px;
+    }
+
+    .al_mon_list {
+        margin-left: 70px;
+        padding-left: 20px;
+    }
+}
+
+.about {
+    width: 100%;
+}
