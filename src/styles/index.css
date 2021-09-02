@@ -1,49 +1,32 @@
+@import './core/normalize.css';
 @import './core/reset.css';
+@import './themes/maupassant.css';
 
+/* CSS Custom Properties Definitions */
 
-/* 除了reset.css 外的reset */
-html,
-button,
-input,
-select,
-textarea,
-.MJXc-TeX-unknown-R,
-.pure-g [class*='pure-u'] {
-    /* Set your content font stack here: */
-    font-family: 'PingFangSC-Regular', Helvetica, 'Helvetica Neue', 'Segoe UI', 'Hiragino Sans GB', 'Source Han Sans CN',
-        'Microsoft YaHei', 'STHeiti', 'WenQuanYi Micro Hei', sans-serif !important;
+html {
+    overflow-y: scroll;
 }
 
-body {
-    background-color: #fff;
-    color: #444;
-    font-family: 'TIBch', 'Classic Grotesque W01', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'STHeiti',
-        'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-size: 14px;
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
 }
 
-a,
-button.submit {
-    color: #6e7173;
-    text-decoration: none;
-    -webkit-transition: all 0.1s ease-in;
-    -moz-transition: all 0.1s ease-in;
-    -o-transition: all 0.1s ease-in;
-    transition: all 0.1s ease-in;
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
 }
 
-a:hover,
-a:active {
-    color: #444;
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background: #00000050;
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
-a:focus {
-    outline: auto;
-}
-
-
-div {
-    box-sizing: border-box;
+::-webkit-scrollbar-thumb:hover {
+    background: #000000a6;
 }
