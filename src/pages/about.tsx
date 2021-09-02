@@ -9,8 +9,11 @@ type Props = PageRendererProps;
 const About: React.FC<Props> = ({ location }) => {
   return (
     <Layout location={location}>
-      <Seo title="About" />
-      <p>关于我</p>
+      <Seo title="关于我" />
+      <div className="about">
+        <i className="icon-about"></i>
+        <p>关于我</p>
+      </div>
     </Layout>
   );
 };

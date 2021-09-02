@@ -12,7 +12,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 interface Meta {
   name?: string;
   property?: string;
-  content: string;
+  content?: string;
 }
 
 interface Props {
@@ -24,7 +24,7 @@ interface Props {
 }
 
 const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
+  const { site } = useStaticQuery<GatsbyTypes.Query>(
     graphql`
       query {
         site {
@@ -40,8 +40,8 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
     `
   );
 
-  const metaDescription = description || site.siteMetadata.description;
-  const defaultTitle = site.siteMetadata?.title;
+  const metaDescription = description || site?.siteMetadata?.description;
+  const defaultTitle = site?.siteMetadata?.title;
   const defaultMeta: Meta[] = [
     {
       name: `description`,
@@ -65,7 +65,7 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
     },
     {
       name: `twitter:creator`,
-      content: site.siteMetadata?.social?.twitter || ``
+      content: site?.siteMetadata?.social?.twitter || ``
     },
     {
       name: `twitter:title`,

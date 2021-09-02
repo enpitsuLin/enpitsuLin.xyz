@@ -37,18 +37,15 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
   if (posts.length === 0) {
     return (
       <Layout location={location}>
-        <Seo title="All posts" />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the directory you specified for the
-          "gatsby-source-filesystem" plugin in gatsby-config.js).
-        </p>
+        <Seo title="首页" />
+        <p className="no-article">暂时好像还没有文章呢。</p>
       </Layout>
     );
   }
 
   return (
     <Layout location={location}>
-      <Seo title="All posts" />
+      <Seo title="首页" />
 
       {posts.map((post, index) => {
         const title = post.frontmatter?.title || post.fields?.slug || '无标题';
