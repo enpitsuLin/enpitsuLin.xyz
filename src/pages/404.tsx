@@ -1,13 +1,31 @@
 import * as React from "react"
+import { graphql, PageRendererProps, useStaticQuery } from "gatsby"
 
-import Layout from "../components/Layouts"
-import Seo from "../components/Seo"
+import Layout from "../components/Layout/"
+import Seo from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="NotFound" />
-    <p>four oh-four</p>
-  </Layout>
-)
+type Props = PageRendererProps
 
-export default IndexPage
+const NotFoundPage: React.FC<Props> = ({ location }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
+  const siteTitle = data.site.siteMetadata.title
+
+  return (
+    <Layout location={location} title={siteTitle}>
+      <Seo title="404: Not Found" />
+      <h1>404: Not Found</h1>
+      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    </Layout>
+  )
+}
+
+export default NotFoundPage
