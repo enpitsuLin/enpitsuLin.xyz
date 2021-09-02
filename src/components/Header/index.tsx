@@ -4,10 +4,7 @@ import { Link } from 'gatsby';
 
 interface Props {
   location: WindowLocation;
-  siteMetadata: {
-    title: string;
-    description: string;
-  };
+  siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
 }
 
 const Header: React.FC<Props> = ({ siteMetadata }) => {

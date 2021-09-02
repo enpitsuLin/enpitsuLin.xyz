@@ -5,21 +5,12 @@ import Header from '../Header';
 import Footer from '../Footer';
 import Container from '../Container';
 
-interface SiteMetadata {
-  site: {
-    siteMetadata: {
-      title: string;
-      description: string;
-    };
-  };
-}
-
 interface Prop {
   location: WindowLocation;
 }
 
 const Layout: React.FC<Prop> = ({ location, children }) => {
-  const data: SiteMetadata = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.Query>(graphql`
     query {
       site {
         siteMetadata {
@@ -30,7 +21,10 @@ const Layout: React.FC<Prop> = ({ location, children }) => {
     }
   `);
 
-  const siteMetadata = data.site.siteMetadata || { title: 'Title', description: '' };
+  const siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata> = data.site?.siteMetadata || {
+    title: 'Title',
+    description: ''
+  };
 
   const isRootPath = location.pathname === `${__PATH_PREFIX__}/`;
 

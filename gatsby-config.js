@@ -3,11 +3,11 @@ module.exports = {
     title: `enpitsuLin's Blog`,
     author: {
       name: `enpitsuLin`,
-      summary: `litter software engineer.`,
+      summary: `litter software engineer.`
     },
     description: `铅笔de博客.`,
     siteUrl: `http://404.nothing`,
-    social: {},
+    social: {}
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -16,22 +16,22 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/source/_posts`,
-        name: `posts`,
-      },
+        name: `posts`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/source/`,
-        name: `blog`,
-      },
+        name: `blog`
+      }
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
-      },
+        path: `${__dirname}/src/images`
+      }
     },
     {
       resolve: `gatsby-transformer-remark`,
@@ -40,20 +40,20 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
-            },
+              maxWidth: 630
+            }
           },
           {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
-              wrapperStyle: `margin-bottom: 1.0725rem`,
-            },
+              wrapperStyle: `margin-bottom: 1.0725rem`
+            }
           },
           `gatsby-remark-prismjs`,
           `gatsby-remark-copy-linked-files`,
-          `gatsby-remark-smartypants`,
-        ],
-      },
+          `gatsby-remark-smartypants`
+        ]
+      }
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -87,9 +87,9 @@ module.exports = {
                   date: node.frontmatter.date,
                   url: site.siteMetadata.siteUrl + node.fields.slug,
                   guid: site.siteMetadata.siteUrl + node.fields.slug,
-                  custom_elements: [{ "content:encoded": node.html }],
-                })
-              })
+                  custom_elements: [{ 'content:encoded': node.html }]
+                });
+              });
             },
             query: `
               {
@@ -110,10 +110,10 @@ module.exports = {
                 }
               }
             `,
-            output: "/rss.xml",
-          },
-        ],
-      },
+            output: '/rss.xml'
+          }
+        ]
+      }
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -124,8 +124,8 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
+        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+      }
     },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-gatsby-cloud`,
@@ -133,11 +133,16 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
     {
-      // automatically generate typings from graphql schema
-      resolve: "gatsby-plugin-generate-typings",
+      resolve: `gatsby-plugin-typegen`,
       options: {
-        dest: "./src/graphql-types.d.ts",
-      },
-    },
-  ],
-}
+        emitSchema: {
+          'src/__generated__/gatsby-introspection.json': true,
+          'src/__generated__/gatsby-plugin-documents.graphql': true
+        },
+        emitPluginDocuments: {
+          'src/__generated__/gatsby-plugin-documents.graphql': true
+        }
+      }
+    }
+  ]
+};

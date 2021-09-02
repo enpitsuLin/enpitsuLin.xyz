@@ -1,10 +1,7 @@
 import * as React from 'react';
 
 interface Props {
-  siteMetadata: {
-    title: string;
-    description: string;
-  };
+  siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
 }
 
 const Footer: React.FC<Props> = ({ siteMetadata }) => {

@@ -7,7 +7,7 @@ import Seo from '../components/seo';
 type Props = PageRendererProps;
 
 const BlogIndex: React.FC<Props> = ({ location }) => {
-  const data = useStaticQuery(graphql`
+  const data = useStaticQuery<GatsbyTypes.Query>(graphql`
     query {
       allFile(
         filter: { sourceInstanceName: { eq: "posts" }, extension: { eq: "md" } }
@@ -32,7 +32,7 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
     }
   `);
   const edges = data.allFile.edges;
-  const posts = edges.map(edge => edge.node.childMarkdownRemark);
+  const posts = edges.map(edge => edge.node.childMarkdownRemark) as GatsbyTypes.MarkdownRemark[];
 
   if (posts.length === 0) {
     return (
@@ -51,24 +51,24 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
       <Seo title="All posts" />
 
       {posts.map((post, index) => {
-        const title = post.frontmatter.title || post.fields.slug;
+        const title = post.frontmatter?.title || post.fields?.slug || '无标题';
         return (
           <article key={index} className="post" itemScope itemType="http://schema.org/Article">
             <header>
               <h2 className="post-title">
-                <Link to={`/post${post.fields.slug}`} itemProp="url">
+                <Link to={`/post${post.fields?.slug}` || '/404'} itemProp="url">
                   <span itemProp="title">{title}</span>
                 </Link>
               </h2>
               <div className="post-meta">
                 <i className="fa fa-calendar" aria-hidden="true"></i>
-                <span>{post.frontmatter.date}</span>
+                <span>{post.frontmatter?.date || '未知时间'}</span>
               </div>
             </header>
             <div className="post-content">
               <p
                 dangerouslySetInnerHTML={{
-                  __html: post.frontmatter.description || post.excerpt
+                  __html: (post.frontmatter?.description || post.excerpt) as string
                 }}
                 itemProp="description"
               />
