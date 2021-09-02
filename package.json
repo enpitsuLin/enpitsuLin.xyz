@@ -35,6 +35,8 @@
     "typeface-montserrat": "0.0.75"
   },
   "devDependencies": {
+    "gatsby-plugin-generate-typings": "^0.9.9",
+    "node-sass": "^6.0.1",
     "prettier": "2.3.2"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
