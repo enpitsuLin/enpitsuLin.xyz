@@ -1,27 +1,50 @@
-import * as React from "react"
-import "./style.scss"
+import * as React from 'react';
+import { WindowLocation } from '@reach/router';
+import { Link } from 'gatsby';
 
 interface Props {
-  siteTitle?: string
+  location: WindowLocation;
+  siteMetadata: {
+    title: string;
+    description: string;
+  };
 }
 
-const Header: React.FunctionComponent<Props> = props => {
-  const { siteTitle } = props
+const Header: React.FC<Props> = ({ siteMetadata }) => {
+  const { title, description } = siteMetadata;
+
+  const navList = [
+    { path: '/', title: '首页' },
+    { path: '/about', title: '关于' }
+  ];
+
   return (
-    <header id="header">
-      <div className="site-name">
-        <h1 className="hidden">{siteTitle}</h1>
-        <a id="logo" href="/.">
-          {siteTitle}
-        </a>
-        <p className="description">{siteTitle}</p>
+    <header id="header" className="clearfix">
+      <div className="container">
+        <div className="col-group">
+          <div className="site-name">
+            <a id="logo" href="/">
+              {title}
+            </a>
+            <p className="description">{description || ''}</p>
+          </div>
+          <div>
+            <nav id="nav-menu" className="clearfix">
+              {navList.map((item, index) => {
+                const isCurrentPage =
+                  location.pathname === item.path || (location.pathname.startsWith('/post/') && item.path == '/');
+                return (
+                  <Link key={index} to={item.path} className={isCurrentPage ? 'current' : ''}>
+                    {item.title}
+                  </Link>
+                );
+              })}
+            </nav>
+          </div>
+        </div>
       </div>
     </header>
-  )
-}
+  );
+};
 
-Header.defaultProps = {
-  siteTitle: ``,
-}
-
-export default Header
+export default Header;
