@@ -15,6 +15,10 @@
     "strict": true,
     "types": ["node"],
     "typeRoots": ["./node_modules/@types"],
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "paths": {
+      "@/*": ["./src/*"],
+      "~/*": ["./"]
+    }
   }
 }

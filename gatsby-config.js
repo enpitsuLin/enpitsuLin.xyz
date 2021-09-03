@@ -1,4 +1,5 @@
 'use strict';
+const path = require('path');
 
 module.exports = {
   siteMetadata: {
@@ -32,6 +33,13 @@ module.exports = {
       options: {
         name: `images`,
         path: `${__dirname}/src/images`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-root-import',
+      options: {
+        '@': path.join(__dirname, 'src'),
+        '~': path.join(__dirname)
       }
     },
     {

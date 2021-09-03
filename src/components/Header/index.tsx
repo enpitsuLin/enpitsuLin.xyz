@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { WindowLocation } from '@reach/router';
 import { Link } from 'gatsby';
 

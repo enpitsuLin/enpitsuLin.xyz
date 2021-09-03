@@ -1,7 +1,7 @@
-import * as React from 'react';
-import { Link, graphql, useStaticQuery, PageRendererProps } from 'gatsby';
-import Layout from '../components/Layout';
-import Seo from '../components/seo';
+import React from 'react';
+import { Link, graphql, PageRendererProps } from 'gatsby';
+import { BasicLayout } from '@/layouts';
+import Seo from '@/components/seo';
 
 interface Props extends PageRendererProps {
   pageContext?: {};
@@ -13,7 +13,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const { previous, next } = data;
 
   return (
-    <Layout location={location}>
+    <BasicLayout location={location}>
       <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <article className="post" itemScope itemType="http://schema.org/Article">
         <header>
@@ -42,7 +42,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
           )}
         </nav>
       </article>
-    </Layout>
+    </BasicLayout>
   );
 };
 

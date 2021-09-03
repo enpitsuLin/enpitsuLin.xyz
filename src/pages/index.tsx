@@ -1,25 +1,25 @@
-import * as React from 'react';
+import React from 'react';
 import { Link, PageRendererProps } from 'gatsby';
-import Layout from '../components/Layout/';
-import Seo from '../components/seo';
-import usePostsMarkdown from '../hooks/useAllPosts';
+import { BasicLayout } from '@/layouts/';
+import Seo from '@/components/seo';
+import useAllPosts from '@/hooks/useAllPosts';
 
 type Props = PageRendererProps;
 
 const BlogIndex: React.FC<Props> = ({ location }) => {
-  const posts = usePostsMarkdown();
+  const posts = useAllPosts();
 
   if (posts.length === 0) {
     return (
-      <Layout location={location}>
+      <BasicLayout location={location}>
         <Seo title="首页" />
         <p className="no-article">暂时好像还没有文章呢。</p>
-      </Layout>
+      </BasicLayout>
     );
   }
 
   return (
-    <Layout location={location}>
+    <BasicLayout location={location}>
       <Seo title="首页" />
 
       {posts.map((post, index) => {
@@ -55,7 +55,7 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
           </article>
         );
       })}
-    </Layout>
+    </BasicLayout>
   );
 };
 

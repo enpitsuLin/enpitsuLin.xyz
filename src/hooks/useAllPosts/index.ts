@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
  * 获取所有属于`post`源的md文件列表
  * @returns {GatsbyTypes.MarkdownRemark[]} md文件列表
  */
-export default function usePostsMarkdown() {
+export default function useAllPosts() {
   const {
     allFile: { nodes }
   } = useStaticQuery<GatsbyTypes.queryPostsMarkdownQuery>(

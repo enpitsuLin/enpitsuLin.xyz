@@ -18,7 +18,6 @@ const ToTop: React.FC = () => {
       window.removeEventListener('scroll', handler);
     };
   }, []);
-
   return (
     <div onClick={scrollToTop} className={visible ? 'visible to-top' : 'to-top'}>
       <i className="fa fa-arrow-up" />
