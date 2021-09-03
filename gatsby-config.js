@@ -50,15 +50,12 @@ module.exports = {
             }
           },
           {
-            resolve: `gatsby-remark-prismjs`,
+            resolve: 'gatsby-remark-vscode',
             options: {
-              aliases: { shell: 'bash' },
-              showLineNumbers: true,
-              prompt: {
-                user: 'root',
-                host: 'localhost',
-                global: false
-              }
+              inlineCode: {
+                marker: '±'
+              },
+              theme: 'Dark+ (default dark)'
             }
           },
           `gatsby-remark-copy-linked-files`,
