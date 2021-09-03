@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Link, PageRendererProps } from 'gatsby';
 import Layout from '../components/Layout/';
 import Seo from '../components/seo';
-import usePostsMarkdown from '../hooks/usePostsMarkdown';
+import usePostsMarkdown from '../hooks/useAllPosts';
 
 type Props = PageRendererProps;
 
