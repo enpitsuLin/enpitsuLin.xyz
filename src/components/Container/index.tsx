@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Sidebar from '../Sidebar';
+import Totop from '../Totop';
 
 const Container: React.FC = ({ children }) => {
   return (
@@ -10,6 +11,7 @@ const Container: React.FC = ({ children }) => {
             <div className="res-cons">{children}</div>
           </div>
           <Sidebar />
+          <Totop />
         </div>
       </div>
     </div>
