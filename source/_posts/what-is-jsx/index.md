@@ -2,8 +2,13 @@
 title: 什么是JSX
 toc: true
 date: 2020-10-12 19:52:16
-categories: [前端技术]
-tags: [JavaScript, JSX, Vue, React]
+categories:
+  - 前端技术
+tags:
+  - JavaScript
+  - JSX
+  - Vue
+  - React
 description: 在过去的一年中，Vue 团队一直都在开发 Vue.js 的下一个主要版本，从各方面来看JSX 在 Vue3 的语境下更契合 Vue 的发展方向，所以接触一下JSX并开始React的学习。
 ---
 
@@ -41,7 +46,7 @@ console.log('Hello'.concat(text, '!')); //Hello World!
 
 类似的，**Babel 也具备将 JSX 语法转换为 JavaScript 代码的能力。**那么 Babel 具体会将 JSX 处理成什么样子呢？[【例子】](https://www.babeljs.cn/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiBAB0LwD4AoKKUSWRFdbfAFzGbizOAHpwIKqNaPGRpMuPDAD2AO2ZY5XXpAo8-pIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.11.6&externalPlugins=)
 
-{% asset_img Babel编译.png [Babel编译] %}
+![Babel编译](./Babel编译.png)
 
 可以看到，JSX 的标签都被转化成了对应的 React.createElement 调用，所以说实际上 JSX 就是写的 React.createElement，所以说它看起来像 HTML，但内核是 JS 罢了。
 
@@ -57,89 +62,89 @@ console.log('Hello'.concat(text, '!')); //Hello World!
 
 ```javascript
 export function createElement(type, config, children) {
-	var propName;
-	//提取保留名称
-	var props = {};
+  var propName;
+  //提取保留名称
+  var props = {};
 
-	var key = null;
-	var ref = null;
-	var self = null;
-	var source = null;
-	//标签的属性不为空时 说明标签有属性值 特殊处理：把key和ref赋值给单独的变量
-	if (config != null) {
-		//有合理的ref
-		if (hasValidRef(config)) {
-			ref = config.ref;
-		}
-		//有合理的key
-		if (hasValidKey(config)) {
-			key = '' + config.key;
-		}
+  var key = null;
+  var ref = null;
+  var self = null;
+  var source = null;
+  //标签的属性不为空时 说明标签有属性值 特殊处理：把key和ref赋值给单独的变量
+  if (config != null) {
+    //有合理的ref
+    if (hasValidRef(config)) {
+      ref = config.ref;
+    }
+    //有合理的key
+    if (hasValidKey(config)) {
+      key = '' + config.key;
+    }
 
-		self = config.__self === undefined ? null : config.__self;
-		source = config.__source === undefined ? null : config.__source;
+    self = config.__self === undefined ? null : config.__self;
+    source = config.__source === undefined ? null : config.__source;
 
-		//config中剩余属性,且不是原生属性(RESERVED_PROPS对象的属性)，则添加到新props对象中
-		for (propName in config) {
-			if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
-				props[propName] = config[propName]; //config去除key/ref 其他属性的放到props对象中
-			}
-		}
-	}
-	// Children can be more than one argument, and those are transferred onto
-	// the newly allocated props object.
-	// 子元素数量（第三个参数以及之后参数都是子元素 兄弟节点）
-	var childrenLength = arguments.length - 2;
+    //config中剩余属性,且不是原生属性(RESERVED_PROPS对象的属性)，则添加到新props对象中
+    for (propName in config) {
+      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+        props[propName] = config[propName]; //config去除key/ref 其他属性的放到props对象中
+      }
+    }
+  }
+  // Children can be more than one argument, and those are transferred onto
+  // the newly allocated props object.
+  // 子元素数量（第三个参数以及之后参数都是子元素 兄弟节点）
+  var childrenLength = arguments.length - 2;
 
-	if (childrenLength === 1) {
-		props.children = children;
-	} else if (childrenLength > 1) {
-		var childArray = Array(childrenLength); //声明一个数组
-		//依次将children push到数组中
-		for (var i = 0; i < childrenLength; i++) {
-			childArray[i] = arguments[i + 2];
-		}
+  if (childrenLength === 1) {
+    props.children = children;
+  } else if (childrenLength > 1) {
+    var childArray = Array(childrenLength); //声明一个数组
+    //依次将children push到数组中
+    for (var i = 0; i < childrenLength; i++) {
+      childArray[i] = arguments[i + 2];
+    }
 
-		{
-			//冻结array 返回原来的childArray且不能被修改 防止有人修改库的核心对象 冻结对象大大提高性能
-			if (Object.freeze) {
-				Object.freeze(childArray);
-			}
-		}
-		props.children = childArray; //父组件内部通过this.props.children获取子组件的值
-	}
+    {
+      //冻结array 返回原来的childArray且不能被修改 防止有人修改库的核心对象 冻结对象大大提高性能
+      if (Object.freeze) {
+        Object.freeze(childArray);
+      }
+    }
+    props.children = childArray; //父组件内部通过this.props.children获取子组件的值
+  }
 
-	//为子组件设置默认值 一般针对的是组件
-	//class com extends React.component 则com.defaultProps获取当前组件自己的静态方法
-	if (type && type.defaultProps) {
-		//如果当前组件中有默认的defaultProps则把当前组件的默认内容 定义到defaultProps中
-		var defaultProps = type.defaultProps;
+  //为子组件设置默认值 一般针对的是组件
+  //class com extends React.component 则com.defaultProps获取当前组件自己的静态方法
+  if (type && type.defaultProps) {
+    //如果当前组件中有默认的defaultProps则把当前组件的默认内容 定义到defaultProps中
+    var defaultProps = type.defaultProps;
 
-		for (propName in defaultProps) {
-			if (props[propName] === undefined) {
-				//如果父组件中对应的值为undefined 则把默认值赋值赋值给props当作props的属性
-				props[propName] = defaultProps[propName];
-			}
-		}
-	}
+    for (propName in defaultProps) {
+      if (props[propName] === undefined) {
+        //如果父组件中对应的值为undefined 则把默认值赋值赋值给props当作props的属性
+        props[propName] = defaultProps[propName];
+      }
+    }
+  }
 
-	{
-		//一旦ref或者key存在
-		if (key || ref) {
-			//如果type是组件的话
-			var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
-			if (key) {
-				defineKeyPropWarningGetter(props, displayName);
-			}
+  {
+    //一旦ref或者key存在
+    if (key || ref) {
+      //如果type是组件的话
+      var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
+      if (key) {
+        defineKeyPropWarningGetter(props, displayName);
+      }
 
-			if (ref) {
-				defineRefPropWarningGetter(props, displayName);
-			}
-		}
-	}
+      if (ref) {
+        defineRefPropWarningGetter(props, displayName);
+      }
+    }
+  }
 
-	//props：1.config的属性值 2.children的属性（字符串/数组）3.default的属性值
-	return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
+  //props：1.config的属性值 2.children的属性（字符串/数组）3.default的属性值
+  return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
 }
 ```
 
@@ -157,26 +162,26 @@ export function createElement(type, config, children) {
 
 ```javascript
 React.createElement(
-	'ul',
-	{
-		// 传入属性键值对
-		className: 'list'
-		// 从第三个入参开始往后，传入的参数都是 children
-	},
-	React.createElement(
-		'li',
-		{
-			key: '1'
-		},
-		'1'
-	),
-	React.createElement(
-		'li',
-		{
-			key: '2'
-		},
-		'2'
-	)
+  'ul',
+  {
+    // 传入属性键值对
+    className: 'list'
+    // 从第三个入参开始往后，传入的参数都是 children
+  },
+  React.createElement(
+    'li',
+    {
+      key: '1'
+    },
+    '1'
+  ),
+  React.createElement(
+    'li',
+    {
+      key: '2'
+    },
+    '2'
+  )
 );
 ```
 
@@ -184,8 +189,8 @@ React.createElement(
 
 ```html
 <ul className="list">
-	<li key="1">1</li>
-	<li key="2">2</li>
+  <li key="1">1</li>
+  <li key="2">2</li>
 </ul>
 ```
 
@@ -195,24 +200,24 @@ React.createElement(
 
 ```javascript
 if (config != null) {
-	//有合理的ref
-	if (hasValidRef(config)) {
-		ref = config.ref;
-	}
-	//有合理的key
-	if (hasValidKey(config)) {
-		key = '' + config.key;
-	}
+  //有合理的ref
+  if (hasValidRef(config)) {
+    ref = config.ref;
+  }
+  //有合理的key
+  if (hasValidKey(config)) {
+    key = '' + config.key;
+  }
 
-	self = config.__self === undefined ? null : config.__self;
-	source = config.__source === undefined ? null : config.__source;
+  self = config.__self === undefined ? null : config.__self;
+  source = config.__source === undefined ? null : config.__source;
 
-	//config中剩余属性,且不是原生属性(RESERVED_PROPS对象的属性)，则添加到新props对象中
-	for (propName in config) {
-		if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
-			props[propName] = config[propName]; //config去除key/ref 其他属性的放到props对象中
-		}
-	}
+  //config中剩余属性,且不是原生属性(RESERVED_PROPS对象的属性)，则添加到新props对象中
+  for (propName in config) {
+    if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
+      props[propName] = config[propName]; //config去除key/ref 其他属性的放到props对象中
+    }
+  }
 }
 ```
 
@@ -229,20 +234,20 @@ if (config != null) {
 var childrenLength = arguments.length - 2;
 
 if (childrenLength === 1) {
-	props.children = children;
+  props.children = children;
 } else if (childrenLength > 1) {
-	var childArray = Array(childrenLength); //声明一个数组
-	//依次将children push到数组中
-	for (var i = 0; i < childrenLength; i++) {
-		childArray[i] = arguments[i + 2];
-	}
-	{
-		//冻结array 返回原来的childArray且不能被修改 防止有人修改库的核心对象 冻结对象大大提高性能
-		if (Object.freeze) {
-			Object.freeze(childArray);
-		}
-	}
-	props.children = childArray; //父组件内部通过this.props.children获取子组件的值
+  var childArray = Array(childrenLength); //声明一个数组
+  //依次将children push到数组中
+  for (var i = 0; i < childrenLength; i++) {
+    childArray[i] = arguments[i + 2];
+  }
+  {
+    //冻结array 返回原来的childArray且不能被修改 防止有人修改库的核心对象 冻结对象大大提高性能
+    if (Object.freeze) {
+      Object.freeze(childArray);
+    }
+  }
+  props.children = childArray; //父组件内部通过this.props.children获取子组件的值
 }
 ```
 
@@ -252,15 +257,15 @@ if (childrenLength === 1) {
 //为子组件设置默认值 一般针对的是组件
 //class com extends React.component 则com.defaultProps获取当前组件自己的静态方法
 if (type && type.defaultProps) {
-	//如果当前组件中有默认的defaultProps则把当前组件的默认内容 定义到defaultProps中
-	var defaultProps = type.defaultProps;
+  //如果当前组件中有默认的defaultProps则把当前组件的默认内容 定义到defaultProps中
+  var defaultProps = type.defaultProps;
 
-	for (propName in defaultProps) {
-		if (props[propName] === undefined) {
-			//如果父组件中对应的值为undefined 则把默认值赋值赋值给props当作props的属性
-			props[propName] = defaultProps[propName];
-		}
-	}
+  for (propName in defaultProps) {
+    if (props[propName] === undefined) {
+      //如果父组件中对应的值为undefined 则把默认值赋值赋值给props当作props的属性
+      props[propName] = defaultProps[propName];
+    }
+  }
 }
 ```
 

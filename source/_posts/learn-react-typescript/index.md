@@ -2,8 +2,12 @@
 title: 从0开始的Typescript学习和踩坑
 toc: false
 date: 2021-08-29 22:03:09
-tags: [前端技术]
-categories: [JavaScript, Vue, React]
+tags:
+  - 前端技术
+categories:
+  - JavaScript
+  - Vue
+  - React
 description: 大家都在学 不学白不学 卷起来=_,=
 ---
 
@@ -48,7 +52,7 @@ Class 组件可能在某些场合还是很有必要存在的所以还是要注�
 
 ```typescript
 class SomeComponent extends Component<Props, State> {
-	///...
+  ///...
 }
 ```
 
