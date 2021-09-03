@@ -1,9 +1,14 @@
 import * as React from 'react';
-import { Link, graphql } from 'gatsby';
+import { Link, graphql, useStaticQuery, PageRendererProps } from 'gatsby';
 import Layout from '../components/Layout';
 import Seo from '../components/seo';
 
-const BlogPostTemplate = ({ data, location }) => {
+interface Props extends PageRendererProps {
+  pageContext?: {};
+  [key: string]: any;
+}
+
+const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const post = data.markdownRemark;
   const { previous, next } = data;
 
@@ -17,20 +22,22 @@ const BlogPostTemplate = ({ data, location }) => {
           </h1>
         </header>
         <div className="post-meta">
-          <i className="fa fa-calendar" aria-hidden="true"></i>
-          <span>{post.frontmatter.date}</span>
+          <span title="发表时间" className="post-time">
+            <i className="icon-calendar" aria-hidden="true"></i>
+            {post.frontmatter?.date || '未知时间'}
+          </span>
         </div>
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
         <nav className="post-nav">
           {previous && (
-            <Link to={previous.fields.slug} rel="prev">
-              ← {previous.frontmatter.title}
+            <Link to={`/post${previous.fields.slug}`} rel="prev">
+              {previous.frontmatter.title}
             </Link>
           )}
 
           {next && (
-            <Link to={next.fields.slug} rel="next">
-              {next.frontmatter.title} →
+            <Link to={`/post${next.fields.slug}`} rel="next">
+              {next.frontmatter.title}
             </Link>
           )}
         </nav>

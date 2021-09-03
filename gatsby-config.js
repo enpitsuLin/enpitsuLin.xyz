@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   siteMetadata: {
     title: `enpitsuLin's Blog`,
@@ -5,9 +7,8 @@ module.exports = {
       name: `enpitsuLin`,
       summary: `litter software engineer.`
     },
-    description: `铅笔de博客.`,
-    siteUrl: `http://404.nothing`,
-    social: {}
+    description: `一根有梦想的笔 想描绘脑海里的场景.`,
+    siteUrl: `http://404.nothing`
   },
   plugins: [
     `gatsby-plugin-sass`,

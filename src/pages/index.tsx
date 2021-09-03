@@ -1,38 +1,13 @@
 import * as React from 'react';
-import { Link, graphql, PageRendererProps, useStaticQuery } from 'gatsby';
-
+import { Link, PageRendererProps } from 'gatsby';
 import Layout from '../components/Layout/';
 import Seo from '../components/seo';
+import usePostsMarkdown from '../hooks/usePostsMarkdown';
 
 type Props = PageRendererProps;
 
 const BlogIndex: React.FC<Props> = ({ location }) => {
-  const data = useStaticQuery<GatsbyTypes.Query>(graphql`
-    query {
-      allFile(
-        filter: { sourceInstanceName: { eq: "posts" }, extension: { eq: "md" } }
-        sort: { fields: childrenMarkdownRemark___frontmatter___date, order: DESC }
-      ) {
-        edges {
-          node {
-            childMarkdownRemark {
-              excerpt
-              fields {
-                slug
-              }
-              frontmatter {
-                date(formatString: "YYYY 年 MM月 DD日 ")
-                title
-                description
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-  const edges = data.allFile.edges;
-  const posts = edges.map(edge => edge.node.childMarkdownRemark) as GatsbyTypes.MarkdownRemark[];
+  const posts = usePostsMarkdown();
 
   if (posts.length === 0) {
     return (
@@ -58,8 +33,10 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
                 </Link>
               </h2>
               <div className="post-meta">
-                <i className="fa fa-calendar" aria-hidden="true"></i>
-                <span>{post.frontmatter?.date || '未知时间'}</span>
+                <span title="发表时间" className="post-time">
+                  <i className="icon-calendar" aria-hidden="true"></i>
+                  {post.frontmatter?.date || '未知时间'}
+                </span>
               </div>
             </header>
             <div className="post-content">
@@ -69,6 +46,11 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
                 }}
                 itemProp="description"
               />
+              <div className="read-more">
+                <Link to={post.fields?.slug ? `/post${post.fields?.slug}` : '/404'} itemProp="url">
+                  <span itemProp="title">阅读全文</span>
+                </Link>
+              </div>
             </div>
           </article>
         );

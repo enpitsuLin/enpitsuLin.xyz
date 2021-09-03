@@ -11,7 +11,7 @@
 
 [class^="icon-"],
 [class*=" icon-"] {
-    font-family: 'icomoon';
+    font-family: 'icomoon', 'FontAwesome';
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -22,6 +22,10 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-calendar:before {
+    content: "\f073";
 }
 
 .icon-search:before {

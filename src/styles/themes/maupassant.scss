@@ -8,10 +8,7 @@
 @font-face {
     font-family: 'icomoon';
     src: url('../fonts/icomoon.eot?-i5ysuu');
-    src: url('../fonts/icomoon.eot?#iefix-i5ysuu') format('embedded-opentype'),
-        url('../fonts/icomoon.woff?-i5ysuu') format('woff'),
-        url('../fonts/icomoon.ttf?-i5ysuu') format('truetype'),
-        url('../fonts/icomoon.svg?-i5ysuu#icomoon') format('svg');
+    src: url('../fonts/icomoon.eot?#iefix-i5ysuu') format("embedded-opentype"), url('../fonts/icomoon.woff?-i5ysuu') format("woff"), url('../fonts/icomoon.ttf?-i5ysuu') format("truetype"), url('../fonts/icomoon.svg?-i5ysuu#icomoon') format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -102,9 +99,12 @@ button.submit {
     transition: all .1s ease-in;
 }
 
-a:hover,
-a:active {
-    color: #6E7173;
+a {
+
+    &:hover,
+    &:active {
+        color: #6E7173;
+    }
 }
 
 mark {
@@ -132,15 +132,15 @@ blockquote {
     padding-left: 1.5em;
     border-left: 4px solid #ddd;
     color: #777;
-}
 
-blockquote:first-letter {
-    font-size: 2.5em;
-    line-height: 1.15;
-    padding: 0 7px 0 0;
-    color: #666;
-    font-weight: bolder;
-    float: left;
+    &:first-letter {
+        font-size: 2.5em;
+        line-height: 1.15;
+        padding: 0 7px 0 0;
+        color: #666;
+        font-weight: bolder;
+        float: left;
+    }
 }
 
 h1,
@@ -149,10 +149,22 @@ h3 {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="url"],
-input[type="password"],
+input {
+
+    &[type="text"],
+    &[type="email"],
+    &[type="url"],
+    &[type="password"] {
+        padding: 6px;
+        border: 1px solid #ddd;
+        width: 100%;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        outline: none;
+    }
+}
+
 textarea {
     padding: 6px;
     border: 1px solid #ddd;
@@ -161,9 +173,6 @@ textarea {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     outline: none;
-}
-
-textarea {
     resize: vertical;
 }
 
@@ -204,10 +213,10 @@ textarea {
 #header {
     padding: 58px 0 0;
     text-align: left;
-}
 
-#header .col-group {
-    border-bottom: 1px solid #ddd;
+    .col-group {
+        border-bottom: 1px solid #ddd;
+    }
 }
 
 .site-name h1 {
@@ -218,14 +227,11 @@ textarea {
 #logo {
     font: bold 42px/1.12 "Times New Roman", Georgia, Times, sans-serif;
     color: #555;
-}
 
-#logo span {
-    color: #777;
-}
-
-#logo:hover {
-    color: #777;
+    span,
+    &:hover {
+        color: #777;
+    }
 }
 
 .description {
@@ -237,26 +243,26 @@ textarea {
     margin: 10px 0 -1px;
     padding: 0;
     float: right;
-}
 
-#nav-menu a {
-    display: inline-block;
-    margin-right: -1px;
-    padding: 0 20px;
-    height: 32px;
-    line-height: 32px;
-    color: #444;
-}
+    a {
+        display: inline-block;
+        margin-right: -1px;
+        padding: 0 20px;
+        height: 32px;
+        line-height: 32px;
+        color: #444;
 
-#nav-menu a:first-child {
-    border: none;
-}
+        &:first-child {
+            border: none;
+        }
 
-#nav-menu a:hover {}
+        &:hover {}
 
-#nav-menu a.current {
-    border: 1px solid #ddd;
-    border-bottom: 1px solid #fff;
+        &.current {
+            border: 1px solid #ddd;
+            border-bottom: 1px solid #fff;
+        }
+    }
 }
 
 .site-search {
@@ -266,25 +272,25 @@ textarea {
 #search {
     position: relative;
     overflow: hidden;
-}
 
-#search input {
-    padding: 15px 30px 11px 15px;
-    line-height: 1.5;
-}
+    input {
+        padding: 15px 30px 11px 15px;
+        line-height: 1.5;
+    }
 
-#search button {
-    position: absolute;
-    top: 0;
-    right: 10px;
-    font-size: 20px;
-    line-height: 1.5;
-    border: none;
-    padding: 11px 0;
-    width: 20px;
-    height: 48px;
-    color: #444;
-    background: none;
+    button {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        font-size: 20px;
+        line-height: 1.5;
+        border: none;
+        padding: 11px 0;
+        width: 20px;
+        height: 48px;
+        color: #444;
+        background: none;
+    }
 }
 
 .col-8 {
@@ -325,10 +331,10 @@ textarea {
     color: #555;
     text-align: left;
     font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
-}
 
-.post-title a {
-    color: #555;
+    a {
+        color: #555;
+    }
 }
 
 .post-meta {
@@ -350,12 +356,18 @@ textarea {
     padding-top: 40px;
 }
 
-.post-content h3,
-.post-content h2 {
-    margin: 1.4em 0 1.1em;
+.post-content {
+
+    h3,
+    h2 {
+        margin: 1.4em 0 1.1em;
+    }
+
+    pre {
+        max-height: 320px;
+    }
 }
 
-.post-content pre,
 .comment-content pre {
     max-height: 320px;
 }
@@ -370,26 +382,27 @@ textarea {
     display: inline;
     margin: 0 5px;
     padding: 3px 5px;
-    border: 1px solid #ddd;
 }
 
-.post-content p {
-    margin: 0 0 1.234em;
-}
+.post-content {
+    p {
+        margin: 0 0 1.234em;
+    }
 
-.post-content img {
-    padding: 1em 0;
-}
+    img {
+        padding: 1em 0;
+    }
 
-.post-content ul {
-    overflow: auto;
-    padding: .5em 2.4em;
-    border-radius: 3px;
-    margin: 1.8em 0;
-}
+    ul {
+        overflow: auto;
+        padding: .5em 2.4em;
+        border-radius: 3px;
+        margin: 1.8em 0;
 
-.post-content ul li {
-    text-indent: .5em;
+        li {
+            text-indent: .5em;
+        }
+    }
 }
 
 .archive-title {
@@ -400,10 +413,10 @@ textarea {
 
 .more {
     padding: 10px 0 0;
-}
 
-.more a {
-    border: none;
+    a {
+        border: none;
+    }
 }
 
 .protected .text {
@@ -415,56 +428,59 @@ textarea {
     list-style: none;
     padding: 25px 0 0;
     font-size: 16px;
-}
 
-.page-navigator li {
-    display: inline-block;
-    margin: 0 5px 5px 0;
-}
+    li {
+        display: inline-block;
+        margin: 0 5px 5px 0;
+    }
 
-.page-navigator a {
-    display: inline-block;
-    padding: 0 10px;
-    height: 25px;
-    line-height: 25px;
-    padding: 5px 9px;
-    border: 1px solid #DDD;
-}
+    a {
+        display: inline-block;
+        padding: 0 10px;
+        height: 25px;
+        line-height: 25px;
+        padding: 5px 9px;
+        border: 1px solid #DDD;
 
-.page-navigator a:hover {
-    background: #F8F8F8;
-    border-bottom-color: #D26911;
-}
+        &:hover {
+            background: #F8F8F8;
+            border-bottom-color: #D26911;
+        }
+    }
 
-.page-navigator .current a {
-    background: #F8F8F8;
-    border-bottom-color: #D26911;
-}
-
-.comment-list,
-.comment-list ol {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    .current a {
+        background: #F8F8F8;
+        border-bottom-color: #D26911;
+    }
 }
 
 .comment-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    ol {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
     margin-top: -1px;
-}
 
-.comment-list li {
-    padding: 22px 0 0;
-    border-top: 1px solid #ddd;
-}
+    li {
+        padding: 22px 0 0;
+        border-top: 1px solid #ddd;
 
-.comment-list li.comment-level-even {
-    background: #FFF;
-}
+        &.comment-level-even {
+            background: #FFF;
+        }
 
-.comment-list li .comment-reply {
-    float: right;
-    margin-top: -39px;
-    font-size: .92857em;
+        .comment-reply {
+            float: right;
+            margin-top: -39px;
+            font-size: .92857em;
+        }
+    }
 }
 
 .comment-meta a {
@@ -476,19 +492,19 @@ textarea {
     display: block;
     margin-bottom: 3px;
     color: #444;
-}
 
-.comment-author .avatar {
-    float: left;
-    margin: 1px 10px 0 0;
-    border: 1px solid #ddd;
-    padding: 1px;
-}
+    .avatar {
+        float: left;
+        margin: 1px 10px 0 0;
+        border: 1px solid #ddd;
+        padding: 1px;
+    }
 
-.comment-author cite {
-    font-weight: bold;
-    font-style: normal;
-    line-height: 1.2;
+    cite {
+        font-weight: bold;
+        font-style: normal;
+        line-height: 1.2;
+    }
 }
 
 .comment-awaiting-moderation {
@@ -516,22 +532,22 @@ textarea {
 
 #comment-form {
     padding-top: 5px;
-}
 
-#comment-form label {
-    display: block;
-    color: #888;
-    position: absolute;
-    margin: 7px;
-}
+    label {
+        display: block;
+        color: #888;
+        position: absolute;
+        margin: 7px;
+    }
 
-#comment-form input {
-    padding: 8px 6px;
-    height: 36px;
-    border: solid 1px #D4D4D4;
-    background: #fdfdfd;
-    padding-left: 45px;
-    color: #555;
+    input {
+        padding: 8px 6px;
+        height: 36px;
+        border: solid 1px #D4D4D4;
+        background: #fdfdfd;
+        padding-left: 45px;
+        color: #555;
+    }
 }
 
 button.submit {
@@ -543,11 +559,11 @@ button.submit {
     color: #fff;
     background: #272727;
     height: 38px;
-}
 
-button.submit:hover {
-    background: #505050;
-    border-color: #505050;
+    &:hover {
+        background: #505050;
+        border-color: #505050;
+    }
 }
 
 textarea.textarea {
@@ -565,16 +581,16 @@ textarea.textarea {
     color: #555;
 }
 
-.col2 p,
-.col1 p {
+.col2 p {
     margin: 9px 0;
 }
 
-.col1 p {
-    margin-right: 220px;
-}
-
 .col1 {
+    p {
+        margin: 9px 0;
+        margin-right: 220px;
+    }
+
     margin-right: -220px;
     height: auto;
     float: left;
@@ -611,11 +627,11 @@ textarea.textarea {
 .widget-list {
     list-style: none;
     padding: 0;
-}
 
-.widget-list li {
-    margin: 5px 0;
-    line-height: 1.5;
+    li {
+        margin: 5px 0;
+        line-height: 1.5;
+    }
 }
 
 #footer {
@@ -645,13 +661,22 @@ textarea.textarea {
     max-width: 100%;
 }
 
-.post-content a img {
-    background: #FFF;
-    position: relative;
-    bottom: -4px;
+.post-content {
+    a img {
+        background: #FFF;
+        position: relative;
+        bottom: -4px;
+    }
+
+    hr {
+        margin: 2.1em auto;
+        width: 200px;
+        border: 1px solid #ccc;
+        border-width: 1px 0 0 0;
+        position: relative;
+    }
 }
 
-.post-content hr,
 .comment-content hr {
     margin: 2.1em auto;
     width: 200px;
@@ -675,15 +700,18 @@ div.aligncenter {
     float: right;
 }
 
-img.alignleft {
-    margin: 5px 15px 0 0;
-}
+img {
+    &.alignleft {
+        margin: 5px 15px 0 0;
+    }
 
-img.alignright {
-    margin: 5px 0 0 15px;
+    &.alignright {
+        margin: 5px 0 0 15px;
+    }
 }
 
 /* archives page*/
+
 .al_year {
     width: 60px;
     padding: 10px 0;
@@ -693,15 +721,15 @@ img.alignright {
     margin-left: 90px;
     margin-top: -2.2em;
     border-left: 1px solid #ddd;
-}
 
-.al_mon_list li {
-    list-style: none;
-    line-height: 1.8;
-}
+    li {
+        list-style: none;
+        line-height: 1.8;
 
-.al_mon_list li a {
-    margin-left: 1.5em;
+        a {
+            margin-left: 1.5em;
+        }
+    }
 }
 
 .post-content-pages {
@@ -712,7 +740,7 @@ img.alignright {
     position: absolute;
     height: 100%;
     width: 100%;
-    background: #fff url(../../images/404.jpg)no-repeat center top;
+    background: #fff url(../../images/404.jpg) no-repeat center top;
     background-size: cover;
 }
 
@@ -769,28 +797,28 @@ img.alignright {
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-}
 
-.index404:hover {
-    background-color: #000;
-    color: #fff;
+    &:hover {
+        background-color: #000;
+        color: #fff;
+    }
 }
 
 .icon-about {
     padding: 10px 0 25px;
-}
 
-.icon-about a {
-    font-size: 20px;
-    margin: 5px;
-    color: #fff;
-    background-color: #000;
-    border-radius: 100%;
-    padding: 6px;
+    a {
+        font-size: 20px;
+        margin: 5px;
+        color: #fff;
+        background-color: #000;
+        border-radius: 100%;
+        padding: 6px;
+    }
 }
 
 @media print,
-screen and (max-width:1290px) {
+screen and (max-width: 1290px) {
     .container {
         width: auto;
     }
@@ -812,7 +840,7 @@ screen and (max-width:1290px) {
 }
 
 @media print,
-screen and (max-width:1057px) {
+screen and (max-width: 1057px) {
     .container {
         width: auto;
     }
@@ -840,7 +868,7 @@ screen and (max-width:1057px) {
 }
 
 @media print,
-screen and (max-width:860px) {
+screen and (max-width: 860px) {
     #header {
         text-align: center;
     }
@@ -865,7 +893,7 @@ screen and (max-width:860px) {
 }
 
 @media print,
-screen and (max-width:680px) {
+screen and (max-width: 680px) {
     .container {
         padding: 0 20px;
     }
@@ -903,7 +931,7 @@ screen and (max-width:680px) {
 }
 
 @media print,
-screen and (max-width:500px) {
+screen and (max-width: 500px) {
     .col2 {
         width: 140px;
     }
@@ -912,11 +940,11 @@ screen and (max-width:500px) {
         display: none;
     }
 
-    .col1 p {
-        margin-right: 160px;
-    }
-
     .col1 {
+        p {
+            margin-right: 160px;
+        }
+
         margin-right: -160px;
     }
 

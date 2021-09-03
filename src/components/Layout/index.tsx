@@ -1,26 +1,17 @@
 import * as React from 'react';
 import { WindowLocation } from '@reach/router';
-import { graphql, useStaticQuery } from 'gatsby';
 import Header from '../Header';
 import Footer from '../Footer';
 import Container from '../Container';
 import '../../styles/themes/maupassant/index.scss';
+import useSiteMetadata from '../../hooks/useSiteMetadata';
 
 interface Prop {
   location: WindowLocation;
 }
 
 const Layout: React.FC<Prop> = ({ location, children }) => {
-  const data = useStaticQuery<GatsbyTypes.Query>(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
+  const data = useSiteMetadata();
 
   const siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata> = data.site?.siteMetadata || {
     title: 'Title',

@@ -20,9 +20,9 @@ const Header: React.FC<Props> = ({ location, siteMetadata }) => {
       <div className="container">
         <div className="col-group">
           <div className="site-name">
-            <a id="logo" href="/">
+            <Link id="logo" to="/">
               {title}
-            </a>
+            </Link>
             <p className="description">{description || ''}</p>
           </div>
 

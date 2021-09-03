@@ -7,11 +7,9 @@ tags: [React, Typescript, Gatsby, blog]
 
 # 鼓捣有的没的图啥？
 
-因为上手了`React`，迫不及待的就很想使用`React`上生成促进学习，但是基本没啥机会。~~以后可能以 Vue 技术栈的身份跳个 React 技术栈的公司好了 XD~~
+因为上手了`React`，迫不及待的就很想使用`React`上生产促进学习，但是基本没啥机会。~~以后可能以 Vue 技术栈的身份跳个 React 技术栈的公司好了 XD~~
 
-因为作为一个前端来说，本来是想把 Hexo 的博客转移下到`Vuepress`的，但是这个`Vuepress`的文档真的细碎，想把`maupassant`这套主题自己搞一套`Vuepress-maupassant`但苦于文档的易用性太低还是选择放弃，转而使用刚刚学会的`React`技术栈中的`GatsbyJS`
-
-> `Vuepress`已经 v2.0 版本了 文档还是不太行 —— 2021-09-02
+因为作为一个前端来说，本来是想把 Hexo 的博客转移下到`Vuepress`的，但是这个`Vuepress`的文档真的不太行，想把`maupassant`这套主题自己搞一套`Vuepress-maupassant`但苦于文档的易用性太低还是选择放弃，转而使用刚刚学会的`React`技术栈中的`GatsbyJS`
 
 ## GatsbyJS
 

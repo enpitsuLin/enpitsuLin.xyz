@@ -38,25 +38,28 @@
     float: right;
 
     a {
+
         display: inline-block;
         margin-right: -1px;
         padding: 0 20px;
         height: 32px;
         line-height: 32px;
         color: #444;
+        border: 1px solid #0000;
 
         &:first-child {
             border: none;
         }
 
         &:hover {
-            border-bottom: #444 1px solid;
+            border-bottom-color: #444;
         }
 
         &.current {
             border: 1px solid #ddd;
             border-bottom: 1px solid #fff;
         }
+
     }
 
 }
