@@ -20,7 +20,7 @@ const Header: React.FC<Props> = ({ location, siteMetadata }) => {
       <div className="pb-11">
         <div className="col-group">
           <div className="site-name">
-            <Link id="logo" to="/" className="font-title text-4xl text-gray-600 font-bold hover:text-gray-500">
+            <Link id="logo" to="/" className="text-4xl text-gray-600 font-bold">
               {title}
             </Link>
             <p className="mt-1 text-gray-400 text-sm">{description || ''}</p>

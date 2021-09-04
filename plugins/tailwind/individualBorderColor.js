@@ -10,7 +10,7 @@ module.exports = ({ addUtilities, theme, variants }) => {
   delete colors['default'];
 
   const colorMap = Object.keys(colors).map(color => ({
-    [`.border-${color}`]: { borderColor: colors[color] },
+    // [`.border-${color}`]: { borderColor: colors[color] },
     [`.border-t-${color}`]: { borderTopColor: colors[color] },
     [`.border-r-${color}`]: { borderRightColor: colors[color] },
     [`.border-b-${color}`]: { borderBottomColor: colors[color] },

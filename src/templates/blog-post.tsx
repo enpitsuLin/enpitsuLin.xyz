@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, graphql, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
+import '@/styles/markdown/typora-theme-next/next.css';
 
 interface Props extends PageRendererProps {
   pageContext?: {};
@@ -22,19 +23,17 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
     <BasicLayout location={location}>
       <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
       <article className="post" itemScope itemType="http://schema.org/Article">
-        <header>
-          <h1 className="post-title" itemProp="headline">
-            {post.frontmatter.title}
-          </h1>
-        </header>
-        <div className="post-meta">
-          <div title="发表时间" className="post-time">
-            <i className="icon-calendar" aria-hidden="true"></i>
+        <div className="text-4xl font-medium text-gray-800 pb-5" itemProp="headline">
+          {post.frontmatter.title}
+        </div>
+        <div className="flex">
+          <div title="发表时间" className="mr-2">
+            <i className="fa fa-calendar mr-1" aria-hidden="true"></i>
             {post.frontmatter?.date || '未知时间'}
           </div>
           {post.frontmatter?.tags && (
-            <div className="post-tags">
-              <i className="fa fa-folder-open"></i>
+            <div className="mr-2">
+              <i className="fa fa-folder-open mr-1"></i>
               {post.frontmatter?.tags.map((tag, index) => {
                 return (
                   <Link key={index} to="/" className="tag">
@@ -44,16 +43,16 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
               })}
             </div>
           )}
-          <div className="post-time-to-read" title="阅读时间">
-            <i className="fa fa-file"></i>
+          <div title="阅读时间" className="mr-2">
+            <i className="fa fa-file mr-1"></i>
             阅读需要{Math.floor(timeToRead + wordCount / 500)}分钟
           </div>
-          <div className="word-count" title="字数统计">
-            <i className="fa fa-clock-o"></i>
+          <div title="字数统计" className="mr-2">
+            <i className="fa fa-clock-o mr-1"></i>
             {wordCount} 字
           </div>
         </div>
-        <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
+        <div className="post-content pt-3" dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
         <nav className="post-nav">
           {previous && (
             <Link to={`/post${previous.fields.slug}`} rel="prev">

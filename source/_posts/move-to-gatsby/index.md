@@ -4,9 +4,10 @@ date: 2021-09-02 22:01
 description: '抛弃 hexo 转用更适合前端开发者的静态网站生成方案 gatsbyjs, 并计划将原来的的 maupassant 主题开发基于 gatsby 的 maupassant 主题'
 tags: [React, Typescript, Gatsby, blog]
 ---
+
 # 鼓捣有的没的图啥？
 
-因为作为一个前端来说，本来是想把 Hexo 的博客转移下到`Vuepress`的。
+因为作为一个使用`Vue`进行生产的前端来说，本来是想把 Hexo 的博客转移下到`Vuepress`的。
 
 但是这个`Vuepress`的文档无论是哪种语言版本都十分的不好用，想把`maupassant`这套主题自己搞一套`Vuepress-maupassant`但苦于文档的易用性太低还是选择放弃
 
@@ -34,4 +35,7 @@ tags: [React, Typescript, Gatsby, blog]
 
 9-4
 
-- 抛弃原有的样式使用 `tailwindcss`来重新编写样式组件来构建布局
+- 因为原有样式的布局构建方式我不太喜欢，转用使用 `tailwindcss`按照原主题样式来重新编写样式组件来构建布局
+- ...
+
+> 如果选择重新按照原有的样式重写 是不是等于自己写主题样式？那我为什么不直接再编写一套样式呢？ 2021/9/4 20:40

@@ -19,8 +19,15 @@ const ToTop: React.FC = () => {
     };
   }, []);
   return (
-    <div onClick={scrollToTop} className={visible ? 'visible to-top' : 'to-top'}>
-      <i className="fa fa-arrow-up" />
+    <div
+      onClick={scrollToTop}
+      className={
+        visible
+          ? 'fixed bottom-9 right-9 z-50 transition-all opacity-100'
+          : 'fixed bottom-9 right-9 z-50 transition-all opacity-0'
+      }
+    >
+      <i className="fa fa-arrow-up cursor-pointer text-2xl" />
     </div>
   );
 };

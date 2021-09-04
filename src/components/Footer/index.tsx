@@ -7,8 +7,8 @@ interface Props {
 const Footer: React.FC<Props> = ({ siteMetadata }) => {
   const { title } = siteMetadata;
   return (
-    <footer id="footer">
-      <div className="container">
+    <footer id="footer" className="relative mt-4 pb-14 pt-3">
+      <div className="text-gray-600">
         Copyright &copy; {new Date().getFullYear()} .{' '}
         <a rel="nofollow" href="">
           {title}
