@@ -2,8 +2,6 @@ import React from 'react';
 import { Link, graphql, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
-import '@/styles/markdown/typora-theme-next/next.css';
-
 interface Props extends PageRendererProps {
   pageContext?: {};
   [key: string]: any;

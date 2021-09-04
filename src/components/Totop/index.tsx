@@ -1,7 +1,10 @@
+import useScroll from '@/hooks/useScroll';
 import React, { useEffect, useState, useCallback } from 'react';
 import './style.scss';
 
 const ToTop: React.FC = () => {
+  const scroll = useScroll();
+
   const [visible, setVisible] = useState(false);
 
   const scrollToTop = useCallback(() => {
@@ -9,15 +12,8 @@ const ToTop: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handler = () => {
-      setVisible(window.scrollY > 200);
-    };
-    handler();
-    window.addEventListener('scroll', handler);
-    return () => {
-      window.removeEventListener('scroll', handler);
-    };
-  }, []);
+    setVisible(scroll.top > 200);
+  }, [scroll]);
   return (
     <div
       onClick={scrollToTop}
