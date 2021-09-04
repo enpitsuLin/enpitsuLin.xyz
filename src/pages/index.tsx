@@ -3,11 +3,14 @@ import { Link, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts/';
 import Seo from '@/components/seo';
 import useAllPosts from '@/hooks/useAllPosts';
+import useAllTag from '@/hooks/useAllTags';
 
 type Props = PageRendererProps;
 
 const BlogIndex: React.FC<Props> = ({ location }) => {
   const posts = useAllPosts();
+  const tags = useAllTag();
+  console.log('tags', tags);
 
   if (posts.length === 0) {
     return (

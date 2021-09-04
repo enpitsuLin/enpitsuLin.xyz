@@ -88,10 +88,39 @@
     text-align: left;
     display: block;
 
-    >.post-time {
-        .icon-calendar {
-            margin-right: 4px;
+    >div {
+        display: inline-flex;
+        align-items: baseline;
+
+
+        &+div {
+            padding-left: .5em;
+            margin-left: .5em;
+            position: relative;
+
+            &::before {
+                content: "";
+                position: absolute;
+                height: 80%;
+                top: 10%;
+                left: 0;
+                border-left: 1px solid #121212;
+            }
+
+            >i {
+                margin-right: 4px;
+            }
+
         }
+    }
+
+    >.post-tags {
+
+        >a.tag {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
     }
 }
 
@@ -113,9 +142,6 @@
         margin: 1.4em 0 1.1em;
     }
 
-    pre {
-        max-height: 320px;
-    }
 }
 
 .comment-content pre {
@@ -147,10 +173,6 @@
 .post-content {
     p {
         margin: 0 0 1.234em;
-    }
-
-    img {
-        padding: 1em 0;
     }
 
     ul {
@@ -333,10 +355,6 @@ screen and (max-width:680px) {
 
     .page-navigator a {
         padding: 0 6px;
-    }
-
-    .post-content img {
-        padding: 0.2em 0;
     }
 
     .post {

@@ -11,6 +11,12 @@ interface Props extends PageRendererProps {
 const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const post = data.markdownRemark;
   const { previous, next } = data;
+  const {
+    timeToRead,
+    wordCount: { words }
+  } = post;
+  const nonLatinCount: number = post.html.match(/[\p{sc=Katakana}\p{sc=Hiragana}\p{sc=Han}]/gu).length;
+  const wordCount = nonLatinCount + words;
 
   return (
     <BasicLayout location={location}>
@@ -22,10 +28,30 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
           </h1>
         </header>
         <div className="post-meta">
-          <span title="发表时间" className="post-time">
+          <div title="发表时间" className="post-time">
             <i className="icon-calendar" aria-hidden="true"></i>
             {post.frontmatter?.date || '未知时间'}
-          </span>
+          </div>
+          {post.frontmatter?.tags && (
+            <div className="post-tags">
+              <i className="fa fa-folder-open"></i>
+              {post.frontmatter?.tags.map((tag, index) => {
+                return (
+                  <Link key={index} to="/" className="tag">
+                    {tag}
+                  </Link>
+                );
+              })}
+            </div>
+          )}
+          <div className="post-time-to-read" title="阅读时间">
+            <i className="fa fa-file"></i>
+            阅读需要{Math.floor(timeToRead + wordCount / 500)}分钟
+          </div>
+          <div className="word-count" title="字数统计">
+            <i className="fa fa-clock-o"></i>
+            {wordCount} 字
+          </div>
         </div>
         <div className="post-content" dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
         <nav className="post-nav">
@@ -64,6 +90,11 @@ export const pageQuery = graphql`
         title
         date(formatString: "YYYY 年 MM月 DD日 ")
         description
+        tags
+      }
+      timeToRead
+      wordCount {
+        words
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

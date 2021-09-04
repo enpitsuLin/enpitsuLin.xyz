@@ -38,18 +38,28 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-root-import',
       options: {
-        '@': path.join(__dirname, 'src'),
-        '~': path.join(__dirname)
+        '@': path.join(__dirname, 'src')
       }
     },
     {
       resolve: `gatsby-transformer-remark`,
       options: {
+        excerpt_separator: '<!-- more -->',
         plugins: [
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630
+              maxWidth: 1140,
+              quality: 90,
+              showCaptions: true,
+              linkImagesToOriginal: false
+            }
+          },
+          {
+            resolve: `gatsby-remark-images-medium-zoom`,
+            options: {
+              background: '#222',
+              zIndex: 1040
             }
           },
           {
@@ -64,7 +74,10 @@ module.exports = {
               inlineCode: {
                 marker: '±'
               },
-              theme: 'Dark+ (default dark)'
+              theme: 'Dark+ (default dark)',
+              languageAliases: {
+                shell: 'sh'
+              }
             }
           },
           `gatsby-remark-copy-linked-files`,
@@ -160,6 +173,7 @@ module.exports = {
           'src/__generated__/gatsby-plugin-documents.graphql': true
         }
       }
-    }
+    },
+    `gatsby-plugin-postcss`
   ]
 };

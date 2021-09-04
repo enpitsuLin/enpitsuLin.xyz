@@ -87,8 +87,7 @@ const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
       meta={defaultMeta.concat(meta ? meta : [])}
       link={[
         { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css' },
-        { rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/purecss/build/grids-responsive-min.css' },
-        { rel: 'stylesheet', type: 'text/css', href: '//cdn.jsdelivr.net/npm/purecss/build/pure-min.min.css' }
+    
       ]}
     />
   );

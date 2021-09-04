@@ -1,6 +1,7 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
 import { Link } from 'gatsby';
+import Nav from './Nav';
 
 interface Props {
   location: WindowLocation;
@@ -14,29 +15,18 @@ const Header: React.FC<Props> = ({ location, siteMetadata }) => {
     { path: '/', title: '首页' },
     { path: '/about', title: '关于' }
   ];
-
   return (
-    <header id="header" className="clearfix">
-      <div className="container">
+    <header id="header" className="pt-14 relative border-black border-b" style={{ color: '#ddd' }}>
+      <div className="pb-11">
         <div className="col-group">
           <div className="site-name">
-            <Link id="logo" to="/">
+            <Link id="logo" to="/" className="font-title text-4xl text-gray-600 font-bold hover:text-gray-500">
               {title}
             </Link>
-            <p className="description">{description || ''}</p>
+            <p className="mt-1 text-gray-400 text-sm">{description || ''}</p>
           </div>
 
-          <nav id="nav-menu" className="clearfix">
-            {navList.map((item, index) => {
-              const isCurrentPage =
-                location.pathname === item.path || (location.pathname.startsWith('/post/') && item.path == '/');
-              return (
-                <Link key={index} to={item.path} className={isCurrentPage ? 'current' : ''}>
-                  {item.title}
-                </Link>
-              );
-            })}
-          </nav>
+          <Nav navList={navList} location={location}></Nav>
         </div>
       </div>
     </header>

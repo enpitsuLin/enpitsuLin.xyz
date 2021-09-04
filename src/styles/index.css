@@ -1,13 +1,16 @@
-@import './core/normalize.css';
-@import './core/reset.css';
-
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* CSS Custom Properties Definitions */
 
 html {
     overflow-y: scroll;
+    font-family: "PingFangSC-Regular", Helvetica, "Helvetica Neue", "Segoe UI", "Hiragino Sans GB", "Source Han Sans CN", "Microsoft YaHei", "STHeiti", "WenQuanYi Micro Hei", sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
+
 
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
