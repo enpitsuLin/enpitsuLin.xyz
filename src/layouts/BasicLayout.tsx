@@ -21,11 +21,12 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
 
   const siteMetadata = data.site?.siteMetadata || { title: 'Title', description: '' };
   const isHomePage = location.pathname == '/';
+
   useEffect(() => {
     setHeaderBgVisible((scroll.top > 20 && isHomePage) || !isHomePage);
   }, [scroll]);
   return (
-    <div className={classNames('dark:bg-blackBrown', 'flex flex-col', 'min-h-screen', 'break-words')}>
+    <div className={classNames('dark:bg-trueGray-850', 'flex flex-col', 'min-h-screen', 'break-words')}>
       <Helmet htmlAttributes={{ class: 'theme-dark' }} />
       <Header
         siteMetadata={siteMetadata}

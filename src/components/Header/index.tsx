@@ -54,7 +54,7 @@ const Header: React.FC<Props> = ({ location, siteMetadata, backgroundShow, showB
           >
             <FaBars />
           </button>
-          <div className="absolute right-0 hidden items-center sm:flex">
+          <div className="absolute right-0 hidden h-full items-center sm:flex">
             {navList.map((item, index) => (
               <NavItem key={index} title={item.title} icon={item.icon} to={item.path} />
             ))}

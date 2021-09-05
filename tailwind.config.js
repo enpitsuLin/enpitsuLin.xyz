@@ -7,6 +7,7 @@ module.exports = {
     themeVariants: ['dark'],
     colors: {
       ...colors,
+      trueGray: { ...colors.trueGray, 850: '#222222' },
       primary: {
         100: '#66c6c6',
         200: '#32b3b3',

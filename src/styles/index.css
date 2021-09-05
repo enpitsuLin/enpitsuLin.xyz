@@ -1,19 +1,14 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  svg {
-    @apply inline-block;
-  }
-}
+@import './font.css';
 
 /* CSS Custom Properties Definitions */
 
 html {
+  font-family: Overpass, 'GlowSansSC', 'Helvetica Neue', 'pingfang sc', 'microsoft yahei', sans-serif;
+  -webkit-text-size-adjust: 100%;
+
   overflow-y: scroll;
-  font-family: Helvetica, 'Helvetica Neue', 'Segoe UI', 'Hiragino Sans GB', 'Source Han Sans CN', 'Microsoft YaHei',
-    'STHeiti', 'WenQuanYi Micro Hei', sans-serif !important;
+  /* font-family: Helvetica, 'Helvetica Neue', 'Segoe UI', 'Hiragino Sans GB', 'Source Han Sans CN', 'Microsoft YaHei',
+    'STHeiti', 'WenQuanYi Micro Hei', sans-serif !important; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

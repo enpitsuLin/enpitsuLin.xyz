@@ -12,12 +12,20 @@ const BlogIndex: React.FC<Props> = ({ location }) => {
       <div
         className="h-screen"
         style={{
-          backgroundRepeat: 'no-repeat',
-          backgroundImage: 'url("https://ddadaal.me/static/mainbg-c29b6b093ecab87d9c66ef547346cd5c.jpg")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center center'
+          filter: 'blur(5px)'
         }}
-      ></div>
+      >
+        <div
+          style={{
+            width: '100%',
+            height: '100%',
+            backgroundRepeat: 'no-repeat',
+            backgroundImage: 'url(/images/blog-home-pic.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center'
+          }}
+        ></div>
+      </div>
     </BasicLayout>
   );
 };

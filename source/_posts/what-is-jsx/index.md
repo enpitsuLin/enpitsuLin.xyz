@@ -46,7 +46,7 @@ console.log('Hello'.concat(text, '!')); //Hello World!
 
 类似的，**Babel 也具备将 JSX 语法转换为 JavaScript 代码的能力。**那么 Babel 具体会将 JSX 处理成什么样子呢？[【例子】](https://www.babeljs.cn/repl#?browsers=&build=&builtIns=false&spec=false&loose=false&code_lz=DwEwlgbgBAxgNgQwM5IHIILYFMC8AiBAB0LwD4AoKKUSWRFdbfAFzGbizOAHpwIKqNaPGRpMuPDAD2AO2ZY5XXpAo8-pIA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=react&prettier=false&targets=&version=7.11.6&externalPlugins=)
 
-![Babel编译](./Babel编译.png)
+![Babel编译](./babel_compile.png)
 
 可以看到，JSX 的标签都被转化成了对应的 React.createElement 调用，所以说实际上 JSX 就是写的 React.createElement，所以说它看起来像 HTML，但内核是 JS 罢了。
 

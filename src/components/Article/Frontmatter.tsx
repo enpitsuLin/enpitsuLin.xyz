@@ -21,9 +21,6 @@ const Frontmatter: FunctionComponent<Props> = ({ frontmatter, timeToRead, words 
   const { date, tags } = frontmatter;
   return (
     <div className="my-2 text-sm text-gray-500">
-      <FrontMatterItem icon={FaCalendar} label={date} />
-      <FrontMatterItem icon={FaStopwatch} label={`阅读可能需要${timeToRead}分钟`} />
-      <FrontMatterItem icon={FaFileSignature} label={`${words}字`} />
       <FrontMatterItem icon={FaTags}>
         {tags?.map(tag => (
           <Link
@@ -40,6 +37,9 @@ const Frontmatter: FunctionComponent<Props> = ({ frontmatter, timeToRead, words 
           </Link>
         ))}
       </FrontMatterItem>
+      <FrontMatterItem icon={FaCalendar} label={date} />
+      <FrontMatterItem icon={FaStopwatch} label={`阅读可能需要${timeToRead}分钟`} />
+      <FrontMatterItem icon={FaFileSignature} label={`${words}字`} />
     </div>
   );
 };
