@@ -1,24 +1,26 @@
 import React, { FunctionComponent } from 'react';
 import { GatsbyLinkProps, Link } from 'gatsby';
+import classNames from 'classnames';
+import { IconType } from 'react-icons';
 
 interface Props extends GatsbyLinkProps<any> {
-  current?: boolean;
   title: string;
+  icon?: IconType;
 }
-const defaultCls = 'inline-block px-5 py-1 ';
 
 const NavItem: FunctionComponent<Props> = props => {
-  const { title, to, current } = props;
-  /** 不使用`Link`的`activeClassName` 在使用`tailwindcss`情况下 达不到我想要的效果 */
-  const navItemCls = current ? defaultCls + 'border border-b-white' : defaultCls + 'border-b hover:border-gray-900';
+  const { title, to } = props;
   return (
-    <Link to={to} className={navItemCls} style={{ color: '#ddd' }}>
-      <span className="text-sm leading-7">{title}</span>
+    <Link
+      className={classNames('inline-flex items-center px-1 mx-1', 'text-white')}
+      activeClassName="text-secondary"
+      to={to}
+    >
+      {props.icon && <props.icon size={16} className="my-auto" />}
+      <span className="mx-1">{title}</span>
     </Link>
   );
 };
 
-NavItem.defaultProps = {
-  current: false
-};
+NavItem.defaultProps = {};
 export default NavItem;

@@ -8,8 +8,8 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 import ToTop from '@/components/Totop';
-import Sidebar from '@/components/Sidebar';
 import useScroll from '@/hooks/useScroll';
+import classNames from 'classnames';
 
 interface Props extends PageRendererProps {}
 
@@ -25,17 +25,18 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
     setHeaderBgVisible((scroll.top > 20 && isHomePage) || !isHomePage);
   }, [scroll]);
   return (
-    <div className="dark:bg-coffee">
+    <div className={classNames('dark:bg-blackBrown', 'flex flex-col', 'min-h-screen', 'break-words')}>
       <Helmet htmlAttributes={{ class: 'theme-dark' }} />
-      <Header siteMetadata={siteMetadata} location={location} backgroundShow={headerBgVisible} />
+      <Header
+        siteMetadata={siteMetadata}
+        location={location}
+        backgroundShow={headerBgVisible}
+        showBlock={!isHomePage}
+      />
       <ToTop />
-      <div style={{ height: '200vh' }}></div>
-      {/* <main className="flex">
-        <div className="w-8/12 pt-10 pr-5">{children}</div>
-        <Sidebar />
-      </main>
+      <main className={classNames('flex-1', 'min-h-screen', !isHomePage && 'p-4')}>{children}</main>
 
-      <Footer siteMetadata={siteMetadata}></Footer> */}
+      <Footer siteMetadata={siteMetadata}></Footer>
     </div>
   );
 };

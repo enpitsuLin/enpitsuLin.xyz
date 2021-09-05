@@ -19,6 +19,17 @@ module.exports = {
         900: '#002020',
         DEFAULT: '#00a0a0'
       },
+      secondary: {
+        DEFAULT: '#05c7c7'
+      },
+      blackBrown: {
+        100: '#8D8B8C',
+        200: '#5F5D5E',
+        300: '#474546',
+        400: '#302e2f',
+        500: '#1a1719',
+        DEFAULT: '#1a1719'
+      },
       coffee: {
         DEFAULT: '#433A3F'
       },

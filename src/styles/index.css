@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer base {
+  svg {
+    @apply inline-block;
+  }
 }
 
 /* CSS Custom Properties Definitions */

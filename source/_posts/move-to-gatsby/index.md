@@ -1,6 +1,6 @@
 ---
 title: 博客使用 Gatsby 构建
-date: 2021-09-02 22:01
+date: 2021-09-02 22:01:00
 description: '抛弃 hexo 转用更适合前端开发者的静态网站生成方案 gatsbyjs, 并计划将原来的的 maupassant 主题开发基于 gatsby 的 maupassant 主题'
 tags: [React, Typescript, Gatsby, blog]
 ---
@@ -39,3 +39,15 @@ tags: [React, Typescript, Gatsby, blog]
 - ...
 
 > 如果选择重新按照原有的样式重写 是不是等于自己写主题样式？那我为什么不直接再编写一套样式呢？ 2021/9/4 20:40
+
+# 开发中遇到的问题
+
+## Cannot find namespace 'GatsbyTypes'.
+
+因为使用了 `gatsby-plugin-typegen` 这个插件会自动生成整个项目中所需包括`graphql查询语句`返回的类型，然后再对配置文件进行 type-safe 化中直接使用了生成的 GatsbyTypes 命名空间但是编译无法通过
+
+在`gatsby-node.ts`开头加入以下，手动为编译器添加声明文件
+
+```ts
+/// <reference path="./src/__generated__/gatsby-types.d.ts" />
+```
