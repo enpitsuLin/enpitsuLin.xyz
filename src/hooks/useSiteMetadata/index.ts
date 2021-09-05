@@ -9,8 +9,11 @@ export default function useSiteMetadata() {
     query querySiteMetadata {
       site {
         siteMetadata {
-          title
+          lastUpdateTime
           description
+          author
+          title
+          siteUrl
         }
       }
     }

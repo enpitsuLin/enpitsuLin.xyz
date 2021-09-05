@@ -2,12 +2,10 @@ import path from 'path';
 
 const siteMetadata = {
   title: `enpitsuLin's Blog`,
-  author: {
-    name: `enpitsuLin`,
-    summary: `litter software engineer.`
-  },
+  author: `enpitsuLin`,
   description: `一根有梦想的笔 想描绘脑海里的场景.`,
-  siteUrl: `http://404.nothing`
+  siteUrl: `http://404.nothing`,
+  lastUpdateTime: new Date()
 };
 
 const plugins = [
@@ -43,7 +41,8 @@ const plugins = [
   {
     resolve: `gatsby-transformer-remark`,
     options: {
-      excerpt_separator: '<!-- more -->',
+      // prettier-ignore
+      "excerpt_separator": `<!-- more -->`,
       plugins: [
         {
           resolve: `gatsby-remark-images`,

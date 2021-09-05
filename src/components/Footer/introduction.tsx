@@ -23,21 +23,21 @@ const Introduction: FunctionComponent = () => {
     <div className="py-4 w-4/6">
       <p className="mb-4 text-base">
         👨🏼‍💻 本网站由
-        <a href="https://github.com/enpitsulin" target="_blank" className="text-primary-400 hover:underline">
+        <a href="https://github.com/enpitsulin" target="_blank" className="text-primary-400 hover:underline mx-1">
           enpitsulin
         </a>
         摸鱼时编写
       </p>
       <p className="mb-4 text-base">
-        📝 本站文章在
+        📝 本站文章遵循
         <a
           href="https://creativecommons.org/licenses/by-sa/4.0/"
           target="_blank"
-          className="text-primary-400 hover:underline"
+          className="text-primary-400 hover:underline mx-1"
         >
           CC BY-SA 4.0
         </a>
-        协议下授权
+        协议
       </p>
       <p className="mb-4 text-base">
         <span>

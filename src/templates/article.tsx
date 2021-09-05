@@ -2,27 +2,28 @@ import React from 'react';
 import { Link, graphql, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
+import { calcArticleWordCount } from '@/utils/article';
 interface Props extends PageRendererProps {
   pageContext?: {};
-  [key: string]: any;
+  data: {
+    markdownRemark: GatsbyTypes.MarkdownRemark;
+    previous: GatsbyTypes.MarkdownRemark;
+    next: GatsbyTypes.MarkdownRemark;
+  };
 }
 
 const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const post = data.markdownRemark;
   const { previous, next } = data;
-  const {
-    timeToRead,
-    wordCount: { words }
-  } = post;
-  const nonLatinCount: number = post.html.match(/[\p{sc=Katakana}\p{sc=Hiragana}\p{sc=Han}]/gu).length;
-  const wordCount = nonLatinCount + words;
+  const timeToRead = post.timeToRead || 0;
+  const wordCount = calcArticleWordCount(post);
 
   return (
     <BasicLayout location={location}>
-      <Seo title={post.frontmatter.title} description={post.frontmatter.description || post.excerpt} />
+      <Seo title={post.frontmatter?.title as string} description={post.frontmatter?.description || post.excerpt} />
       <article className="post" itemScope itemType="http://schema.org/Article">
         <div className="text-4xl font-medium text-gray-800 pb-5" itemProp="headline">
-          {post.frontmatter.title}
+          {post.frontmatter?.title}
         </div>
         <div className="flex">
           <div title="发表时间" className="mr-2">
@@ -50,17 +51,21 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             {wordCount} 字
           </div>
         </div>
-        <div className="post-content pt-3" dangerouslySetInnerHTML={{ __html: post.html }} itemProp="articleBody" />
+        <div
+          className="post-content pt-3"
+          dangerouslySetInnerHTML={{ __html: post.html as string }}
+          itemProp="articleBody"
+        />
         <nav className="post-nav">
           {previous && (
-            <Link to={`/post${previous.fields.slug}`} rel="prev">
-              {previous.frontmatter.title}
+            <Link to={`/post${previous.fields?.slug}`} rel="prev">
+              {previous.frontmatter?.title}
             </Link>
           )}
 
           {next && (
-            <Link to={`/post${next.fields.slug}`} rel="next">
-              {next.frontmatter.title}
+            <Link to={`/post${next.fields?.slug}`} rel="next">
+              {next.frontmatter?.title}
             </Link>
           )}
         </nav>

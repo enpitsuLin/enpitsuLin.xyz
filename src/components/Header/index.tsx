@@ -63,8 +63,10 @@ const Header: React.FC<Props> = ({ location, siteMetadata, backgroundShow, showB
                 'px-4 py-1',
                 'transition-all',
                 'bg-gray-700 rounded hover:bg-gray-600',
-                'text-white'
+                'text-white',
+                'cursor-not-allowed'
               )}
+              title="暂时未开发XD"
             >
               <FaSun />
             </button>

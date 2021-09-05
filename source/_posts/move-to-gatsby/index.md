@@ -40,6 +40,11 @@ tags: [React, Typescript, Gatsby, blog]
 
 > 如果选择重新按照原有的样式重写 是不是等于自己写主题样式？那我为什么不直接再编写一套样式呢？ 2021/9/4 20:40
 
+9-5
+
+- 完成自有主题构建除文章页的大部分，`tailwindcss`撸样式真的太快了 :P
+- 设计完成了暗黑主题，暂未考虑明亮主题
+
 # 开发中遇到的问题
 
 ## Cannot find namespace 'GatsbyTypes'.
@@ -51,3 +56,5 @@ tags: [React, Typescript, Gatsby, blog]
 ```ts
 /// <reference path="./src/__generated__/gatsby-types.d.ts" />
 ```
+
+## 生成页面的生命周期钩子在 typescript 下的使用

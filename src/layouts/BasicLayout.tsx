@@ -35,7 +35,9 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
         showBlock={!isHomePage}
       />
       <ToTop />
-      <main className={classNames('flex-1', 'min-h-screen', !isHomePage && 'p-4')}>{children}</main>
+      <main className={classNames('flex-1', 'min-h-screen', !isHomePage && 'p-4')}>
+        <div className="page-container h-full">{children}</div>
+      </main>
 
       <Footer siteMetadata={siteMetadata}></Footer>
     </div>
