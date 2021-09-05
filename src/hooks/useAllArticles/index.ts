@@ -4,12 +4,12 @@ import { useStaticQuery, graphql } from 'gatsby';
  * 获取所有属于`post`源的md文件列表
  * @returns {GatsbyTypes.MarkdownRemark[]} md文件列表
  */
-export default function useAllPosts() {
+export default function useAllArticles() {
   const {
     allFile: { nodes }
-  } = useStaticQuery<GatsbyTypes.queryPostsMarkdownQuery>(
+  } = useStaticQuery<GatsbyTypes.AllArticlesQuery>(
     graphql`
-      query queryPostsMarkdown {
+      query AllArticles {
         allFile(
           filter: { sourceInstanceName: { eq: "posts" }, extension: { eq: "md" } }
           sort: { fields: childrenMarkdownRemark___frontmatter___date, order: DESC }

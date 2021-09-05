@@ -1,7 +1,11 @@
+import useScroll from '@/hooks/useScroll';
 import React, { useEffect, useState, useCallback } from 'react';
-import './style.scss';
+import { FaArrowUp } from 'react-icons/fa';
+import classNames from 'classnames';
 
 const ToTop: React.FC = () => {
+  const scroll = useScroll();
+
   const [visible, setVisible] = useState(false);
 
   const scrollToTop = useCallback(() => {
@@ -9,25 +13,18 @@ const ToTop: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const handler = () => {
-      setVisible(window.scrollY > 200);
-    };
-    handler();
-    window.addEventListener('scroll', handler);
-    return () => {
-      window.removeEventListener('scroll', handler);
-    };
-  }, []);
+    setVisible(scroll.top > 20);
+  }, [scroll]);
   return (
     <div
       onClick={scrollToTop}
-      className={
-        visible
-          ? 'fixed bottom-9 right-9 z-50 transition-all opacity-100'
-          : 'fixed bottom-9 right-9 z-50 transition-all opacity-0'
-      }
+      className={classNames(
+        'fixed bottom-9 right-9 z-50',
+        'duration-300 transition-opacity',
+        visible ? 'opacity-100' : 'opacity-0'
+      )}
     >
-      <i className="fa fa-arrow-up cursor-pointer text-2xl" />
+      <FaArrowUp className="text-4xl text-white cursor-pointer" />
     </div>
   );
 };
