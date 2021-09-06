@@ -3,11 +3,10 @@ import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import { FaCalendar, FaTags, FaFileSignature, FaStopwatch } from 'react-icons/fa';
 import { IconType } from 'react-icons';
+import { calcArticleWordCount } from '@/utils/article';
 
 type Props = {
-  frontmatter: GatsbyTypes.Frontmatter;
-  timeToRead: number;
-  words: number;
+  article: GatsbyTypes.MarkdownRemark;
 };
 
 const FrontMatterItem: FunctionComponent<{ icon: IconType; label?: string }> = props => (
@@ -17,19 +16,23 @@ const FrontMatterItem: FunctionComponent<{ icon: IconType; label?: string }> = p
   </span>
 );
 
-const Frontmatter: FunctionComponent<Props> = ({ frontmatter, timeToRead, words }) => {
-  const { date, tags } = frontmatter;
+const Frontmatter: FunctionComponent<Props> = ({ article }) => {
+  const frontmatter = article.frontmatter;
+  const timeToRead = article.timeToRead;
+  const words = calcArticleWordCount(article);
+
+  const { date, tags } = frontmatter as GatsbyTypes.Frontmatter;
   return (
-    <div className="my-2 text-sm text-gray-500">
+    <div className="py-2 text-xs">
       <FrontMatterItem icon={FaTags}>
         {tags?.map(tag => (
           <Link
             key={tag}
             to="/"
             className={classNames(
-              'rounded-sm',
-              'mr-1 px-1',
-              'leading-tight text-white font-semibold',
+              'rounded-md',
+              'mr-1 px-2 py-0.5',
+              'leading-tight text-white',
               'bg-primary-200 hover:bg-primary-300'
             )}
           >

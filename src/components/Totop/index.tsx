@@ -1,9 +1,9 @@
 import useScroll from '@/hooks/useScroll';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, FunctionComponent } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
 import classNames from 'classnames';
 
-const ToTop: React.FC = () => {
+const ToTop: FunctionComponent = () => {
   const scroll = useScroll();
 
   const [visible, setVisible] = useState(false);

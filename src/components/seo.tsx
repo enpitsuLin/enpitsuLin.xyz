@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 
@@ -23,7 +23,7 @@ interface Props {
   description?: string;
 }
 
-const Seo: React.FC<Props> = ({ description, lang, meta, title }) => {
+const Seo: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
   const { site } = useSiteMetadata();
 
   const metaDescription = description || site?.siteMetadata?.description;

@@ -3,6 +3,7 @@ import { PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts/';
 import Seo from '@/components/seo';
 import useTypeWriter from '@/hooks/useTypewriter';
+import AnimatedContent from '@/components/AnimatedContent';
 
 type Props = PageRendererProps;
 
@@ -22,26 +23,28 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
   return (
     <BasicLayout location={location}>
       <Seo title="首页" />
-      <div className="h-screen page-container relative">
-        <div
-          style={{
-            width: '100%',
-            height: '100%',
-            backgroundRepeat: 'no-repeat',
-            backgroundImage: 'url(/images/blog-home-pic.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center'
-          }}
-          className="flex items-center justify-center"
-        >
-          <div className="text-center text-white">
-            <p className="text-5xl font-medium py-1 my-3">你好</p>
-            <div className="py-1 my-2 h-6">
-              <span>{text || ' '}</span>
+      <AnimatedContent>
+        <div className="h-screen relative">
+          <div
+            style={{
+              width: '100%',
+              height: '100%',
+              backgroundRepeat: 'no-repeat',
+              backgroundImage: 'url(/images/blog-home-pic.png)',
+              backgroundSize: 'cover',
+              backgroundPosition: 'center center'
+            }}
+            className="flex items-center justify-center"
+          >
+            <div className="text-center text-white">
+              <p className="text-5xl font-medium py-1 my-3">你好</p>
+              <div className="py-1 my-2 h-6">
+                <span>{text || ' '}</span>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </AnimatedContent>
     </BasicLayout>
   );
 };

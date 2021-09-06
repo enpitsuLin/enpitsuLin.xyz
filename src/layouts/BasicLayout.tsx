@@ -6,8 +6,8 @@ import classNames from 'classnames';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 import useScroll from '@/hooks/useScroll';
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
+import Header from './components/Header';
+import Footer from './components/Footer';
 import ToTop from '@/components/Totop';
 
 interface Props extends PageRendererProps {}

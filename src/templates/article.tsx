@@ -2,6 +2,8 @@ import React from 'react';
 import { graphql, Link, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
+import ArticleHeader from '@/components/Article/ArticleHeader';
+import AnimatedContent from '@/components/AnimatedContent';
 
 interface Props extends PageRendererProps {
   pageContext?: {};
@@ -22,31 +24,35 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
         title={article.frontmatter?.title as string}
         description={article.frontmatter?.description || article.excerpt}
       />
-      <div className="h-64 dark:bg-skobeloff flex justify-center items-center">
-        <div>
-          <p className="text-3xl"> {article.frontmatter?.title || '无标题'}</p>
-        </div>
-      </div>
-      <article className="article-content page-container" itemScope itemType="http://schema.org/Article">
-        <div
-          className="article-content pt-3"
-          dangerouslySetInnerHTML={{ __html: article.html as string }}
-          itemProp="articleBody"
-        />
-        <nav className="article-nav">
-          {previous && (
-            <Link to={`/article${previous.fields?.slug}`} rel="prev">
-              {previous.frontmatter?.title}
-            </Link>
-          )}
+      <ArticleHeader article={article} />
+      <AnimatedContent>
+        <article className="article-content" itemScope itemType="http://schema.org/Article">
+          <div className="max-w-7xl mx-auto p-4 relative flex flex-row">
+            <div className="w-3/4">
+              <div
+                className="article-content"
+                dangerouslySetInnerHTML={{ __html: article.html as string }}
+                itemProp="articleBody"
+              />
+            </div>
+            <div className="w-1/4">目录</div>
+          </div>
 
-          {next && (
-            <Link to={`/article${next.fields?.slug}`} rel="next">
-              {next.frontmatter?.title}
-            </Link>
-          )}
-        </nav>
-      </article>
+          <nav className="article-nav">
+            {previous && (
+              <Link to={`/article${previous.fields?.slug}`} rel="prev">
+                {previous.frontmatter?.title}
+              </Link>
+            )}
+
+            {next && (
+              <Link to={`/article${next.fields?.slug}`} rel="next">
+                {next.frontmatter?.title}
+              </Link>
+            )}
+          </nav>
+        </article>
+      </AnimatedContent>
     </BasicLayout>
   );
 };
