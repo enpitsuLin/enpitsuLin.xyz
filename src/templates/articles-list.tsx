@@ -1,18 +1,15 @@
 import React, { FunctionComponent } from 'react';
-import { graphql, Link, PageRendererProps } from 'gatsby';
-import { calcArticleWordCount, navigateToArticle } from '@/utils/article';
+import { graphql, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
 import classNames from 'classnames';
-import Frontmatter from '@/components/Article/Frontmatter';
-import Pagination from '@/components/Pagination';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
+import ArticleItemList from '@/components/Article/ArticleItemList';
 
 interface Props extends PageRendererProps {
   data: {
     allMarkdownRemark: GatsbyTypes.MarkdownRemarkConnection;
   };
-  /** 从CreatePage传递进来的参数 */
   pageContext: {
     pageCount: number;
     pageIndex: number;
@@ -20,7 +17,7 @@ interface Props extends PageRendererProps {
 }
 
 const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContext }) => {
-  const articles = data.allMarkdownRemark.nodes;
+  const articles = data.allMarkdownRemark.nodes as GatsbyTypes.MarkdownRemark[];
   const { pageCount, pageIndex } = pageContext;
 
   return (
@@ -30,29 +27,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
         <div className={classNames('mx-auto max-w-7xl', 'p-4')}>
           <div className="flex">
             <div className="md:w-2/3">
-              {articles.map((article, index) => {
-                return (
-                  <div key={index} className="text-white mb-6">
-                    <div className="py-2">
-                      <Link to={`/articles${article.fields?.slug}`} className="text-4xl hover:text-primary-400">
-                        {article.frontmatter?.title}
-                      </Link>
-                    </div>
-                    <Frontmatter article={article} />
-                    <div dangerouslySetInnerHTML={{ __html: article.excerpt as string }}></div>
-                    <hr className="pt-1 mt-3 border-opacity-10" />
-                  </div>
-                );
-              })}
-              <div className="flex justify-center">
-                <Pagination
-                  pageCount={pageCount}
-                  currentPage={pageIndex + 1}
-                  onChange={toPage => {
-                    navigateToArticle(toPage === 1 ? '' : `/${toPage}`);
-                  }}
-                />
-              </div>
+              <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
             </div>
             <div className="w-1/3 hidden md:block"></div>
           </div>

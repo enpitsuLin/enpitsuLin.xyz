@@ -163,7 +163,7 @@ const plugins = [
   {
     resolve: `gatsby-plugin-typegen`,
     options: {
-      outputPath: `src/__generated__/gatsby-types.d.ts`,
+      outputPath: `src/gatsby-types.d.ts`,
       emitSchema: {
         'src/__generated__/gatsby-introspection.json': true,
         'src/__generated__/gatsby-plugin-documents.graphql': true

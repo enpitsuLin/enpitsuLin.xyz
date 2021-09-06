@@ -1,4 +1,4 @@
-/// <reference path="./src/__generated__/gatsby-types.d.ts" />
+/// <reference path="./src/gatsby-types.d.ts" />
 import { GatsbyNode, Actions } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { resolve } from 'path';

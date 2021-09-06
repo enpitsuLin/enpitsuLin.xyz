@@ -4,6 +4,7 @@ import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import ArticleHeader from '@/components/Article/ArticleHeader';
 import AnimatedContent from '@/components/AnimatedContent';
+import Affix from '@/components/Affix';
 
 interface Props extends PageRendererProps {
   pageContext?: {};
@@ -35,7 +36,11 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                 itemProp="articleBody"
               />
             </div>
-            <div className="w-1/4">目录</div>
+            <div className="w-1/4">
+              <Affix offsetTop={52.5}>
+                <div>目录</div>
+              </Affix>
+            </div>
           </div>
 
           <nav className="article-nav">

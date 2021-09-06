@@ -9,17 +9,18 @@ interface ScrollData {
  * window滚动hooks
  * @returns {ScrollData} scrollData
  */
-export default function useScroll(): ScrollData {
+export default function useScroll(target?: HTMLElement): ScrollData {
   const [scroll, setScroll] = useState<ScrollData>({ top: NaN, left: NaN });
 
   useEffect(() => {
     const handler = () => {
       setScroll({ top: window.scrollY, left: window.scrollX });
     };
+    let el = target || window;
     handler();
-    window.addEventListener('scroll', handler);
+    el.addEventListener('scroll', handler);
     return () => {
-      window.removeEventListener('scroll', handler);
+      el.removeEventListener('scroll', handler);
     };
   }, []);
   return scroll;
