@@ -813,6 +813,8 @@ type SitePluginPluginOptions = {
   readonly background: Maybe<Scalars['String']>;
   readonly zIndex: Maybe<Scalars['Int']>;
   readonly wrapperStyle: Maybe<Scalars['String']>;
+  readonly offsetY: Maybe<Scalars['Int']>;
+  readonly className: Maybe<Scalars['String']>;
   readonly inlineCode: Maybe<SitePluginPluginOptionsInlineCode>;
   readonly theme: Maybe<Scalars['String']>;
   readonly languageAliases: Maybe<SitePluginPluginOptionsLanguageAliases>;
@@ -827,7 +829,6 @@ type SitePluginPluginOptions = {
   readonly background_color: Maybe<Scalars['String']>;
   readonly theme_color: Maybe<Scalars['String']>;
   readonly display: Maybe<Scalars['String']>;
-  readonly icon: Maybe<Scalars['String']>;
   readonly legacy: Maybe<Scalars['Boolean']>;
   readonly theme_color_in_head: Maybe<Scalars['Boolean']>;
   readonly cache_busting_mode: Maybe<Scalars['String']>;
@@ -851,6 +852,7 @@ type SitePluginPluginOptionsPlugins = {
   readonly pluginOptions: Maybe<SitePluginPluginOptionsPluginsPluginOptions>;
   readonly nodeAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly browserAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly ssrAPIs: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly pluginFilepath: Maybe<Scalars['String']>;
 };
 
@@ -871,6 +873,9 @@ type SitePluginPluginOptionsPluginsPluginOptions = {
   readonly background: Maybe<Scalars['String']>;
   readonly zIndex: Maybe<Scalars['Int']>;
   readonly wrapperStyle: Maybe<Scalars['String']>;
+  readonly icon: Maybe<Scalars['Boolean']>;
+  readonly offsetY: Maybe<Scalars['Int']>;
+  readonly className: Maybe<Scalars['String']>;
   readonly inlineCode: Maybe<SitePluginPluginOptionsPluginsPluginOptionsInlineCode>;
   readonly theme: Maybe<Scalars['String']>;
   readonly languageAliases: Maybe<SitePluginPluginOptionsPluginsPluginOptionsLanguageAliases>;
@@ -2623,6 +2628,8 @@ type SitePluginPluginOptionsFilterInput = {
   readonly background: Maybe<StringQueryOperatorInput>;
   readonly zIndex: Maybe<IntQueryOperatorInput>;
   readonly wrapperStyle: Maybe<StringQueryOperatorInput>;
+  readonly offsetY: Maybe<IntQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
   readonly inlineCode: Maybe<SitePluginPluginOptionsInlineCodeFilterInput>;
   readonly theme: Maybe<StringQueryOperatorInput>;
   readonly languageAliases: Maybe<SitePluginPluginOptionsLanguageAliasesFilterInput>;
@@ -2637,7 +2644,6 @@ type SitePluginPluginOptionsFilterInput = {
   readonly background_color: Maybe<StringQueryOperatorInput>;
   readonly theme_color: Maybe<StringQueryOperatorInput>;
   readonly display: Maybe<StringQueryOperatorInput>;
-  readonly icon: Maybe<StringQueryOperatorInput>;
   readonly legacy: Maybe<BooleanQueryOperatorInput>;
   readonly theme_color_in_head: Maybe<BooleanQueryOperatorInput>;
   readonly cache_busting_mode: Maybe<StringQueryOperatorInput>;
@@ -2665,6 +2671,7 @@ type SitePluginPluginOptionsPluginsFilterInput = {
   readonly pluginOptions: Maybe<SitePluginPluginOptionsPluginsPluginOptionsFilterInput>;
   readonly nodeAPIs: Maybe<StringQueryOperatorInput>;
   readonly browserAPIs: Maybe<StringQueryOperatorInput>;
+  readonly ssrAPIs: Maybe<StringQueryOperatorInput>;
   readonly pluginFilepath: Maybe<StringQueryOperatorInput>;
 };
 
@@ -2685,6 +2692,9 @@ type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
   readonly background: Maybe<StringQueryOperatorInput>;
   readonly zIndex: Maybe<IntQueryOperatorInput>;
   readonly wrapperStyle: Maybe<StringQueryOperatorInput>;
+  readonly icon: Maybe<BooleanQueryOperatorInput>;
+  readonly offsetY: Maybe<IntQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
   readonly inlineCode: Maybe<SitePluginPluginOptionsPluginsPluginOptionsInlineCodeFilterInput>;
   readonly theme: Maybe<StringQueryOperatorInput>;
   readonly languageAliases: Maybe<SitePluginPluginOptionsPluginsPluginOptionsLanguageAliasesFilterInput>;
@@ -2957,6 +2967,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.plugins.version'
   | 'pluginCreator.pluginOptions.plugins.nodeAPIs'
   | 'pluginCreator.pluginOptions.plugins.browserAPIs'
+  | 'pluginCreator.pluginOptions.plugins.ssrAPIs'
   | 'pluginCreator.pluginOptions.plugins.pluginFilepath'
   | 'pluginCreator.pluginOptions.path'
   | 'pluginCreator.pluginOptions.name'
@@ -2978,6 +2989,8 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.background'
   | 'pluginCreator.pluginOptions.zIndex'
   | 'pluginCreator.pluginOptions.wrapperStyle'
+  | 'pluginCreator.pluginOptions.offsetY'
+  | 'pluginCreator.pluginOptions.className'
   | 'pluginCreator.pluginOptions.inlineCode.marker'
   | 'pluginCreator.pluginOptions.theme'
   | 'pluginCreator.pluginOptions.languageAliases.shell'
@@ -2994,7 +3007,6 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.background_color'
   | 'pluginCreator.pluginOptions.theme_color'
   | 'pluginCreator.pluginOptions.display'
-  | 'pluginCreator.pluginOptions.icon'
   | 'pluginCreator.pluginOptions.legacy'
   | 'pluginCreator.pluginOptions.theme_color_in_head'
   | 'pluginCreator.pluginOptions.cache_busting_mode'
@@ -4224,9 +4236,13 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.plugins.pluginOptions.background'
   | 'pluginOptions.plugins.pluginOptions.zIndex'
   | 'pluginOptions.plugins.pluginOptions.wrapperStyle'
+  | 'pluginOptions.plugins.pluginOptions.icon'
+  | 'pluginOptions.plugins.pluginOptions.offsetY'
+  | 'pluginOptions.plugins.pluginOptions.className'
   | 'pluginOptions.plugins.pluginOptions.theme'
   | 'pluginOptions.plugins.nodeAPIs'
   | 'pluginOptions.plugins.browserAPIs'
+  | 'pluginOptions.plugins.ssrAPIs'
   | 'pluginOptions.plugins.pluginFilepath'
   | 'pluginOptions.path'
   | 'pluginOptions.name'
@@ -4248,6 +4264,8 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.background'
   | 'pluginOptions.zIndex'
   | 'pluginOptions.wrapperStyle'
+  | 'pluginOptions.offsetY'
+  | 'pluginOptions.className'
   | 'pluginOptions.inlineCode.marker'
   | 'pluginOptions.theme'
   | 'pluginOptions.languageAliases.shell'
@@ -4264,7 +4282,6 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.background_color'
   | 'pluginOptions.theme_color'
   | 'pluginOptions.display'
-  | 'pluginOptions.icon'
   | 'pluginOptions.legacy'
   | 'pluginOptions.theme_color_in_head'
   | 'pluginOptions.cache_busting_mode'

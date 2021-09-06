@@ -67,6 +67,12 @@ const plugins = [
           }
         },
         {
+          resolve: `gatsby-remark-autolink-headers`,
+          options: {
+            icon: false
+          }
+        },
+        {
           resolve: 'gatsby-remark-vscode',
           options: {
             inlineCode: {
