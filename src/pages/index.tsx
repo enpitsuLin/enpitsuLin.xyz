@@ -22,7 +22,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
   return (
     <BasicLayout location={location}>
       <Seo title="首页" />
-      <div className="h-screen relative">
+      <div className="h-screen page-container relative">
         <div
           style={{
             width: '100%',

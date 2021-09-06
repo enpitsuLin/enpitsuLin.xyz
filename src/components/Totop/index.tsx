@@ -19,7 +19,7 @@ const ToTop: React.FC = () => {
     <div
       onClick={scrollToTop}
       className={classNames(
-        'fixed bottom-9 right-9 z-50',
+        'fixed bottom-9 right-5 md:right-9 z-50',
         'duration-300 transition-opacity',
         visible ? 'opacity-100' : 'opacity-0'
       )}

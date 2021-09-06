@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState, HtmlHTMLAttributes } from 'react';
 import dayjs from 'dayjs';
 import { getDiffToNow } from '@/utils/datetime';
 
@@ -8,7 +8,7 @@ const getBlogDuration = () => {
   return getDiffToNow(__BLOG_START_TIME__);
 };
 
-const Introduction: FunctionComponent = () => {
+const Introduction: FunctionComponent<HtmlHTMLAttributes<HTMLDivElement>> = attrs => {
   const [diff, setDiff] = useState(getBlogDuration());
 
   useEffect(() => {
@@ -20,7 +20,7 @@ const Introduction: FunctionComponent = () => {
     };
   }, []);
   return (
-    <div className="py-4 w-4/6">
+    <div {...attrs}>
       <p className="mb-4 text-base">
         👨🏼‍💻 本网站由
         <a href="https://github.com/enpitsulin" target="_blank" className="text-primary-400 hover:underline mx-1">

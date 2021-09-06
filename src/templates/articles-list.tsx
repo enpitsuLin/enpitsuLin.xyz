@@ -1,10 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, Link, PageRendererProps } from 'gatsby';
+import { calcArticleWordCount, navigateToArticle } from '@/utils/article';
 import { BasicLayout } from '@/layouts';
 import classNames from 'classnames';
 import Frontmatter from '@/components/Article/Frontmatter';
 import Pagination from '@/components/Pagination';
-import { calcArticleWordCount, navigateToArticle } from '@/utils/article';
 import Seo from '@/components/seo';
 
 interface Props extends PageRendererProps {
@@ -21,14 +21,13 @@ interface Props extends PageRendererProps {
 const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContext }) => {
   const articles = data.allMarkdownRemark.nodes;
   const { pageCount, pageIndex } = pageContext;
-  console.log(pageContext);
 
   return (
     <BasicLayout location={location}>
       <Seo title="文章" />
-      <div className={classNames('mx-auto max-w-7xl')}>
+      <div className={classNames('mx-auto max-w-7xl page-container', 'p-4')}>
         <div className="flex">
-          <div className="w-2/3">
+          <div className="md:w-2/3">
             {articles.map((article, index) => {
               const frontmatter = article.frontmatter as GatsbyTypes.Frontmatter;
               const timeToRead = article.timeToRead as number;
@@ -55,7 +54,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
               />
             </div>
           </div>
-          <div className="w-1/3"></div>
+          <div className="w-1/3 hidden md:block"></div>
         </div>
       </div>
     </BasicLayout>

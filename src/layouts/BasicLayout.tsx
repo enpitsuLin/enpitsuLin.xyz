@@ -1,15 +1,14 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { PageRendererProps } from 'gatsby';
+import classNames from 'classnames';
 
 import useSiteMetadata from '@/hooks/useSiteMetadata';
+import useScroll from '@/hooks/useScroll';
 
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-
 import ToTop from '@/components/Totop';
-import useScroll from '@/hooks/useScroll';
-import classNames from 'classnames';
 
 interface Props extends PageRendererProps {}
 
@@ -26,7 +25,7 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
     setHeaderBgVisible((scroll.top > 20 && isHomePage) || !isHomePage);
   }, [scroll]);
   return (
-    <div className={classNames('dark:bg-trueGray-850', 'flex flex-col', 'min-h-screen', 'break-words')}>
+    <div className={classNames('dark:bg-trueGray-850 dark:text-white', 'flex flex-col', 'min-h-screen', 'break-words')}>
       <Helmet htmlAttributes={{ class: 'theme-dark' }} />
       <Header
         siteMetadata={siteMetadata}
@@ -35,8 +34,8 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
         showBlock={!isHomePage}
       />
       <ToTop />
-      <main className={classNames('flex-1', 'min-h-screen', !isHomePage && 'p-4')}>
-        <div className="page-container h-full">{children}</div>
+      <main className={classNames('flex-1', 'min-h-screen')}>
+        <div className="h-full">{children}</div>
       </main>
 
       <Footer siteMetadata={siteMetadata}></Footer>
