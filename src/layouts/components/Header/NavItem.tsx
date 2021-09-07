@@ -22,5 +22,4 @@ const NavItem: FunctionComponent<Props> = props => {
   );
 };
 
-NavItem.defaultProps = {};
 export default NavItem;
