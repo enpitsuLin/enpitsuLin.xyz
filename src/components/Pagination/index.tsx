@@ -3,12 +3,11 @@ import classNames from 'classnames';
 
 interface Props {
   pageCount: number;
-  pageSize?: number;
   currentPage: number;
   onChange?: (targetVal: number) => void;
 }
 
-const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, pageSize, onChange }) => {
+const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, onChange }) => {
   const [current, setCurrent] = useState(currentPage);
 
   const pageItemCls = classNames('hover:bg-primary-100', 'leading-8 text-center text-white', 'h-8 w-8');
@@ -46,7 +45,4 @@ const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, pageSize
   );
 };
 
-Pagination.defaultProps = {
-  pageSize: 5
-};
 export default Pagination;

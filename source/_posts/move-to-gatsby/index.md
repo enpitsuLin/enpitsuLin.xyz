@@ -1,25 +1,22 @@
 ---
 title: 博客使用 Gatsby 构建
 date: 2021-09-02 22:01:00
-description: '抛弃 hexo 转用更适合前端开发者的静态网站生成方案 gatsbyjs, 并计划将原来的的 maupassant 主题开发基于 gatsby 的 maupassant 主题'
 tags: [React, Typescript, Gatsby, blog]
 ---
 
-# 放弃 Hexo 的原因
+# 选择 Gatsby 的原因
 
-因为作为一个使用`Vue`进行生产的前端来说，本来是想把 Hexo 的博客转移下到`Vuepress`的。
+因为 `Hexo` 对作为静态博客工具功能性过于局限，而且作为日常工作开发中是使用`Vue`，本来首选应该是转移下到`Vuepress`的。
 
-但是这个`Vuepress`的文档无论是哪种语言版本都十分的不好用，想把`maupassant`这套主题自己搞一套`Vuepress-maupassant`但苦于文档的易用性太低还是选择放弃
-
-这时候我又发现了一个抓我眼球的静态生成器——`gatsbyjs`，而且因为上手了`React`的原因，正好可以练练手。
+但是这个`Vuepress`的文档实在是可圈可点，同时我又发现了`gatsbyjs`，而且因为上手了`React`的原因，正好可以通过搭建博客项目锻炼下。
 
 ~~以后可能以 Vue 技术栈的身份跳个 React 技术栈的公司好了 XD~~
 
-`gatsby`是基于`React`、`GraphQL`的静态网站生成器，功能十分强大。
+`gatsby`是基于`React`、`GraphQL`的静态网站生成器，功能十分强大，而且基于`React`并且可以用上整个前端生态。
 
-其实作为静态建站方案，`gatsby`是很成熟的，当前版本已经到`v3`,再国外还是很受欢迎的，而且文档很齐全，社区维护的插件和主题也不少，正好作为我学习`React`的磨刀石，并且可以将博客迁移以及自己构建`gatsby`的`maupassant`主题。
+其实作为静态建站方案，`gatsby`是很成熟的，当前版本已经到`v3`,在国外还是很受欢迎的，而且文档很齐全，社区维护的插件和主题也不少，但是网上的教程质量不是很高所以可能需要从零自己研究
 
-因为原来的一套`maupassant-hexo`很简洁明亮，不过好像没有人开发基于 gatsby 的，所以可能自己还是需要以开发者的身份来构建适合自己的博客的`maupassant-gatsby`
+虽然原先 hexo 的主题 `maupassant`挺合我口味的，最后还是决定重新构建一套样式
 
 # 开发记录
 
@@ -49,6 +46,10 @@ tags: [React, Typescript, Gatsby, blog]
 
 - 增加各个组件和布局之间的联系和抽离组件使代码更简洁
 
+9-7
+
+- 完成文章 Toc 导航组件，这里因为想自己写一个 Affix 组件浪费了很多时间 :P
+
 # 开发中遇到的问题
 
 ## Cannot find namespace 'GatsbyTypes'.
@@ -58,7 +59,11 @@ tags: [React, Typescript, Gatsby, blog]
 在`gatsby-node.ts`开头加入以下，手动为编译器添加声明文件
 
 ```ts
-/// <reference path="./src/__generated__/gatsby-types.d.ts" />
+/// <reference path="./src/gatsby-types.d.ts" />
 ```
 
-## 生成页面的生命周期钩子在 typescript 下的使用
+`./src/gatsby-types.d.ts`这个路径是插件配置中导出的路径
+
+## typescript 下的生命周期钩子
+
+其实这部分必要性不是很大，但是确实增强了类型强度

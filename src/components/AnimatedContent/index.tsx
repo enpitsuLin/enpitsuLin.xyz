@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import './style.scss';
+import './style.css';
 
 interface Props {
   /** @todo use props control animate's prototypes */

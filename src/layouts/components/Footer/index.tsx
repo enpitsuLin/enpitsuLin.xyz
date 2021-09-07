@@ -23,7 +23,7 @@ const Footer: React.FC<Props> = ({ siteMetadata }) => {
   return (
     <footer id="footer" className="text-white dark:bg-skobeloff">
       <div className={classNames('mx-auto max-w-7xl p-2', 'flex flex-row')}>
-        <Introduction className="py-4 w-full md:w-4/6" />
+        <Introduction className="py-4 w-full text-center md:w-4/6 md:text-left" />
         <div className="w-2/6 hidden md:block">
           <div className="py-4">
             <p className="mb-2">🚀 强力驱动</p>

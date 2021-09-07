@@ -40,7 +40,21 @@ module.exports = {
       error: { DEFAULT: '#a00000' },
       transparent: '#0000'
     },
-    extend: {}
+    flex: {
+      '1/4': '0 0 25%',
+      '2/4': '0 0 50%',
+      '3/4': '0 0 75%',
+      1: '0 0 100%',
+      auto: '1 1 auto',
+      initial: '0 1 auto',
+      inherit: 'inherit',
+      none: 'none'
+    },
+    extend: {
+      transitionProperty: {
+        height: 'height'
+      }
+    }
   },
   variants: {
     backgroundColor: ['responsive', 'hover', 'focus', 'dark'],
