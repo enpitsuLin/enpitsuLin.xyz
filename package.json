@@ -8,7 +8,9 @@
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
   "dependencies": {
+    "@types/react-transition-group": "^4.4.2",
     "autoprefixer": "^10.3.4",
+    "bootstrap": "^5.1.0",
     "classnames": "^2.3.1",
     "dayjs": "^1.10.6",
     "gatsby": "^3.13.0",
@@ -39,9 +41,11 @@
     "postcss": "^8.3.6",
     "prismjs": "^1.24.1",
     "react": "^17.0.1",
+    "react-bootstrap": "^2.0.0-beta.6",
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "react-icons": "^4.2.0",
+    "react-transition-group": "^4.4.2",
     "tailwindcss": "^2.2.9",
     "tailwindcss-multi-theme": "^1.0.4",
     "typeface-merriweather": "0.0.72",

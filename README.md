@@ -4,7 +4,6 @@
 
 - Static website with modern web technologies
 - Built without templates
-- Do Not use any UI library
 - Auto-generated RSS feed
 - Post articles by markdown, code and contents separated
 
