@@ -15,7 +15,7 @@ const ArticleItem: FunctionComponent<Props> = ({ article }) => {
         </Link>
       </div>
       <Frontmatter article={article} />
-      <div dangerouslySetInnerHTML={{ __html: article.excerpt as string }}></div>
+      <div dangerouslySetInnerHTML={{ __html: article.excerpt as string }} style={{ fontSize: 15}}></div>
       <hr className="pt-1 mt-3 border-opacity-10" />
     </div>
   );

@@ -1,6 +1,6 @@
 import useScroll from '@/hooks/useScroll';
 import React, { FunctionComponent, HtmlHTMLAttributes, useEffect, useRef, useState } from 'react';
-import classNames from '_classnames@2.3.1@classnames';
+import classNames from 'classnames';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
   offsetTop?: number;

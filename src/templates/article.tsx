@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useRef } from 'react';
 import { graphql, Link, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
@@ -16,9 +16,17 @@ interface Props extends PageRendererProps {
 }
 
 const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
+  const articleRef = useRef<HTMLDivElement>(null);
+
   const article = data.markdownRemark;
   const { previous, next } = data;
   const headings = (article.headings as GatsbyTypes.MarkdownHeading[]) || [];
+
+  const scrollToHeading = useCallback((id: string) => {
+    const el = articleRef.current?.querySelector(`#${id}`);
+    if (!el) return;
+    window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 54.5, behavior: 'smooth' });
+  }, []);
 
   return (
     <BasicLayout location={location}>
@@ -33,6 +41,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             <div className="w-3/4">
               <div
                 className="article-content"
+                ref={articleRef}
                 dangerouslySetInnerHTML={{ __html: article.html as string }}
                 itemProp="articleBody"
               />
@@ -40,7 +49,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             <ArticleToc
               headings={headings}
               onTocClick={id => {
-                console.log(id);
+                scrollToHeading(id);
               }}
             />
           </div>
@@ -91,6 +100,7 @@ export const pageQuery = graphql`
       headings {
         value
         depth
+        id
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

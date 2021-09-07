@@ -69,7 +69,8 @@ const plugins = [
         {
           resolve: `gatsby-remark-autolink-headers`,
           options: {
-            icon: false
+            icon: false,
+            removeAccents: true
           }
         },
         {

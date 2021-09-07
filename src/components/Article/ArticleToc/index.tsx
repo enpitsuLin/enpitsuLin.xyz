@@ -20,10 +20,10 @@ const ArticleToc: FunctionComponent<Props> = ({ headings, onTocClick }) => {
             <ul>
               {headings.map(item => (
                 <li
-                  key={item.value}
+                  key={item.id}
                   style={{ marginLeft: (item?.depth || 1) * 8 }}
                   className="py-1 cursor-pointer hover:text-primary-400"
-                  onClick={() => onTocClick(item.value as string)}
+                  onClick={() => onTocClick(item.id as string)}
                 >
                   {item.value}
                 </li>

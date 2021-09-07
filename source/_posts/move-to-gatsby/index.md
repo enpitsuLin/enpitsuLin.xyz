@@ -5,7 +5,7 @@ description: '抛弃 hexo 转用更适合前端开发者的静态网站生成方
 tags: [React, Typescript, Gatsby, blog]
 ---
 
-# 鼓捣有的没的图啥？
+# 放弃 Hexo 的原因
 
 因为作为一个使用`Vue`进行生产的前端来说，本来是想把 Hexo 的博客转移下到`Vuepress`的。
 
@@ -44,6 +44,10 @@ tags: [React, Typescript, Gatsby, blog]
 
 - 完成自有主题构建除文章页的大部分，`tailwindcss`撸样式真的太快了 :P
 - 设计完成了暗黑主题，暂未考虑明亮主题
+
+9-6
+
+- 增加各个组件和布局之间的联系和抽离组件使代码更简洁
 
 # 开发中遇到的问题
 
