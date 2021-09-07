@@ -4,7 +4,7 @@ import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import ArticleHeader from '@/components/Article/ArticleHeader';
 import AnimatedContent from '@/components/AnimatedContent';
-import Affix from '@/components/Affix';
+import ArticleToc from '@/components/Article/ArticleToc';
 
 interface Props extends PageRendererProps {
   pageContext?: {};
@@ -18,6 +18,7 @@ interface Props extends PageRendererProps {
 const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const article = data.markdownRemark;
   const { previous, next } = data;
+  const headings = (article.headings as GatsbyTypes.MarkdownHeading[]) || [];
 
   return (
     <BasicLayout location={location}>
@@ -36,11 +37,12 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                 itemProp="articleBody"
               />
             </div>
-            <div className="w-1/4">
-              <Affix offsetTop={52.5}>
-                <div>目录</div>
-              </Affix>
-            </div>
+            <ArticleToc
+              headings={headings}
+              onTocClick={id => {
+                console.log(id);
+              }}
+            />
           </div>
 
           <nav className="article-nav">
@@ -85,6 +87,10 @@ export const pageQuery = graphql`
       timeToRead
       wordCount {
         words
+      }
+      headings {
+        value
+        depth
       }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {

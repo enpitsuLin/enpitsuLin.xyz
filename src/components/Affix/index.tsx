@@ -1,5 +1,5 @@
 import useScroll from '@/hooks/useScroll';
-import React, { CSSProperties, FunctionComponent, HtmlHTMLAttributes, useEffect, useRef, useState } from 'react';
+import React, { FunctionComponent, HtmlHTMLAttributes, useEffect, useRef, useState } from 'react';
 import classNames from '_classnames@2.3.1@classnames';
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
@@ -25,8 +25,12 @@ const Affix: FunctionComponent<Props> = ({ offsetTop, target, ...attrs }) => {
     }
   }, [scroll]);
   return (
-    <div {...attrs} ref={affixWrap}>
-      <div ref={affix} className={classNames(affixed && 'fixed')} style={{ top: offsetTop }}>
+    <div {...attrs} className={classNames(attrs.className, 'affix-wrap')} ref={affixWrap}>
+      <div
+        ref={affix}
+        className={classNames(affixed && 'fixed')}
+        style={{ top: offsetTop, width: affixWrap.current?.offsetWidth }}
+      >
         {attrs.children}
       </div>
     </div>

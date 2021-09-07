@@ -26,10 +26,8 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
       <AnimatedContent>
         <div className={classNames('mx-auto max-w-7xl', 'p-4')}>
           <div className="flex">
-            <div className="md:w-2/3">
-              <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
-            </div>
-            <div className="w-1/3 hidden md:block"></div>
+            <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
+            <div className="w-1/3 hidden md:block">my information card</div>
           </div>
         </div>
       </AnimatedContent>
