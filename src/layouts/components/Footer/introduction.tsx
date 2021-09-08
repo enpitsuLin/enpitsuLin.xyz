@@ -42,10 +42,12 @@ const Introduction: FunctionComponent<HtmlHTMLAttributes<HTMLDivElement>> = attr
       <p className="mb-4 text-base">
         <span>
           📅 博客已经运行
-          <span className="font-bold px-1">{Math.floor(diff.asDays())}</span>天
-          <span className="font-bold px-1">{diff.hours()}</span>时
-          <span className="font-bold px-1">{diff.minutes()}</span>分
-          <span className="font-bold px-1">{diff.seconds()}</span>秒
+          <span>
+            <span className="font-bold px-1">{Math.floor(diff.asDays())}</span>天
+            <span className="font-bold px-1">{diff.hours()}</span>时
+            <span className="font-bold px-1">{diff.minutes()}</span>分
+            <span className="font-bold px-1">{diff.seconds()}</span>秒
+          </span>
         </span>
       </p>
     </div>

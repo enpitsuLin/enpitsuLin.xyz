@@ -50,6 +50,11 @@ tags: [React, Typescript, Gatsby, blog]
 
 - 完成文章 Toc 导航组件，这里因为想自己写一个 Affix 组件浪费了很多时间 :P
 
+9-8
+
+- 研究 Header 的响应化浪费很多时间 最后决定使用现成的组件库重构一下各种地方
+- 最后还是选择放弃响应式 Header 选择在小屏幕上使用抽屉式导航
+
 # 开发中遇到的问题
 
 ## Cannot find namespace 'GatsbyTypes'.
@@ -66,4 +71,4 @@ tags: [React, Typescript, Gatsby, blog]
 
 ## typescript 下的生命周期钩子
 
-其实这部分必要性不是很大，但是确实增强了类型强度
+其实这部分必要性不是很大，虽然但是确实增强了类型强度，不过和自己代码中交互有限，不能将一些类型传递到页面模板中

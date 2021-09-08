@@ -41,7 +41,7 @@ const Frontmatter: FunctionComponent<Props> = ({ article }) => {
         ))}
       </FrontMatterItem>
       <FrontMatterItem icon={FaCalendar} label={date} />
-      <FrontMatterItem icon={FaStopwatch} label={`阅读可能需要${timeToRead}分钟`} />
+      <FrontMatterItem icon={FaStopwatch} label={`可能需要${timeToRead}分钟阅读`} />
       <FrontMatterItem icon={FaFileSignature} label={`${words}字`} />
     </div>
   );
