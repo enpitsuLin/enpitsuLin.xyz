@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { FunctionComponent, useState } from 'react';
 import { WindowLocation } from '@reach/router';
-import { Link } from 'gatsby';
 import { FaHome, FaInfo, FaSun, FaBars, FaBookOpen } from 'react-icons/fa';
+import Navbar from 'react-bootstrap/Navbar';
 import classNames from 'classnames';
 import NavItem from './NavItem';
-import { Container, Navbar } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Placeholder from './HeaderPlaceholder';
+import NavbarContainer from './NavbarContainer';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 interface Props {
   location: WindowLocation;
   siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
-  backgroundShow: boolean;
-  showBlock: boolean;
+  headerTransparent: boolean;
 }
 
-const defaultProps: Partial<Props> = {
-  backgroundShow: true,
-  showBlock: true
-};
-
-const Header: React.FC<Props> = ({
-  siteMetadata,
-  backgroundShow = defaultProps.backgroundShow,
-  showBlock = defaultProps.showBlock
-}) => {
+const Header: FunctionComponent<Props> = ({ siteMetadata, headerTransparent }) => {
+  const [isOpen, setOpen] = useState(false);
   const title = siteMetadata.title;
 
   const navList = [
@@ -34,29 +26,42 @@ const Header: React.FC<Props> = ({
 
   return (
     <header id="header">
-      <div></div>
-      <div style={{ zIndex: 1000 }}>
-        <Navbar expand="md" className="dark:bg-skobeloff">
-          <Container className="">
-            <Navbar.Brand href="#home">{title}</Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav">
-              <FaBars />
-            </Navbar.Toggle>
-
-            <Navbar.Collapse className="justify-end">
-              <div>
-                {navList.map(item => (
-                  <NavItem title={item.title} icon={item.icon} to={item.path} />
-                ))}
-              </div>
-            </Navbar.Collapse>
-          </Container>
+      <Placeholder isOpen={isOpen} transparent={headerTransparent} />
+      <NavbarContainer transparent={headerTransparent} className="fixed left-0 right-0 top-0 z-50">
+        <Navbar
+          expand="md"
+          className={classNames(
+            'max-w-7xl mx-auto px-2 py-1 relative',
+            'transition-width duration-200 ease-in-out',
+            'flex items-center flex-wrap justify-between '
+          )}
+        >
+          <Navbar.Brand href="/" className="py-1">
+            <div style={{ width: 42, height: 42, marginRight: 8, verticalAlign: 'middle', display: 'inline-block' }} />
+            {title}
+          </Navbar.Brand>
+          <Navbar.Toggle
+            aria-controls="basic-navbar-nav"
+            className="block md:hidden"
+            onClick={() => {
+              setOpen(!isOpen);
+            }}
+          >
+            <FaBars />
+          </Navbar.Toggle>
+          <Navbar.Collapse
+            className={classNames('flex-1 md:flex-auto flex-grow flex-shrink', isOpen ? 'block' : 'hidden', 'md:flex ')}
+          >
+            <div className="flex ml-auto">
+              {navList.map(item => (
+                <NavItem title={item.title} icon={item.icon} to={item.path} />
+              ))}
+            </div>
+          </Navbar.Collapse>
         </Navbar>
-      </div>
+      </NavbarContainer>
     </header>
   );
 };
-
-Header.defaultProps = defaultProps;
 
 export default Header;
