@@ -8,11 +8,12 @@
 }
 
 .navbar {
+  transition: background-color 0.3s ease-in-out;
   @apply relative flex flex-wrap items-center justify-between py-1;
 }
 
 .navbar > .container {
-  @apply flex items-center justify-between max-w-7xl mx-auto;
+  @apply flex items-center justify-between max-w-7xl mx-auto w-full;
   flex-wrap: inherit;
 }
 
@@ -22,23 +23,6 @@
   font-size: 1.25rem;
   text-decoration: none;
   white-space: nowrap;
-}
-
-.navbar-nav {
-  display: flex;
-  flex-direction: column;
-  padding-left: 0;
-  margin-bottom: 0;
-  list-style: none;
-}
-
-.navbar-nav .nav-link {
-  padding-right: 0;
-  padding-left: 0;
-}
-
-.navbar-nav .dropdown-menu {
-  position: static;
 }
 
 .navbar-text {
@@ -53,13 +37,18 @@
 }
 
 .navbar-toggler {
-  padding: 0.25rem 0.75rem;
-  font-size: 1.25rem;
-  line-height: 1;
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 0.25rem;
   transition: box-shadow 0.15s ease-in-out;
+  @apply mr-2 py-1 px-3 border border-primary-100 rounded text-primary-100 text-lg bg-transparent;
+}
+
+.navbar-toggler svg {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -78,42 +67,10 @@
   box-shadow: 0 0 0 0.25rem;
 }
 
-.navbar-toggler-icon {
-  display: inline-block;
-  width: 1.5em;
-  height: 1.5em;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100%;
-}
-
-.navbar-nav-scroll {
-  max-height: var(--bs-scroll-height, 75vh);
-  overflow-y: auto;
-}
-
 @media (min-width: 768px) {
   .navbar-expand-md {
     flex-wrap: nowrap;
     justify-content: flex-start;
-  }
-
-  .navbar-expand-md .navbar-nav {
-    flex-direction: row;
-  }
-
-  .navbar-expand-md .navbar-nav .dropdown-menu {
-    position: absolute;
-  }
-
-  .navbar-expand-md .navbar-nav .nav-link {
-    padding-right: 0.5rem;
-    padding-left: 0.5rem;
-  }
-
-  .navbar-expand-md .navbar-nav-scroll {
-    overflow: visible;
   }
 
   .navbar-expand-md .navbar-collapse {
@@ -124,37 +81,6 @@
   .navbar-expand-md .navbar-toggler {
     display: none;
   }
-}
-
-.navbar-expand {
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-}
-
-.navbar-expand .navbar-nav {
-  flex-direction: row;
-}
-
-.navbar-expand .navbar-nav .dropdown-menu {
-  position: absolute;
-}
-
-.navbar-expand .navbar-nav .nav-link {
-  padding-right: 0.5rem;
-  padding-left: 0.5rem;
-}
-
-.navbar-expand .navbar-nav-scroll {
-  overflow: visible;
-}
-
-.navbar-expand .navbar-collapse {
-  display: flex !important;
-  flex-basis: auto;
-}
-
-.navbar-expand .navbar-toggler {
-  display: none;
 }
 
 .sticky-top {
@@ -174,6 +100,7 @@
 
 .header-placeholder {
   height: 0;
+  transition: height 0.35s ease;
 }
 
 .header-placeholder.open {

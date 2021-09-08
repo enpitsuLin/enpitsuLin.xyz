@@ -25,7 +25,7 @@ const Header: FunctionComponent<Props> = ({ siteMetadata, headerTransparent }) =
 
   return (
     <header id="header">
-      <div className={classNames(isOpen && 'dark:bg-skobeloff h-96')}></div>
+      <div className={classNames(isOpen && 'open', 'dark:bg-skobeloff', 'header-placeholder')}></div>
       <div>
         <Navbar
           expand="md"
@@ -46,10 +46,10 @@ const Header: FunctionComponent<Props> = ({ siteMetadata, headerTransparent }) =
             <Navbar.Toggle aria-controls="basic-navbar-nav">
               <FaBars />
             </Navbar.Toggle>
-            <Navbar.Collapse className={classNames('flex-1 md:flex-auto flex-grow flex-shrink')}>
+            <Navbar.Collapse>
               <div className="flex ml-auto">
                 {navList.map(item => (
-                  <NavItem title={item.title} icon={item.icon} to={item.path} />
+                  <NavItem key={item.title} title={item.title} icon={item.icon} to={item.path} />
                 ))}
               </div>
             </Navbar.Collapse>
