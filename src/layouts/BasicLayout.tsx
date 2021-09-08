@@ -25,7 +25,15 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
     setHeaderTransparent(scroll.top <= 10 && isHomePage);
   }, [scroll]);
   return (
-    <div className={classNames('dark:bg-trueGray-850 dark:text-white', 'flex flex-col', 'min-h-screen', 'break-words')}>
+    <div
+      className={classNames(
+        'dark:bg-trueGray-850 dark:text-white',
+        'flex flex-col',
+        'min-h-screen',
+        'break-words',
+        !isHomePage && 'pt-14'
+      )}
+    >
       <Helmet htmlAttributes={{ class: 'theme-dark' }} />
       <Header siteMetadata={siteMetadata} location={location} headerTransparent={headerTransparent} />
       <ToTop />
