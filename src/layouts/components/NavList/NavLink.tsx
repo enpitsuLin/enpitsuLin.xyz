@@ -12,7 +12,7 @@ const NavItem: FunctionComponent<Props> = props => {
   const { title, to } = props;
   return (
     <Link
-      className={classNames('inline-flex items-center px-1 mx-1 h-full', 'text-white')}
+      className={classNames('inline-flex items-center px-1 py-1.5 mx-1 h-full', 'text-white')}
       activeClassName="text-secondary"
       to={to}
     >

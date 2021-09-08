@@ -18,7 +18,11 @@ const Footer: React.FC<Props> = ({ siteMetadata }) => {
   const ThemeList = [
     { name: 'Tailwind', link: 'https://www.tailwindcss.com/' },
     { name: 'React-Icons', link: 'https://react-icons.github.io/react-icons/' },
-    { name: 'Sass', link: 'https://sass-lang.com/' }
+    { name: 'Sass', link: 'https://sass-lang.com/' },
+    {
+      name: 'React-bootstrap',
+      link: 'https://react-bootstrap.github.io/'
+    }
   ];
   return (
     <footer id="footer" className="text-white dark:bg-skobeloff">

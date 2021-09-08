@@ -1,5 +1,5 @@
 import React, { forwardRef } from 'react';
-import './style.scss';
+import './style.css';
 
 interface Props {
   article: GatsbyTypes.MarkdownRemark;

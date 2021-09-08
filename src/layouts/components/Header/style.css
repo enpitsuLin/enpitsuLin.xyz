@@ -38,7 +38,7 @@
 
 .navbar-toggler {
   transition: box-shadow 0.15s ease-in-out;
-  @apply mr-2 py-1 px-3 border border-primary-100 rounded text-primary-100 text-lg bg-transparent;
+  @apply mr-2 py-0.5 px-2 border border-primary-100 rounded text-primary-100 bg-transparent;
 }
 
 .navbar-toggler svg {
@@ -103,8 +103,10 @@
   transition: height 0.35s ease;
 }
 
-.header-placeholder.open {
-  height: 300px;
+@media (max-width: 768px) {
+  .header-placeholder.open {
+    height: 256px;
+  }
 }
 
 @media (max-width: 768px) {

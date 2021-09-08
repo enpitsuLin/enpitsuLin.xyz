@@ -9,7 +9,6 @@ const siteMetadata = {
 };
 
 const plugins = [
-  `gatsby-plugin-sass`,
   `gatsby-plugin-image`,
   {
     resolve: `gatsby-source-filesystem`,

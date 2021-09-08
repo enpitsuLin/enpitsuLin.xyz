@@ -1,11 +1,10 @@
 import React, { FunctionComponent, useState } from 'react';
 import { WindowLocation } from '@reach/router';
-import { FaHome, FaInfo, FaSun, FaBars, FaBookOpen } from 'react-icons/fa';
+import { FaHome, FaInfo, FaBars, FaBookOpen } from 'react-icons/fa';
 import { Navbar, Container } from 'react-bootstrap';
 import classNames from 'classnames';
-import NavItem from './NavItem';
 import './style.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import NavList from '../NavList';
 
 interface Props {
   location: WindowLocation;
@@ -32,8 +31,8 @@ const Header: FunctionComponent<Props> = ({ siteMetadata, headerTransparent }) =
           fixed="top"
           variant="dark"
           className={classNames(headerTransparent ? 'bg-transparent' : 'dark:bg-skobeloff')}
-          onToggle={v => {
-            setOpen(v);
+          onToggle={open => {
+            setOpen(open);
           }}
         >
           <Container>
@@ -46,12 +45,8 @@ const Header: FunctionComponent<Props> = ({ siteMetadata, headerTransparent }) =
             <Navbar.Toggle aria-controls="basic-navbar-nav">
               <FaBars />
             </Navbar.Toggle>
-            <Navbar.Collapse>
-              <div className="flex ml-auto">
-                {navList.map(item => (
-                  <NavItem key={item.title} title={item.title} icon={item.icon} to={item.path} />
-                ))}
-              </div>
+            <Navbar.Collapse id="basic-navbar-nav">
+              <NavList navList={navList} />
             </Navbar.Collapse>
           </Container>
         </Navbar>

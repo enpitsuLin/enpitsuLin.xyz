@@ -9,6 +9,7 @@ module.exports = {
     ],
     'declaration-block-trailing-semicolon': null,
     'no-descending-specificity': null,
-    'block-no-empty': null
+    'block-no-empty': null,
+    'font-family-no-missing-generic-family-keyword': null
   }
 };
