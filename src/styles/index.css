@@ -10,6 +10,10 @@ html {
   -moz-osx-font-smoothing: grayscale;
 }
 
+#___gatsby {
+  width: 100vw;
+}
+
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {
   width: 6px;
