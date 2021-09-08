@@ -2,7 +2,7 @@ import React from 'react';
 import { WindowLocation } from '@reach/router';
 import { FaHome, FaInfo, FaSun, FaBookOpen } from 'react-icons/fa';
 import classNames from 'classnames';
-import NavLink from './NavLink';
+import NavLink from './Nav/NavLink';
 import './style.css';
 import Brand from './Nav/NavBrand';
 import NavButton from './Nav/NavButton';
@@ -25,25 +25,18 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
 
   return (
     <header id="header" className={classNames('block')}>
-      <div className={classNames(!isRootPath && 'h-14')}></div>
+      <div className={classNames(!isRootPath && 'h-14 dark:bg-skobeloff')}></div>
       <div
         className={classNames(
           'fixed left-0 right-0 top-0',
           isRootPath && 'transition-background-color duration-300',
-          headerTransparent ? 'bg-transparent' : 'dark:bg-skobeloff'
+          isRootPath && headerTransparent ? 'bg-transparent' : 'dark:bg-skobeloff'
         )}
         style={{ zIndex: 1000 }}
       >
         <nav className={classNames('flex items-center', 'max-w-7xl mx-auto relative px-2 h-14')}>
-          <Brand
-            title={title as string}
-            logo={
-              <div
-                style={{ width: 42, height: 42, marginRight: 8, verticalAlign: 'middle', display: 'inline-block' }}
-              />
-            }
-          />
-          <NavButton />
+          <Brand title={title as string} logo={<div className="w-10 h-10 inline-block mr-2 align-middle" />} />
+          <NavButton navList={navList} />
           <div className="absolute right-0 hidden h-full items-center sm:flex">
             {navList.map((item, index) => (
               <NavLink key={index} title={item.title} icon={item.icon} to={item.path} />

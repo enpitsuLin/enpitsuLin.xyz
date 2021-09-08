@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { Link } from 'gatsby';
 import React, { FunctionComponent, ReactElement } from 'react';
 
+
 interface Props {
   title: string;
   logo: ReactElement;

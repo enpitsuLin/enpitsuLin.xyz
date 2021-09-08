@@ -1,12 +1,27 @@
 import classNames from 'classnames';
-import React, { FunctionComponent, HtmlHTMLAttributes, useState } from 'react';
+import React, { FunctionComponent, HtmlHTMLAttributes, useEffect, useState } from 'react';
 import { Offcanvas } from 'react-bootstrap';
-import { FaBars } from 'react-icons/fa';
+import { FaBars, FaTimes } from 'react-icons/fa';
+import { IconType } from 'react-icons';
+import NavLink from './NavLink';
+import { useResponsive } from '@/hooks/useResponsive';
 
-interface Props extends HtmlHTMLAttributes<HTMLButtonElement> {}
+interface Props extends HtmlHTMLAttributes<HTMLButtonElement> {
+  navList: {
+    path: string;
+    title: string;
+    icon: IconType;
+  }[];
+}
 
-const NavButton: FunctionComponent<Props> = props => {
+const NavButton: FunctionComponent<Props> = ({ navList }) => {
   const [isOpen, setOpen] = useState(false);
+  const responsive = useResponsive();
+  useEffect(() => {
+    if (responsive.md) {
+      setOpen(false);
+    }
+  }, [responsive]);
   return (
     <>
       <Offcanvas
@@ -16,12 +31,28 @@ const NavButton: FunctionComponent<Props> = props => {
         }}
         placement="end"
       >
-        <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+        <Offcanvas.Header>
+          <button onClick={() => setOpen(false)}>
+            <FaTimes size={20} />
+          </button>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          Some text as placeholder. In real life you can have the elements you have chosen. Like, text, images, lists,
-          etc.
+          <div className="flex flex-col" style={{ marginRight: '-1rem' }}>
+            {navList.map((item, index) => (
+              <div
+                key={index}
+                className={classNames(
+                  'hover:bg-primary-100 hover:bg-opacity-20',
+                  'transition-background-color duration-300',
+                  'cursor-pointer',
+                  'rounded-l-3xl',
+                  'pl-4 py-2'
+                )}
+              >
+                <NavLink title={item.title} to={item.path} icon={item.icon} className="text-lg" />
+              </div>
+            ))}
+          </div>
         </Offcanvas.Body>
       </Offcanvas>
       <button
