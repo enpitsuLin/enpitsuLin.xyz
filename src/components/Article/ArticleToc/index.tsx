@@ -12,8 +12,8 @@ interface Props {
 const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) => {
   return (
     <div className={classNames('hidden md:block', 'relative h-auto', 'w-1/4 flex-1/4 text-sm')}>
-      <Affix offsetTop="3.5rem">
-        <div className="border-l border-white border-opacity-25 pl-4 py-1 mt-6 ml-4">
+      <Affix offsetTop="3.5rem" className="pt-1">
+        <div className="border-l border-white border-opacity-25 pl-4 py-1 mt-5 ml-4">
           <div className="flex items-center py-1">
             <FaListUl size={12} className="mr-2" />
             <span>目录</span>
