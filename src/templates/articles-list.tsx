@@ -5,6 +5,7 @@ import classNames from 'classnames';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
+import Card from 'react-bootstrap/Card';
 
 interface Props extends PageRendererProps {
   data: {
@@ -27,7 +28,28 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
         <div className={classNames('mx-auto max-w-7xl', 'p-4')}>
           <div className="flex">
             <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
-            <div className="w-1/3 hidden md:block">my information card</div>
+            <div className="w-1/3 hidden md:block px-4">
+              <div>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>There to be search card</Card.Text>
+                  </Card.Body>
+                </Card>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>There to be tag card</Card.Text>
+                  </Card.Body>
+                </Card>
+                <Card>
+                  <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Text>There to be tag card</Card.Text>
+                  </Card.Body>
+                </Card>
+              </div>
+            </div>
           </div>
         </div>
       </AnimatedContent>

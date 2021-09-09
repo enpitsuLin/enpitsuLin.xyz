@@ -1,7 +1,6 @@
 @import './font.css';
 
 /* CSS Custom Properties Definitions */
-
 html {
   font-family: Overpass, 'GlowSansSC', 'Helvetica Neue', 'pingfang sc', 'microsoft yahei', sans-serif;
   -webkit-text-size-adjust: 100%;
