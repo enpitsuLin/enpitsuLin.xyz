@@ -39,8 +39,6 @@ cnpm install
 npm config set registry https://registry.npm.taobao.org
 ```
 
-### PS
-
 或者可以仅将 node-sass 的下载源更改成淘宝镜像
 
 ```shell

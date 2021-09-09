@@ -7,6 +7,7 @@ import AnimatedContent from '@/components/AnimatedContent';
 import ArticleToc from '@/components/Article/ArticleToc';
 import useScroll from '@/hooks/useScroll';
 import ArticleContent from '@/components/Article/ArticleContent';
+import classNames from 'classnames';
 
 const __MAIN_HEADER_HEIGHT__ = 54.5;
 
@@ -28,7 +29,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const [activeHeading, setActiveHeading] = useState('');
 
   const article = data.markdownRemark;
-  const { previous, next } = data;
+  /* const { previous, next } = data; */
   const headings = (article.headings as GatsbyTypes.MarkdownHeading[]) || [];
 
   useEffect(() => {
@@ -68,6 +69,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
               }}
             />
           </div>
+          {/* 暂时不使用上下篇文章
           <div className="h-96"></div>
           <nav className="article-nav h-96">
             {previous && (
@@ -81,7 +83,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                 {next.frontmatter?.title}
               </Link>
             )}
-          </nav>
+          </nav> */}
         </article>
       </AnimatedContent>
     </BasicLayout>

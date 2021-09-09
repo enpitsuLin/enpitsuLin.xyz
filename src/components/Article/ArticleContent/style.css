@@ -5,7 +5,7 @@
   --headings-color: #ddd;
   --bg-color: #333;
   --bg-highlight: #282828;
-  --bg-dark: #37363a;
+  --bg-dark: #0000;
   --border-dark: #555;
 }
 /* prettier-ignore */
@@ -45,6 +45,13 @@
   color: var(--text-color);
   line-height: 1.75rem;
   margin: 0 0 7.5px;
+}
+
+.article-content.excerpt,
+.article-content.excerpt p {
+  font-size: 0.875rem;
+  margin-bottom: 3px;
+  line-height: 1.5rem;
 }
 
 .article-content a {
