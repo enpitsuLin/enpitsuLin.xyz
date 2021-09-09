@@ -55,13 +55,18 @@ tags: [React, Typescript, Gatsby, blog]
 - 研究 Header 的响应化浪费很多时间 最后决定使用现成的组件库重构一下各种地方
 - 最后还是选择放弃响应式 Header 选择在小屏幕上使用抽屉式导航
 
+9-9
+
+- 基本完成基础的开发
+- 增加了 github actions 来部署到 github page
+
 # 开发中遇到的问题
 
 ## Cannot find namespace 'GatsbyTypes'.
 
-因为使用了 `gatsby-plugin-typegen` 这个插件会自动生成整个项目中所需包括`graphql查询语句`返回的类型，然后再对配置文件进行 type-safe 化中直接使用了生成的 GatsbyTypes 命名空间但是编译无法通过
+因为使用了 `gatsby-plugin-typegen` 这个插件会自动生成整个项目中所需包括`graphql查询语句`返回的类型，同时在修改然后再对`gatsby-node.ts`配置文件时，对生命钩子的使用中想加强生成页面的逻辑，直接使用了生成的 GatsbyTypes 命名空间但是编译无法通过
 
-在`gatsby-node.ts`开头加入以下，手动为编译器添加声明文件
+后来想到在`gatsby-node.ts`开头加入以下，手动为编译器添加声明文件
 
 ```ts
 /// <reference path="./src/gatsby-types.d.ts" />
@@ -69,8 +74,16 @@ tags: [React, Typescript, Gatsby, blog]
 
 `./src/gatsby-types.d.ts`这个路径是插件配置中导出的路径
 
-## typescript 下的生命周期钩子
-
-其实这部分必要性不是很大，虽然但是确实增强了类型强度，不过和自己代码中交互有限，不能将一些类型传递到页面模板中
-
 # Hello Gatsby :)
+
+整体大概耗费时间 2 周 40+小时，从零搭建起到可以投入使用算是挺快的，这个过程中也提升了自己使用 ts 和 react 的技巧。
+
+# 未来可能要做的事
+
+最重要的是归档和关于页面的设计和开发，归档页面是按文章发布的时间显示一条时间轴。
+
+以及文章列表已经设计出的右栏部分，该部分有关键词搜索，按标签和分类检索的卡片功能。
+
+同时还有一部分页面的样式需要调整的，比如首页其实非常的空旷，以及以后应该要加上可能会用上的评论系统，还有网站的图标也是需要一个灵感来设计。
+
+~~看起来任务还听多的嘛，先用着好了~~
