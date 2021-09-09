@@ -4,7 +4,7 @@ const siteMetadata = {
   title: `enpitsuLin's Blog`,
   author: `enpitsuLin`,
   description: `一根有梦想的笔 想描绘脑海里的场景.`,
-  siteUrl: `http://404.nothing`,
+  siteUrl: `https://enpitsulin.github.io/`,
   lastUpdateTime: new Date()
 };
 
@@ -119,8 +119,8 @@ const plugins = [
               return Object.assign({}, node.frontmatter, {
                 description: node.excerpt,
                 date: node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + node.fields.slug,
-                guid: site.siteMetadata.siteUrl + node.fields.slug,
+                url: site.siteMetadata.siteUrl + `articles/` + node.fields.slug,
+                guid: site.siteMetadata.siteUrl + `articles/` + node.fields.slug,
                 custom_elements: [{ 'content:encoded': node.html }]
               });
             });
@@ -152,13 +152,13 @@ const plugins = [
   {
     resolve: `gatsby-plugin-manifest`,
     options: {
-      name: `Gatsby Starter Blog`,
-      short_name: `GatsbyJS`,
+      name: `enpitsuLin's Blog`,
+      short_name: `enpitsuLin`,
       start_url: `/`,
       background_color: `#ffffff`,
-      theme_color: `#663399`,
+      theme_color: `#156363`,
       display: `minimal-ui`,
-      icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
+      icon: `src/images/favicon.ico` // This path is relative to the root of the site.
     }
   },
   `gatsby-plugin-react-helmet`,
