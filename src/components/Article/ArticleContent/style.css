@@ -1,6 +1,6 @@
 .article-content {
   --highlight-color: rgb(0, 200, 200);
-  --text-color: #ddd;
+  --text-color: #dfdfdf;
   --inline-code-color: #d22d7a;
   --headings-color: #ddd;
   --bg-color: #333;
@@ -49,6 +49,7 @@
 
 .article-content.excerpt,
 .article-content.excerpt p {
+  color: var(--text-color);
   font-size: 0.875rem;
   margin-bottom: 3px;
   line-height: 1.5rem;

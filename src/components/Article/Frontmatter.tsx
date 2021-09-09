@@ -23,7 +23,7 @@ const Frontmatter: FunctionComponent<Props> = ({ article }) => {
 
   const { date, tags } = frontmatter as GatsbyTypes.Frontmatter;
   return (
-    <div className="py-2 text-xs">
+    <div className="py-2 text-xs leading-6">
       <FrontMatterItem icon={FaTags}>
         {tags?.map(tag => (
           <Link
