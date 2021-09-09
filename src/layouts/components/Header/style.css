@@ -1,0 +1,72 @@
+.offcanvas {
+  @apply fixed bottom-0 flex flex-col max-w-full bg-clip-border dark:bg-skobeloff text-white;
+  z-index: 1045;
+  visibility: hidden;
+  outline: 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .offcanvas {
+    transition: none;
+  }
+}
+
+.offcanvas-backdrop {
+  @apply fixed top-0 left-0 w-screen h-screen bg-black;
+  z-index: 1040;
+}
+.offcanvas-backdrop.fade {
+  opacity: 0;
+}
+.offcanvas-backdrop.show {
+  opacity: 0.5;
+}
+
+.offcanvas-header {
+  @apply flex items-center justify-start p-4;
+}
+
+.offcanvas-title {
+  margin-bottom: 0;
+  line-height: 1.5;
+}
+
+.offcanvas-body {
+  flex-grow: 1;
+  padding: 1rem 1rem;
+  overflow-y: auto;
+}
+
+.offcanvas-start {
+  @apply top-0 w-80;
+  left: 0;
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateX(-100%);
+}
+
+.offcanvas-end {
+  @apply top-0 w-80;
+  right: 0;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+}
+
+.offcanvas-top {
+  @apply right-0 left-0 max-h-full;
+  top: 0;
+  height: 30vh;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateY(-100%);
+}
+
+.offcanvas-bottom {
+  @apply right-0 left-0 max-h-full;
+  height: 30vh;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  transform: translateY(100%);
+}
+
+.offcanvas.show {
+  transform: none;
+}

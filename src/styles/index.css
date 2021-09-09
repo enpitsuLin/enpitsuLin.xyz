@@ -1,0 +1,36 @@
+@import './font.css';
+
+/* CSS Custom Properties Definitions */
+
+html {
+  font-family: Overpass, 'GlowSansSC', 'Helvetica Neue', 'pingfang sc', 'microsoft yahei', sans-serif;
+  -webkit-text-size-adjust: 100%;
+  overflow-y: scroll;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#___gatsby {
+  width: calc(100vw - 6px);
+}
+
+/* 设置滚动条的样式 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  background: #19a9a950;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #19a9a9a6;
+}
