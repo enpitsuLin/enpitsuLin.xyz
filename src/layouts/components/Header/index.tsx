@@ -1,6 +1,6 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
-import { FaHome, FaInfo, FaSun, FaBookOpen } from 'react-icons/fa';
+import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment } from 'react-icons/fa';
 import classNames from 'classnames';
 import NavLink from './Nav/NavLink';
 import './style.css';
@@ -20,6 +20,7 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
   const navList = [
     { path: '/', title: '首页', icon: FaHome },
     { path: '/articles', title: '文章', icon: FaBookOpen },
+    { path: '/comments', title: '留言', icon: FaComment },
     { path: '/about', title: '关于', icon: FaInfo }
   ];
 
