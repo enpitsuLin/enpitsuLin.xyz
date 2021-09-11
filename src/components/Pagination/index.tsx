@@ -1,5 +1,33 @@
 import React, { FunctionComponent, useState } from 'react';
 import classNames from 'classnames';
+import styled from 'styled-components';
+
+const Pager = styled.ul`
+  display: flex;
+  user-select: none;
+  cursor: pointer;
+  li {
+    background-color: var(--primary-200);
+    color: #fff;
+    height: 2rem;
+    width: 2rem;
+    text-align: center;
+    line-height: 2rem;
+
+    &:first-child {
+      border-top-left-radius: 6px;
+      border-bottom-left-radius: 6px;
+    }
+    &:last-child {
+      border-top-right-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+    &:hover,
+    &.current {
+      background-color: var(--primary-100);
+    }
+  }
+`;
 
 interface Props {
   pageCount: number;
@@ -10,14 +38,10 @@ interface Props {
 const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, onChange }) => {
   const [current, setCurrent] = useState(currentPage);
 
-  const pageItemCls = classNames('hover:bg-primary-100', 'leading-8 text-center text-white', 'h-8 w-8');
   return (
     <div>
-      <ul className="flex select-none cursor-pointer">
-        <li
-          className={classNames(pageItemCls, 'bg-primary-200')}
-          style={{ borderTopLeftRadius: '6px', borderBottomLeftRadius: '6px' }}
-        >
+      <Pager>
+        <li>
           <span>‹</span>
         </li>
         {Array.from({ length: pageCount }).map((_, index) => {
@@ -28,19 +52,16 @@ const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, onChange
                 onChange && onChange(index + 1);
                 setCurrent(index + 1);
               }}
-              className={classNames(current == index + 1 ? 'bg-primary-100' : 'bg-primary-200', pageItemCls)}
+              className={classNames(current == index + 1 && 'current')}
             >
               <span>{index + 1}</span>
             </li>
           );
         })}
-        <li
-          className={classNames(pageItemCls, 'bg-primary-200')}
-          style={{ borderTopRightRadius: '6px', borderBottomRightRadius: '6px' }}
-        >
+        <li>
           <span>›</span>
         </li>
-      </ul>
+      </Pager>
     </div>
   );
 };

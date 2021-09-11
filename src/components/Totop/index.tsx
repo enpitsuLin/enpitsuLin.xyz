@@ -1,7 +1,21 @@
 import useScroll from '@/hooks/useScroll';
 import React, { useEffect, useState, useCallback, FunctionComponent } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
-import classNames from 'classnames';
+import styled from 'styled-components';
+
+const ToTopWrap = styled.div<{ visible: boolean }>`
+  position: fixed;
+  bottom: 2.25rem;
+  right: 2.24rem;
+  transition: opacity ease-in-out 0.3s;
+  z-index: 1001;
+  opacity: ${props => (props.visible ? 100 : 0)};
+  .to-top {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+    cursor: pointer;
+  }
+`;
 
 const ToTop: FunctionComponent = () => {
   const scroll = useScroll();
@@ -16,16 +30,9 @@ const ToTop: FunctionComponent = () => {
     setVisible(scroll.top > 20);
   }, [scroll]);
   return (
-    <div
-      onClick={scrollToTop}
-      className={classNames(
-        'fixed bottom-9 right-5 md:right-9 z-50',
-        'duration-300 transition-opacity',
-        visible ? 'opacity-100' : 'opacity-0'
-      )}
-    >
-      <FaArrowUp className="text-4xl text-white cursor-pointer" />
-    </div>
+    <ToTopWrap onClick={scrollToTop} visible={visible}>
+      <FaArrowUp className="to-top text-4xl" />
+    </ToTopWrap>
   );
 };
 

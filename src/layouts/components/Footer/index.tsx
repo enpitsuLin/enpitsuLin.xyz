@@ -1,47 +1,70 @@
 import React from 'react';
-import classNames from 'classnames';
-import LinkList from './LinkList';
+import { Row, Col } from 'react-bootstrap';
+import List from './List';
 import Introduction from './introduction';
+import styled from 'styled-components';
+
+const Container = styled.footer`
+  /* text-align: center; */
+  color: white;
+  background-color: var(--skobeloff);
+  padding: 32px 0;
+  hr {
+    color: white;
+  }
+  .footer-contents {
+    max-width: 80rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+`;
+
+const FooterBottom = styled.p`
+  text-align: center;
+  padding-bottom: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.24rem;
+`;
 
 interface Props {
   siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
 }
 
+const poweredBy = [
+  { name: 'React', link: 'https://reactjs.org/' },
+  { name: 'Gatsby', link: 'https://www.gatsbyjs.org/' },
+  { name: 'GitHub Pages', link: 'https://pages.github.com/' },
+  { name: 'Typescript', link: 'https://www.typescriptlang.org/' }
+];
+const themedWith = [
+  { name: 'styled-components', link: 'https://www.styled-components.com/' },
+  { name: 'React Icons', link: 'https://react-icons.github.io/react-icons/' },
+  { name: 'React Bootstrap', link: 'https://react-bootstrap.github.io/' },
+  { name: 'Bootstrap', link: 'https://getbootstrap.com/' }
+];
+
 const Footer: React.FC<Props> = ({ siteMetadata }) => {
   const { title } = siteMetadata;
 
-  const PoweredList = [
-    { name: 'React', link: 'https://reactjs.org/' },
-    { name: 'Gatsby', link: 'https://www.gatsbyjs.org/' },
-    { name: 'Typescript', link: 'https://www.typescriptlang.org/' }
-  ];
-  const ThemeList = [
-    { name: 'Tailwind', link: 'https://www.tailwindcss.com/' },
-    { name: 'react-Icons', link: 'https://react-icons.github.io/react-icons/' },
-    {
-      name: 'react-bootstrap',
-      link: 'https://react-bootstrap.github.io/'
-    }
-  ];
   return (
-    <footer id="footer" className="text-white dark:bg-skobeloff">
-      <div className={classNames('mx-auto max-w-7xl p-2', 'flex flex-row')}>
-        <Introduction className="py-4 w-full text-center md:w-4/6 md:text-left" />
-        <div className="w-2/6 hidden md:block">
-          <div className="py-4">
-            <p className="mb-2">🚀 强力驱动</p>
-            <LinkList links={PoweredList} />
-          </div>
-          <div className="py-4">
-            <p className="mb-2">🎨 描绘主题</p>
-            <LinkList links={ThemeList} />
-          </div>
-        </div>
-      </div>
-      <p className="text-center pb-4 text-sm">
+    <Container id="footer">
+      <Row className="footer-contents">
+        <Col>
+          <Introduction />
+        </Col>
+        <Col className="d-none d-sm-none d-md-block" md={3} sm={0}>
+          <h6>🚀 强力驱动</h6>
+          <List links={poweredBy} />
+        </Col>
+        <Col className="d-none d-sm-none d-md-block" md={3} sm={0}>
+          <h6>🎨 描绘主题</h6>
+          <List links={themedWith} />
+        </Col>
+      </Row>
+      <FooterBottom>
         &copy;{new Date().getFullYear()} | {title}
-      </p>
-    </footer>
+      </FooterBottom>
+    </Container>
   );
 };
 

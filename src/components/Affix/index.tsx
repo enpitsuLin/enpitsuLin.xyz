@@ -1,5 +1,10 @@
 import React, { FunctionComponent, HtmlHTMLAttributes, useRef } from 'react';
 import classNames from 'classnames';
+import styled from 'styled-components';
+
+const Sticky = styled.div`
+  position: sticky;
+`;
 
 interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
   offsetTop: number | string;
@@ -15,16 +20,11 @@ const Affix: FunctionComponent<Props> = ({ offsetTop = defaultProps.offsetTop, t
   const affix = useRef<HTMLDivElement>(null);
 
   return (
-    <div
-      {...attrs}
-      className={classNames(attrs.className, 'affix-wrap', 'sticky')}
-      style={{ top: offsetTop }}
-      ref={affixWrap}
-    >
+    <Sticky {...attrs} className={classNames(attrs.className, 'affix-wrap')} style={{ top: offsetTop }} ref={affixWrap}>
       <div ref={affix} style={{ width: affixWrap.current?.offsetWidth }}>
         {attrs.children}
       </div>
-    </div>
+    </Sticky>
   );
 };
 

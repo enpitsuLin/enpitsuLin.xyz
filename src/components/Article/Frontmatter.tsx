@@ -1,20 +1,31 @@
-import classNames from 'classnames';
-import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
+import { Link } from 'gatsby';
 import { FaCalendar, FaTags, FaFileSignature, FaStopwatch } from 'react-icons/fa';
-import { IconType } from 'react-icons';
+import styled from 'styled-components';
 import { calcArticleWordCount } from '@/utils/article';
+import FrontMatterItem from './ArticleToc/FrontmatterItem';
+
+const ArticleFrontMatter = styled.div`
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  font-size: 0.75rem;
+  line-height: 1.5rem;
+`;
+
+const TagLink = styled(Link)`
+  border-radius: 0.375rem;
+  margin-right: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  color: #fff;
+  background-color: rgb(50, 179, 179);
+  &:hover {
+    background-color: rgb(25, 169, 169);
+  }
+`;
 
 type Props = {
   article: GatsbyTypes.MarkdownRemark;
 };
-
-const FrontMatterItem: FunctionComponent<{ icon: IconType; label?: string }> = props => (
-  <span className="inline-flex items-center mr-1">
-    <props.icon className="my-auto mr-1" />
-    <span>{props.label || props.children}</span>
-  </span>
-);
 
 const Frontmatter: FunctionComponent<Props> = ({ article }) => {
   const frontmatter = article.frontmatter;
@@ -23,27 +34,18 @@ const Frontmatter: FunctionComponent<Props> = ({ article }) => {
 
   const { date, tags } = frontmatter as GatsbyTypes.Frontmatter;
   return (
-    <div className="py-2 text-xs leading-6">
+    <ArticleFrontMatter>
       <FrontMatterItem icon={FaTags}>
         {tags?.map(tag => (
-          <Link
-            key={tag}
-            to="/"
-            className={classNames(
-              'rounded-md',
-              'mr-1 px-2 py-0.5',
-              'leading-tight text-white',
-              'bg-primary-200 hover:bg-primary-300'
-            )}
-          >
+          <TagLink key={tag} to="/">
             {tag}
-          </Link>
+          </TagLink>
         ))}
       </FrontMatterItem>
       <FrontMatterItem icon={FaCalendar} label={date} />
       <FrontMatterItem icon={FaStopwatch} label={`可能需要${timeToRead}分钟阅读`} />
       <FrontMatterItem icon={FaFileSignature} label={`${words}字`} />
-    </div>
+    </ArticleFrontMatter>
   );
 };
 

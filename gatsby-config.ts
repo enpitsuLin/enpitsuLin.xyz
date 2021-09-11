@@ -179,7 +179,13 @@ const plugins = [
       }
     }
   },
-  `gatsby-plugin-postcss`
+  `gatsby-plugin-postcss`,
+  {
+    resolve: `gatsby-plugin-styled-components`,
+    options: {
+      // Add any options here
+    },
+  },
 ];
 
 export { siteMetadata, plugins };

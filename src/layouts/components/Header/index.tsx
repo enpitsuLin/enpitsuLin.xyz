@@ -1,11 +1,47 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
 import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import NavLink from './Nav/NavLink';
-import './style.css';
 import Brand from './Nav/NavBrand';
 import NavButton from './Nav/NavButton';
+import styled from 'styled-components';
+
+const HeaderPlaceHolder = styled.div<{ visible: boolean }>`
+  ${props => (props.visible ? 'background-color:var(--skobeloff);height:3.5rem' : '')}
+`;
+
+const NavWrap = styled.div<{ isRootPath: boolean; transparent: boolean }>`
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+  ${props => (props.isRootPath ? 'transition:background-color .3s;' : '')}
+  background:${props => (props.isRootPath && props.transparent ? '#0000' : 'var(--skobeloff)')};
+`;
+
+const Nav = styled.nav`
+  display: flex;
+  align-items: center;
+  max-width: 80rem;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 0.5rem;
+  height: 3.5rem;
+`;
+
+const NavContainer = styled.div`
+  position: absolute;
+  right: 0;
+  display: none;
+  height: 100%;
+  @media (min-width: 768px) {
+    display: flex;
+    align-items: center;
+  }
+`;
 
 interface Props {
   location: WindowLocation;
@@ -26,37 +62,21 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
 
   return (
     <header id="header" className={classNames('block')}>
-      <div className={classNames(!isRootPath && 'h-14 dark:bg-skobeloff')}></div>
-      <div
-        className={classNames(
-          'fixed left-0 right-0 top-0',
-          isRootPath && 'transition-background-color duration-300',
-          isRootPath && headerTransparent ? 'bg-transparent' : 'dark:bg-skobeloff'
-        )}
-        style={{ zIndex: 1000 }}
-      >
-        <nav className={classNames('flex items-center', 'max-w-7xl mx-auto relative px-2 h-14')}>
-          <Brand title={title as string} logo={<div className="w-10 h-10 inline-block mr-2 align-middle" />} />
+      <HeaderPlaceHolder visible={!isRootPath} />
+      <NavWrap isRootPath={isRootPath} transparent={headerTransparent} style={{ zIndex: 1000 }}>
+        <Nav>
+          <Brand title={title as string} logo={<div />} />
           <NavButton navList={navList} />
-          <div className="absolute right-0 hidden h-full items-center sm:flex">
+          <NavContainer>
             {navList.map((item, index) => (
               <NavLink key={index} title={item.title} icon={item.icon} to={item.path} />
             ))}
-            <button
-              className={classNames(
-                'px-4 py-1',
-                'transition-all',
-                'bg-gray-700 rounded hover:bg-gray-600',
-                'text-white',
-                'cursor-not-allowed'
-              )}
-              title="暂时未开发XD"
-            >
+            <Button variant="secondary" title="暂时未开发XD">
               <FaSun />
-            </button>
-          </div>
-        </nav>
-      </div>
+            </Button>
+          </NavContainer>
+        </Nav>
+      </NavWrap>
     </header>
   );
 };

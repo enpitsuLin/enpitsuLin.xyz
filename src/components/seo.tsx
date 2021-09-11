@@ -56,10 +56,7 @@ const Seo: FunctionComponent<Props> = ({ description, lang, meta, title }) => {
       title={title}
       titleTemplate={defaultTitle ? `%s | ${defaultTitle}` : null}
       meta={defaultMeta.concat(meta ? meta : [])}
-      link={[
-        { rel: 'stylesheet', href: '//cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css' },
-        { rel: 'icon', type: 'image/ico', href: FavIcon }
-      ]}
+      link={[{ rel: 'icon', type: 'image/ico', href: FavIcon }]}
     ></Helmet>
   );
 };

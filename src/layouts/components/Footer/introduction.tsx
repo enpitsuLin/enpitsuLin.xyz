@@ -1,34 +1,21 @@
-import React, { FunctionComponent, useEffect, useState, HtmlHTMLAttributes } from 'react';
+import useSiteMetadata from '@/hooks/useSiteMetadata';
 import dayjs from 'dayjs';
-import { getDiffToNow } from '@/utils/datetime';
-
-const __BLOG_START_TIME__ = dayjs('2019-03-26 00:00:00');
-
-const getBlogDuration = () => {
-  return getDiffToNow(__BLOG_START_TIME__);
-};
+import React, { FunctionComponent, HtmlHTMLAttributes } from 'react';
+import RunningTime from './RunningTime';
 
 const Introduction: FunctionComponent<HtmlHTMLAttributes<HTMLDivElement>> = attrs => {
-  const [diff, setDiff] = useState(getBlogDuration());
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setDiff(getBlogDuration());
-    }, 1000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  const { site } = useSiteMetadata();
+  const lastUpdateTime = dayjs(site?.siteMetadata?.lastUpdateTime || '');
   return (
     <div {...attrs}>
-      <p className="mb-4 text-base">
+      <p>
         👨🏼‍💻 本网站由
         <a href="https://github.com/enpitsulin" target="_blank" className="text-primary-400 hover:underline mx-1">
           enpitsulin
         </a>
         摸鱼时编写
       </p>
-      <p className="mb-4 text-base">
+      <p>
         📝 本站文章遵循
         <a
           href="https://creativecommons.org/licenses/by-sa/4.0/"
@@ -39,16 +26,11 @@ const Introduction: FunctionComponent<HtmlHTMLAttributes<HTMLDivElement>> = attr
         </a>
         协议
       </p>
-      <p className="mb-4 text-base">
-        <span>
-          📅 博客已经运行
-          <span>
-            <span className="font-bold px-1">{Math.floor(diff.asDays())}</span>天
-            <span className="font-bold px-1">{diff.hours()}</span>时
-            <span className="font-bold px-1">{diff.minutes()}</span>分
-            <span className="font-bold px-1">{diff.seconds()}</span>秒
-          </span>
-        </span>
+      <p>
+        ⏲️ 最后更新:<strong>{lastUpdateTime.format('YYYY-MM-DD[T]HH:mm:ssZ[Z]')}</strong>
+      </p>
+      <p>
+        <RunningTime />
       </p>
     </div>
   );

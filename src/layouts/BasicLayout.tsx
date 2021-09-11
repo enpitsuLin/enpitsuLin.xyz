@@ -1,8 +1,6 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { Helmet } from 'react-helmet';
 import { PageRendererProps } from 'gatsby';
-import classNames from 'classnames';
-
+import styled from 'styled-components';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 import useScroll from '@/hooks/useScroll';
 
@@ -10,7 +8,26 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ToTop from '@/components/Totop';
 
+import { GlobalStyle } from '@/styles/global';
+
 interface Props extends PageRendererProps {}
+
+const Layout = styled.div`
+  background: var(--background-color);
+  color: var(--text-color);
+  display: flex;
+  flex-direction: column;
+
+  overflow-wrap: break-word;
+`;
+
+const MainContent = styled.main`
+  flex: 0 0 100%;
+  min-height: 100vh;
+  > div {
+    height: 100%;
+  }
+`;
 
 const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
   const data = useSiteMetadata();
@@ -25,16 +42,16 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
     setHeaderTransparent(scroll.top <= 10 && isRootPath);
   }, [scroll]);
   return (
-    <div className={classNames('dark:bg-trueGray-850 dark:text-white', 'flex flex-col', 'min-h-screen', 'break-words')}>
-      <Helmet htmlAttributes={{ class: 'theme-dark' }} />
+    <Layout>
+      <GlobalStyle />
       <Header siteMetadata={siteMetadata} location={location} headerTransparent={headerTransparent} />
       <ToTop />
-      <main className={classNames('flex-1', 'min-h-screen')}>
-        <div className="h-full">{children}</div>
-      </main>
+      <MainContent>
+        <div>{children}</div>
+      </MainContent>
 
       <Footer siteMetadata={siteMetadata}></Footer>
-    </div>
+    </Layout>
   );
 };
 

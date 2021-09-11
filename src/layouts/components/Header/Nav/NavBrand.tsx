@@ -1,7 +1,14 @@
-import classNames from 'classnames';
 import { Link } from 'gatsby';
 import React, { FunctionComponent, ReactElement } from 'react';
+import styled from 'styled-components';
 
+const BrandLink = styled(Link)`
+  overflow-wrap: break-word;
+  display: inline-flex;
+  font-size: 1.125rem;
+  line-height: 1.25rem;
+  white-space: no-wrap;
+`;
 
 interface Props {
   title: string;
@@ -10,15 +17,10 @@ interface Props {
 
 const Brand: FunctionComponent<Props> = ({ title, logo }) => {
   return (
-    <Link
-      to="/"
-      id="brand"
-      className={classNames('inline-block text-white text-lg whitespace-nowrap')}
-      style={{ overflowWrap: 'break-word' }}
-    >
+    <BrandLink to="/" id="brand">
       {logo}
       {title}
-    </Link>
+    </BrandLink>
   );
 };
 

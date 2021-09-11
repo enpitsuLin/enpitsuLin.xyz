@@ -1,7 +1,50 @@
 import Affix from '@/components/Affix';
 import React, { FunctionComponent } from 'react';
 import { FaListUl } from 'react-icons/fa';
+import styled from 'styled-components';
 import classNames from 'classnames';
+
+const TocWrap = styled.div`
+  display: none;
+  position: relative;
+  width: 25%;
+  flex: 0 0 25%;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+
+  @media (min-width: 600px) {
+    display: block;
+  }
+`;
+
+const TocBody = styled.div`
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.25rem 0;
+  padding-left: 1rem;
+  margin-top: 0.25rem;
+  margin-left: 1rem;
+`;
+
+const TocTitle = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.25rem 0;
+`;
+
+const Heading = styled.li<{ depth: number }>`
+  cursor: pointer;
+  padding: 0.125rem 0;
+  margin-left: ${props => props.depth * 0.5}rem;
+
+  &:hover,
+  &.active {
+    color: rgb(0, 160, 160);
+  }
+`;
+
+const HeadingList = styled.div`
+  /* empty style */
+`;
 
 interface Props {
   headings: GatsbyTypes.MarkdownHeading[];
@@ -11,33 +54,30 @@ interface Props {
 
 const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) => {
   return (
-    <div className={classNames('hidden md:block', 'relative h-auto', 'w-1/4 flex-1/4 text-sm')}>
-      <Affix offsetTop="3.5rem" className="pt-1">
-        <div className="border-l border-white border-opacity-25 pl-4 py-1 mt-5 ml-4">
-          <div className="flex items-center py-1">
-            <FaListUl size={12} className="mr-2" />
+    <TocWrap>
+      <Affix offsetTop="3.5rem">
+        <TocBody>
+          <TocTitle>
+            <FaListUl size={12} />
             <span>目录</span>
-          </div>
-          <div>
+          </TocTitle>
+          <HeadingList>
             <ul>
               {headings.map(item => (
-                <li
+                <Heading
+                  depth={item?.depth || 1}
                   key={item.id}
-                  style={{ marginLeft: (item?.depth || 1) * 8 }}
-                  className={classNames(
-                    'py-0.5 cursor-pointer hover:text-primary-400',
-                    active === item.id && 'text-primary-400'
-                  )}
+                  className={classNames(active === item.id && 'active')}
                   onClick={() => onTocClick(item.id as string)}
                 >
                   {item.value}
-                </li>
+                </Heading>
               ))}
             </ul>
-          </div>
-        </div>
+          </HeadingList>
+        </TocBody>
       </Affix>
-    </div>
+    </TocWrap>
   );
 };
 

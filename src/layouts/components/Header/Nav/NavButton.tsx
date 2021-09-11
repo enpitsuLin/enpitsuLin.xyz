@@ -5,6 +5,22 @@ import { FaBars, FaTimes } from 'react-icons/fa';
 import { IconType } from 'react-icons';
 import NavLink from './NavLink';
 import { useResponsive } from '@/hooks/useResponsive';
+import styled from 'styled-components';
+
+const NavMenu = styled.button`
+  display: block;
+  margin-right: 0.25rem;
+  margin-left: auto;
+  padding: 0.5rem 1.25rem;
+  border: 1px rgba(255, 255, 255, 0.5) solid;
+  border-radius: 0.25rem;
+  &:hover {
+    background-color: var(--primary-100);
+  }
+  @media (min-width: 768px) {
+    display: none;
+  }
+`;
 
 interface Props extends HtmlHTMLAttributes<HTMLButtonElement> {
   navList: {
@@ -55,21 +71,13 @@ const NavButton: FunctionComponent<Props> = ({ navList }) => {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-      <button
-        className={classNames(
-          'block sm:hidden',
-          'ml-auto',
-          'px-5 py-2 mx-1',
-          'transition-all',
-          'border border-white border-opacity-50 rounded hover:bg-primary-100',
-          'text-white'
-        )}
+      <NavMenu
         onClick={() => {
           setOpen(true);
         }}
       >
         <FaBars />
-      </button>
+      </NavMenu>
     </>
   );
 };
