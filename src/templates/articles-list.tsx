@@ -1,11 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts';
-import classNames from 'classnames';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
 import Card from 'react-bootstrap/Card';
+import { Container, Row, Col } from 'react-bootstrap';
 
 interface Props extends PageRendererProps {
   data: {
@@ -25,10 +25,12 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
     <BasicLayout location={location}>
       <Seo title="文章" />
       <AnimatedContent>
-        <div className={classNames('mx-auto max-w-7xl', 'p-4')}>
-          <div className="flex">
-            <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
-            <div className="w-1/3 hidden md:block px-4">
+        <Container fluid="xl">
+          <Row className="pt-4">
+            <Col md={8}>
+              <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
+            </Col>
+            <Col md={4}>
               <div>
                 <Card>
                   <Card.Body>
@@ -49,9 +51,9 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
                   </Card.Body>
                 </Card>
               </div>
-            </div>
-          </div>
-        </div>
+            </Col>
+          </Row>
+        </Container>
       </AnimatedContent>
     </BasicLayout>
   );

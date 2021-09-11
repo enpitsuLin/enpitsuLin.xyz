@@ -4,17 +4,9 @@ import { FaListUl } from 'react-icons/fa';
 import styled from 'styled-components';
 import classNames from 'classnames';
 
-const TocWrap = styled.div`
-  display: none;
-  position: relative;
-  width: 25%;
-  flex: 0 0 25%;
+const TocAffix = styled(Affix)`
   font-size: 0.875rem;
   line-height: 1.25rem;
-
-  @media (min-width: 600px) {
-    display: block;
-  }
 `;
 
 const TocBody = styled.div`
@@ -54,30 +46,28 @@ interface Props {
 
 const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) => {
   return (
-    <TocWrap>
-      <Affix offsetTop="3.5rem">
-        <TocBody>
-          <TocTitle>
-            <FaListUl size={12} />
-            <span>目录</span>
-          </TocTitle>
-          <HeadingList>
-            <ul>
-              {headings.map(item => (
-                <Heading
-                  depth={item?.depth || 1}
-                  key={item.id}
-                  className={classNames(active === item.id && 'active')}
-                  onClick={() => onTocClick(item.id as string)}
-                >
-                  {item.value}
-                </Heading>
-              ))}
-            </ul>
-          </HeadingList>
-        </TocBody>
-      </Affix>
-    </TocWrap>
+    <TocAffix offsetTop="3.5rem">
+      <TocBody>
+        <TocTitle>
+          <FaListUl size={12} />
+          <span>目录</span>
+        </TocTitle>
+        <HeadingList>
+          <ul>
+            {headings.map(item => (
+              <Heading
+                depth={item?.depth || 1}
+                key={item.id}
+                className={classNames(active === item.id && 'active')}
+                onClick={() => onTocClick(item.id as string)}
+              >
+                {item.value}
+              </Heading>
+            ))}
+          </ul>
+        </HeadingList>
+      </TocBody>
+    </TocAffix>
   );
 };
 

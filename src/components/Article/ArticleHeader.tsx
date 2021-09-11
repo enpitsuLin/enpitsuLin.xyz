@@ -8,6 +8,12 @@ const Header = styled.div`
   align-items: center;
   height: 16rem;
   background-color: rgb(22, 99, 99);
+  .title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-bottom: 0.5rem;
+    text-align: center;
+  }
 `;
 
 interface Props {
@@ -18,7 +24,7 @@ const ArticleHeader: FunctionComponent<Props> = ({ article }) => {
   return (
     <Header>
       <div>
-        <p className="text-3xl mb-2 text-center"> {article.frontmatter?.title || '无标题'}</p>
+        <p className="title"> {article.frontmatter?.title || '无标题'}</p>
         <Frontmatter article={article} />
       </div>
     </Header>

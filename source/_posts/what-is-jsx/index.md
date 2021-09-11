@@ -275,6 +275,6 @@ if (type && type.defaultProps) {
 
 ### ReactElement
 
-`createElement()`最终调用的方法,其实`ReactElement()`只是将传入的一系列数据增加一些诸如`type`、`source`、`self`等标记属性然后直接返回一个 js 对象。
+`createElement()`最终调用的方法,其实`ReactElement()`方法只是将传入的一系列数据增加一些诸如`type`、`source`、`self`等标记属性然后直接返回一个 js 对象。
 
-这个对象呢其实就是对 DOM 的抽象化，即为所谓的虚拟 DOM,接着就是`ReactDOM.render()`的事情啦
+JSX 中的使用的类似 html 的节点，在 Babel 的帮助下，转换为嵌套的 `ReactElement` 对象，这些信息对于后期构建应用的树结构时非常重要的，而 React 通过提供这些类型的数据，来脱离平台的限制。

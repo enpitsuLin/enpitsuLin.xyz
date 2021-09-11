@@ -1,5 +1,6 @@
 import React, { useCallback, useRef, useEffect, useState } from 'react';
-import { graphql, Link, PageRendererProps } from 'gatsby';
+import { graphql, PageRendererProps } from 'gatsby';
+import { Container, Row, Col } from 'react-bootstrap';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import ArticleHeader from '@/components/Article/ArticleHeader';
@@ -7,7 +8,6 @@ import AnimatedContent from '@/components/AnimatedContent';
 import ArticleToc from '@/components/Article/ArticleToc';
 import useScroll from '@/hooks/useScroll';
 import ArticleContent from '@/components/Article/ArticleContent';
-import classNames from 'classnames';
 
 const __MAIN_HEADER_HEIGHT__ = 54.5;
 
@@ -20,7 +20,9 @@ interface Props extends PageRendererProps {
   };
 }
 function isWindowBetween(element: HTMLElement | null): boolean {
-  return !!element && element.getBoundingClientRect().top - __MAIN_HEADER_HEIGHT__ >= 2;
+  const isBetween = !!element && element.getBoundingClientRect().top - __MAIN_HEADER_HEIGHT__ >= 1;
+  console.log(element, isBetween);
+  return isBetween;
 }
 
 const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
@@ -29,14 +31,15 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
   const [activeHeading, setActiveHeading] = useState('');
 
   const article = data.markdownRemark;
-  /* const { previous, next } = data; */
   const headings = (article.headings as GatsbyTypes.MarkdownHeading[]) || [];
 
   useEffect(() => {
     for (let i = 0; i < headings.length - 1; i++) {
       if (isWindowBetween(document.getElementById(headings[i + 1].id as string))) {
-        setActiveHeading(headings[i + 1].id as string);
+        setActiveHeading(headings[i].id as string);
         return;
+      } else {
+        setActiveHeading(headings[headings.length - 1].id as string);
       }
     }
   }, [scroll]);
@@ -59,31 +62,22 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
       <ArticleHeader article={article} />
       <AnimatedContent>
         <article className="article-content" itemScope itemType="http://schema.org/Article">
-          <div className="max-w-7xl mx-auto p-4 flex relative flex-row">
-            <ArticleContent article={article} ref={articleRef} />
-            <ArticleToc
-              headings={headings}
-              active={activeHeading}
-              onTocClick={id => {
-                scrollToHeading(id);
-              }}
-            />
-          </div>
-          {/* 暂时不使用上下篇文章
-          <div className="h-96"></div>
-          <nav className="article-nav h-96">
-            {previous && (
-              <Link to={`/article${previous.fields?.slug}`} rel="prev">
-                {previous.frontmatter?.title}
-              </Link>
-            )}
-
-            {next && (
-              <Link to={`/article${next.fields?.slug}`} rel="next">
-                {next.frontmatter?.title}
-              </Link>
-            )}
-          </nav> */}
+          <Container fluid="lg" style={{ paddingBottom: '50vh' }}>
+            <Row className="pt-4">
+              <Col md={8}>
+                <ArticleContent article={article} ref={articleRef} />
+              </Col>
+              <Col md={4}>
+                <ArticleToc
+                  headings={headings}
+                  active={activeHeading}
+                  onTocClick={id => {
+                    scrollToHeading(id);
+                  }}
+                />
+              </Col>
+            </Row>
+          </Container>
         </article>
       </AnimatedContent>
     </BasicLayout>

@@ -24,9 +24,6 @@ const Layout = styled.div`
 const MainContent = styled.main`
   flex: 0 0 100%;
   min-height: 100vh;
-  > div {
-    height: 100%;
-  }
 `;
 
 const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
@@ -46,9 +43,7 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
       <GlobalStyle />
       <Header siteMetadata={siteMetadata} location={location} headerTransparent={headerTransparent} />
       <ToTop />
-      <MainContent>
-        <div>{children}</div>
-      </MainContent>
+      <MainContent>{children}</MainContent>
 
       <Footer siteMetadata={siteMetadata}></Footer>
     </Layout>

@@ -7,6 +7,7 @@ const Pager = styled.ul`
   user-select: none;
   cursor: pointer;
   li {
+    display: block;
     background-color: var(--primary-200);
     color: #fff;
     height: 2rem;

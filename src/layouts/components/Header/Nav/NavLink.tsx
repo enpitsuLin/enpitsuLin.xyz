@@ -9,6 +9,9 @@ const LinkItem = styled(Link)`
   margin: 0.5rem 0;
   display: inline-flex;
   align-items: center;
+  &:hover {
+    text-decoration: none;
+  }
   &.active {
     color: var(--secondary);
   }

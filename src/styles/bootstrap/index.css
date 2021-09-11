@@ -4,6 +4,7 @@
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ * Modify by @enpitsuLin
  */
 :root {
   --bs-blue: #0d6efd;
@@ -58,6 +59,11 @@
   --bs-body-line-height: 1.5;
   --bs-body-color: #212529;
   --bs-body-bg: #fff;
+  --bs-container-xxl:1200px;
+  --bs-container-xl:1080px;
+  --bs-container-lg:920px;
+  --bs-container-md:720px;
+  --bs-container-sm:540px;
 }
 
 *,
@@ -659,14 +665,14 @@ progress {
 @media (min-width: 576px) {
   .container-sm,
   .container {
-    max-width: 540px;
+    max-width: var(--bs-container-sm);
   }
 }
 @media (min-width: 768px) {
   .container-md,
   .container-sm,
   .container {
-    max-width: 720px;
+    max-width: var(--bs-container-md);
   }
 }
 @media (min-width: 992px) {
@@ -674,7 +680,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 960px;
+    max-width: var(--bs-container-lg);
   }
 }
 @media (min-width: 1200px) {
@@ -683,7 +689,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1140px;
+    max-width: var(--bs-container-xl);
   }
 }
 @media (min-width: 1400px) {
@@ -693,7 +699,7 @@ progress {
   .container-md,
   .container-sm,
   .container {
-    max-width: 1320px;
+    max-width: var(--bs-container-xxl);
   }
 }
 .row {

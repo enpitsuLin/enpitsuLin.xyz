@@ -7,14 +7,10 @@ import styled from 'styled-components';
 const Item = styled.div`
   color: #fff;
   margin-bottom: 1.5rem;
-  > hr {
-    padding-top: 0.25rem;
-    margin-top: 0.75rem;
-  }
+
   .article-title {
-    padding: 0 0.5rem;
     > a {
-      font-size: 1rem;
+      font-size: 2rem;
       &:hover {
         color: var(--primary-400);
       }
@@ -29,7 +25,7 @@ interface Props {
 const ArticleItem: FunctionComponent<Props> = ({ article }) => {
   return (
     <Item>
-      <div className="py-2">
+      <div className="article-title">
         <Link to={`/articles${article.fields?.slug}`}>{article.frontmatter?.title}</Link>
       </div>
       <Frontmatter article={article} />

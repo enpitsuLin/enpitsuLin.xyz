@@ -5,8 +5,6 @@ import styled from 'styled-components';
 import ArticleItem from './ListItem';
 
 const ItemList = styled.div`
-  width: 66.66667%;
-
   .list-footer {
     display: flex;
     justify-content: center;
