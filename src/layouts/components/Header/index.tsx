@@ -64,7 +64,7 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
       <HeaderPlaceHolder visible={!isRootPath} />
       <NavWrap isRootPath={isRootPath} transparent={headerTransparent} style={{ zIndex: 1000 }}>
         <Nav className="container-xl">
-          <Brand title={title as string} logo={<img src={Logo} style={{ height: 42, width: 42, marginRight: 5 }} />} />
+          <Brand title={title as string} logo={<img src={Logo} style={{ height: 40, width: 40, marginRight: 5 }} />} />
           <NavButton navList={navList} />
           <NavContainer>
             {navList.map((item, index) => (

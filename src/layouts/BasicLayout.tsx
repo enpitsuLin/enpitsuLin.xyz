@@ -45,7 +45,7 @@ const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
       <ToTop />
       <MainContent>{children}</MainContent>
 
-      <Footer siteMetadata={siteMetadata}></Footer>
+      <Footer />
     </Layout>
   );
 };

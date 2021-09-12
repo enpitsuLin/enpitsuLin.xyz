@@ -5,7 +5,6 @@ import Introduction from './introduction';
 import styled from 'styled-components';
 
 const Container = styled.footer`
-  /* text-align: center; */
   color: white;
   background-color: var(--skobeloff);
   padding: 32px 0;
@@ -26,9 +25,7 @@ const FooterBottom = styled.p`
   line-height: 1.24rem;
 `;
 
-interface Props {
-  siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
-}
+interface Props {}
 
 const poweredBy = [
   { name: 'React', link: 'https://reactjs.org/' },
@@ -43,9 +40,7 @@ const themedWith = [
   { name: 'Bootstrap', link: 'https://getbootstrap.com/' }
 ];
 
-const Footer: React.FC<Props> = ({ siteMetadata }) => {
-  const { title } = siteMetadata;
-
+const Footer: React.FC<Props> = () => {
   return (
     <Container id="footer">
       <Row className="footer-contents">
@@ -61,9 +56,7 @@ const Footer: React.FC<Props> = ({ siteMetadata }) => {
           <List links={themedWith} />
         </Col>
       </Row>
-      <FooterBottom>
-        &copy;{new Date().getFullYear()} | {title}
-      </FooterBottom>
+      <FooterBottom>&copy;{new Date().getFullYear()} | 用 ❤ 制作</FooterBottom>
     </Container>
   );
 };
