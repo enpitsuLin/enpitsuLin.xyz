@@ -7,7 +7,7 @@ import NavLink from './Nav/NavLink';
 import Brand from './Nav/NavBrand';
 import NavButton from './Nav/NavButton';
 import styled from 'styled-components';
-import { Container, Row, Col } from 'react-bootstrap';
+import Logo from '@/assets/images/logo.svg';
 
 const HeaderPlaceHolder = styled.div<{ visible: boolean }>`
   ${props => (props.visible ? 'background-color:var(--skobeloff);height:3.5rem' : '')}
@@ -64,7 +64,7 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
       <HeaderPlaceHolder visible={!isRootPath} />
       <NavWrap isRootPath={isRootPath} transparent={headerTransparent} style={{ zIndex: 1000 }}>
         <Nav className="container-xl">
-          <Brand title={title as string} logo={<div />} />
+          <Brand title={title as string} logo={<img src={Logo} style={{ height: 42, width: 42, marginRight: 5 }} />} />
           <NavButton navList={navList} />
           <NavContainer>
             {navList.map((item, index) => (

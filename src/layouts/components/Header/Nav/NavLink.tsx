@@ -7,8 +7,9 @@ import styled from 'styled-components';
 const LinkItem = styled(Link)`
   padding: 0.5rem 0;
   margin: 0.5rem 0;
-
+  color: #eee;
   &:hover {
+    color: #fff;
     text-decoration: none;
   }
   &.active {

@@ -8,6 +8,8 @@ const BrandLink = styled(Link)`
   font-size: 1.125rem;
   line-height: 1.25rem;
   white-space: no-wrap;
+  align-items: center;
+  
   &:hover {
     text-decoration: none;
   }
