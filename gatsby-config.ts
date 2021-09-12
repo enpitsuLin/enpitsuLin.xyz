@@ -28,7 +28,7 @@ const plugins = [
     resolve: `gatsby-source-filesystem`,
     options: {
       name: `images`,
-      path: `${__dirname}/src/images`
+      path: `${__dirname}/src/assets/images`
     }
   },
   {
@@ -179,7 +179,6 @@ const plugins = [
       }
     }
   },
-  `gatsby-plugin-postcss`,
   {
     resolve: `gatsby-plugin-styled-components`,
     options: {

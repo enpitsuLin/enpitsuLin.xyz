@@ -7,8 +7,7 @@ import styled from 'styled-components';
 const LinkItem = styled(Link)`
   padding: 0.5rem 0;
   margin: 0.5rem 0;
-  display: inline-flex;
-  align-items: center;
+
   &:hover {
     text-decoration: none;
   }

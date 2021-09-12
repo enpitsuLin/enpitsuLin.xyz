@@ -30,7 +30,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
             <Col md={8}>
               <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
             </Col>
-            <Col md={4}>
+            <Col md={4} className="d-none d-md-block">
               <div>
                 <Card>
                   <Card.Body>

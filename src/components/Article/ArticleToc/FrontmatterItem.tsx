@@ -6,6 +6,9 @@ const Item = styled.div`
   display: inline-flex;
   align-items: center;
   margin-right: 0.25rem;
+  > svg {
+    margin-right: 8px;
+  }
 `;
 
 const FrontMatterItem: FunctionComponent<{ icon: IconType; label?: string }> = props => {

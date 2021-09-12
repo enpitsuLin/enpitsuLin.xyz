@@ -67,7 +67,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
               <Col md={8}>
                 <ArticleContent article={article} ref={articleRef} />
               </Col>
-              <Col md={4}>
+              <Col md={4} className="d-none d-md-block">
                 <ArticleToc
                   headings={headings}
                   active={activeHeading}

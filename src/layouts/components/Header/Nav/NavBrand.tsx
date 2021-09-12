@@ -8,6 +8,9 @@ const BrandLink = styled(Link)`
   font-size: 1.125rem;
   line-height: 1.25rem;
   white-space: no-wrap;
+  &:hover {
+    text-decoration: none;
+  }
 `;
 
 interface Props {

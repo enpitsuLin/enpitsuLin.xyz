@@ -7,7 +7,7 @@
 
 import React, { FunctionComponent } from 'react';
 import { Helmet } from 'react-helmet';
-import FavIcon from '@/images/gatsby-icon.png';
+import FavIcon from '@/assets/images/logo.svg';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 
 interface Meta {

@@ -14,6 +14,9 @@ const Header = styled.div`
     margin-bottom: 0.5rem;
     text-align: center;
   }
+  > div {
+    text-align: center;
+  }
 `;
 
 interface Props {
