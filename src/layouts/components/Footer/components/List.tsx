@@ -1,29 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
-import { Link } from '@chakra-ui/react';
+import { Link, UnorderedList, ListItem } from '@chakra-ui/react';
 
 interface Props {
   links: { name: string; link: string }[];
 }
 
-const Ul = styled.ul`
-  list-style: none;
-  padding-left: 0;
-`;
-
-const Li = styled.li`
-  padding-bottom: 4px;
-`;
-
 const List: React.FC<Props> = ({ links }) => {
   return (
-    <Ul>
+    <UnorderedList spacing={1} listStyleType="none" marginStart="inherit">
       {links.map(({ name, link }) => (
-        <Li key={name}>
+        <ListItem key={name}>
           <Link href={link}>{name}</Link>
-        </Li>
+        </ListItem>
       ))}
-    </Ul>
+    </UnorderedList>
   );
 };
 

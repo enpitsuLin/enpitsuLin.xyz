@@ -1,7 +1,7 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 import { getDiffToNow } from '@/utils/datetime';
-import { Tooltip } from '@chakra-ui/react';
+import { Tooltip, Text } from '@chakra-ui/react';
 
 const __BLOG_START_TIME__ = dayjs('2019-03-26 19:00:00');
 
@@ -24,17 +24,30 @@ const RunningTime: FunctionComponent = () => {
     <span>
       📅 博客已经运行
       <Tooltip
+        borderRadius="md"
         hasArrow
         placement="right"
         label={__BLOG_START_TIME__.format('YYYY-MM-DD[T]HH:mm:ssZ[Z]')}
         aria-label="running time"
       >
-        <span>
-          <strong className="font-bold px-1">{Math.floor(diff.asDays())}</strong>天
-          <strong className="font-bold px-1">{diff.hours()}</strong>时
-          <strong className="font-bold px-1">{diff.minutes()}</strong>分
-          <strong className="font-bold px-1">{diff.seconds()}</strong>秒
-        </span>
+        <Text as="span" mx="0.5">
+          <Text as="strong" mx="0.5" className="font-bold px-1">
+            {Math.floor(diff.asDays())}
+          </Text>
+          天
+          <Text as="strong" mx="0.5" className="font-bold px-1">
+            {diff.hours()}
+          </Text>
+          时
+          <Text as="strong" mx="0.5" className="font-bold px-1">
+            {diff.minutes()}
+          </Text>
+          分
+          <Text as="strong" mx="0.5" className="font-bold px-1">
+            {diff.seconds()}
+          </Text>
+          秒
+        </Text>
       </Tooltip>
     </span>
   );

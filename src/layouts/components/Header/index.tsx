@@ -24,7 +24,7 @@ const Header: FunctionComponent<Props> = ({ title }) => {
       <HeaderContainer maxW="container.xl" px={10}>
         <Flex justify="space-between" py={2}>
           <Brand title={title} logo={<img src={Logo} style={{ height: 40, width: 40, marginRight: 6 }} />} />
-          <Flex>
+          <Flex display={{ base: 'none', md: 'flex' }}>
             {navList.map(item => (
               <LinkButton
                 as="button"

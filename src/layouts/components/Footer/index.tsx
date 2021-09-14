@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { Container as FooterContainer, Flex, Box, Center } from '@chakra-ui/react';
-import List from './List';
-import Introduction from './introduction';
-import { FooterWrap } from './components';
+import List from './components/List';
+import Bio from './components/Bio';
+import { BoxProps, useStyleConfig } from '@chakra-ui/react';
 
-interface Props {}
+export const FooterWrap: FunctionComponent<BoxProps> = props => {
+  const styles = useStyleConfig('FooterWrap', {});
+  return <Box as="footer" sx={styles} {...props} />;
+};
 
 const poweredBy = [
   { name: 'React', link: 'https://reactjs.org/' },
@@ -13,25 +16,23 @@ const poweredBy = [
   { name: 'Typescript', link: 'https://www.typescriptlang.org/' }
 ];
 const themedWith = [
-  { name: 'styled-components', link: 'https://www.styled-components.com/' },
-  { name: 'React Icons', link: 'https://react-icons.github.io/react-icons/' },
-  { name: 'React Bootstrap', link: 'https://react-bootstrap.github.io/' },
-  { name: 'Bootstrap', link: 'https://getbootstrap.com/' }
+  { name: 'Chakra UI', link: 'https://chakra-ui.com/' },
+  { name: 'React Icons', link: 'https://react-icons.github.io/react-icons/' }
 ];
 
-const Footer: React.FC<Props> = () => {
+const Footer: FunctionComponent = () => {
   return (
     <FooterWrap id="footer">
       <FooterContainer maxW="container.xl" pt={10} px={10}>
         <Flex w="100%">
           <Box flex="1">
-            <Introduction />
+            <Bio />
           </Box>
-          <Box flex="1">
+          <Box flex="1" display={{ base: 'none', md: 'block' }}>
             <h6>🚀 强力驱动</h6>
             <List links={poweredBy} />
           </Box>
-          <Box flex="1">
+          <Box flex="1" display={{ base: 'none', md: 'block' }}>
             <h6>🎨 描绘主题</h6>
             <List links={themedWith} />
           </Box>

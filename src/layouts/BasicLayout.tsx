@@ -1,8 +1,7 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { PageRendererProps } from 'gatsby';
 import styled from 'styled-components';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
-import useScroll from '@/hooks/useScroll';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
