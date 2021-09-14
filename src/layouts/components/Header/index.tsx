@@ -1,52 +1,46 @@
-import React, { FunctionComponent } from 'react';
-import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment, FaMoon } from 'react-icons/fa';
-import { IconButton, Container as HeaderContainer, Flex, useColorMode } from '@chakra-ui/react';
-import { HeaderWrap, LinkButton } from './components';
-import { navigate } from 'gatsby';
-import Brand from './Brand';
-import Logo from '@/assets/images/logo.svg';
+import React, { FunctionComponent, useState } from 'react';
+import { Container as HeaderContainer, Flex } from '@chakra-ui/react';
+import { Box, BoxProps, useStyleConfig } from '@chakra-ui/react';
+import MenuLinks from './components/MenuLinks';
+import Brand from './components/Brand';
+import MenuToggle from './components/MenuToggle';
 
+const HeaderWrap: FunctionComponent<BoxProps> = ({ ...props }) => {
+  const styles = useStyleConfig('HeaderWrap', {});
+  return <Box as="header" sx={styles} {...props} />;
+};
+const NavBarContainer = ({ children, ...props }) => {
+  return (
+    <Flex
+      as="nav"
+      align="center"
+      justify="space-between"
+      wrap="wrap"
+      w="100%"
+      py={5}
+      bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
+      {...props}
+    >
+      {children}
+    </Flex>
+  );
+};
 interface Props {
   title: string;
 }
 
 const Header: FunctionComponent<Props> = ({ title }) => {
-  const { colorMode, toggleColorMode } = useColorMode();
-  const navList = [
-    { path: '/', title: '首页', icon: FaHome },
-    { path: '/articles', title: '文章', icon: FaBookOpen },
-    { path: '/comments', title: '留言', icon: FaComment },
-    { path: '/about', title: '关于', icon: FaInfo }
-  ];
+  const [isOpen, setIsOpen] = useState(false);
+  const toggle = () => setIsOpen(!isOpen);
 
   return (
     <HeaderWrap id="header">
       <HeaderContainer maxW="container.xl" px={10}>
-        <Flex justify="space-between" py={2}>
-          <Brand title={title} logo={<img src={Logo} style={{ height: 40, width: 40, marginRight: 6 }} />} />
-          <Flex display={{ base: 'none', md: 'flex' }}>
-            {navList.map(item => (
-              <LinkButton
-                as="button"
-                mx={1}
-                leftIcon={<item.icon />}
-                onClick={() => {
-                  navigate(item.path);
-                }}
-              >
-                {item.title}
-              </LinkButton>
-            ))}
-            <IconButton
-              ml={5}
-              aria-label="Theme"
-              icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}
-              onClick={() => {
-                toggleColorMode();
-              }}
-            />
-          </Flex>
-        </Flex>
+        <NavBarContainer>
+          <Brand title={title} />
+          <MenuToggle toggle={toggle} isOpen={isOpen} />
+          <MenuLinks isOpen={isOpen} />
+        </NavBarContainer>
       </HeaderContainer>
     </HeaderWrap>
   );
