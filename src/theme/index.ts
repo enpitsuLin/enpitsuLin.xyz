@@ -1,6 +1,10 @@
 import { extendTheme } from '@chakra-ui/react';
 import { mode, Styles } from '@chakra-ui/theme-tools';
 
+const config = {
+  initialColorMode: 'dark'
+};
+
 const styles: Styles = {
   global: props => ({
     body: {
@@ -13,12 +17,13 @@ const styles: Styles = {
 };
 
 const DefaultTheme = extendTheme({
+  config,
   styles,
   components: {
     HeaderWrap: {
       baseStyle: ({ colorMode }) => ({
-        position: 'fixed',
-        width: '100%',
+        /*  position: 'fixed',
+        width: '100%', */
         borderBottomWidth: '2px',
         borderBottomColor: colorMode === 'dark' ? 'gray.700' : 'gray.100',
         bg: colorMode === 'dark' ? 'gray.800' : 'white'

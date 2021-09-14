@@ -18,7 +18,6 @@ const Layout = styled.div`
 const MainContent = styled.main`
   flex: 0 0 100%;
   min-height: 100vh;
-  padding-top: 55px;
 `;
 
 const BasicLayout: FunctionComponent<Props> = ({ children }) => {

@@ -39,7 +39,7 @@ const Footer: FunctionComponent = () => {
         </Flex>
 
         <Center py={6} fontSize={12}>
-          &copy;{new Date().getFullYear()} enpitsulin | 用 ❤ 制作
+          &copy;{new Date().getFullYear()} | 用 ❤ 制作
         </Center>
       </FooterContainer>
     </FooterWrap>

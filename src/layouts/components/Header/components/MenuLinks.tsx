@@ -1,7 +1,8 @@
 import React, { FunctionComponent } from 'react';
 
 import { navigate } from 'gatsby';
-import { Link, Text, Box, Button, Stack } from '@chakra-ui/react';
+import { Link, Text, Box, Button, Stack, IconButton, useColorMode } from '@chakra-ui/react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const MenuItem: FunctionComponent<{ to: string }> = ({ children, to = '/', ...rest }) => {
   return (
@@ -22,6 +23,7 @@ interface Props {
 }
 
 const MenuLinks: FunctionComponent<Props> = ({ isOpen }) => {
+  const { colorMode, toggleColorMode } = useColorMode();
   return (
     <Box display={{ base: isOpen ? 'block' : 'none', md: 'block' }} flexBasis={{ base: '100%', md: 'auto' }}>
       <Stack
@@ -34,6 +36,14 @@ const MenuLinks: FunctionComponent<Props> = ({ isOpen }) => {
         <MenuItem to="/">主页</MenuItem>
         <MenuItem to="/articles">文章 </MenuItem>
         <MenuItem to="/about">关于</MenuItem>
+        <IconButton
+          ml={5}
+          aria-label="Theme"
+          icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}
+          onClick={() => {
+            toggleColorMode();
+          }}
+        />
       </Stack>
     </Box>
   );

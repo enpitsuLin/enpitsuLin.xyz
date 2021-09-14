@@ -17,7 +17,7 @@ const NavBarContainer = ({ children, ...props }) => {
       justify="space-between"
       wrap="wrap"
       w="100%"
-      py={5}
+      py={3}
       bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
       {...props}
     >
