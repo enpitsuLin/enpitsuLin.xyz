@@ -1,3 +1,3 @@
-require('ts-node').register();
+const { useGatsbyConfig } = require('gatsby-plugin-ts-config');
 
-module.exports = require('./gatsby-config.ts');
+module.exports = useGatsbyConfig('./config/gatsby-config', {});

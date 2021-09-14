@@ -1,13 +1,13 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
 import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment } from 'react-icons/fa';
-import { Button } from 'react-bootstrap';
 import classNames from 'classnames';
 import NavLink from './Nav/NavLink';
 import Brand from './Nav/NavBrand';
 import NavButton from './Nav/NavButton';
 import styled from 'styled-components';
 import Logo from '@/assets/images/logo.svg';
+import { IconButton } from '@chakra-ui/react';
 
 const HeaderPlaceHolder = styled.div<{ visible: boolean }>`
   ${props => (props.visible ? 'background-color:var(--skobeloff);height:3.5rem' : '')}
@@ -70,9 +70,7 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
             {navList.map((item, index) => (
               <NavLink key={index} title={item.title} icon={item.icon} to={item.path} />
             ))}
-            <Button variant="secondary" title="暂时未开发XD">
-              <FaSun />
-            </Button>
+            <IconButton title="暂时未开发XD" aria-label="Theme" colorScheme="#0000" icon={<FaSun />} />
           </NavContainer>
         </Nav>
       </NavWrap>

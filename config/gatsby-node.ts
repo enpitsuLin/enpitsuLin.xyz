@@ -1,4 +1,4 @@
-/// <reference path="./src/gatsby-types.d.ts" />
+/// <reference path="../src/gatsby-types.d.ts" />
 import { GatsbyNode, Actions } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { resolve } from 'path';
@@ -99,34 +99,30 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
 };
 
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
+  
   const { createTypes } = actions;
+  const typesDefs = `
+    type SiteSiteMetadata {
+      author: String
+      siteUrl: String
+      lastUpdateTime: Date
+    }
 
-  // Explicitly define the siteMetadata {} object
-  // This way those will always be defined even if removed from gatsby-config.js
+    type MarkdownRemark implements Node {
+      frontmatter: Frontmatter
+      fields: Fields
+    }
 
-  // Also explicitly define the Markdown frontmatter
-  // This way the "MarkdownRemark" queries will return `null` even when no
-  // blog posts are stored inside "content/blog" instead of returning an error
-  createTypes(`
-      type SiteSiteMetadata {
-        author: String
-        siteUrl: String
-        lastUpdateTime: Date
-      }
-  
-      type MarkdownRemark implements Node {
-        frontmatter: Frontmatter
-        fields: Fields
-      }
-  
-      type Frontmatter {
-        title: String
-        description: String
-        date: Date @dateformat
-      }
-  
-      type Fields {
-        slug: String
-      }
-    `);
+    type Frontmatter {
+      title: String
+      description: String
+      date: Date @dateformat
+    }
+
+    type Fields {
+      slug: String
+    }
+  `;
+
+  createTypes(typesDefs);
 };

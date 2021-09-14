@@ -31,7 +31,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
               <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
             </Col>
             <Col md={4} className="d-none d-md-block">
-              <div>
+              <div style={{ color: '#000' }}>
                 <Card>
                   <Card.Body>
                     <Card.Title>Card Title</Card.Title>
