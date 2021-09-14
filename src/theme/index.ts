@@ -15,12 +15,6 @@ const styles: Styles = {
 const DefaultTheme = extendTheme({
   styles,
   components: {
-    LinkButton: {
-      baseStyle: () => ({
-        bg: 'translate',
-        borderRadius: 'xl'
-      })
-    },
     HeaderWrap: {
       baseStyle: ({ colorMode }) => ({
         position: 'fixed',

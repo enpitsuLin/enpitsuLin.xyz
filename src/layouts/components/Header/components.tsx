@@ -8,9 +8,8 @@ export const HeaderWrap: FunctionComponent<BoxProps> = ({ ...props }) => {
 
 export const LinkButton: FunctionComponent<ButtonProps> = props => {
   const { children, ...rest } = props;
-  const styles = useStyleConfig('LinkButton', {});
   return (
-    <Button as="button" sx={styles} {...rest}>
+    <Button as="button" {...rest} bg="transparent" borderRadius="xl">
       {children}
     </Button>
   );
