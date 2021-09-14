@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from '@chakra-ui/react';
 
 interface Props {
   links: { name: string; link: string }[];
@@ -19,7 +20,7 @@ const List: React.FC<Props> = ({ links }) => {
     <Ul>
       {links.map(({ name, link }) => (
         <Li key={name}>
-          <a href={link}>{name}</a>
+          <Link href={link}>{name}</Link>
         </Li>
       ))}
     </Ul>

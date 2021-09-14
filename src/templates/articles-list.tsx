@@ -5,7 +5,7 @@ import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
 import Card from 'react-bootstrap/Card';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Flex, Box } from '@chakra-ui/react';
 
 interface Props extends PageRendererProps {
   data: {
@@ -25,34 +25,15 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
     <BasicLayout location={location}>
       <Seo title="文章" />
       <AnimatedContent>
-        <Container fluid="xl">
-          <Row className="pt-4">
-            <Col md={8}>
+        <Container maxW="container.xl" >
+          <Flex >
+            <Box md={8}>
               <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
-            </Col>
-            <Col md={4} className="d-none d-md-block">
-              <div style={{ color: '#000' }}>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>There to be search card</Card.Text>
-                  </Card.Body>
-                </Card>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>There to be tag card</Card.Text>
-                  </Card.Body>
-                </Card>
-                <Card>
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Text>There to be tag card</Card.Text>
-                  </Card.Body>
-                </Card>
-              </div>
-            </Col>
-          </Row>
+            </Box>
+            <Box md={4} className="d-none d-md-block">
+              <div></div>
+            </Box>
+          </Flex>
         </Container>
       </AnimatedContent>
     </BasicLayout>

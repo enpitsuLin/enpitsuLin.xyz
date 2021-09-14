@@ -1,13 +1,13 @@
 import React from 'react';
 import { WindowLocation } from '@reach/router';
-import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment } from 'react-icons/fa';
+import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment, FaMoon } from 'react-icons/fa';
 import classNames from 'classnames';
 import NavLink from './Nav/NavLink';
 import Brand from './Nav/NavBrand';
 import NavButton from './Nav/NavButton';
 import styled from 'styled-components';
 import Logo from '@/assets/images/logo.svg';
-import { IconButton } from '@chakra-ui/react';
+import { IconButton, useColorMode } from '@chakra-ui/react';
 
 const HeaderPlaceHolder = styled.div<{ visible: boolean }>`
   ${props => (props.visible ? 'background-color:var(--skobeloff);height:3.5rem' : '')}
@@ -51,7 +51,7 @@ interface Props {
 const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) => {
   const { title } = siteMetadata;
   const isRootPath = location.pathname == '/';
-
+  const { colorMode, toggleColorMode } = useColorMode();
   const navList = [
     { path: '/', title: '首页', icon: FaHome },
     { path: '/articles', title: '文章', icon: FaBookOpen },
@@ -70,7 +70,15 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
             {navList.map((item, index) => (
               <NavLink key={index} title={item.title} icon={item.icon} to={item.path} />
             ))}
-            <IconButton title="暂时未开发XD" aria-label="Theme" colorScheme="#0000" icon={<FaSun />} />
+
+            <IconButton
+              aria-label="Theme"
+              colorScheme="#0000"
+              icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}
+              onClick={() => {
+                toggleColorMode();
+              }}
+            />
           </NavContainer>
         </Nav>
       </NavWrap>

@@ -1,21 +1,5 @@
 @import './font.css';
-@import './bootstrap/index.css';
 
-:root {
-  --skobeloff: #156363;
-  --background-color: #222;
-  --text-color: #fff;
-  --primary-100: #66c6c6;
-  --primary-200: #32b3b3;
-  --primary-300: #19a9a9;
-  --primary-400: #00a0a0;
-  --primary-500: #008080;
-  --primary-600: #006060;
-  --primary-700: #004040;
-  --primary-800: #003030;
-  --primary-900: #002020;
-  --secondary: #05c7c7;
-}
 /* CSS Custom Properties Definitions */
 html {
   font-family: Overpass, 'GlowSansSC', 'Helvetica Neue', 'pingfang sc', 'microsoft yahei', sans-serif;
@@ -24,10 +8,6 @@ html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-/* 
-#___gatsby {
-  width: calc(100vw - 6px);
-} */
 
 /* 设置滚动条的样式 */
 ::-webkit-scrollbar {

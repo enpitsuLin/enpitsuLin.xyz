@@ -1,21 +1,11 @@
 import React from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Container, Flex, Spacer, Box } from '@chakra-ui/react';
 import List from './List';
 import Introduction from './introduction';
 import styled from 'styled-components';
 
-const Container = styled.footer`
-  color: white;
-  background-color: var(--skobeloff);
-  padding: 32px 0;
-  hr {
-    color: white;
-  }
-  .footer-contents {
-    max-width: 80rem;
-    margin-left: auto;
-    margin-right: auto;
-  }
+const FooterWrap = styled.footer`
+  padding: 2rem 0;
 `;
 
 const FooterBottom = styled.p`
@@ -42,22 +32,25 @@ const themedWith = [
 
 const Footer: React.FC<Props> = () => {
   return (
-    <Container id="footer">
-      <Row className="footer-contents">
-        <Col>
-          <Introduction />
-        </Col>
-        <Col className="d-none d-sm-none d-md-block" md={3} sm={0}>
-          <h6>🚀 强力驱动</h6>
-          <List links={poweredBy} />
-        </Col>
-        <Col className="d-none d-sm-none d-md-block" md={3} sm={0}>
-          <h6>🎨 描绘主题</h6>
-          <List links={themedWith} />
-        </Col>
-      </Row>
-      <FooterBottom>&copy;{new Date().getFullYear()} | 用 ❤ 制作</FooterBottom>
-    </Container>
+    <FooterWrap>
+      <Container id="footer" maxW="container.xl" centerContent>
+        <Flex w="100%">
+          <Box flex="1">
+            <Introduction />
+          </Box>
+          <Box flex="1">
+            <h6>🚀 强力驱动</h6>
+            <List links={poweredBy} />
+          </Box>
+          <Box flex="1">
+            <h6>🎨 描绘主题</h6>
+            <List links={themedWith} />
+          </Box>
+        </Flex>
+
+        <FooterBottom>&copy;{new Date().getFullYear()} | 用 ❤ 制作</FooterBottom>
+      </Container>
+    </FooterWrap>
   );
 };
 

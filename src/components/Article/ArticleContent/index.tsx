@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import React, { forwardRef } from 'react';
 import styled from 'styled-components';
-import './style.css';
+// import './style.css';
 
 const Content = styled.div<{ excerpt: boolean }>`
   width: 100%;

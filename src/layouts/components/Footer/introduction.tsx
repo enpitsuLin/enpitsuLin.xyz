@@ -1,6 +1,7 @@
-import useSiteMetadata from '@/hooks/useSiteMetadata';
-import dayjs from 'dayjs';
 import React, { FunctionComponent, HtmlHTMLAttributes } from 'react';
+import { Link } from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import useSiteMetadata from '@/hooks/useSiteMetadata';
 import RunningTime from './RunningTime';
 
 const Introduction: FunctionComponent<HtmlHTMLAttributes<HTMLDivElement>> = attrs => {
@@ -10,20 +11,16 @@ const Introduction: FunctionComponent<HtmlHTMLAttributes<HTMLDivElement>> = attr
     <div {...attrs}>
       <p>
         👨🏼‍💻 本网站由
-        <a href="https://github.com/enpitsulin" target="_blank" className="text-primary-400 hover:underline mx-1">
+        <Link href="https://github.com/enpitsulin" target="_blank">
           enpitsulin
-        </a>
+        </Link>
         摸鱼时编写
       </p>
       <p>
         📝 本站文章遵循
-        <a
-          href="https://creativecommons.org/licenses/by-sa/4.0/"
-          target="_blank"
-          className="text-primary-400 hover:underline mx-1"
-        >
+        <Link href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
           CC BY-SA 4.0
-        </a>
+        </Link>
         协议
       </p>
       <p>
