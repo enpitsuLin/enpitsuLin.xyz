@@ -1,56 +1,16 @@
-import React from 'react';
-import { WindowLocation } from '@reach/router';
+import React, { FunctionComponent } from 'react';
 import { FaHome, FaInfo, FaSun, FaBookOpen, FaComment, FaMoon } from 'react-icons/fa';
-import classNames from 'classnames';
-import NavLink from './Nav/NavLink';
-import Brand from './Nav/NavBrand';
-import NavButton from './Nav/NavButton';
-import styled from 'styled-components';
+import { IconButton, Container as HeaderContainer, Flex, useColorMode } from '@chakra-ui/react';
+import { HeaderWrap, LinkButton } from './components';
+import { navigate } from 'gatsby';
+import Brand from './Brand';
 import Logo from '@/assets/images/logo.svg';
-import { IconButton, useColorMode } from '@chakra-ui/react';
-
-const HeaderPlaceHolder = styled.div<{ visible: boolean }>`
-  ${props => (props.visible ? 'background-color:var(--skobeloff);height:3.5rem' : '')}
-`;
-
-const NavWrap = styled.div<{ isRootPath: boolean; transparent: boolean }>`
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 1000;
-  ${props => (props.isRootPath ? 'transition:background-color .3s;' : '')}
-  background:${props => (props.isRootPath && props.transparent ? '#0000' : 'var(--skobeloff)')};
-`;
-
-const Nav = styled.nav`
-  display: flex;
-  align-items: center;
-
-  position: relative;
-  padding: 0 0.5rem;
-  height: 3.5rem;
-`;
-
-const NavContainer = styled.div`
-  margin-left: auto;
-  display: none;
-  height: 100%;
-  @media (min-width: 768px) {
-    display: flex;
-    align-items: center;
-  }
-`;
 
 interface Props {
-  location: WindowLocation;
-  siteMetadata: Partial<GatsbyTypes.SiteSiteMetadata>;
-  headerTransparent?: boolean;
+  title: string;
 }
 
-const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) => {
-  const { title } = siteMetadata;
-  const isRootPath = location.pathname == '/';
+const Header: FunctionComponent<Props> = ({ title }) => {
   const { colorMode, toggleColorMode } = useColorMode();
   const navList = [
     { path: '/', title: '首页', icon: FaHome },
@@ -60,29 +20,35 @@ const Header: React.FC<Props> = ({ location, siteMetadata, headerTransparent }) 
   ];
 
   return (
-    <header id="header" className={classNames('block')}>
-      <HeaderPlaceHolder visible={!isRootPath} />
-      <NavWrap isRootPath={isRootPath} transparent={headerTransparent} style={{ zIndex: 1000 }}>
-        <Nav className="container-xl">
-          <Brand title={title as string} logo={<img src={Logo} style={{ height: 40, width: 40, marginRight: 5 }} />} />
-          <NavButton navList={navList} />
-          <NavContainer>
-            {navList.map((item, index) => (
-              <NavLink key={index} title={item.title} icon={item.icon} to={item.path} />
+    <HeaderWrap id="header">
+      <HeaderContainer maxW="container.xl" px={10}>
+        <Flex justify="space-between" py={2}>
+          <Brand title={title} logo={<img src={Logo} style={{ height: 40, width: 40, marginRight: 6 }} />} />
+          <Flex>
+            {navList.map(item => (
+              <LinkButton
+                as="button"
+                mx={1}
+                leftIcon={<item.icon />}
+                onClick={() => {
+                  navigate(item.path);
+                }}
+              >
+                {item.title}
+              </LinkButton>
             ))}
-
             <IconButton
+              ml={5}
               aria-label="Theme"
-              colorScheme="#0000"
               icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}
               onClick={() => {
                 toggleColorMode();
               }}
             />
-          </NavContainer>
-        </Nav>
-      </NavWrap>
-    </header>
+          </Flex>
+        </Flex>
+      </HeaderContainer>
+    </HeaderWrap>
   );
 };
 

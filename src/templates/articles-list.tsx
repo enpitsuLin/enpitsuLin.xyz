@@ -4,7 +4,7 @@ import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
-import Card from 'react-bootstrap/Card';
+
 import { Container, Flex, Box } from '@chakra-ui/react';
 
 interface Props extends PageRendererProps {
@@ -25,8 +25,8 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
     <BasicLayout location={location}>
       <Seo title="文章" />
       <AnimatedContent>
-        <Container maxW="container.xl" >
-          <Flex >
+        <Container maxW="container.xl">
+          <Flex>
             <Box md={8}>
               <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
             </Box>

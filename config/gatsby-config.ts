@@ -1,5 +1,4 @@
 import { GatsbyConfig, PluginRef } from 'gatsby';
-import DefaultTheme from '../src/utils/theme';
 
 import path from 'path';
 

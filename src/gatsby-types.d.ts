@@ -818,6 +818,7 @@ type SitePluginPluginOptions = {
   readonly offsetY: Maybe<Scalars['Int']>;
   readonly className: Maybe<Scalars['String']>;
   readonly inlineCode: Maybe<SitePluginPluginOptionsInlineCode>;
+  readonly theme: Maybe<Scalars['String']>;
   readonly languageAliases: Maybe<SitePluginPluginOptionsLanguageAliases>;
   readonly base64Width: Maybe<Scalars['Int']>;
   readonly stripMetadata: Maybe<Scalars['Boolean']>;
@@ -2630,6 +2631,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly offsetY: Maybe<IntQueryOperatorInput>;
   readonly className: Maybe<StringQueryOperatorInput>;
   readonly inlineCode: Maybe<SitePluginPluginOptionsInlineCodeFilterInput>;
+  readonly theme: Maybe<StringQueryOperatorInput>;
   readonly languageAliases: Maybe<SitePluginPluginOptionsLanguageAliasesFilterInput>;
   readonly base64Width: Maybe<IntQueryOperatorInput>;
   readonly stripMetadata: Maybe<BooleanQueryOperatorInput>;
@@ -2988,6 +2990,7 @@ type SitePageFieldsEnum =
   | 'pluginCreator.pluginOptions.offsetY'
   | 'pluginCreator.pluginOptions.className'
   | 'pluginCreator.pluginOptions.inlineCode.marker'
+  | 'pluginCreator.pluginOptions.theme'
   | 'pluginCreator.pluginOptions.languageAliases.shell'
   | 'pluginCreator.pluginOptions.base64Width'
   | 'pluginCreator.pluginOptions.stripMetadata'
@@ -4260,6 +4263,7 @@ type SitePluginFieldsEnum =
   | 'pluginOptions.offsetY'
   | 'pluginOptions.className'
   | 'pluginOptions.inlineCode.marker'
+  | 'pluginOptions.theme'
   | 'pluginOptions.languageAliases.shell'
   | 'pluginOptions.base64Width'
   | 'pluginOptions.stripMetadata'

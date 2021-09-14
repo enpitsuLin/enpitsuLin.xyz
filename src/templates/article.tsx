@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Flex, Box } from '@chakra-ui/react';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import ArticleHeader from '@/components/Article/ArticleHeader';
@@ -9,8 +9,7 @@ import ArticleToc from '@/components/Article/ArticleToc';
 import useScroll from '@/hooks/useScroll';
 import ArticleContent from '@/components/Article/ArticleContent';
 
-
-const __MAIN_HEADER_HEIGHT__ = 54.5;
+const __MAIN_HEADER_HEIGHT__ = 55;
 
 interface Props extends PageRendererProps {
   pageContext?: {};
@@ -63,12 +62,12 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
       <ArticleHeader article={article} />
       <AnimatedContent>
         <article className="article-content" itemScope itemType="http://schema.org/Article">
-          <Container fluid="lg" style={{ paddingBottom: '50vh' }}>
-            <Row className="pt-4">
-              <Col md={8}>
+          <Container maxW="container.xl">
+            <Flex>
+              <Box>
                 <ArticleContent article={article} ref={articleRef} />
-              </Col>
-              <Col md={4} className="d-none d-md-block">
+              </Box>
+              <Box w="250px">
                 <ArticleToc
                   headings={headings}
                   active={activeHeading}
@@ -76,8 +75,8 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                     scrollToHeading(id);
                   }}
                 />
-              </Col>
-            </Row>
+              </Box>
+            </Flex>
           </Container>
         </article>
       </AnimatedContent>

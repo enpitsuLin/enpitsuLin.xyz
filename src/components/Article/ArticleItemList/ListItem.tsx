@@ -5,7 +5,6 @@ import ArticleContent from '../ArticleContent';
 import styled from 'styled-components';
 
 const Item = styled.div`
-  color: #fff;
   margin-bottom: 1.5rem;
 
   .article-title {
