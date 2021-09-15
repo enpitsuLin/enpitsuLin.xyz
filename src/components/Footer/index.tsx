@@ -26,7 +26,7 @@ const themedWith = [
 const Footer: FunctionComponent = () => {
   return (
     <FooterWrap id="footer">
-      <FooterContainer maxW="container.xl" pt={10} px={10}>
+      <FooterContainer maxW="container.xl" pt={10} px={[4, 4, 10, 10]}>
         <Flex w="100%">
           <Box flex="1">
             <Bio />
@@ -41,7 +41,7 @@ const Footer: FunctionComponent = () => {
           </Box>
         </Flex>
 
-        <Center py={6} fontSize={12}>
+        <Center pt={6} pb={10} fontSize="sm">
           &copy;{new Date().getFullYear()} | 用 ❤ 制作
         </Center>
       </FooterContainer>

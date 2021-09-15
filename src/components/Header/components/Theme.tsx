@@ -6,6 +6,7 @@ const Theme: FunctionComponent = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <IconButton
+      isRound
       variant="ghost"
       aria-label="Theme"
       icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}

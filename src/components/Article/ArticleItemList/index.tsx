@@ -1,6 +1,5 @@
 import React, { FunctionComponent } from 'react';
 import Pagination from '@/components/Pagination';
-import { navigateToArticle } from '@/utils/article';
 import { Flex } from '@chakra-ui/layout';
 import ArticleItem from './ListItem';
 
@@ -8,9 +7,10 @@ interface Props {
   articles: GatsbyTypes.MarkdownRemark[];
   pageCount: number;
   pageIndex: number;
+  pageChange: (pageNum: number) => void;
 }
 
-const ArticleItemList: FunctionComponent<Props> = ({ articles, pageCount, pageIndex }) => {
+const ArticleItemList: FunctionComponent<Props> = ({ articles, pageCount, pageIndex, pageChange }) => {
   return (
     <div>
       {articles.map((article, index) => (
@@ -20,8 +20,8 @@ const ArticleItemList: FunctionComponent<Props> = ({ articles, pageCount, pageIn
         <Pagination
           pageCount={pageCount}
           currentPage={pageIndex + 1}
-          onChange={toPage => {
-            navigateToArticle(toPage === 1 ? '' : `/${toPage}`);
+          onChange={pageNum => {
+            pageChange(pageNum);
           }}
         />
       </Flex>

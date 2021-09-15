@@ -20,6 +20,10 @@ export default function useAllArticles() {
               fields {
                 slug
               }
+              timeToRead
+              wordCount {
+                words
+              }
               frontmatter {
                 categories
                 date(formatString: "YYYY 年 MM月 DD日")

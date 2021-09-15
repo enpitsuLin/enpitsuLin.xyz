@@ -63,10 +63,10 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
         <article className="article-content" itemScope itemType="http://schema.org/Article">
           <Container maxW="container.xl">
             <Flex>
-              <Box w="75%">
+              <Box w={['full', 'full', '75%', '75%']}>
                 <ArticleContent article={article} ref={articleRef} />
               </Box>
-              <Box w="25%">
+              <Box w="25%" display={{ base: 'none', md: 'block' }}>
                 <ArticleToc
                   headings={headings}
                   active={activeHeading}

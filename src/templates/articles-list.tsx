@@ -4,8 +4,10 @@ import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
-import { Container, Flex, Box } from '@chakra-ui/react';
+import { Container, Flex, Box, Input, InputRightAddon, InputGroup } from '@chakra-ui/react';
 import Card from '@/components/Card';
+import { FaSearch } from 'react-icons/fa';
+import { navigateToArticle } from '@/utils/article';
 
 interface Props extends PageRendererProps {
   data: {
@@ -28,12 +30,26 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
         <Container maxW="container.xl">
           <Flex>
             <Box w={{ base: 'full', md: '66%' }}>
-              <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
+              <ArticleItemList
+                articles={articles}
+                pageCount={pageCount}
+                pageIndex={pageIndex}
+                pageChange={pageNum => {
+                  navigateToArticle(pageNum === 1 ? '' : `/${pageNum}`);
+                }}
+              />
             </Box>
             <Box w="33%" display={{ base: 'none', md: 'block' }} pl={8}>
-              <Card hover={false}>卡片1</Card>
-              <Card hover={false}>卡片2</Card>
-              <Card hover={false}>卡片3</Card>
+              <Card hover={false}>
+                <InputGroup>
+                  <Input
+                    variant="outline"
+                    placeholder="搜索"
+                    _placeholder={{ position: 'absolute', top: '50%', left: '0.75rem', transform: 'translateY(-50%)' }}
+                  />
+                  <InputRightAddon children={<FaSearch color="gray.300" />} cursor="pointer" />
+                </InputGroup>
+              </Card>
             </Box>
           </Flex>
         </Container>

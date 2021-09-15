@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { navigate } from 'gatsby';
 import { CloseButton } from '@chakra-ui/close-button';
 import { useColorModeValue } from '@chakra-ui/color-mode';
-import { Button, IconButton, Box, HStack, VStack, useDisclosure, Slide } from '@chakra-ui/react';
+import { Button, IconButton, Box, HStack, VStack, useDisclosure, Slide, Stack } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa';
 import Theme from './Theme';
 
@@ -40,8 +40,9 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
           onClick={mobileNav.onOpen}
         />
         <Slide direction="top" in={mobileNav.isOpen} unmountOnExit>
-          <VStack display={'flex'} flexDirection="column" p={2} pb={4} bg={bg} spacing={3} rounded="sm" shadow="sm">
+          <VStack display="flex" flexDirection="column" p={2} pb={4} bg={bg} spacing={3} rounded="sm" shadow="sm">
             <CloseButton aria-label="Close menu" onClick={() => mobileNav.onClose()} />
+
             {NavList.map(item => (
               <Button
                 key={item.name}

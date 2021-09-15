@@ -2,8 +2,8 @@ import React, { FunctionComponent } from 'react';
 import { PageRendererProps } from 'gatsby';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import ToTop from '@/components/Totop';
 import { Box, Flex } from '@chakra-ui/layout';
 
