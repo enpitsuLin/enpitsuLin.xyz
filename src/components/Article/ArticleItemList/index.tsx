@@ -1,15 +1,8 @@
+import React, { FunctionComponent } from 'react';
 import Pagination from '@/components/Pagination';
 import { navigateToArticle } from '@/utils/article';
-import React, { FunctionComponent } from 'react';
-import styled from 'styled-components';
+import { Flex } from '@chakra-ui/layout';
 import ArticleItem from './ListItem';
-
-const ItemList = styled.div`
-  .list-footer {
-    display: flex;
-    justify-content: center;
-  }
-`;
 
 interface Props {
   articles: GatsbyTypes.MarkdownRemark[];
@@ -19,11 +12,11 @@ interface Props {
 
 const ArticleItemList: FunctionComponent<Props> = ({ articles, pageCount, pageIndex }) => {
   return (
-    <ItemList>
+    <div>
       {articles.map((article, index) => (
         <ArticleItem key={index} article={article}></ArticleItem>
       ))}
-      <div className="list-footer">
+      <Flex justifyContent="center">
         <Pagination
           pageCount={pageCount}
           currentPage={pageIndex + 1}
@@ -31,8 +24,8 @@ const ArticleItemList: FunctionComponent<Props> = ({ articles, pageCount, pageIn
             navigateToArticle(toPage === 1 ? '' : `/${toPage}`);
           }}
         />
-      </div>
-    </ItemList>
+      </Flex>
+    </div>
   );
 };
 

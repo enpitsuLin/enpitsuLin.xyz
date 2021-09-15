@@ -2,35 +2,23 @@ import { Link } from 'gatsby';
 import React, { FunctionComponent } from 'react';
 import Frontmatter from '../Frontmatter';
 import ArticleContent from '../ArticleContent';
-import styled from 'styled-components';
-
-const Item = styled.div`
-  margin-bottom: 1.5rem;
-
-  .article-title {
-    > a {
-      font-size: 2rem;
-      &:hover {
-        color: var(--primary-400);
-      }
-    }
-  }
-`;
+import { Box, Text } from '@chakra-ui/layout';
+import { useColorModeValue } from '@chakra-ui/color-mode';
 
 interface Props {
   article: GatsbyTypes.MarkdownRemark;
 }
 
 const ArticleItem: FunctionComponent<Props> = ({ article }) => {
+  const boxShadow = useColorModeValue('base', 'dark-lg');
   return (
-    <Item>
-      <div className="article-title">
+    <Box borderWidth="1px" borderRadius="lg" p={5} my={2} _hover={{ boxShadow }}>
+      <Text as="h1" fontSize="3xl">
         <Link to={`/articles${article.fields?.slug}`}>{article.frontmatter?.title}</Link>
-      </div>
+      </Text>
       <Frontmatter article={article} />
       <ArticleContent article={article} excerpt={true} />
-      <hr />
-    </Item>
+    </Box>
   );
 };
 

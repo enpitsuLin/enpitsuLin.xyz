@@ -6,6 +6,7 @@ import useSiteMetadata from '@/hooks/useSiteMetadata';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ToTop from '@/components/Totop';
+import { Box } from '@chakra-ui/layout';
 
 interface Props extends PageRendererProps {}
 
@@ -15,20 +16,18 @@ const Layout = styled.div`
   overflow-wrap: break-word;
 `;
 
-const MainContent = styled.main`
-  flex: 0 0 100%;
-  min-height: 100vh;
-`;
-
-const BasicLayout: FunctionComponent<Props> = ({ children }) => {
+const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
   const data = useSiteMetadata();
   const title = data.site?.siteMetadata?.title as string;
+  const isHome = location.pathname == '/';
 
   return (
     <Layout>
-      <Header title={title} />
+      <Header title={title} transparent={isHome} />
       <ToTop />
-      <MainContent>{children}</MainContent>
+      <Box flex="0 0 100%" minHeight="100vh" pt={isHome ? 0 : 70}>
+        {children}
+      </Box>
       <Footer />
     </Layout>
   );

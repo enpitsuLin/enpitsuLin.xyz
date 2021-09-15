@@ -18,25 +18,7 @@ const styles: Styles = {
 
 const DefaultTheme = extendTheme({
   config,
-  styles,
-  components: {
-    HeaderWrap: {
-      baseStyle: ({ colorMode }) => ({
-        /*  position: 'fixed',
-        width: '100%', */
-        borderBottomWidth: '2px',
-        borderBottomColor: colorMode === 'dark' ? 'gray.700' : 'gray.100',
-        bg: colorMode === 'dark' ? 'gray.800' : 'white'
-      })
-    },
-    FooterWrap: {
-      baseStyle: ({ colorMode }) => ({
-        borderTopWidth: '2px',
-        borderTopColor: colorMode === 'dark' ? 'gray.700' : 'gray.100',
-        bg: colorMode === 'dark' ? 'gray.800' : 'white'
-      })
-    }
-  }
+  styles
 });
 
 export default DefaultTheme;

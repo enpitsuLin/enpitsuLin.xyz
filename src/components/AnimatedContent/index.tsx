@@ -1,10 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
-interface Props {
-  /** @todo use props control animate's prototypes */
-}
-
-const AnimatedContent = styled.div<Props>`
+const AnimatedContent = styled.div`
   @keyframes routeChange {
     0% {
       opacity: 0;

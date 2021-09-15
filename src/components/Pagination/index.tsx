@@ -1,34 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import classNames from 'classnames';
-import styled from 'styled-components';
-
-const Pager = styled.ul`
-  display: flex;
-  user-select: none;
-  cursor: pointer;
-  li {
-    display: block;
-    background-color: var(--primary-200);
-    color: #fff;
-    height: 2rem;
-    width: 2rem;
-    text-align: center;
-    line-height: 2rem;
-
-    &:first-child {
-      border-top-left-radius: 6px;
-      border-bottom-left-radius: 6px;
-    }
-    &:last-child {
-      border-top-right-radius: 6px;
-      border-bottom-right-radius: 6px;
-    }
-    &:hover,
-    &.current {
-      background-color: var(--primary-100);
-    }
-  }
-`;
+import { Stack, Button } from '@chakra-ui/react';
 
 interface Props {
   pageCount: number;
@@ -40,30 +11,23 @@ const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, onChange
   const [current, setCurrent] = useState(currentPage);
 
   return (
-    <div>
-      <Pager>
-        <li>
-          <span>‹</span>
-        </li>
-        {Array.from({ length: pageCount }).map((_, index) => {
-          return (
-            <li
-              key={index}
-              onClick={() => {
-                onChange && onChange(index + 1);
-                setCurrent(index + 1);
-              }}
-              className={classNames(current == index + 1 && 'current')}
-            >
-              <span>{index + 1}</span>
-            </li>
-          );
-        })}
-        <li>
-          <span>›</span>
-        </li>
-      </Pager>
-    </div>
+    <Stack spacing={2} my={4} direction="row" align="center">
+      {Array.from({ length: pageCount }).map((_, index) => {
+        return (
+          <Button
+            size="sm"
+            key={index}
+            onClick={() => {
+              onChange && onChange(index + 1);
+              setCurrent(index + 1);
+            }}
+            colorScheme={current == index + 1 ? 'blue' : undefined}
+          >
+            <span>{index + 1}</span>
+          </Button>
+        );
+      })}
+    </Stack>
   );
 };
 

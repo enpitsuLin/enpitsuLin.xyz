@@ -1,7 +1,7 @@
 import useScroll from '@/hooks/useScroll';
 import React, { useEffect, useState, useCallback, FunctionComponent } from 'react';
 import { FaArrowUp } from 'react-icons/fa';
-import styled from 'styled-components';
+import styled from '@emotion/styled';
 
 const ToTopWrap = styled.div<{ visible: boolean }>`
   position: fixed;

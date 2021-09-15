@@ -64,10 +64,10 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
         <article className="article-content" itemScope itemType="http://schema.org/Article">
           <Container maxW="container.xl">
             <Flex>
-              <Box>
+              <Box w="75%">
                 <ArticleContent article={article} ref={articleRef} />
               </Box>
-              <Box w="250px">
+              <Box w="25%">
                 <ArticleToc
                   headings={headings}
                   active={activeHeading}

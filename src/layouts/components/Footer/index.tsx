@@ -1,12 +1,14 @@
 import React, { FunctionComponent } from 'react';
-import { Container as FooterContainer, Flex, Box, Center } from '@chakra-ui/react';
+import { Container as FooterContainer, Flex, Box, Center, useColorModeValue } from '@chakra-ui/react';
 import List from './components/List';
 import Bio from './components/Bio';
-import { BoxProps, useStyleConfig } from '@chakra-ui/react';
+import { BoxProps } from '@chakra-ui/react';
 
 export const FooterWrap: FunctionComponent<BoxProps> = props => {
-  const styles = useStyleConfig('FooterWrap', {});
-  return <Box as="footer" sx={styles} {...props} />;
+  const bg = useColorModeValue('white', 'gray.800');
+  const borderTopColor = useColorModeValue('gray.100', 'gray.700');
+  const boxShadow = useColorModeValue('0 0 10px 0 rgb(0 0 0 / 4%)', 'rgb(0 0 0 / 4%) 0px 0px 10px 0px');
+  return <Box as="footer" bg={bg} borderTopColor={borderTopColor} boxShadow={boxShadow} {...props} />;
 };
 
 const poweredBy = [
@@ -17,7 +19,8 @@ const poweredBy = [
 ];
 const themedWith = [
   { name: 'Chakra UI', link: 'https://chakra-ui.com/' },
-  { name: 'React Icons', link: 'https://react-icons.github.io/react-icons/' }
+  { name: 'React Icons', link: 'https://react-icons.github.io/react-icons/' },
+  { name: 'emotion', link: 'https://emotion.sh/docs/introduction' }
 ];
 
 const Footer: FunctionComponent = () => {

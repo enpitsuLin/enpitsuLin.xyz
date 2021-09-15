@@ -1,22 +1,13 @@
+import { Box, Text } from '@chakra-ui/layout';
 import React, { FunctionComponent } from 'react';
 import { IconType } from 'react-icons';
-import styled from 'styled-components';
-
-const Item = styled.div`
-  display: inline-flex;
-  align-items: center;
-  margin-right: 0.25rem;
-  > svg {
-    margin-right: 8px;
-  }
-`;
 
 const FrontMatterItem: FunctionComponent<{ icon: IconType; label?: string }> = props => {
   return (
-    <Item>
+    <Box display="inline-flex" alignItems="center" marginEnd="0.25rem">
       <props.icon />
-      <span>{props.label || props.children}</span>
-    </Item>
+      <Text marginStart="0.5">{props.label || props.children}</Text>
+    </Box>
   );
 };
 

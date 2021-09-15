@@ -13,3 +13,4 @@ declare module '*.jpg' {
   const module: any;
   export = module;
 }
+

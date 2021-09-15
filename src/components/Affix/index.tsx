@@ -1,12 +1,8 @@
-import React, { FunctionComponent, HtmlHTMLAttributes, useRef } from 'react';
+import React, { FunctionComponent, useRef } from 'react';
 import classNames from 'classnames';
-import styled from 'styled-components';
+import { Box, BoxProps } from '@chakra-ui/react';
 
-const Sticky = styled.div`
-  position: sticky;
-`;
-
-interface Props extends HtmlHTMLAttributes<HTMLDivElement> {
+interface Props extends BoxProps {
   offsetTop: number | string;
   target?: HTMLElement;
 }
@@ -20,11 +16,17 @@ const Affix: FunctionComponent<Props> = ({ offsetTop = defaultProps.offsetTop, t
   const affix = useRef<HTMLDivElement>(null);
 
   return (
-    <Sticky {...attrs} className={classNames(attrs.className, 'affix-wrap')} style={{ top: offsetTop }} ref={affixWrap}>
+    <Box
+      position="sticky"
+      className={classNames(attrs.className, 'affix-wrap')}
+      style={{ top: offsetTop }}
+      ref={affixWrap}
+      {...attrs}
+    >
       <div ref={affix} style={{ width: affixWrap.current?.offsetWidth }}>
         {attrs.children}
       </div>
-    </Sticky>
+    </Box>
   );
 };
 
