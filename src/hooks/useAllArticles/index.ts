@@ -25,7 +25,6 @@ export default function useAllArticles() {
                 words
               }
               frontmatter {
-                categories
                 date(formatString: "YYYY 年 MM月 DD日")
                 description
                 tags

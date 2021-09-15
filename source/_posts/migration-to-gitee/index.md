@@ -2,8 +2,6 @@
 title: 博客迁移到gitee
 toc: false
 date: 2020-03-27 13:32:30
-categories:
-  - 博客
 tags:
   - hexo
   - blog

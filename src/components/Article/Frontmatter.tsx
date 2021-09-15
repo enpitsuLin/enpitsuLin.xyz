@@ -1,9 +1,10 @@
 import React, { FunctionComponent } from 'react';
 import { FaCalendar, FaTags, FaFileSignature, FaStopwatch } from 'react-icons/fa';
-import { calcArticleWordCount } from '@/utils/article';
+import { calcArticleWordCount, navigateToSearchPage } from '@/utils/article';
 import FrontMatterItem from './ArticleToc/FrontmatterItem';
 import { Box } from '@chakra-ui/layout';
 import { Tag } from '@chakra-ui/tag';
+import { useColorModeValue } from '@chakra-ui/color-mode';
 
 type Props = {
   article: GatsbyTypes.MarkdownRemark;
@@ -15,11 +16,22 @@ const Frontmatter: FunctionComponent<Props> = ({ article }) => {
   const words = calcArticleWordCount(article);
 
   const { date, tags } = frontmatter as GatsbyTypes.Frontmatter;
+
+  const TagHoverBg = useColorModeValue('#0003', '#fff3');
   return (
     <Box py={2} fontSize="x-small">
       <FrontMatterItem icon={FaTags}>
         {tags?.map(tag => (
-          <Tag key={tag} mr="0.5" size="sm">
+          <Tag
+            key={tag}
+            cursor="pointer"
+            mr="0.5"
+            size="sm"
+            _hover={{ bg: TagHoverBg }}
+            onClick={() => {
+              navigateToSearchPage(tag as string);
+            }}
+          >
             {tag}
           </Tag>
         ))}

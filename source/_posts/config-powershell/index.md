@@ -1,8 +1,6 @@
 ---
 title: Window下配置你的shell
 date: 2019-03-28 19:06:15
-categories:
-  - 瞎整
 tags:
   - shell
   - windows
@@ -44,7 +42,7 @@ ColorTool 使用非常简单。我们可以利用下面这个命令进行查看�
 colortool -s
 ```
 
-![几个自带配色主题](assets/20210903_104755__.png)
+![几个自带配色主题](./几个自带配色主题.png)
 
 前面的几个 .ini 和 .itermcolors 就是主题配置文件，我们可以直接通过下面这个命令设置主题：
 

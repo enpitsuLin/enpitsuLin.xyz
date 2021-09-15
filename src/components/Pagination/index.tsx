@@ -9,7 +9,6 @@ interface Props {
 
 const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, onChange }) => {
   const [current, setCurrent] = useState(currentPage);
-
   return (
     <Stack spacing={2} my={4} direction="row" align="center">
       {Array.from({ length: pageCount }).map((_, index) => {
@@ -21,7 +20,8 @@ const Pagination: FunctionComponent<Props> = ({ currentPage, pageCount, onChange
               onChange && onChange(index + 1);
               setCurrent(index + 1);
             }}
-            colorScheme={current == index + 1 ? 'blue' : undefined}
+            bg={current == index + 1 ? 'teal.400' : undefined}
+            color={current == index + 1 ? 'white' : undefined}
           >
             <span>{index + 1}</span>
           </Button>

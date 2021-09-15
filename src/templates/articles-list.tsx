@@ -4,10 +4,10 @@ import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
-import { Container, Flex, Box, Input, InputRightAddon, InputGroup } from '@chakra-ui/react';
-import Card from '@/components/Card';
-import { FaSearch } from 'react-icons/fa';
+import { Container, Flex, Box } from '@chakra-ui/react';
 import { navigateToArticle } from '@/utils/article';
+import SearchCard from '@/components/Card/SearchCard';
+import TagsCard from '@/components/Card/TagsCard';
 
 interface Props extends PageRendererProps {
   data: {
@@ -40,16 +40,8 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
               />
             </Box>
             <Box w="33%" display={{ base: 'none', md: 'block' }} pl={8}>
-              <Card hover={false}>
-                <InputGroup>
-                  <Input
-                    variant="outline"
-                    placeholder="搜索"
-                    _placeholder={{ position: 'absolute', top: '50%', left: '0.75rem', transform: 'translateY(-50%)' }}
-                  />
-                  <InputRightAddon children={<FaSearch color="gray.300" />} cursor="pointer" />
-                </InputGroup>
-              </Card>
+              <SearchCard />
+              <TagsCard />
             </Box>
           </Flex>
         </Container>

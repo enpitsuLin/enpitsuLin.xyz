@@ -2,11 +2,9 @@
 title: 什么是JSX
 toc: true
 date: 2020-10-12 19:52:16
-categories:
-  - 前端技术
 tags:
+  - 前端技术
   - JavaScript
-  - JSX
   - Vue
   - React
 description: 在过去的一年中，Vue 团队一直都在开发 Vue.js 的下一个主要版本，从各方面来看JSX 在 Vue3 的语境下更契合 Vue 的发展方向，所以接触一下JSX并开始React的学习。

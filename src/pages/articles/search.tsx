@@ -6,10 +6,10 @@ import useAllArticles from '@/hooks/useAllArticles';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
-import { Container, Flex, Box, Input, InputRightAddon, InputGroup, Text } from '@chakra-ui/react';
-import Card from '@/components/Card';
-import { FaSearch } from 'react-icons/fa';
+import { Container, Flex, Box, Text } from '@chakra-ui/react';
 import { navigateToSearchPage } from '@/utils/article';
+import SearchCard from '@/components/Card/SearchCard';
+import TagsCard from '@/components/Card/TagsCard';
 
 interface Query {
   query?: string;
@@ -37,6 +37,7 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
     });
   }
   const pageCount = Math.ceil(searchResult.length / pageSize);
+  const resultCount = searchResult.length;
   searchResult = searchResult.slice((page - 1) * pageSize, page * pageSize);
 
   return (
@@ -48,7 +49,7 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
             <Box w={{ base: 'full', md: '66%' }}>
               <Box mb={8}>
                 <Text fontSize="4xl">{query} 搜索结果</Text>
-                <Text fontSize="sm"> 结果数：0</Text>
+                <Text fontSize="sm"> 结果数：{resultCount}</Text>
               </Box>
               <ArticleItemList
                 articles={searchResult}
@@ -61,16 +62,8 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
               />
             </Box>
             <Box w="33%" display={{ base: 'none', md: 'block' }} pl={8}>
-              <Card hover={false}>
-                <InputGroup>
-                  <Input
-                    variant="outline"
-                    placeholder="搜索"
-                    _placeholder={{ position: 'absolute', top: '50%', left: '0.75rem', transform: 'translateY(-50%)' }}
-                  />
-                  <InputRightAddon children={<FaSearch color="gray.300" />} cursor="pointer" />
-                </InputGroup>
-              </Card>
+              <SearchCard />
+              <TagsCard />
             </Box>
           </Flex>
         </Container>
