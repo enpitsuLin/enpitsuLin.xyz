@@ -6,11 +6,12 @@ const ThemeButton: FunctionComponent = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <IconButton
+      variant="ghost"
+      aria-label="Theme"
+      icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}
       onClick={() => {
         toggleColorMode();
       }}
-      aria-label="Theme"
-      icon={colorMode == 'light' ? <FaMoon /> : <FaSun />}
     />
   );
 };

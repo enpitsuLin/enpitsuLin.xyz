@@ -18,6 +18,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
       <HStack spacing={1} mr={1} color="brand.500" display={{ base: 'none', md: 'inline-flex' }}>
         {NavList.map(item => (
           <Button
+            key={item.name}
             variant="ghost"
             onClick={() => {
               navigate(item.link);
@@ -43,6 +44,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
             <CloseButton aria-label="Close menu" onClick={() => mobileNav.onClose()} />
             {NavList.map(item => (
               <Button
+                key={item.name}
                 w="full"
                 variant="ghost"
                 onClick={() => {

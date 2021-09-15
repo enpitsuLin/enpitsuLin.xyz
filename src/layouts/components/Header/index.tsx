@@ -44,17 +44,15 @@ const NavBarContainer = ({ children, ...props }) => {
 };
 interface Props {
   title: string;
-  transparent: boolean;
 }
 
-const Header: FunctionComponent<Props> = ({ title, transparent }) => {
-  const mergeProps = transparent ? { bg: '#0000', borderBottom: 'none', boxShadow: 'none' } : {};
+const Header: FunctionComponent<Props> = ({ title }) => {
   const NavList = [
     { name: '主页', link: '/' },
     { name: '文章', link: '/articles' }
   ];
   return (
-    <HeaderWrap id="header" {...mergeProps}>
+    <HeaderWrap id="header">
       <HeaderContainer maxW="container.xl" px={10}>
         <NavBarContainer>
           <Brand title={title} />

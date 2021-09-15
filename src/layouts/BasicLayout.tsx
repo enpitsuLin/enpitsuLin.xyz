@@ -9,16 +9,15 @@ import { Box, Flex } from '@chakra-ui/layout';
 
 interface Props extends PageRendererProps {}
 
-const BasicLayout: FunctionComponent<Props> = ({ location, children }) => {
+const BasicLayout: FunctionComponent<Props> = ({ children }) => {
   const data = useSiteMetadata();
   const title = data.site?.siteMetadata?.title as string;
-  const isHome = location.pathname == '/';
 
   return (
     <Flex flexDir="column" overflowWrap="break-word">
-      <Header title={title} transparent={isHome} />
+      <Header title={title} />
       <ToTop />
-      <Box flex="0 0 100%" minHeight="100vh" pt={isHome ? 0 : 70}>
+      <Box flex="0 0 100%" minHeight="100vh" pt={66}>
         {children}
       </Box>
       <Footer />

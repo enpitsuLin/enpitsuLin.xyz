@@ -26,16 +26,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
       <Seo title="首页" />
       <AnimatedContent>
         <Box h="100vh">
-          <Flex
-            alignItems="center"
-            w="full"
-            h="full"
-            justifyContent="center"
-            backgroundImage="url(/images/blog-home-pic.png)"
-            backgroundPosition="center center"
-            backgroundSize="cover"
-            backgroundRepeat="no-repeat"
-          >
+          <Flex alignItems="center" w="full" h="calc(100% - 66px)" justifyContent="center">
             <Box textAlign="center">
               <Text fontSize="3rem" fontWeight="500" py={1} my={3}>
                 你好

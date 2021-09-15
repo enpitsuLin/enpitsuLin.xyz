@@ -2,6 +2,7 @@ import Affix from '@/components/Affix';
 import React, { FunctionComponent } from 'react';
 import { FaListUl } from 'react-icons/fa';
 import { Box, Flex, UnorderedList, ListItem } from '@chakra-ui/layout';
+import { useColorModeValue } from '@chakra-ui/color-mode';
 
 interface Props {
   headings: GatsbyTypes.MarkdownHeading[];
@@ -10,25 +11,30 @@ interface Props {
 }
 
 const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) => {
+  const borderStartColor = useColorModeValue('#3334', '#fff4');
+  const HeadingBorderStart = useColorModeValue('#3334', '#fff');
   return (
-    <Affix fontSize="0.875rem" lineHeight="1.25rem" offsetTop="3.5rem">
-      <Box borderStart="1px solid rgba(255, 255, 255, 0.25)" py="1" pl="4" mt="1" ml="4">
+    <Affix lineHeight="1.25rem" offsetTop="66px">
+      <Box borderStartWidth="1px" borderStartColor={borderStartColor} py="1" pl="4" mt="1" ml="4">
         <Flex alignItems="center" py="1">
-          <FaListUl size={12} />
+          <FaListUl size={14} />
           <span>目录</span>
         </Flex>
         <Box>
           <UnorderedList>
             {headings.map(item => (
               <ListItem
+                fontSize="0.825rem"
+                lineHeight="base"
                 paddingStart={(item?.depth || 1) * 3}
                 key={item.id}
                 onClick={() => onTocClick(item.id as string)}
                 listStyleType="none"
                 color={active === item.id ? 'teal.400' : undefined}
-                borderStart={active === item.id ? 'solid 3px #fff' : 'solid 3px #0000'}
+                borderStartWidth="3px"
+                borderStartColor={active === item.id ? HeadingBorderStart : '#0000'}
                 cursor="pointer"
-                my={1}
+                my={2}
               >
                 {item.value}
               </ListItem>

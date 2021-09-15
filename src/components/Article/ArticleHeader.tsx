@@ -1,3 +1,4 @@
+import { Box, Flex, Text } from '@chakra-ui/layout';
 import React, { FunctionComponent } from 'react';
 import Frontmatter from './Frontmatter';
 
@@ -7,12 +8,14 @@ interface Props {
 
 const ArticleHeader: FunctionComponent<Props> = ({ article }) => {
   return (
-    <div>
-      <div>
-        <p className="title"> {article.frontmatter?.title || '无标题'}</p>
+    <Flex justifyContent="center" alignItems="center" height="64">
+      <Box textAlign="center">
+        <Text fontSize="3xl" mb="2">
+          {article.frontmatter?.title || '无标题'}
+        </Text>
         <Frontmatter article={article} />
-      </div>
-    </div>
+      </Box>
+    </Flex>
   );
 };
 

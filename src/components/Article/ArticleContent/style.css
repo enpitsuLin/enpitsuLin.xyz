@@ -1,6 +1,5 @@
 .article-content {
   --highlight-color: rgb(0, 200, 200);
-  --text-color: #dfdfdf;
   --inline-code-color: #d22d7a;
   --headings-color: #ddd;
   --bg-color: #333;
@@ -10,7 +9,7 @@
 }
 /* prettier-ignore */
 .article-content h1, .article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6 {
-    color: var(--headings-color);
+    
     font-weight: 700;
     line-height: 1.5;
     margin: 20px 0 15px;
@@ -42,14 +41,12 @@
 }
 
 .article-content p {
-  color: var(--text-color);
   line-height: 1.75rem;
   margin: 0 0 7.5px;
 }
 
 .article-content.excerpt,
 .article-content.excerpt p {
-  color: var(--text-color);
   font-size: 0.875rem;
   margin-bottom: 3px;
   line-height: 1.5rem;
