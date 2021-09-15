@@ -3,7 +3,7 @@ title: 从0开始的Typescript学习和踩坑
 toc: false
 date: 2021-08-29 22:03:09
 tags:
-  - 前端技术
+  - Web前端
   - TypeScript
   - Vue
   - React

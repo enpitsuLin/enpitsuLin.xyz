@@ -3,7 +3,7 @@ title: 什么是JSX
 toc: true
 date: 2020-10-12 19:52:16
 tags:
-  - 前端技术
+  - Web前端
   - JavaScript
   - Vue
   - React

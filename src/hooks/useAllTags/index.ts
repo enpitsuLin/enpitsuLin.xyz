@@ -24,5 +24,8 @@ export default function useAllTag() {
       }
     }
   });
-  return tagsCount;
+
+  return Object.keys(tagsCount)
+    .map(tag => ({ tag, count: tagsCount[tag] }))
+    .sort((a, b) => b.count - a.count);
 }

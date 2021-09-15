@@ -3,7 +3,7 @@ title: 理解Node.js的事件驱动模型
 toc: true
 date: 2020-07-25 21:21:04
 tags:
-  - 前端技术
+  - Web前端
   - GUI
   - Node
 ---

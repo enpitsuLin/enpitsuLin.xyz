@@ -7,16 +7,17 @@ import Card from '..';
 
 const TagsCard: FunctionComponent = () => {
   const allTags = useAllTag();
-  const tagBg = useColorModeValue('#eee', '#444');
-  const tagHoverBg = useColorModeValue('#ddd', '#555');
+
+  const tagBg = useColorModeValue('gray.100', 'rgba(226, 232, 240, 0.16)');
+  const tagHoverBg = useColorModeValue('#0003', '#fff3');
   return (
     <Card hover={false}>
       <Flex flexWrap="wrap" alignItems="center">
-        {Object.keys(allTags).map(item => {
+        {allTags.map(item => {
           return (
             <Box
               as="span"
-              key={item}
+              key={item.tag}
               bg={tagBg}
               display="inline-block"
               p="1px"
@@ -26,11 +27,11 @@ const TagsCard: FunctionComponent = () => {
               cursor="pointer"
               _hover={{ bg: tagHoverBg }}
               onClick={() => {
-                navigateToSearchPage(item);
+                navigateToSearchPage(item.tag);
               }}
             >
               <Box as="span" fontSize="14" p="4px">
-                {item}
+                {item.tag}
               </Box>
               <Box
                 as="span"
@@ -45,7 +46,7 @@ const TagsCard: FunctionComponent = () => {
                 ml={1}
                 borderRadius="base"
               >
-                {allTags[item]}
+                {item.count}
               </Box>
             </Box>
           );
