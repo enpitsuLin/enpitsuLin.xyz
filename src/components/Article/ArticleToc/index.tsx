@@ -11,11 +11,11 @@ interface Props {
 }
 
 const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) => {
-  const borderStartColor = useColorModeValue('#3334', '#fff4');
+  const borderStartColor = useColorModeValue('gray.100', 'gray.700');
   const HeadingBorderStart = useColorModeValue('#3334', '#fff');
   return (
     <Affix lineHeight="1.25rem" offsetTop="66px">
-      <Box borderStartWidth="1px" borderStartColor={borderStartColor} py="1" pl="4" mt="1" ml="4">
+      <Box borderStartWidth="2px" borderStartColor={borderStartColor} py="1" pl="4" mt="1" ml="4">
         <Flex alignItems="center" py="1">
           <FaListUl size={14} />
           <span>目录</span>

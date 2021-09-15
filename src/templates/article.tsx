@@ -9,7 +9,7 @@ import ArticleToc from '@/components/Article/ArticleToc';
 import useScroll from '@/hooks/useScroll';
 import ArticleContent from '@/components/Article/ArticleContent';
 
-const __MAIN_HEADER_HEIGHT__ = 55;
+const __MAIN_HEADER_HEIGHT__ = 66;
 
 interface Props extends PageRendererProps {
   pageContext?: {};
