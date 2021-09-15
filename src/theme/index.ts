@@ -8,7 +8,7 @@ const config = {
 const styles: Styles = {
   global: props => ({
     body: {
-      fontFamily: 'body',
+      fontFamily: "Overpass, 'GlowSansSC', 'Helvetica Neue', 'pingfang sc', 'microsoft yahei', sans-serif",
       color: mode('gray.700', 'whiteAlpha.900')(props),
       bg: mode('gray.50', 'gray.900')(props),
       lineHeight: 'base'

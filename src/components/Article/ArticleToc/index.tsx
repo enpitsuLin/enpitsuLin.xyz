@@ -26,9 +26,9 @@ const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) 
                 onClick={() => onTocClick(item.id as string)}
                 listStyleType="none"
                 color={active === item.id ? 'teal.400' : undefined}
-                borderStart={active === item.id ? 'solid 2px #fff' : 'solid 2px #0000'}
+                borderStart={active === item.id ? 'solid 3px #fff' : 'solid 3px #0000'}
                 cursor="pointer"
-                py={1}
+                my={1}
               >
                 {item.value}
               </ListItem>

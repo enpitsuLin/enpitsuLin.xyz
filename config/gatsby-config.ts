@@ -177,12 +177,6 @@ const Plugins: PluginRef[] = [
         'src/__generated__/gatsby-plugin-documents.graphql': true
       }
     }
-  },
-  {
-    resolve: `gatsby-plugin-styled-components`,
-    options: {
-      // Add any options here
-    }
   }
 ];
 
