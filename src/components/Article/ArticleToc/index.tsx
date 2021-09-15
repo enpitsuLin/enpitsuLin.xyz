@@ -21,7 +21,7 @@ const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) 
           <UnorderedList>
             {headings.map(item => (
               <ListItem
-                paddingStart={((item?.depth || 1) - 1) * 3}
+                paddingStart={(item?.depth || 1) * 3}
                 key={item.id}
                 onClick={() => onTocClick(item.id as string)}
                 listStyleType="none"
