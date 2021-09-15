@@ -6,6 +6,28 @@ import Brand from './components/Brand';
 
 import Nav from './components/Nav';
 
+interface Props {
+  title: string;
+}
+
+const Header: FunctionComponent<Props> = ({ title }) => {
+  const NavList = [
+    { name: '主页', link: '/' },
+    { name: '文章', link: '/articles' },
+    { name: '关于', link: '/about' }
+  ];
+  return (
+    <HeaderWrap id="header">
+      <HeaderContainer maxW="container.xl" px={10}>
+        <NavBarContainer>
+          <Brand title={title} />
+          <Nav NavList={NavList} />
+        </NavBarContainer>
+      </HeaderContainer>
+    </HeaderWrap>
+  );
+};
+
 const HeaderWrap: FunctionComponent<BoxProps> = ({ ...props }) => {
   const bg = useColorModeValue('white', 'gray.800');
   const borderBottomColor = useColorModeValue('gray.100', 'gray.700');
@@ -40,26 +62,6 @@ const NavBarContainer = ({ children, ...props }) => {
     >
       {children}
     </Flex>
-  );
-};
-interface Props {
-  title: string;
-}
-
-const Header: FunctionComponent<Props> = ({ title }) => {
-  const NavList = [
-    { name: '主页', link: '/' },
-    { name: '文章', link: '/articles' }
-  ];
-  return (
-    <HeaderWrap id="header">
-      <HeaderContainer maxW="container.xl" px={10}>
-        <NavBarContainer>
-          <Brand title={title} />
-          <Nav NavList={NavList} />
-        </NavBarContainer>
-      </HeaderContainer>
-    </HeaderWrap>
   );
 };
 

@@ -1,10 +1,10 @@
+import React, { FunctionComponent } from 'react';
+import { navigate } from 'gatsby';
 import { CloseButton } from '@chakra-ui/close-button';
 import { useColorModeValue } from '@chakra-ui/color-mode';
 import { Button, IconButton, Box, HStack, VStack, useDisclosure, Slide } from '@chakra-ui/react';
-import React, { FunctionComponent } from 'react';
 import { FaBars } from 'react-icons/fa';
-import ThemeButton from './ThemeButton';
-import { navigate } from 'gatsby';
+import Theme from './Theme';
 
 interface Props {
   NavList: { name: string; link: string }[];
@@ -28,7 +28,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
           </Button>
         ))}
       </HStack>
-      <ThemeButton />
+      <Theme />
       <Box display={{ base: 'inline-flex', md: 'none' }}>
         <IconButton
           display={{ base: 'flex', md: 'none' }}

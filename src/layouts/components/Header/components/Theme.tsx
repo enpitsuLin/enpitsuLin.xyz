@@ -2,7 +2,7 @@ import React, { FunctionComponent } from 'react';
 import { IconButton, useColorMode } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-const ThemeButton: FunctionComponent = () => {
+const Theme: FunctionComponent = () => {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <IconButton
@@ -16,4 +16,4 @@ const ThemeButton: FunctionComponent = () => {
   );
 };
 
-export default ThemeButton;
+export default Theme;

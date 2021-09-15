@@ -4,8 +4,8 @@ import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';
-
 import { Container, Flex, Box } from '@chakra-ui/react';
+import Card from '@/components/Card';
 
 interface Props extends PageRendererProps {
   data: {
@@ -27,11 +27,13 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
       <AnimatedContent>
         <Container maxW="container.xl">
           <Flex>
-            <Box md={8}>
+            <Box w={{ base: 'full', md: '66%' }}>
               <ArticleItemList articles={articles} pageCount={pageCount} pageIndex={pageIndex} />
             </Box>
-            <Box md={4} className="d-none d-md-block">
-              <div></div>
+            <Box w="33%" display={{ base: 'none', md: 'block' }} pl={8}>
+              <Card hover={false}>卡片1</Card>
+              <Card hover={false}>卡片2</Card>
+              <Card hover={false}>卡片3</Card>
             </Box>
           </Flex>
         </Container>

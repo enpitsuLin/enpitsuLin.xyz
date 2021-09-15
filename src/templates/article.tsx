@@ -21,7 +21,6 @@ interface Props extends PageRendererProps {
 }
 function isWindowBetween(element: HTMLElement | null): boolean {
   const isBetween = !!element && element.getBoundingClientRect().top - __MAIN_HEADER_HEIGHT__ >= 1;
-  console.log(element, isBetween);
   return isBetween;
 }
 
