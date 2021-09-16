@@ -18,7 +18,7 @@ const ArticleToc: FunctionComponent<Props> = ({ headings, active, onTocClick }) 
       <Box borderStartWidth="2px" borderStartColor={borderStartColor} py="1" pl="4" mt="1" ml="4">
         <Flex alignItems="center" py="1">
           <FaListUl size={14} />
-          <span>目录</span>
+          <span>{headings.length > 0 ? '目录' : '暂无目录'}</span>
         </Flex>
         <Box>
           <UnorderedList>

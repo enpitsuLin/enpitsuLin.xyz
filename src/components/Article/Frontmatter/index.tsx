@@ -1,7 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { FaCalendar, FaTags, FaFileSignature, FaStopwatch } from 'react-icons/fa';
 import { calcArticleWordCount, navigateToSearchPage } from '@/utils/article';
-import FrontMatterItem from './ArticleToc/FrontmatterItem';
+import FrontMatterItem from './FrontmatterItem';
 import { Box } from '@chakra-ui/layout';
 import { Tag } from '@chakra-ui/tag';
 import { useColorModeValue } from '@chakra-ui/color-mode';

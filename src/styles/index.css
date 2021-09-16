@@ -22,10 +22,10 @@ html {
 
 /* 滚动条滑块 */
 ::-webkit-scrollbar-thumb {
-  /* background: #19a9a950; */
+  background: var(--chakra-colors-teal-500);
   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  /* background: #19a9a9a6; */
+  background: var(--chakra-colors-teal-200);
 }

@@ -1,9 +1,10 @@
-import { Box } from '@chakra-ui/layout';
 import React, { FunctionComponent, useEffect, useState } from 'react';
+import { Box } from '@chakra-ui/layout';
+import Gitalk from 'gitalk';
 import GitalkComponent from 'gitalk/dist/gitalk-component';
 import 'gitalk/dist/gitalk.css';
 
-const GitalkOptions = {
+const GitalkOptions: Gitalk.GitalkOptions = {
   clientID: '17c3d9f2a6836b2ca90a',
   clientSecret: 'ff16410038d51a8b22a6eefa747cccd110bc023b',
   repo: 'enpitsuLin.github.io',
