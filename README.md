@@ -2,6 +2,7 @@
 
 [![Gatsby Publish](https://github.com/enpitsuLin/enpitsuLin.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/enpitsuLin/enpitsuLin.github.io/actions/workflows/deploy.yml)
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
+[![Chakra UI](https://img.shields.io/badge/Built%20with-Chakra%20UI-81e6d9)](https://chakra-ui.com/)
 [![style: emotion](https://img.shields.io/badge/style-%E2%9C%A8emotion-d4a25e?colorA=45c7e1)](https://github.com/emotion-js/emotion)
 
 Currently it is built with [Gatsby](https://www.gatsbyjs.org/).
