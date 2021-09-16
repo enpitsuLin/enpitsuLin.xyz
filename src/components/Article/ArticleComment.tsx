@@ -1,0 +1,34 @@
+import { Box } from '@chakra-ui/layout';
+import React, { FunctionComponent, useEffect, useState } from 'react';
+import GitalkComponent from 'gitalk/dist/gitalk-component';
+import 'gitalk/dist/gitalk.css';
+
+const GitalkOptions = {
+  clientID: '17c3d9f2a6836b2ca90a',
+  clientSecret: 'ff16410038d51a8b22a6eefa747cccd110bc023b',
+  repo: 'enpitsuLin.github.io',
+  owner: 'enpitsuLin',
+  admin: ['enpitsuLin'],
+  distractionFreeMode: false
+};
+
+interface Props {
+  article: GatsbyTypes.MarkdownRemark;
+}
+
+const ArticleComment: FunctionComponent<Props> = ({ article }) => {
+  const [mounted, setMounted] = useState(typeof window != 'undefined');
+  useEffect(() => {
+    if (typeof window != 'undefined' && !mounted) {
+      setMounted(true);
+    }
+  });
+  const options = {
+    ...GitalkOptions,
+    id: article.id.substring(0, 50),
+    title: `[COMMENT] ${article.frontmatter?.title}`
+  };
+  return <Box>{mounted && <GitalkComponent options={options} />}</Box>;
+};
+
+export default ArticleComment;

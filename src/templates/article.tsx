@@ -10,8 +10,7 @@ import useScroll from '@/hooks/useScroll';
 import ArticleContent from '@/components/Article/ArticleContent';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import { navigateToArticle } from '@/utils/article';
-import GitalkComponent from 'gitalk/dist/gitalk-component';
-import 'gitalk/dist/gitalk.css';
+import ArticleComment from '@/components/Article/ArticleComment';
 
 const __MAIN_HEADER_HEIGHT__ = 66;
 
@@ -97,18 +96,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                     </Button>
                   )}
                 </Flex>
-                <GitalkComponent
-                  options={{
-                    clientID: '17c3d9f2a6836b2ca90a',
-                    clientSecret: 'ff16410038d51a8b22a6eefa747cccd110bc023b',
-                    repo: 'enpitsuLin.github.io',
-                    owner: 'enpitsuLin',
-                    admin: ['enpitsuLin'],
-                    id: article.id.substring(0, 50),
-                    title: `[COMMENT] ${article.frontmatter?.title}`,
-                    distractionFreeMode: false
-                  }}
-                />
+                <ArticleComment article={article} />
               </Box>
               <Box w="25%" display={{ base: 'none', md: 'block' }}>
                 <ArticleToc
