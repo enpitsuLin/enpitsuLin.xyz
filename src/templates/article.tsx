@@ -101,10 +101,11 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                   options={{
                     clientID: '17c3d9f2a6836b2ca90a',
                     clientSecret: 'ff16410038d51a8b22a6eefa747cccd110bc023b',
-                    repo: 'gitalk',
+                    repo: 'enpitsuLin.github.io',
                     owner: 'enpitsuLin',
                     admin: ['enpitsuLin'],
-                    id: location.pathname,
+                    id: article.id.substring(0, 50),
+                    title: `[COMMENT] ${article.frontmatter?.title}`,
                     distractionFreeMode: false
                   }}
                 />
