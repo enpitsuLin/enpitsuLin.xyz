@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { IconButton, Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
+import { Box, useColorMode, useColorModeValue } from '@chakra-ui/react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Theme: FunctionComponent = () => {

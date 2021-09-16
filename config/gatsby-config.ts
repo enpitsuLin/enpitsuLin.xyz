@@ -118,8 +118,8 @@ const Plugins: PluginRef[] = [
               return Object.assign({}, node.frontmatter, {
                 description: node.excerpt,
                 date: node.frontmatter.date,
-                url: site.siteMetadata.siteUrl + `articles/` + node.fields.slug,
-                guid: site.siteMetadata.siteUrl + `articles/` + node.fields.slug,
+                url: site.siteMetadata.siteUrl + `/articles` + node.fields.slug,
+                guid: site.siteMetadata.siteUrl + `/articles` + node.fields.slug,
                 custom_elements: [{ 'content:encoded': node.html }]
               });
             });
