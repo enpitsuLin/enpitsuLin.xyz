@@ -1,24 +1,30 @@
-import React, { FunctionComponent, useEffect, useRef, useState } from 'react';
-import { Box, BoxProps, useColorMode, useColorModeValue } from '@chakra-ui/react';
-import CanvasNest from 'canvas-nest.js';
+import React, { FunctionComponent, useRef } from 'react';
+import useCanvasNest from './hooks';
 
-const CanvasNestComponent: FunctionComponent<BoxProps> = ({ children, ...props }) => {
-  const canvasColor = useColorModeValue('0,0,0', '255,255,255');
-  const { colorMode } = useColorMode();
-  const canvasWrap = useRef<HTMLDivElement>(null);
-  const [cn, setCn] = useState<CanvasNest>();
-  useEffect(() => {
-    const elm = canvasWrap.current;
-    if (!elm) return;
-    setCn(new CanvasNest(elm, { color: canvasColor }));
-    return () => {
-      cn && cn.destroy();
-    };
-  }, [colorMode]);
+interface Props {
+  options?: {
+    /** 线段密度 */
+    density?: number;
+    /** 线段颜色 */
+    color?: string;
+  };
+}
+
+const CanvasNestComponent: FunctionComponent<Props> = ({ children, options }) => {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const density = options?.density || 150;
+  const color = options?.color || 'rgb(0,0,0)';
+
+  useCanvasNest(canvasRef, color, density);
+
   return (
-    <Box {...props} h="100vh" ref={canvasWrap}>
+    <div style={{ height: '100%', position: 'relative' }}>
+      <canvas
+        ref={canvasRef}
+        style={{ display: 'block', position: 'absolute', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1 }}
+      ></canvas>
       {children}
-    </Box>
+    </div>
   );
 };
 
