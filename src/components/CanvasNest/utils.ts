@@ -12,10 +12,12 @@ export interface NestPoint {
 }
 
 /** 在画布上画点 */
-export function drawPoint(context: CanvasRenderingContext2D, point: NestPoint, color: string) {
+export function drawPoint(context: CanvasRenderingContext2D, point: NestPoint, color: string, radius = 1) {
   if (!point.x || !point.y) return;
+  context.beginPath();
+  context.arc(point.x, point.y, radius, 0, 2 * Math.PI, false);
   context.fillStyle = color;
-  context.fillRect(point.x - 0.5, point.y - 0.5, 1, 1);
+  context.fill();
 }
 
 /** 在画布上画线 */

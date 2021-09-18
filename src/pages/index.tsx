@@ -6,7 +6,6 @@ import useTypeWriter from '@/hooks/useTypewriter';
 import AnimatedContent from '@/components/AnimatedContent';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 import CanvasNest from '@/components/CanvasNest';
-import { useColorModeValue } from '@chakra-ui/color-mode';
 
 type Props = PageRendererProps;
 
@@ -28,7 +27,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
       <Seo title="首页" />
       <AnimatedContent>
         <Box h="calc(100vh - 66px)">
-          <CanvasNest>
+          <CanvasNest options={{ color: 'rgb(100,100,100)', maxDist: 10000 }}>
             <Flex alignItems="center" w="full" h="full" justifyContent="center">
               <Box textAlign="center">
                 <Text fontSize="3rem" fontWeight="500" py={1} my={3}>

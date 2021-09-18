@@ -15,6 +15,8 @@ export interface CanvasNestOption {
   alpha?: number;
   /** 自动吸附的极限距离 默认6000*/
   maxDist?: number;
+  /** 点的半径 */
+  radius?: number;
 }
 
 const defaultOption: Required<CanvasNestOption> = {
@@ -22,7 +24,8 @@ const defaultOption: Required<CanvasNestOption> = {
   density: 150,
   follow: true,
   alpha: 0.4,
-  maxDist: 6000
+  maxDist: 6000,
+  radius: 1
 };
 
 /**
@@ -34,7 +37,7 @@ export default function useCanvasNest(
   targetRef: RefObject<HTMLCanvasElement>,
   options: CanvasNestOption = defaultOption
 ) {
-  const { color = 'rgba(0,0,0)', density = 150, follow = true, alpha = 0.4, maxDist = 6000 } = options;
+  const { color = 'rgba(0,0,0)', density = 150, follow = true, alpha = 0.4, maxDist = 6000, radius = 1 } = options;
   const mouseCoordinate = useRef<NestPoint>({ x: null, y: null, my: 0, mx: 0, max: 6000 });
   const [points, setPoints] = useState<NestPoint[]>([]);
   const [context, setContext] = useState<CanvasRenderingContext2D>();
@@ -45,9 +48,13 @@ export default function useCanvasNest(
     mouseCoordinate.current = { x: offsetX, y: offsetY, my: 0, mx: 0, max: 6000 };
   }
 
-  function updateCanvasNest() {
-    raf.current && cancelAnimationFrame(raf.current);
-    requestAnimationFrame(drawCanvasNest);
+  function initCanvasNest() {
+    if (typeof window == 'undefined' || !targetRef.current) return;
+    const { offsetHeight: height, offsetWidth: width } = targetRef.current;
+    setContext(targetRef.current.getContext('2d') as CanvasRenderingContext2D);
+    setPoints(randomPoints(density, width, height, maxDist));
+    targetRef.current.width = width;
+    targetRef.current.height = height;
   }
 
   const drawCanvasNest = () => {
@@ -65,7 +72,7 @@ export default function useCanvasNest(
       point.y += point.my;
       point.mx *= point.x > width || point.x < 0 ? -1 : 1;
       point.my *= point.y > height || point.y < 0 ? -1 : 1;
-      drawPoint(context, point, color);
+      drawPoint(context, point, color, radius);
 
       for (let i = idx + 1; i < pointsWithMouse.length; i++) {
         const nextPoint = pointsWithMouse[i];
@@ -82,30 +89,25 @@ export default function useCanvasNest(
           }
           const d = (nextPoint.max - dist) / nextPoint.max;
           drawLine(context, point, nextPoint, lowerAlpha(color, 1 - alpha), d / 2);
+          setPoints(points);
         }
       }
     }
 
     raf.current = requestAnimationFrame(drawCanvasNest);
   };
-  useEffect(() => {
-    if (typeof window == 'undefined' || !targetRef.current) return;
-    const { offsetHeight: height, offsetWidth: width } = targetRef.current;
-    setContext(targetRef.current.getContext('2d') as CanvasRenderingContext2D);
-    setPoints(randomPoints(density, width, height, maxDist));
 
-    targetRef.current.width = width;
-    targetRef.current.height = height;
+  useEffect(() => {
+    initCanvasNest();
   }, []);
 
   useEffect(() => {
     const canvasWrapper = targetRef.current?.parentElement as HTMLElement;
     canvasWrapper.addEventListener('mousemove', onMouseMove);
-    updateCanvasNest();
+    requestAnimationFrame(drawCanvasNest);
     return () => {
       raf.current && cancelAnimationFrame(raf.current);
       canvasWrapper.removeEventListener('mousemove', onMouseMove);
     };
-  }, [context, points]);
-  return { updateCanvasNest };
+  }, [context]);
 }
