@@ -4804,6 +4804,11 @@ type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
+type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<Frontmatter, 'tags'>> }> }> } };
+
 type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4811,11 +4816,6 @@ type AllArticlesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ re
         Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
         & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc'>> }
       )> }> } };
-
-type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<Frontmatter, 'tags'>> }> }> } };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 

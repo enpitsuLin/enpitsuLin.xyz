@@ -1,8 +1,8 @@
 export interface NestPoint {
   /** 该点当前x坐标 */
-  x: number;
+  x: number | null;
   /** 该点当前y坐标 */
-  y: number;
+  y: number | null;
   /** 该点当前x坐标运动趋势 */
   mx: number;
   /** 该点当前y坐标运动趋势 */
