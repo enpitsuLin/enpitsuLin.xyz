@@ -9,8 +9,35 @@ export interface NestPoint {
   my: number;
   /** 吸附距离 */
   max: number;
-  /** 是否鼠标点 */
-  isMouse?: boolean;
+}
+
+/** 在画布上画点 */
+export function drawPoint(context: CanvasRenderingContext2D, point: NestPoint, color: string) {
+  if (!point.x || !point.y) return;
+  context.fillStyle = color;
+  context.fillRect(point.x - 0.5, point.y - 0.5, 1, 1);
+}
+
+/** 在画布上画线 */
+export function drawLine(
+  context: CanvasRenderingContext2D,
+  pointStart: NestPoint,
+  pointEnd: NestPoint,
+  color: string,
+  lineWidth: number
+) {
+  if (!pointEnd.x || !pointEnd.y || !pointStart.x || !pointStart.y) return;
+  context.beginPath();
+  context.lineWidth = lineWidth;
+  context.strokeStyle = color;
+  context.moveTo(pointStart.x, pointStart.y);
+  context.lineTo(pointEnd.x, pointEnd.y);
+  context.stroke();
+}
+/** 是否处于画布中 */
+export function inCanvas(context: CanvasRenderingContext2D, point: NestPoint) {
+  const { height, width } = context.canvas;
+  return point.x && point.y && point.x > 0 && point.x < width && point.y > 0 && point.y < height;
 }
 /**
  * 生成随机的点位
@@ -19,14 +46,14 @@ export interface NestPoint {
  * @param height 长度
  * @returns 点位数组
  */
-export function randomPoints(count, width, height): NestPoint[] {
+export function randomPoints(count, width, height, maxDist = 6000): NestPoint[] {
   return range(count).map(function () {
     return {
       x: Math.random() * width,
       y: Math.random() * height,
       mx: 2 * Math.random() - 1, // 随机运动返现
       my: 2 * Math.random() - 1,
-      max: 6000 // 吸附距离
+      max: maxDist // 吸附距离
     };
   });
 }

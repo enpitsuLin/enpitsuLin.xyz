@@ -18,7 +18,7 @@ const CanvasNestComponent: FunctionComponent<Props> = ({ children, options }) =>
   const density = options?.density || 150;
   const color = options?.color ? hex2rgba(options?.color) : 'rgba(0,0,0)';
 
-  useCanvasNest(canvasRef, color, density);
+  useCanvasNest(canvasRef, { color, density });
 
   return (
     <div style={{ height: '100%', position: 'relative' }}>
