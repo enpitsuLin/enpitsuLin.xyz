@@ -1,24 +1,15 @@
+import { Button } from '@chakra-ui/button';
 import React, { FunctionComponent, useRef } from 'react';
-import useCanvasNest from './hooks';
-import { hex2rgba } from './utils';
+import useCanvasNest, { CanvasNestOption } from './hooks';
 
 interface Props {
-  options?: {
-    /** 线段密度 */
-    density?: number;
-    /** 线段颜色 允许HEX和RGB/RGBA格式 */
-    color?: string;
-    /** 鼠标是否触发吸附 */
-    follow?: boolean;
-  };
+  options?: CanvasNestOption;
 }
 
 const CanvasNestComponent: FunctionComponent<Props> = ({ children, options }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  const density = options?.density || 150;
-  const color = options?.color ? hex2rgba(options?.color) : 'rgba(0,0,0)';
 
-  useCanvasNest(canvasRef, { color, density });
+  const { updateCanvasNest } = useCanvasNest(canvasRef, options);
 
   return (
     <div style={{ height: '100%', position: 'relative' }}>
@@ -26,6 +17,13 @@ const CanvasNestComponent: FunctionComponent<Props> = ({ children, options }) =>
         ref={canvasRef}
         style={{ display: 'block', position: 'absolute', top: 0, left: 0, height: '100%', width: '100%', zIndex: -1 }}
       ></canvas>
+      <Button
+        onClick={() => {
+          updateCanvasNest();
+        }}
+      >
+        刷新
+      </Button>
       {children}
     </div>
   );

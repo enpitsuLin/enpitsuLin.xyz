@@ -17,21 +17,37 @@ export interface CanvasNestOption {
   maxDist?: number;
 }
 
+const defaultOption: Required<CanvasNestOption> = {
+  color: 'rgba(0,0,0)',
+  density: 150,
+  follow: true,
+  alpha: 0.4,
+  maxDist: 6000
+};
+
 /**
  * 在指定Canvas元素上渲染巢状图
  * @param targetRef 渲染目标HTMlCanvasElement 的 ref
  * @param options 设置
  */
-export default function useCanvasNest(targetRef: RefObject<HTMLCanvasElement>, options: CanvasNestOption) {
+export default function useCanvasNest(
+  targetRef: RefObject<HTMLCanvasElement>,
+  options: CanvasNestOption = defaultOption
+) {
+  const { color = 'rgba(0,0,0)', density = 150, follow = true, alpha = 0.4, maxDist = 6000 } = options;
   const mouseCoordinate = useRef<NestPoint>({ x: null, y: null, my: 0, mx: 0, max: 6000 });
   const [points, setPoints] = useState<NestPoint[]>([]);
   const [context, setContext] = useState<CanvasRenderingContext2D>();
-  const [raf, setRaf] = useState<number>();
-  const { color = 'rgba(0,0,0)', density = 150, follow = true, alpha = 0.4, maxDist = 6000 } = options;
+  const raf = useRef<number>();
 
   function onMouseMove(e: MouseEvent) {
     const { offsetX, offsetY } = e;
     mouseCoordinate.current = { x: offsetX, y: offsetY, my: 0, mx: 0, max: 6000 };
+  }
+
+  function updateCanvasNest() {
+    raf.current && cancelAnimationFrame(raf.current);
+    requestAnimationFrame(drawCanvasNest);
   }
 
   const drawCanvasNest = () => {
@@ -70,7 +86,7 @@ export default function useCanvasNest(targetRef: RefObject<HTMLCanvasElement>, o
       }
     }
 
-    setRaf(requestAnimationFrame(drawCanvasNest));
+    raf.current = requestAnimationFrame(drawCanvasNest);
   };
   useEffect(() => {
     if (typeof window == 'undefined' || !targetRef.current) return;
@@ -85,10 +101,11 @@ export default function useCanvasNest(targetRef: RefObject<HTMLCanvasElement>, o
   useEffect(() => {
     const canvasWrapper = targetRef.current?.parentElement as HTMLElement;
     canvasWrapper.addEventListener('mousemove', onMouseMove);
-    requestAnimationFrame(drawCanvasNest);
+    updateCanvasNest();
     return () => {
+      raf.current && cancelAnimationFrame(raf.current);
       canvasWrapper.removeEventListener('mousemove', onMouseMove);
-      raf && cancelAnimationFrame(raf);
     };
   }, [context, points]);
+  return { updateCanvasNest };
 }
