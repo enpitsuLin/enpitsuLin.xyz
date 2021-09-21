@@ -4,6 +4,7 @@ import { PageRendererProps } from 'gatsby';
 import { BasicLayout } from '@/layouts/';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
+import { Box, Container, Flex } from '@chakra-ui/layout';
 
 type Props = PageRendererProps;
 
@@ -12,9 +13,11 @@ const About: FunctionComponent<Props> = ({ location }) => {
     <BasicLayout location={location}>
       <Seo title="关于" />
       <AnimatedContent>
-        <div className="about">
-          <p>关于我</p>
-        </div>
+        <Container maxW="container.xl">
+          <Flex>
+            <Box w="full">关于我</Box>
+          </Flex>
+        </Container>
       </AnimatedContent>
     </BasicLayout>
   );
