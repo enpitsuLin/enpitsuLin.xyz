@@ -55,6 +55,9 @@ export default function useCanvasNest(
     setPoints(randomPoints(density, width, height, maxDist));
     targetRef.current.width = width;
     targetRef.current.height = height;
+    window.onresize = () => {
+      initCanvasNest();
+    };
   }
 
   const drawCanvasNest = () => {
