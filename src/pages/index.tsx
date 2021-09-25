@@ -35,7 +35,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
     <BasicLayout location={location}>
       <Seo title="首页" />
       <AnimatedContent>
-        <Box h="calc(100vh - 4.5rem - 2px)">
+        <Box h="calc(100vh - 4.5rem)">
           <CanvasNest options={{ color: 'rgb(100,100,100)', maxDist: 10000 }}>
             <Flex alignItems="center" w="full" h="full" justifyContent="center">
               <Box textAlign="center">
@@ -46,7 +46,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
                   <span>{text || ' '}</span>
                 </Text>
                 <Box py={1} my={2}></Box>
-                <Contacts mt={2} mb={4} />
+                <Contacts mb={4} />
                 <Text as="p" py={1} my={2}>
                   <Icon as={FaClock} mt="-3px" mr={1} />
                   最后更新

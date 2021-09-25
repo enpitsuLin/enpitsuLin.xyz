@@ -3,6 +3,7 @@ import { Link, Text, UnorderedList, ListItem } from '@chakra-ui/react';
 import dayjs from 'dayjs';
 import useSiteMetadata from '@/hooks/useSiteMetadata';
 import RunningTime from './RunningTime';
+import Contacts from '@/components/Contacts';
 
 const Introduction: FunctionComponent = () => {
   const { site } = useSiteMetadata();
@@ -31,6 +32,10 @@ const Introduction: FunctionComponent = () => {
       </ListItem>
       <ListItem>
         <RunningTime />
+      </ListItem>
+      <ListItem>
+        📲 联系我
+        <Contacts />
       </ListItem>
     </UnorderedList>
   );

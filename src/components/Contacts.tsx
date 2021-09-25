@@ -3,7 +3,7 @@ import { Box, BoxProps, Icon } from '@chakra-ui/react';
 import { FaQq, FaMailBulk, FaGithub, FaSteam, FaZhihu } from 'react-icons/fa';
 
 const contacts = [
-  [FaQq, 'http://wpa.qq.com/msgrd?v=3&uin=109299651&site=qq&menu=yes', 'QQ: 109299651'],
+  [FaQq, 'http://wpa.qq.com/msgrd?v=3&uin=1092199651&site=qq&menu=yes', 'QQ: 1092199651'],
   [FaMailBulk, 'mailto://enpitsulin@gmail.com', 'E-mail: enpitsulin@gmail.com'],
   [FaGithub, 'https://github.com/enpitsulin', 'GitHub: enpitsulin'],
   [FaSteam, 'https://steamcommunity.com/profiles/76561198338250608/', 'Steam: promise'],
@@ -12,7 +12,7 @@ const contacts = [
 
 const Contacts: React.FC<BoxProps> = props => {
   return (
-    <Box {...props}>
+    <Box my={2} {...props}>
       {contacts.map(contact => {
         const [icon, link, title] = contact;
         return (
@@ -20,7 +20,7 @@ const Contacts: React.FC<BoxProps> = props => {
             <Icon
               as={icon}
               transition="transform 0.2s linear 0s"
-              mx={4}
+              mr={4}
               h={6}
               w={6}
               _hover={{ transform: 'scale(1.4)' }}

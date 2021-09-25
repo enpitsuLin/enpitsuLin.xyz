@@ -12,9 +12,9 @@ const defaultProps: Props = {
 
 const Card: FunctionComponent<Props> = ({ hover, children, ...rest } = defaultProps) => {
   const bg = useColorModeValue('white', 'gray.800');
-  const boxShadow = useColorModeValue('base', 'dark-lg');
+  const boxShadow = useColorModeValue('md', 'dark-lg');
   return (
-    <Box borderWidth="1px" borderRadius="lg" p={5} my={2} bg={bg} _hover={hover ? { boxShadow } : {}} {...rest}>
+    <Box borderWidth="1px" borderRadius="lg" p={5} my={4} bg={bg} _hover={hover ? { boxShadow } : {}} {...rest}>
       {children}
     </Box>
   );

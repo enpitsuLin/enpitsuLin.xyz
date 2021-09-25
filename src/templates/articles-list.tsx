@@ -44,7 +44,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
               />
             </Box>
             <Box w="33%" display={{ base: 'none', lg: 'block' }} pl={8}>
-              <Affix offsetTop="calc(4.5rem + 2px)">
+              <Affix offsetTop="calc(4.75rem + 4px)">
                 <SearchCard />
                 <TagsCard />
               </Affix>
