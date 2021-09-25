@@ -1,30 +1,29 @@
 .article-content {
-  --highlight-color: rgb(0, 200, 200);
-  --inline-code-color: #d22d7a;
-  --headings-color: #ddd;
+  --alt-color: var(--chakra-colors-red-400);
   --bg-color: #333;
   --bg-highlight: #282828;
-  --bg-dark: #0000;
-  --border-dark: #555;
 }
 /* prettier-ignore */
 .article-content h1, .article-content h2, .article-content h3, .article-content h4, .article-content h5, .article-content h6 {
-    
-    font-weight: 700;
+    font-weight: 500;
     line-height: 1.5;
-    margin: 20px 0 15px;
+    padding: .2em 0;
   }
 
 .article-content h1 {
-  font-size: 2.5em;
+  font-size: 2em;
+  margin: 20px 0;
+  border-bottom: 2px solid;
 }
 
 .article-content h2 {
-  font-size: 1.75em;
+  font-size: 1.65em;
+  margin: 16px 0;
 }
 
 .article-content h3 {
-  font-size: 1.45em;
+  font-size: 1.325em;
+  margin: 12px 0;
 }
 
 .article-content h4 {
@@ -112,18 +111,17 @@
 
 .article-content pre {
   word-wrap: break-word;
+  margin: 1.25rem 0;
 }
 
-.article-content code {
-  background: var(--bg-dark);
-  border-radius: 3px;
-  color: var(--inline-code-color);
-  padding: 2px 4px;
+.article-content :not(pre) > code {
+  color: var(--alt-color);
+  padding: 0.15em 0.35em 0.05em;
   overflow-wrap: break-word;
   word-wrap: break-word;
   font-family: 'JetBrains Mono';
   font-size: 0.875em;
-  caret-color: var(--inline-code-color);
+  vertical-align: middle;
 }
 
 .article-content ul {
@@ -165,4 +163,20 @@
   border: 0;
   height: 3px;
   margin: 40px 0;
+}
+
+/* gatsby-resp-image-figure */
+.gatsby-resp-image-figure .gatsby-resp-image-figcaption {
+  color: #999;
+  margin: 16px;
+  text-align: center;
+}
+
+/* theme diff */
+
+body.chakra-ui-light .article-content h1 {
+  border-bottom-color: var(--chakra-colors-blackAlpha-200);
+}
+body.chakra-ui-dark .article-content h1 {
+  border-bottom-color: var(--chakra-colors-whiteAlpha-200);
 }

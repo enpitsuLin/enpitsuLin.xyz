@@ -307,14 +307,14 @@ type SitePage = Node & {
   readonly internalComponentName: Scalars['String'];
   readonly componentChunkName: Scalars['String'];
   readonly matchPath: Maybe<Scalars['String']>;
+  readonly isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
+  readonly pluginCreator: Maybe<SitePlugin>;
+  readonly pluginCreatorId: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
-  readonly isCreatedByStatefulCreatePages: Maybe<Scalars['Boolean']>;
   readonly context: Maybe<SitePageContext>;
-  readonly pluginCreator: Maybe<SitePlugin>;
-  readonly pluginCreatorId: Maybe<Scalars['String']>;
 };
 
 type SitePageContext = {
@@ -367,6 +367,10 @@ type MarkdownRemark = Node & {
   readonly timeToRead: Maybe<Scalars['Int']>;
   readonly tableOfContents: Maybe<Scalars['String']>;
   readonly wordCount: Maybe<MarkdownWordCount>;
+  /** Returns all children nodes filtered by type GRVSCCodeBlock */
+  readonly childrenGrvscCodeBlock: Maybe<ReadonlyArray<Maybe<GRVSCCodeBlock>>>;
+  /** Returns the first child node of type GRVSCCodeBlock or null if there are no children of given type on this node */
+  readonly childGrvscCodeBlock: Maybe<GRVSCCodeBlock>;
   readonly parent: Maybe<Node>;
   readonly children: ReadonlyArray<Node>;
   readonly internal: Internal;
@@ -1128,14 +1132,14 @@ type Query_sitePageArgs = {
   internalComponentName: Maybe<StringQueryOperatorInput>;
   componentChunkName: Maybe<StringQueryOperatorInput>;
   matchPath: Maybe<StringQueryOperatorInput>;
+  isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
+  pluginCreator: Maybe<SitePluginFilterInput>;
+  pluginCreatorId: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
-  isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
   context: Maybe<SitePageContextFilterInput>;
-  pluginCreator: Maybe<SitePluginFilterInput>;
-  pluginCreatorId: Maybe<StringQueryOperatorInput>;
 };
 
 
@@ -1161,6 +1165,8 @@ type Query_markdownRemarkArgs = {
   timeToRead: Maybe<IntQueryOperatorInput>;
   tableOfContents: Maybe<StringQueryOperatorInput>;
   wordCount: Maybe<MarkdownWordCountFilterInput>;
+  childrenGrvscCodeBlock: Maybe<GRVSCCodeBlockFilterListInput>;
+  childGrvscCodeBlock: Maybe<GRVSCCodeBlockFilterInput>;
   parent: Maybe<NodeFilterInput>;
   children: Maybe<NodeFilterListInput>;
   internal: Maybe<InternalFilterInput>;
@@ -1371,6 +1377,8 @@ type MarkdownRemarkFilterInput = {
   readonly timeToRead: Maybe<IntQueryOperatorInput>;
   readonly tableOfContents: Maybe<StringQueryOperatorInput>;
   readonly wordCount: Maybe<MarkdownWordCountFilterInput>;
+  readonly childrenGrvscCodeBlock: Maybe<GRVSCCodeBlockFilterListInput>;
+  readonly childGrvscCodeBlock: Maybe<GRVSCCodeBlockFilterInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
@@ -1418,6 +1426,115 @@ type MarkdownWordCountFilterInput = {
   readonly paragraphs: Maybe<IntQueryOperatorInput>;
   readonly sentences: Maybe<IntQueryOperatorInput>;
   readonly words: Maybe<IntQueryOperatorInput>;
+};
+
+type GRVSCCodeBlockFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCCodeBlockFilterInput>;
+};
+
+type GRVSCCodeBlockFilterInput = {
+  readonly index: Maybe<IntQueryOperatorInput>;
+  readonly html: Maybe<StringQueryOperatorInput>;
+  readonly text: Maybe<StringQueryOperatorInput>;
+  readonly preClassName: Maybe<StringQueryOperatorInput>;
+  readonly codeClassName: Maybe<StringQueryOperatorInput>;
+  readonly language: Maybe<StringQueryOperatorInput>;
+  readonly meta: Maybe<JSONQueryOperatorInput>;
+  readonly defaultTheme: Maybe<GRVSCThemeFilterInput>;
+  readonly additionalThemes: Maybe<GRVSCThemeFilterListInput>;
+  readonly tokenizedLines: Maybe<GRVSCTokenizedLineFilterListInput>;
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly parent: Maybe<NodeFilterInput>;
+  readonly children: Maybe<NodeFilterListInput>;
+  readonly internal: Maybe<InternalFilterInput>;
+};
+
+type GRVSCThemeFilterInput = {
+  readonly path: Maybe<StringQueryOperatorInput>;
+  readonly identifier: Maybe<StringQueryOperatorInput>;
+  readonly conditions: Maybe<GRVSCThemeConditionFilterListInput>;
+};
+
+type GRVSCThemeConditionFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCThemeConditionFilterInput>;
+};
+
+type GRVSCThemeConditionFilterInput = {
+  readonly condition: Maybe<GRVSCThemeConditionKindQueryOperatorInput>;
+  readonly value: Maybe<StringQueryOperatorInput>;
+};
+
+type GRVSCThemeConditionKindQueryOperatorInput = {
+  readonly eq: Maybe<GRVSCThemeConditionKind>;
+  readonly ne: Maybe<GRVSCThemeConditionKind>;
+  readonly in: Maybe<ReadonlyArray<Maybe<GRVSCThemeConditionKind>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<GRVSCThemeConditionKind>>>;
+};
+
+type GRVSCThemeFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCThemeFilterInput>;
+};
+
+type GRVSCTokenizedLineFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCTokenizedLineFilterInput>;
+};
+
+type GRVSCTokenizedLineFilterInput = {
+  readonly tokens: Maybe<GRVSCTokenFilterListInput>;
+  readonly gutterCells: Maybe<GRVSCGutterCellFilterListInput>;
+  readonly text: Maybe<StringQueryOperatorInput>;
+  readonly html: Maybe<StringQueryOperatorInput>;
+  readonly attrs: Maybe<JSONQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
+  readonly data: Maybe<JSONQueryOperatorInput>;
+  readonly isHighlighted: Maybe<BooleanQueryOperatorInput>;
+  readonly lineNumber: Maybe<IntQueryOperatorInput>;
+  readonly diff: Maybe<GRVSCDiffQueryOperatorInput>;
+};
+
+type GRVSCTokenFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCTokenFilterInput>;
+};
+
+type GRVSCTokenFilterInput = {
+  readonly text: Maybe<StringQueryOperatorInput>;
+  readonly startIndex: Maybe<IntQueryOperatorInput>;
+  readonly endIndex: Maybe<IntQueryOperatorInput>;
+  readonly scopes: Maybe<StringQueryOperatorInput>;
+  readonly html: Maybe<StringQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
+  readonly defaultThemeTokenData: Maybe<GRVSCThemeTokenDataFilterInput>;
+  readonly additionalThemeTokenData: Maybe<GRVSCThemeTokenDataFilterListInput>;
+};
+
+type GRVSCThemeTokenDataFilterInput = {
+  readonly themeIdentifier: Maybe<StringQueryOperatorInput>;
+  readonly className: Maybe<StringQueryOperatorInput>;
+  readonly meta: Maybe<IntQueryOperatorInput>;
+  readonly color: Maybe<StringQueryOperatorInput>;
+  readonly bold: Maybe<BooleanQueryOperatorInput>;
+  readonly italic: Maybe<BooleanQueryOperatorInput>;
+  readonly underline: Maybe<BooleanQueryOperatorInput>;
+};
+
+type GRVSCThemeTokenDataFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCThemeTokenDataFilterInput>;
+};
+
+type GRVSCGutterCellFilterListInput = {
+  readonly elemMatch: Maybe<GRVSCGutterCellFilterInput>;
+};
+
+type GRVSCGutterCellFilterInput = {
+  readonly className: Maybe<StringQueryOperatorInput>;
+  readonly text: Maybe<StringQueryOperatorInput>;
+};
+
+type GRVSCDiffQueryOperatorInput = {
+  readonly eq: Maybe<GRVSCDiff>;
+  readonly ne: Maybe<GRVSCDiff>;
+  readonly in: Maybe<ReadonlyArray<Maybe<GRVSCDiff>>>;
+  readonly nin: Maybe<ReadonlyArray<Maybe<GRVSCDiff>>>;
 };
 
 type NodeFilterInput = {
@@ -1614,6 +1731,85 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.wordCount.paragraphs'
   | 'childrenMarkdownRemark.wordCount.sentences'
   | 'childrenMarkdownRemark.wordCount.words'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.index'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.html'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.text'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.preClassName'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.codeClassName'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.language'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.meta'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.defaultTheme.path'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.defaultTheme.identifier'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.defaultTheme.conditions'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.additionalThemes'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.additionalThemes.path'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.additionalThemes.identifier'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.additionalThemes.conditions'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.tokens'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.gutterCells'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.text'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.html'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.attrs'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.className'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.data'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.isHighlighted'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.lineNumber'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.diff'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.id'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.parent.id'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.parent.children'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.children'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.children.id'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.children.children'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.content'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.contentDigest'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.description'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.fieldOwners'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.ignoreType'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.mediaType'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.owner'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.internal.type'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.index'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.html'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.text'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.preClassName'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.codeClassName'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.language'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.meta'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.defaultTheme.path'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.defaultTheme.identifier'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.defaultTheme.conditions'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.additionalThemes'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.additionalThemes.path'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.additionalThemes.identifier'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.additionalThemes.conditions'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.tokens'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.gutterCells'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.text'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.html'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.attrs'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.className'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.data'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.isHighlighted'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.lineNumber'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.diff'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.id'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.parent.id'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.parent.children'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.children'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.children.id'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.children.children'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.content'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.contentDigest'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.description'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.fieldOwners'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.ignoreType'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.mediaType'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.owner'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.internal.type'
   | 'childrenMarkdownRemark.parent.id'
   | 'childrenMarkdownRemark.parent.parent.id'
   | 'childrenMarkdownRemark.parent.parent.children'
@@ -1673,6 +1869,85 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.wordCount.paragraphs'
   | 'childMarkdownRemark.wordCount.sentences'
   | 'childMarkdownRemark.wordCount.words'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.index'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.html'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.text'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.preClassName'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.codeClassName'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.language'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.meta'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.defaultTheme.path'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.defaultTheme.identifier'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.defaultTheme.conditions'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.additionalThemes'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.additionalThemes.path'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.additionalThemes.identifier'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.additionalThemes.conditions'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.tokens'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.gutterCells'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.text'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.html'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.attrs'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.className'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.data'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.isHighlighted'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.lineNumber'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.diff'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.id'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.parent.id'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.parent.children'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.children'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.children.id'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.children.children'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.content'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.contentDigest'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.description'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.fieldOwners'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.ignoreType'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.mediaType'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.owner'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.internal.type'
+  | 'childMarkdownRemark.childGrvscCodeBlock.index'
+  | 'childMarkdownRemark.childGrvscCodeBlock.html'
+  | 'childMarkdownRemark.childGrvscCodeBlock.text'
+  | 'childMarkdownRemark.childGrvscCodeBlock.preClassName'
+  | 'childMarkdownRemark.childGrvscCodeBlock.codeClassName'
+  | 'childMarkdownRemark.childGrvscCodeBlock.language'
+  | 'childMarkdownRemark.childGrvscCodeBlock.meta'
+  | 'childMarkdownRemark.childGrvscCodeBlock.defaultTheme.path'
+  | 'childMarkdownRemark.childGrvscCodeBlock.defaultTheme.identifier'
+  | 'childMarkdownRemark.childGrvscCodeBlock.defaultTheme.conditions'
+  | 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes'
+  | 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes.path'
+  | 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes.identifier'
+  | 'childMarkdownRemark.childGrvscCodeBlock.additionalThemes.conditions'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.tokens'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.gutterCells'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.text'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.html'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.attrs'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.className'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.data'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.isHighlighted'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.lineNumber'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.diff'
+  | 'childMarkdownRemark.childGrvscCodeBlock.id'
+  | 'childMarkdownRemark.childGrvscCodeBlock.parent.id'
+  | 'childMarkdownRemark.childGrvscCodeBlock.parent.children'
+  | 'childMarkdownRemark.childGrvscCodeBlock.children'
+  | 'childMarkdownRemark.childGrvscCodeBlock.children.id'
+  | 'childMarkdownRemark.childGrvscCodeBlock.children.children'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.content'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.contentDigest'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.description'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.fieldOwners'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.ignoreType'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.mediaType'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.owner'
+  | 'childMarkdownRemark.childGrvscCodeBlock.internal.type'
   | 'childMarkdownRemark.parent.id'
   | 'childMarkdownRemark.parent.parent.id'
   | 'childMarkdownRemark.parent.parent.children'
@@ -2567,17 +2842,6 @@ type SiteFunctionSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type SitePageContextFilterInput = {
-  readonly id: Maybe<StringQueryOperatorInput>;
-  readonly previousPostId: Maybe<StringQueryOperatorInput>;
-  readonly nextPostId: Maybe<StringQueryOperatorInput>;
-  readonly limit: Maybe<IntQueryOperatorInput>;
-  readonly skip: Maybe<IntQueryOperatorInput>;
-  readonly pageCount: Maybe<IntQueryOperatorInput>;
-  readonly pageIndex: Maybe<IntQueryOperatorInput>;
-  readonly ids: Maybe<StringQueryOperatorInput>;
-};
-
 type SitePluginFilterInput = {
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
@@ -2753,6 +3017,17 @@ type SitePluginPackageJsonPeerDependenciesFilterInput = {
   readonly version: Maybe<StringQueryOperatorInput>;
 };
 
+type SitePageContextFilterInput = {
+  readonly id: Maybe<StringQueryOperatorInput>;
+  readonly previousPostId: Maybe<StringQueryOperatorInput>;
+  readonly nextPostId: Maybe<StringQueryOperatorInput>;
+  readonly limit: Maybe<IntQueryOperatorInput>;
+  readonly skip: Maybe<IntQueryOperatorInput>;
+  readonly pageCount: Maybe<IntQueryOperatorInput>;
+  readonly pageIndex: Maybe<IntQueryOperatorInput>;
+  readonly ids: Maybe<StringQueryOperatorInput>;
+};
+
 type SitePageConnection = {
   readonly totalCount: Scalars['Int'];
   readonly edges: ReadonlyArray<SitePageEdge>;
@@ -2804,101 +3079,7 @@ type SitePageFieldsEnum =
   | 'internalComponentName'
   | 'componentChunkName'
   | 'matchPath'
-  | 'id'
-  | 'parent.id'
-  | 'parent.parent.id'
-  | 'parent.parent.parent.id'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.children.children'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.children'
-  | 'parent.children.id'
-  | 'parent.children.parent.id'
-  | 'parent.children.parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.children.children'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'children'
-  | 'children.id'
-  | 'children.parent.id'
-  | 'children.parent.parent.id'
-  | 'children.parent.parent.children'
-  | 'children.parent.children'
-  | 'children.parent.children.id'
-  | 'children.parent.children.children'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.children'
-  | 'children.children.id'
-  | 'children.children.parent.id'
-  | 'children.children.parent.children'
-  | 'children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.children.children'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
   | 'isCreatedByStatefulCreatePages'
-  | 'context.id'
-  | 'context.previousPostId'
-  | 'context.nextPostId'
-  | 'context.limit'
-  | 'context.skip'
-  | 'context.pageCount'
-  | 'context.pageIndex'
-  | 'context.ids'
   | 'pluginCreator.id'
   | 'pluginCreator.parent.id'
   | 'pluginCreator.parent.parent.id'
@@ -3011,7 +3192,101 @@ type SitePageFieldsEnum =
   | 'pluginCreator.packageJson.peerDependencies.name'
   | 'pluginCreator.packageJson.peerDependencies.version'
   | 'pluginCreator.packageJson.keywords'
-  | 'pluginCreatorId';
+  | 'pluginCreatorId'
+  | 'id'
+  | 'parent.id'
+  | 'parent.parent.id'
+  | 'parent.parent.parent.id'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.children.children'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.children'
+  | 'parent.children.id'
+  | 'parent.children.parent.id'
+  | 'parent.children.parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.children.children'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'children'
+  | 'children.id'
+  | 'children.parent.id'
+  | 'children.parent.parent.id'
+  | 'children.parent.parent.children'
+  | 'children.parent.children'
+  | 'children.parent.children.id'
+  | 'children.parent.children.children'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.children'
+  | 'children.children.id'
+  | 'children.children.parent.id'
+  | 'children.children.parent.children'
+  | 'children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.children.children'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'context.id'
+  | 'context.previousPostId'
+  | 'context.nextPostId'
+  | 'context.limit'
+  | 'context.skip'
+  | 'context.pageCount'
+  | 'context.pageIndex'
+  | 'context.ids';
 
 type SitePageGroupConnection = {
   readonly totalCount: Scalars['Int'];
@@ -3028,14 +3303,14 @@ type SitePageFilterInput = {
   readonly internalComponentName: Maybe<StringQueryOperatorInput>;
   readonly componentChunkName: Maybe<StringQueryOperatorInput>;
   readonly matchPath: Maybe<StringQueryOperatorInput>;
+  readonly isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
+  readonly pluginCreator: Maybe<SitePluginFilterInput>;
+  readonly pluginCreatorId: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
   readonly parent: Maybe<NodeFilterInput>;
   readonly children: Maybe<NodeFilterListInput>;
   readonly internal: Maybe<InternalFilterInput>;
-  readonly isCreatedByStatefulCreatePages: Maybe<BooleanQueryOperatorInput>;
   readonly context: Maybe<SitePageContextFilterInput>;
-  readonly pluginCreator: Maybe<SitePluginFilterInput>;
-  readonly pluginCreatorId: Maybe<StringQueryOperatorInput>;
 };
 
 type SitePageSortInput = {
@@ -3111,6 +3386,159 @@ type MarkdownRemarkFieldsEnum =
   | 'wordCount.paragraphs'
   | 'wordCount.sentences'
   | 'wordCount.words'
+  | 'childrenGrvscCodeBlock'
+  | 'childrenGrvscCodeBlock.index'
+  | 'childrenGrvscCodeBlock.html'
+  | 'childrenGrvscCodeBlock.text'
+  | 'childrenGrvscCodeBlock.preClassName'
+  | 'childrenGrvscCodeBlock.codeClassName'
+  | 'childrenGrvscCodeBlock.language'
+  | 'childrenGrvscCodeBlock.meta'
+  | 'childrenGrvscCodeBlock.defaultTheme.path'
+  | 'childrenGrvscCodeBlock.defaultTheme.identifier'
+  | 'childrenGrvscCodeBlock.defaultTheme.conditions'
+  | 'childrenGrvscCodeBlock.defaultTheme.conditions.condition'
+  | 'childrenGrvscCodeBlock.defaultTheme.conditions.value'
+  | 'childrenGrvscCodeBlock.additionalThemes'
+  | 'childrenGrvscCodeBlock.additionalThemes.path'
+  | 'childrenGrvscCodeBlock.additionalThemes.identifier'
+  | 'childrenGrvscCodeBlock.additionalThemes.conditions'
+  | 'childrenGrvscCodeBlock.additionalThemes.conditions.condition'
+  | 'childrenGrvscCodeBlock.additionalThemes.conditions.value'
+  | 'childrenGrvscCodeBlock.tokenizedLines'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.text'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.startIndex'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.endIndex'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.scopes'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.html'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.className'
+  | 'childrenGrvscCodeBlock.tokenizedLines.tokens.additionalThemeTokenData'
+  | 'childrenGrvscCodeBlock.tokenizedLines.gutterCells'
+  | 'childrenGrvscCodeBlock.tokenizedLines.gutterCells.className'
+  | 'childrenGrvscCodeBlock.tokenizedLines.gutterCells.text'
+  | 'childrenGrvscCodeBlock.tokenizedLines.text'
+  | 'childrenGrvscCodeBlock.tokenizedLines.html'
+  | 'childrenGrvscCodeBlock.tokenizedLines.attrs'
+  | 'childrenGrvscCodeBlock.tokenizedLines.className'
+  | 'childrenGrvscCodeBlock.tokenizedLines.data'
+  | 'childrenGrvscCodeBlock.tokenizedLines.isHighlighted'
+  | 'childrenGrvscCodeBlock.tokenizedLines.lineNumber'
+  | 'childrenGrvscCodeBlock.tokenizedLines.diff'
+  | 'childrenGrvscCodeBlock.id'
+  | 'childrenGrvscCodeBlock.parent.id'
+  | 'childrenGrvscCodeBlock.parent.parent.id'
+  | 'childrenGrvscCodeBlock.parent.parent.children'
+  | 'childrenGrvscCodeBlock.parent.children'
+  | 'childrenGrvscCodeBlock.parent.children.id'
+  | 'childrenGrvscCodeBlock.parent.children.children'
+  | 'childrenGrvscCodeBlock.parent.internal.content'
+  | 'childrenGrvscCodeBlock.parent.internal.contentDigest'
+  | 'childrenGrvscCodeBlock.parent.internal.description'
+  | 'childrenGrvscCodeBlock.parent.internal.fieldOwners'
+  | 'childrenGrvscCodeBlock.parent.internal.ignoreType'
+  | 'childrenGrvscCodeBlock.parent.internal.mediaType'
+  | 'childrenGrvscCodeBlock.parent.internal.owner'
+  | 'childrenGrvscCodeBlock.parent.internal.type'
+  | 'childrenGrvscCodeBlock.children'
+  | 'childrenGrvscCodeBlock.children.id'
+  | 'childrenGrvscCodeBlock.children.parent.id'
+  | 'childrenGrvscCodeBlock.children.parent.children'
+  | 'childrenGrvscCodeBlock.children.children'
+  | 'childrenGrvscCodeBlock.children.children.id'
+  | 'childrenGrvscCodeBlock.children.children.children'
+  | 'childrenGrvscCodeBlock.children.internal.content'
+  | 'childrenGrvscCodeBlock.children.internal.contentDigest'
+  | 'childrenGrvscCodeBlock.children.internal.description'
+  | 'childrenGrvscCodeBlock.children.internal.fieldOwners'
+  | 'childrenGrvscCodeBlock.children.internal.ignoreType'
+  | 'childrenGrvscCodeBlock.children.internal.mediaType'
+  | 'childrenGrvscCodeBlock.children.internal.owner'
+  | 'childrenGrvscCodeBlock.children.internal.type'
+  | 'childrenGrvscCodeBlock.internal.content'
+  | 'childrenGrvscCodeBlock.internal.contentDigest'
+  | 'childrenGrvscCodeBlock.internal.description'
+  | 'childrenGrvscCodeBlock.internal.fieldOwners'
+  | 'childrenGrvscCodeBlock.internal.ignoreType'
+  | 'childrenGrvscCodeBlock.internal.mediaType'
+  | 'childrenGrvscCodeBlock.internal.owner'
+  | 'childrenGrvscCodeBlock.internal.type'
+  | 'childGrvscCodeBlock.index'
+  | 'childGrvscCodeBlock.html'
+  | 'childGrvscCodeBlock.text'
+  | 'childGrvscCodeBlock.preClassName'
+  | 'childGrvscCodeBlock.codeClassName'
+  | 'childGrvscCodeBlock.language'
+  | 'childGrvscCodeBlock.meta'
+  | 'childGrvscCodeBlock.defaultTheme.path'
+  | 'childGrvscCodeBlock.defaultTheme.identifier'
+  | 'childGrvscCodeBlock.defaultTheme.conditions'
+  | 'childGrvscCodeBlock.defaultTheme.conditions.condition'
+  | 'childGrvscCodeBlock.defaultTheme.conditions.value'
+  | 'childGrvscCodeBlock.additionalThemes'
+  | 'childGrvscCodeBlock.additionalThemes.path'
+  | 'childGrvscCodeBlock.additionalThemes.identifier'
+  | 'childGrvscCodeBlock.additionalThemes.conditions'
+  | 'childGrvscCodeBlock.additionalThemes.conditions.condition'
+  | 'childGrvscCodeBlock.additionalThemes.conditions.value'
+  | 'childGrvscCodeBlock.tokenizedLines'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.text'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.startIndex'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.endIndex'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.scopes'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.html'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.className'
+  | 'childGrvscCodeBlock.tokenizedLines.tokens.additionalThemeTokenData'
+  | 'childGrvscCodeBlock.tokenizedLines.gutterCells'
+  | 'childGrvscCodeBlock.tokenizedLines.gutterCells.className'
+  | 'childGrvscCodeBlock.tokenizedLines.gutterCells.text'
+  | 'childGrvscCodeBlock.tokenizedLines.text'
+  | 'childGrvscCodeBlock.tokenizedLines.html'
+  | 'childGrvscCodeBlock.tokenizedLines.attrs'
+  | 'childGrvscCodeBlock.tokenizedLines.className'
+  | 'childGrvscCodeBlock.tokenizedLines.data'
+  | 'childGrvscCodeBlock.tokenizedLines.isHighlighted'
+  | 'childGrvscCodeBlock.tokenizedLines.lineNumber'
+  | 'childGrvscCodeBlock.tokenizedLines.diff'
+  | 'childGrvscCodeBlock.id'
+  | 'childGrvscCodeBlock.parent.id'
+  | 'childGrvscCodeBlock.parent.parent.id'
+  | 'childGrvscCodeBlock.parent.parent.children'
+  | 'childGrvscCodeBlock.parent.children'
+  | 'childGrvscCodeBlock.parent.children.id'
+  | 'childGrvscCodeBlock.parent.children.children'
+  | 'childGrvscCodeBlock.parent.internal.content'
+  | 'childGrvscCodeBlock.parent.internal.contentDigest'
+  | 'childGrvscCodeBlock.parent.internal.description'
+  | 'childGrvscCodeBlock.parent.internal.fieldOwners'
+  | 'childGrvscCodeBlock.parent.internal.ignoreType'
+  | 'childGrvscCodeBlock.parent.internal.mediaType'
+  | 'childGrvscCodeBlock.parent.internal.owner'
+  | 'childGrvscCodeBlock.parent.internal.type'
+  | 'childGrvscCodeBlock.children'
+  | 'childGrvscCodeBlock.children.id'
+  | 'childGrvscCodeBlock.children.parent.id'
+  | 'childGrvscCodeBlock.children.parent.children'
+  | 'childGrvscCodeBlock.children.children'
+  | 'childGrvscCodeBlock.children.children.id'
+  | 'childGrvscCodeBlock.children.children.children'
+  | 'childGrvscCodeBlock.children.internal.content'
+  | 'childGrvscCodeBlock.children.internal.contentDigest'
+  | 'childGrvscCodeBlock.children.internal.description'
+  | 'childGrvscCodeBlock.children.internal.fieldOwners'
+  | 'childGrvscCodeBlock.children.internal.ignoreType'
+  | 'childGrvscCodeBlock.children.internal.mediaType'
+  | 'childGrvscCodeBlock.children.internal.owner'
+  | 'childGrvscCodeBlock.children.internal.type'
+  | 'childGrvscCodeBlock.internal.content'
+  | 'childGrvscCodeBlock.internal.contentDigest'
+  | 'childGrvscCodeBlock.internal.description'
+  | 'childGrvscCodeBlock.internal.fieldOwners'
+  | 'childGrvscCodeBlock.internal.ignoreType'
+  | 'childGrvscCodeBlock.internal.mediaType'
+  | 'childGrvscCodeBlock.internal.owner'
+  | 'childGrvscCodeBlock.internal.type'
   | 'parent.id'
   | 'parent.parent.id'
   | 'parent.parent.parent.id'
@@ -3209,94 +3637,6 @@ type MarkdownRemarkGroupConnection = {
 type MarkdownRemarkSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<MarkdownRemarkFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
-};
-
-type GRVSCThemeFilterInput = {
-  readonly path: Maybe<StringQueryOperatorInput>;
-  readonly identifier: Maybe<StringQueryOperatorInput>;
-  readonly conditions: Maybe<GRVSCThemeConditionFilterListInput>;
-};
-
-type GRVSCThemeConditionFilterListInput = {
-  readonly elemMatch: Maybe<GRVSCThemeConditionFilterInput>;
-};
-
-type GRVSCThemeConditionFilterInput = {
-  readonly condition: Maybe<GRVSCThemeConditionKindQueryOperatorInput>;
-  readonly value: Maybe<StringQueryOperatorInput>;
-};
-
-type GRVSCThemeConditionKindQueryOperatorInput = {
-  readonly eq: Maybe<GRVSCThemeConditionKind>;
-  readonly ne: Maybe<GRVSCThemeConditionKind>;
-  readonly in: Maybe<ReadonlyArray<Maybe<GRVSCThemeConditionKind>>>;
-  readonly nin: Maybe<ReadonlyArray<Maybe<GRVSCThemeConditionKind>>>;
-};
-
-type GRVSCThemeFilterListInput = {
-  readonly elemMatch: Maybe<GRVSCThemeFilterInput>;
-};
-
-type GRVSCTokenizedLineFilterListInput = {
-  readonly elemMatch: Maybe<GRVSCTokenizedLineFilterInput>;
-};
-
-type GRVSCTokenizedLineFilterInput = {
-  readonly tokens: Maybe<GRVSCTokenFilterListInput>;
-  readonly gutterCells: Maybe<GRVSCGutterCellFilterListInput>;
-  readonly text: Maybe<StringQueryOperatorInput>;
-  readonly html: Maybe<StringQueryOperatorInput>;
-  readonly attrs: Maybe<JSONQueryOperatorInput>;
-  readonly className: Maybe<StringQueryOperatorInput>;
-  readonly data: Maybe<JSONQueryOperatorInput>;
-  readonly isHighlighted: Maybe<BooleanQueryOperatorInput>;
-  readonly lineNumber: Maybe<IntQueryOperatorInput>;
-  readonly diff: Maybe<GRVSCDiffQueryOperatorInput>;
-};
-
-type GRVSCTokenFilterListInput = {
-  readonly elemMatch: Maybe<GRVSCTokenFilterInput>;
-};
-
-type GRVSCTokenFilterInput = {
-  readonly text: Maybe<StringQueryOperatorInput>;
-  readonly startIndex: Maybe<IntQueryOperatorInput>;
-  readonly endIndex: Maybe<IntQueryOperatorInput>;
-  readonly scopes: Maybe<StringQueryOperatorInput>;
-  readonly html: Maybe<StringQueryOperatorInput>;
-  readonly className: Maybe<StringQueryOperatorInput>;
-  readonly defaultThemeTokenData: Maybe<GRVSCThemeTokenDataFilterInput>;
-  readonly additionalThemeTokenData: Maybe<GRVSCThemeTokenDataFilterListInput>;
-};
-
-type GRVSCThemeTokenDataFilterInput = {
-  readonly themeIdentifier: Maybe<StringQueryOperatorInput>;
-  readonly className: Maybe<StringQueryOperatorInput>;
-  readonly meta: Maybe<IntQueryOperatorInput>;
-  readonly color: Maybe<StringQueryOperatorInput>;
-  readonly bold: Maybe<BooleanQueryOperatorInput>;
-  readonly italic: Maybe<BooleanQueryOperatorInput>;
-  readonly underline: Maybe<BooleanQueryOperatorInput>;
-};
-
-type GRVSCThemeTokenDataFilterListInput = {
-  readonly elemMatch: Maybe<GRVSCThemeTokenDataFilterInput>;
-};
-
-type GRVSCGutterCellFilterListInput = {
-  readonly elemMatch: Maybe<GRVSCGutterCellFilterInput>;
-};
-
-type GRVSCGutterCellFilterInput = {
-  readonly className: Maybe<StringQueryOperatorInput>;
-  readonly text: Maybe<StringQueryOperatorInput>;
-};
-
-type GRVSCDiffQueryOperatorInput = {
-  readonly eq: Maybe<GRVSCDiff>;
-  readonly ne: Maybe<GRVSCDiff>;
-  readonly in: Maybe<ReadonlyArray<Maybe<GRVSCDiff>>>;
-  readonly nin: Maybe<ReadonlyArray<Maybe<GRVSCDiff>>>;
 };
 
 type GRVSCCodeBlockConnection = {
@@ -3491,23 +3831,6 @@ type GRVSCCodeBlockGroupConnection = {
   readonly pageInfo: PageInfo;
   readonly field: Scalars['String'];
   readonly fieldValue: Maybe<Scalars['String']>;
-};
-
-type GRVSCCodeBlockFilterInput = {
-  readonly index: Maybe<IntQueryOperatorInput>;
-  readonly html: Maybe<StringQueryOperatorInput>;
-  readonly text: Maybe<StringQueryOperatorInput>;
-  readonly preClassName: Maybe<StringQueryOperatorInput>;
-  readonly codeClassName: Maybe<StringQueryOperatorInput>;
-  readonly language: Maybe<StringQueryOperatorInput>;
-  readonly meta: Maybe<JSONQueryOperatorInput>;
-  readonly defaultTheme: Maybe<GRVSCThemeFilterInput>;
-  readonly additionalThemes: Maybe<GRVSCThemeFilterListInput>;
-  readonly tokenizedLines: Maybe<GRVSCTokenizedLineFilterListInput>;
-  readonly id: Maybe<StringQueryOperatorInput>;
-  readonly parent: Maybe<NodeFilterInput>;
-  readonly children: Maybe<NodeFilterListInput>;
-  readonly internal: Maybe<InternalFilterInput>;
 };
 
 type GRVSCCodeBlockSortInput = {

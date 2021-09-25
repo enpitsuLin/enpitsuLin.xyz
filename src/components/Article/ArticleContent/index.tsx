@@ -10,7 +10,7 @@ interface Props {
 
 const ArticleContent = forwardRef<HTMLDivElement, Props>(({ article, excerpt = false }, ref) => {
   return (
-    <Box fontSize="0.9rem">
+    <Box>
       <div
         className={classNames('article-content', excerpt && 'excerpt')}
         dangerouslySetInnerHTML={{

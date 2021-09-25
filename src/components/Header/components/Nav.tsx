@@ -20,6 +20,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
           <Button
             key={item.name}
             variant="ghost"
+            fontWeight="normal"
             onClick={() => {
               navigate(item.link);
             }}

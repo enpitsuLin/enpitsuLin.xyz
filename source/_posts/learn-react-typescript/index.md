@@ -9,7 +9,7 @@ tags:
   - React
 ---
 
-`TypeScript` 作为 `JavaScript` 具有类型的超集,并支持所有的所有的 `JavaScript 语法`。并在此之上对 `JavaScript` 添加了一些扩展,在生产中使用可以大大提高代码的可读性和的健壮性
+`TypeScript` 作为 `JavaScript` 具有类型的超集,并支持所有的所有的 `JavaScript`语法。并在此之上对 `JavaScript` 添加了一些扩展,在生产中使用可以大大提高代码的可读性和的健壮性
 
 作为强类型语言,赋予了 JS 原先不曾有的类型系统和开发时的静态类型检查,静态类型检查可以避免很多不必要的错误, 不用在调试的时候才发现问题(其实有的时候根本调试不出问题,可能为以后埋下一个炸弹);所以作为一个前端开始学习 TS 还是很有必要的(｡･∀･)ﾉﾞ
 
@@ -31,7 +31,9 @@ tags:
 
 ## 函数式组件的类型声明
 
-对于`typescript`的`react组件`,函数式的组件在使用函数声明或者函数表达式方式定义的时候有些许不同
+对于`react`的组件,函数式的组件在使用函数声明或者函数表达式方式定义的时候有些许不同
+
+所以一般推荐使用函数表达式方式声明组件并导出使用
 
 ```ts
 /**
@@ -52,7 +54,7 @@ const Button:FunctionComponent<Props> = (props)=>
 
 Class 组件可能在某些场合还是很有必要存在的所以还是要注意下坑
 
-对于定义好 Props 和 State 的接口需要在继承`Component`时注意
+对于定义好 Props 和 State 的接口需要在继承`Component`时注意泛型选项
 
 ```typescript
 class SomeComponent extends Component<Props, State> {
