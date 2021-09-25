@@ -35,7 +35,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
     <BasicLayout location={location}>
       <Seo title="首页" />
       <AnimatedContent>
-        <Box h="calc(100vh - 66px)">
+        <Box h="calc(100vh - 4.5rem - 2px)">
           <CanvasNest options={{ color: 'rgb(100,100,100)', maxDist: 10000 }}>
             <Flex alignItems="center" w="full" h="full" justifyContent="center">
               <Box textAlign="center">

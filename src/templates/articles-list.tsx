@@ -8,6 +8,7 @@ import { Container, Flex, Box } from '@chakra-ui/react';
 import { navigateToArticle } from '@/utils/article';
 import SearchCard from '@/components/Card/SearchCard';
 import TagsCard from '@/components/Card/TagsCard';
+import Affix from '@/components/Affix';
 
 interface Props extends PageRendererProps {
   data: {
@@ -29,7 +30,10 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
       <AnimatedContent>
         <Container maxW="container.xl">
           <Flex>
-            <Box w={{ base: 'full', md: '66%' }}>
+            <Box w={{ base: 'full', lg: '66%' }}>
+              <Box display={{ base: 'full', lg: 'none' }}>
+                <SearchCard />
+              </Box>
               <ArticleItemList
                 articles={articles}
                 pageCount={pageCount}
@@ -39,9 +43,11 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
                 }}
               />
             </Box>
-            <Box w="33%" display={{ base: 'none', md: 'block' }} pl={8}>
-              <SearchCard />
-              <TagsCard />
+            <Box w="33%" display={{ base: 'none', lg: 'block' }} pl={8}>
+              <Affix offsetTop="calc(4.5rem + 2px)">
+                <SearchCard />
+                <TagsCard />
+              </Affix>
             </Box>
           </Flex>
         </Container>

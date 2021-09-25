@@ -34,15 +34,7 @@ const Header: FunctionComponent<Props> = ({ title }) => {
       id="header"
     >
       <HeaderContainer maxW="container.xl" px={[4, 4, 10, 10]}>
-        <Flex
-          as="nav"
-          align="center"
-          justify="space-between"
-          wrap="wrap"
-          w="100%"
-          py={3}
-          bg={['primary.500', 'primary.500', 'transparent', 'transparent']}
-        >
+        <Flex as="nav" align="center" justify="space-between" wrap="wrap" w="100%" py={3} bg="transparent">
           <Brand title={title} />
           <Nav NavList={NavList} />
         </Flex>

@@ -17,7 +17,7 @@ const BasicLayout: FunctionComponent<Props> = ({ children }) => {
     <Flex flexDir="column" overflowWrap="break-word">
       <Header title={title} />
       <ToTop />
-      <Box as="main" flex="0 0 100%" minHeight="100vh" pt={66}>
+      <Box as="main" flex="0 0 100%" minHeight="100vh" pt="4rem">
         {children}
       </Box>
       <Footer />

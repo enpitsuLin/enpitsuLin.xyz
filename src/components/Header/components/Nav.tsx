@@ -15,7 +15,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
   const mobileNav = useDisclosure();
   return (
     <HStack display="flex" alignItems="center" spacing={1}>
-      <HStack spacing={1} mr={1} color="brand.500" display={{ base: 'none', md: 'inline-flex' }}>
+      <HStack spacing={1} mr={1} display={{ base: 'none', md: 'inline-flex' }}>
         {NavList.map(item => (
           <Button
             key={item.name}
