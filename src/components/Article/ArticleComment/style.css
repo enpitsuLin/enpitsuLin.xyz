@@ -1,0 +1,67 @@
+@import 'gitalk/dist/gitalk.css';
+
+.gt-container {
+  font-size: 1rem;
+}
+
+body.chakra-ui-light .gt-container .gt-user .gt-ico svg {
+  fill: var(--chakra-colors-gray-500);
+}
+
+body.chakra-ui-dark .gt-container .gt-user .gt-ico svg {
+  fill: var(--chakra-colors-whiteAlpha-500);
+}
+
+.gt-container .gt-user .gt-ico {
+  transition: all 0.12s ease-in;
+}
+
+.gt-user-inner.is--poping .gt-ico.gt-ico-arrdown {
+  transform: rotate(-180deg);
+}
+
+.gt-container .gt-svg svg {
+  fill: var(--chakra-colors-teal-400);
+}
+.gt-container a {
+  color: var(--chakra-colors-teal-400);
+}
+.gt-container .gt-header-controls-tip {
+  color: var(--chakra-colors-teal-400);
+}
+
+.gt-container .gt-meta {
+  margin: var(--chakra-space-4) 0;
+  padding: var(--chakra-space-2) 0;
+  position: relative;
+  border-bottom: 1px solid #e9e9e9;
+  z-index: 10;
+}
+.gt-container .gt-counts {
+}
+
+.gt-container .gt-header-textarea {
+  width: 100%;
+  min-width: 0px;
+  outline: transparent solid 2px;
+  outline-offset: 2px;
+  position: relative;
+  appearance: none;
+  transition-property: var(--chakra-transition-property-common);
+  transition-duration: var(--chakra-transition-duration-normal);
+  font-size: var(--chakra-fontSizes-md);
+  padding: var(--chakra-space-2) var(--chakra-space-4);
+  height: var(--chakra-sizes-10);
+  border-radius: var(--chakra-radii-md);
+  border-width: 1px;
+  border-style: solid;
+  border-image: initial;
+  border-color: inherit;
+  background: inherit;
+}
+.gt-container .gt-header-textarea:focus {
+  z-index: 1;
+  border-color: rgb(99, 179, 237);
+  box-shadow: rgb(99 179 237) 0px 0px 0px 1px;
+}
+
