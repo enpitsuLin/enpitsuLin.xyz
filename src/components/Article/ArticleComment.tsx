@@ -19,6 +19,8 @@ interface Props {
 
 const ArticleComment: FunctionComponent<Props> = ({ article }) => {
   const [mounted, setMounted] = useState(typeof window != 'undefined');
+  const articleId = article.fields?.slug?.replace(/\//g, '') as string;
+
   useEffect(() => {
     if (typeof window != 'undefined' && !mounted) {
       setMounted(true);
@@ -26,7 +28,7 @@ const ArticleComment: FunctionComponent<Props> = ({ article }) => {
   });
   const options = {
     ...GitalkOptions,
-    id: article.frontmatter?.title?.substring(0, 50),
+    id: articleId.substring(0, 50),
     title: `[COMMENT] ${article.frontmatter?.title}`
   };
   return <Box>{mounted && <GitalkComponent options={options} />}</Box>;

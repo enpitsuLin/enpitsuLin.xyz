@@ -144,6 +144,9 @@ export const pageQuery = graphql`
         depth
         id
       }
+      fields {
+        slug
+      }
     }
     previous: markdownRemark(id: { eq: $previousPostId }) {
       fields {
