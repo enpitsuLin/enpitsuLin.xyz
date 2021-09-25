@@ -15,7 +15,7 @@ const poweredBy = [
   { name: 'React', link: 'https://reactjs.org/' },
   { name: 'Gatsby', link: 'https://www.gatsbyjs.org/' },
   { name: 'GitHub Pages', link: 'https://pages.github.com/' },
-  { name: 'Typescript', link: 'https://www.typescriptlang.org/' }
+  { name: 'TypeScript', link: 'https://www.typescriptlang.org/' }
 ];
 const themedWith = [
   { name: 'Chakra UI', link: 'https://chakra-ui.com/' },

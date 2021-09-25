@@ -1,5 +1,5 @@
 ---
-title: 从0开始的Typescript学习和踩坑
+title: 从0开始的TypeScript学习和踩坑
 toc: false
 date: 2021-08-29 22:03:09
 tags:

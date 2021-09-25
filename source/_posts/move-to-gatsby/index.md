@@ -3,7 +3,7 @@ title: 博客使用 Gatsby 构建
 date: 2021-09-15 16:09
 tags:
   - React
-  - Typescript
+  - TypeScript
   - Gatsby
   - blog
 ---
