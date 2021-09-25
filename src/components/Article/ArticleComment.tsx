@@ -26,7 +26,7 @@ const ArticleComment: FunctionComponent<Props> = ({ article }) => {
   });
   const options = {
     ...GitalkOptions,
-    id: article.id.substring(0, 50),
+    id: article.frontmatter?.title?.substring(0, 50),
     title: `[COMMENT] ${article.frontmatter?.title}`
   };
   return <Box>{mounted && <GitalkComponent options={options} />}</Box>;

@@ -4799,11 +4799,6 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
-type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<Frontmatter, 'tags'>> }> }> } };
-
 type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -4811,6 +4806,16 @@ type AllArticlesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ re
         Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
         & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc'>> }
       )> }> } };
+
+type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<Frontmatter, 'tags'>> }> }> } };
+
+type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -4837,10 +4842,5 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
 }

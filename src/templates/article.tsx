@@ -96,7 +96,6 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                     </Button>
                   )}
                 </Flex>
-                <ArticleComment article={article} />
               </Box>
               <Box w="25%" display={{ base: 'none', md: 'block' }}>
                 <ArticleToc
@@ -108,6 +107,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
                 />
               </Box>
             </Flex>
+            <ArticleComment article={article} />
           </Container>
         </article>
       </AnimatedContent>
