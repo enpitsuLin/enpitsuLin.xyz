@@ -16,7 +16,7 @@ const Contacts: React.FC<BoxProps> = props => {
       {contacts.map(contact => {
         const [icon, link, title] = contact;
         return (
-          <a href={link} title={title} target="__blank">
+          <a href={link} title={title} target="__blank" key={title}>
             <Icon
               as={icon}
               transition="transform 0.2s linear 0s"
