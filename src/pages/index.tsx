@@ -1,11 +1,17 @@
 import React, { FunctionComponent, useEffect, useState } from 'react';
 import { PageRendererProps } from 'gatsby';
+import { Box, Flex, Text, Icon } from '@chakra-ui/react';
+import { FaClock } from 'react-icons/fa';
+
+import useSiteMetadata from '@/hooks/useSiteMetadata';
 import { BasicLayout } from '@/layouts/';
 import Seo from '@/components/seo';
 import useTypeWriter from '@/hooks/useTypewriter';
 import AnimatedContent from '@/components/AnimatedContent';
-import { Box, Flex, Text } from '@chakra-ui/layout';
+
 import CanvasNest from '@/components/CanvasNest';
+import dayjs from 'dayjs';
+import Contacts from '@/components/Contacts';
 
 type Props = PageRendererProps;
 
@@ -14,6 +20,9 @@ const maxims = ['Sow nothing, reap noting', 'Do what you love, Love what you do'
 const BlogIndex: FunctionComponent<Props> = ({ location }) => {
   const [maxim, setMaxim] = useState(maxims[0]);
   const text = useTypeWriter(maxim);
+  const { site } = useSiteMetadata();
+  const lastUpdateTime = dayjs(site?.siteMetadata?.lastUpdateTime || '');
+
   useEffect(() => {
     const timer = setInterval(() => {
       setMaxim(maxims[Math.floor(Math.random() * maxims.length)]);
@@ -33,8 +42,17 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
                 <Text fontSize="3rem" fontWeight="500" py={1} my={3}>
                   你好
                 </Text>
-                <Text as="div" py={1} my={2} h={6}>
+                <Text as="p" py={1} my={2} h={6}>
                   <span>{text || ' '}</span>
+                </Text>
+                <Box py={1} my={2}></Box>
+                <Contacts mt={2} mb={4} />
+                <Text as="p" py={1} my={2}>
+                  <Icon as={FaClock} mt="-3px" mr={1} />
+                  最后更新
+                  <Text as="strong" mx="1">
+                    {lastUpdateTime.format('YYYY-MM-DD[T]HH:mm:ssZ[Z]')}
+                  </Text>
                 </Text>
               </Box>
             </Flex>

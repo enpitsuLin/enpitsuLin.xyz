@@ -59,9 +59,14 @@ body.chakra-ui-dark .gt-container .gt-user .gt-ico svg {
   border-color: inherit;
   background: inherit;
 }
+.gt-container .gt-header-textarea:hover {
+  z-index: 1;
+  border-color: rgb(99, 179, 237);
+  box-shadow: rgb(99 179 237) 0px 0px 0px 1px;
+  background-color: unset;
+}
 .gt-container .gt-header-textarea:focus {
   z-index: 1;
   border-color: rgb(99, 179, 237);
   box-shadow: rgb(99 179 237) 0px 0px 0px 1px;
 }
-
