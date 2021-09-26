@@ -70,3 +70,16 @@ body.chakra-ui-dark .gt-container .gt-user .gt-ico svg {
   border-color: rgb(99, 179, 237);
   box-shadow: rgb(99 179 237) 0px 0px 0px 1px;
 }
+
+.gt-container .gt-comments {
+  padding-bottom: 1.25em;
+}
+
+body.chakra-ui-light .gt-container .gt-comment-content,
+.gt-container .gt-comment-content {
+  background-color: var(--chakra-colors-gray-100);
+}
+body.chakra-ui-light .gt-container .gt-comment-content:hover {
+  -webkit-box-shadow: 0 0.625em 3.75em 0 var(--chakra-colors-blackAlpha-500);
+  box-shadow: 0 0.625em 3.75em 0 var(--chakra-colors-blackAlpha-500);
+}
