@@ -6,9 +6,9 @@ tags:
   - JavaScript
 ---
 
-在现代前端项目中使用 ts 以及成为常态~~Typescript 成为事实上的 ECMAScript,JS 大呼不可战胜~~
+在现代前端项目中使用 ts 以及成为常态~~TypeScript 成为事实上的 JavaScript,JS 大呼不可战胜~~
 
-但是在很多还是只能使用 Javascript 的项目中也往往也很需要静态类型检查，但快速引入 ts 不太现实，甚至 Vue2 的一些项目引入 TS 效果反而不好。
+但是在很多还是只能使用 JavaScript 的项目中也往往也很需要静态类型检查，但快速引入 ts 不太现实，甚至 Vue2 的一些项目引入 TS 效果反而不好。
 
 其实在许多现代编辑器~~特指 VScode~~本身就有能够提供静态类型检查的方法，只需要多写注释就能达到 ts 的效果，就是——Jsdoc。
 
@@ -47,7 +47,7 @@ function deleteUser(id) {
 
 ## 启用类型错误提示
 
-在 js 文件第一行加上就可以直接看到错误提示,这是 Typescript 对 jsdoc 的额外支持[额外支持](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
+在 js 文件第一行加上就可以直接看到错误提示,这是 Typescript 对 jsdoc 的[额外支持](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
 类型错误提示仅支持 jsdoc 的下列代码块
 
