@@ -41,11 +41,15 @@ function deleteUser(id) {
     "baseUrl": "./"
   },
   "include": ["src/**/*", "index.jsx", "index.js"],
-  "exclude": ["node_modules"] // Actually didn't work
+  "exclude": ["node_modules"]
 }
 ```
 
 ## 启用类型错误提示
+
+```javascript
+// @ts-check
+```
 
 在 js 文件第一行加上就可以直接看到错误提示,这是 Typescript 对 jsdoc 的[额外支持](https://www.typescriptlang.org/docs/handbook/jsdoc-supported-types.html)
 
@@ -62,10 +66,6 @@ function deleteUser(id) {
 - @extends (or @augments)
 - @enum
 - @deprecated
-
-```javascript
-// @ts-check
-```
 
 # 我常用的块标签
 

@@ -14,11 +14,11 @@
     "strictNullChecks": true,
     "declaration": true,
     "declarationMap": true,
+    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "types": ["node"],
     "typeRoots": ["./node_modules/@types"],
-    "esModuleInterop": true,
     "downlevelIteration": true,
     "paths": {
       "@/*": ["./src/*"],

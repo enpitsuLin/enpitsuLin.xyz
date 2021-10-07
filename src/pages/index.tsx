@@ -15,7 +15,7 @@ import Contacts from '@/components/Contacts';
 
 type Props = PageRendererProps;
 
-const maxims = ['Sow nothing, reap noting', 'Do what you love, Love what you do', 'Man proposes, God disposes'];
+const maxims = ['我相信超越光速的是思想', '希望能成为一个有趣的人'];
 
 const BlogIndex: FunctionComponent<Props> = ({ location }) => {
   const [maxim, setMaxim] = useState(maxims[0]);

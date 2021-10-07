@@ -16,7 +16,7 @@
     "autoprefixer": "^10.3.4",
     "canvas-nest.js": "^2.0.4",
     "classnames": "^2.3.1",
-    "dayjs": "^1.10.6",
+    "dayjs": "^1.10.7",
     "framer-motion": "^4.1.17",
     "gatsby": "^3.13.0",
     "gatsby-plugin-feed": "^3.13.0",
