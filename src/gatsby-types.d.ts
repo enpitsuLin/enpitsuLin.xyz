@@ -442,6 +442,7 @@ type GRVSCTokenizedLine = {
   readonly isHighlighted: Maybe<Scalars['Boolean']>;
   readonly lineNumber: Maybe<Scalars['Int']>;
   readonly diff: Maybe<GRVSCDiff>;
+  readonly setContainerClassName: Maybe<Scalars['String']>;
 };
 
 type GRVSCThemeConditionKind =
@@ -1490,6 +1491,7 @@ type GRVSCTokenizedLineFilterInput = {
   readonly isHighlighted: Maybe<BooleanQueryOperatorInput>;
   readonly lineNumber: Maybe<IntQueryOperatorInput>;
   readonly diff: Maybe<GRVSCDiffQueryOperatorInput>;
+  readonly setContainerClassName: Maybe<StringQueryOperatorInput>;
 };
 
 type GRVSCTokenFilterListInput = {
@@ -1757,6 +1759,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.isHighlighted'
   | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.lineNumber'
   | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.diff'
+  | 'childrenMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.setContainerClassName'
   | 'childrenMarkdownRemark.childrenGrvscCodeBlock.id'
   | 'childrenMarkdownRemark.childrenGrvscCodeBlock.parent.id'
   | 'childrenMarkdownRemark.childrenGrvscCodeBlock.parent.children'
@@ -1796,6 +1799,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.isHighlighted'
   | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.lineNumber'
   | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.diff'
+  | 'childrenMarkdownRemark.childGrvscCodeBlock.tokenizedLines.setContainerClassName'
   | 'childrenMarkdownRemark.childGrvscCodeBlock.id'
   | 'childrenMarkdownRemark.childGrvscCodeBlock.parent.id'
   | 'childrenMarkdownRemark.childGrvscCodeBlock.parent.children'
@@ -1895,6 +1899,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.isHighlighted'
   | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.lineNumber'
   | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.diff'
+  | 'childMarkdownRemark.childrenGrvscCodeBlock.tokenizedLines.setContainerClassName'
   | 'childMarkdownRemark.childrenGrvscCodeBlock.id'
   | 'childMarkdownRemark.childrenGrvscCodeBlock.parent.id'
   | 'childMarkdownRemark.childrenGrvscCodeBlock.parent.children'
@@ -1934,6 +1939,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.isHighlighted'
   | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.lineNumber'
   | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.diff'
+  | 'childMarkdownRemark.childGrvscCodeBlock.tokenizedLines.setContainerClassName'
   | 'childMarkdownRemark.childGrvscCodeBlock.id'
   | 'childMarkdownRemark.childGrvscCodeBlock.parent.id'
   | 'childMarkdownRemark.childGrvscCodeBlock.parent.children'
@@ -3425,6 +3431,7 @@ type MarkdownRemarkFieldsEnum =
   | 'childrenGrvscCodeBlock.tokenizedLines.isHighlighted'
   | 'childrenGrvscCodeBlock.tokenizedLines.lineNumber'
   | 'childrenGrvscCodeBlock.tokenizedLines.diff'
+  | 'childrenGrvscCodeBlock.tokenizedLines.setContainerClassName'
   | 'childrenGrvscCodeBlock.id'
   | 'childrenGrvscCodeBlock.parent.id'
   | 'childrenGrvscCodeBlock.parent.parent.id'
@@ -3501,6 +3508,7 @@ type MarkdownRemarkFieldsEnum =
   | 'childGrvscCodeBlock.tokenizedLines.isHighlighted'
   | 'childGrvscCodeBlock.tokenizedLines.lineNumber'
   | 'childGrvscCodeBlock.tokenizedLines.diff'
+  | 'childGrvscCodeBlock.tokenizedLines.setContainerClassName'
   | 'childGrvscCodeBlock.id'
   | 'childGrvscCodeBlock.parent.id'
   | 'childGrvscCodeBlock.parent.parent.id'
@@ -3737,6 +3745,7 @@ type GRVSCCodeBlockFieldsEnum =
   | 'tokenizedLines.isHighlighted'
   | 'tokenizedLines.lineNumber'
   | 'tokenizedLines.diff'
+  | 'tokenizedLines.setContainerClassName'
   | 'id'
   | 'parent.id'
   | 'parent.parent.id'
