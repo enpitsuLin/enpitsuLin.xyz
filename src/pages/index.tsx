@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState } from 'react';
+import React, { FunctionComponent } from 'react';
 import { PageRendererProps } from 'gatsby';
 import { Box, Flex, Text, Icon } from '@chakra-ui/react';
 import { FaClock } from 'react-icons/fa';
@@ -15,7 +15,7 @@ import Contacts from '@/components/Contacts';
 
 type Props = PageRendererProps;
 
-const maxims = ['我相信超越光速的是思想', '希望能成为一个有趣的人'];
+const maxims = ['来自一个有梦想 、 暂时碌碌无为的人'];
 
 const BlogIndex: FunctionComponent<Props> = ({ location }) => {
   const text = useTypeWriter(maxims);
