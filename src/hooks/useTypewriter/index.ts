@@ -58,14 +58,20 @@ class TypeWriter {
 
 const writer = new TypeWriter();
 
-export default function useTypeWriter(str: string) {
+/**
+ * 打字机的自定义hooks
+ * @param sentenceList
+ * @param timeout 切换句子的延时
+ */
+export default function useTypeWriter(sentenceList: string[], timeout = 7000) {
+  const [sentence, setSentence] = useState(sentenceList[0]);
   const [word, setWord] = useState<null | string>(null);
   const intervalRef = useRef<any>({});
   const strRef = useRef<any>({});
 
   useEffect(() => {
-    strRef.current = setWord(writer.startTypeWord(str));
-  }, [str]);
+    strRef.current = setWord(writer.startTypeWord(sentence));
+  }, [sentence]);
 
   useEffect(() => {
     intervalRef.current = setInterval(() => {
@@ -76,5 +82,13 @@ export default function useTypeWriter(str: string) {
     };
   }, [word]);
 
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setSentence(sentenceList[Math.floor(Math.random() * sentenceList.length)]);
+    }, timeout);
+    return () => {
+      clearInterval(timer);
+    };
+  }, [sentence]);
   return word;
 }

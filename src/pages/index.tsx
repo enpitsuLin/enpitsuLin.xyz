@@ -18,19 +18,10 @@ type Props = PageRendererProps;
 const maxims = ['我相信超越光速的是思想', '希望能成为一个有趣的人'];
 
 const BlogIndex: FunctionComponent<Props> = ({ location }) => {
-  const [maxim, setMaxim] = useState(maxims[0]);
-  const text = useTypeWriter(maxim);
+  const text = useTypeWriter(maxims);
   const { site } = useSiteMetadata();
   const lastUpdateTime = dayjs(site?.siteMetadata?.lastUpdateTime || '');
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setMaxim(maxims[Math.floor(Math.random() * maxims.length)]);
-    }, 7000);
-    return () => {
-      clearInterval(timer);
-    };
-  }, [maxim]);
   return (
     <BasicLayout location={location}>
       <Seo title="首页" />
