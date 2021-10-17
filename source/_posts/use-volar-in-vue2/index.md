@@ -7,7 +7,9 @@ tags:
   - Vue
 ---
 
-公司项目除了由我创建的基本都是 Vue2 项目，众所周知 Vue2 原先的插件 Vetur 需要开启`"vetur.experimental.templateInterpolationService"`选项才能提供模板中代码补全的能力，增加`@vue/composition-api`也是可以使用的,但是增加上用于解决使用 composition-api 造成 return 的变量过多问题的`unplugin-vue2-script-setup`就不太好使了。
+公司项目除了由我创建的基本都是 Vue2 项目，众所周知 Vue2 原先的插件 Vetur 需要开启`"vetur.experimental.templateInterpolationService"`选项才能提供模板中代码补全的能力，增加`@vue/composition-api`也是可以使用的,但是增加上用于解决使用 composition-api 造成 return 的变量过多问题的`unplugin-vue2-script-setup`就不太好使了,所以需要引入一些东西来增强这种开发环境下的体验。
+
+<!-- more -->
 
 # Vue2 使用 composition-api
 
@@ -23,7 +25,7 @@ tags:
 
 但是使用上这个插件后，Vetur 的提示功能基本就下线了 而且会提示没有默认导出，开发体验不是很好,接下来就是请出 Vue3 推荐的 Volar 了
 
-# Volar
+# 使用 Volar
 
 虽然是 Vue3 专用的插件但是支持 Vue2 也是没问题的。
 
@@ -50,7 +52,7 @@ npm install -D @vue/runtime-dom
 
 关闭 Vetur 开启 Volar 然后等待 Vue language server 启动，打开 Vue 文件应该能享受到更加美好的开发体验了。
 
-# 不足
+# 一点不足
 
 对于 setup 语法糖引入的组件 Volar 不能很好的对其做出正确的代码染色和类型补全,所以我建议将对组件的命名和子组件引入分开到另一个 script 代码块，如
 
