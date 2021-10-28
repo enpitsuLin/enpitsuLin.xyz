@@ -5,6 +5,8 @@ import { resolve } from 'path';
 
 type CreatePages = GatsbyNode['createPages'];
 
+type CreateWebpackConfig = GatsbyNode['onCreateWebpackConfig'];
+
 type CreatePage = Actions['createPage'];
 
 /** 文章页模板 */
@@ -99,7 +101,6 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
 };
 
 export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
-  
   const { createTypes } = actions;
   const typesDefs = `
     type SiteSiteMetadata {
@@ -125,4 +126,14 @@ export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] 
   `;
 
   createTypes(typesDefs);
+};
+
+export const onCreateWebpackConfig: CreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        '@/': resolve(__dirname, './src/')
+      }
+    }
+  });
 };
