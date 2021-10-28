@@ -31,12 +31,6 @@ const Plugins: PluginRef[] = [
     }
   },
   {
-    resolve: 'gatsby-plugin-root-import',
-    options: {
-      '@': path.join(__dirname, '../src')
-    }
-  },
-  {
     resolve: `gatsby-transformer-remark`,
     options: {
       // prettier-ignore
