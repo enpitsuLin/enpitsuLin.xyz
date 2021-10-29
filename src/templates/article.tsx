@@ -11,6 +11,7 @@ import ArticleContent from '@/components/Article/ArticleContent';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
 import { navigateToArticle } from '@/utils/article';
 import ArticleComment from '@/components/Article/ArticleComment';
+import ArticleNav from '@/components/Article/ArticleNav';
 
 const __MAIN_HEADER_HEIGHT__ = 66;
 
@@ -69,33 +70,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             <Flex>
               <Box w={['full', 'full', '75%', '75%']}>
                 <ArticleContent article={article} ref={articleRef} />
-                <Flex justifyContent="space-between" mt={16} mb={10}>
-                  {previous && (
-                    <Button
-                      p={3}
-                      fontSize="sm"
-                      leftIcon={<ArrowLeftIcon />}
-                      onClick={() => {
-                        navigateToArticle(previous.fields?.slug as string);
-                      }}
-                    >
-                      {previous.frontmatter?.title}
-                    </Button>
-                  )}
-
-                  {next && (
-                    <Button
-                      p={3}
-                      fontSize="sm"
-                      rightIcon={<ArrowRightIcon />}
-                      onClick={() => {
-                        navigateToArticle(next.fields?.slug as string);
-                      }}
-                    >
-                      {next.frontmatter?.title}
-                    </Button>
-                  )}
-                </Flex>
+                {!article.frontmatter?.ignore_in_list && <ArticleNav previous={previous} next={next} />}
               </Box>
               <Box w="25%" display={{ base: 'none', md: 'block' }}>
                 <ArticleToc
