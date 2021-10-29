@@ -23,6 +23,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
             variant="ghost"
             fontWeight="normal"
             leftIcon={<item.icon />}
+            size="sm"
             onClick={() => {
               navigate(item.link);
             }}
