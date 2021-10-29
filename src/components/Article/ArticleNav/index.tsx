@@ -1,6 +1,6 @@
 import { navigateToArticle } from '@/utils/article';
 import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
-import { Button, Flex } from '@chakra-ui/react';
+import { Button, Flex, Spacer } from '@chakra-ui/react';
 import React, { FunctionComponent } from 'react';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
 
 const ArticleNav: FunctionComponent<Props> = ({ previous, next }) => {
   return (
-    <Flex justifyContent="space-between" mt={16} mb={10}>
+    <Flex wrap="wrap" mt={16} mb={10}>
       {previous && (
         <Button
           p={3}
@@ -23,10 +23,12 @@ const ArticleNav: FunctionComponent<Props> = ({ previous, next }) => {
           {previous.frontmatter?.title}
         </Button>
       )}
-
+      <Spacer display={['block', 'block', 'none', 'none']} />
       {next && (
         <Button
+          mt={['4', '4', '0', '0']}
           p={3}
+          ml="auto"
           fontSize="sm"
           rightIcon={<ArrowRightIcon />}
           onClick={() => {

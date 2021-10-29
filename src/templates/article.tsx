@@ -8,8 +8,6 @@ import AnimatedContent from '@/components/AnimatedContent';
 import ArticleToc from '@/components/Article/ArticleToc';
 import useScroll from '@/hooks/useScroll';
 import ArticleContent from '@/components/Article/ArticleContent';
-import { ArrowLeftIcon, ArrowRightIcon } from '@chakra-ui/icons';
-import { navigateToArticle } from '@/utils/article';
 import ArticleComment from '@/components/Article/ArticleComment';
 import ArticleNav from '@/components/Article/ArticleNav';
 
