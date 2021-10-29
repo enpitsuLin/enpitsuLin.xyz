@@ -24,6 +24,8 @@ const CUSTOM_SCHEMA = `
     title: String
     description: String
     date: Date @dateformat
+    path: String
+    toc: Boolean
   }
 
   type Fields {
@@ -82,13 +84,12 @@ const gatsbyConfig: GatsbyNode = {
 
     const result = await graphql<ArticlesQueryResult>(`
       {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-          filter: { frontmatter: { ignore_in_list: { ne: true } } }
-        ) {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
           nodes {
             id
+            frontmatter {
+              path
+            }
             fields {
               slug
             }
@@ -110,14 +111,11 @@ const gatsbyConfig: GatsbyNode = {
         const previousPostId = index === 0 ? null : articles[index - 1].id;
         const nextPostId = index === articles.length - 1 ? null : articles[index + 1].id;
 
+        // frontmatter path first
         createPage({
-          path: `${ARTICLE_PATH}${article.fields?.slug}`,
+          path: article.frontmatter.path || `${ARTICLE_PATH}${article.fields?.slug}`,
           component: ArticleTemplate,
-          context: {
-            id: article.id,
-            previousPostId,
-            nextPostId
-          }
+          context: { id: article.id, previousPostId, nextPostId }
         });
       });
       generateArticleList(createPage, articles as GatsbyTypes.MarkdownRemark[], 5);

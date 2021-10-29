@@ -62,7 +62,7 @@ export const pageQuery = graphql`
   query articlesByIds($ids: [String], $limit: Int) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
-      filter: { id: { in: $ids } }
+      filter: { id: { in: $ids }, frontmatter: { ignore_in_list: { ne: true } } }
       limit: $limit
     ) {
       nodes {
