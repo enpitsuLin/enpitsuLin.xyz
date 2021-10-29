@@ -25,7 +25,7 @@ ignore_in_list: true
   - 技术栈主要是`Vue`，一些`React`，`Typescript` 重度使用者
 - Web 后端
   - 程度：使用过
-  - 主要是`ROR`、`Node.js`这种快速产出的 demo
+  - 主要是`RoR`、`Node.js`这种快速产出的 demo
 - DevOps
   - 程度：了解
   - 简单的网站部署和维护工作，希望以后学习更多
