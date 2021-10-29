@@ -1,18 +1,18 @@
 import React, { FunctionComponent } from 'react';
 import { Container as HeaderContainer, Flex, useColorModeValue } from '@chakra-ui/react';
 import { Box } from '@chakra-ui/react';
+import { FaHome, FaBook, FaInfo } from 'react-icons/fa';
 
 import Brand from './components/Brand';
-
 import Nav from './components/Nav';
 
 interface Props {
   title: string;
 }
 const NavList = [
-  { name: '主页', link: '/' },
-  { name: '文章', link: '/articles' },
-  { name: '关于', link: '/about' }
+  { name: '主页', link: '/', icon: FaHome },
+  { name: '文章', link: '/articles', icon: FaBook },
+  { name: '关于', link: '/about', icon: FaInfo }
 ];
 const Header: FunctionComponent<Props> = ({ title }) => {
   const bg = useColorModeValue('white', 'gray.800');

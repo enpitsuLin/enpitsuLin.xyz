@@ -2,12 +2,13 @@ import React, { FunctionComponent } from 'react';
 import { navigate } from 'gatsby';
 import { CloseButton } from '@chakra-ui/close-button';
 import { useColorModeValue } from '@chakra-ui/color-mode';
-import { Button, IconButton, Box, HStack, VStack, useDisclosure, Slide, Stack } from '@chakra-ui/react';
+import { Button, IconButton, Box, HStack, VStack, useDisclosure, Slide } from '@chakra-ui/react';
 import { FaBars } from 'react-icons/fa';
+import { IconType } from 'react-icons';
 import Theme from './Theme';
 
 interface Props {
-  NavList: { name: string; link: string }[];
+  NavList: { name: string; link: string; icon: IconType }[];
 }
 
 const Nav: FunctionComponent<Props> = ({ NavList }) => {
@@ -21,6 +22,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
             key={item.name}
             variant="ghost"
             fontWeight="normal"
+            leftIcon={<item.icon />}
             onClick={() => {
               navigate(item.link);
             }}
@@ -49,6 +51,7 @@ const Nav: FunctionComponent<Props> = ({ NavList }) => {
                 key={item.name}
                 w="full"
                 variant="ghost"
+                leftIcon={<item.icon />}
                 onClick={() => {
                   navigate(item.link);
                 }}
