@@ -126,14 +126,14 @@
 
 .article-content ul {
   margin: 0px;
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   margin-block-start: 0.6em;
   margin-block-end: 0.6em;
   padding-inline-start: 2em;
 }
 
 .article-content ol li {
-  line-height: 1.25rem;
+  line-height: 1.5rem;
   margin-block-start: 0.6em;
   margin-block-end: 0.6em;
 }
