@@ -31,6 +31,8 @@ const CUSTOM_SCHEMA = `
   }
 `;
 
+type ArticlesQueryResult = { allMarkdownRemark: GatsbyTypes.MarkdownRemarkConnection };
+
 /**
  * 生成文章列表页
  * @param createPage
@@ -78,11 +80,13 @@ const gatsbyConfig: GatsbyNode = {
   createPages: async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
 
-    const result = await graphql<{
-      allMarkdownRemark: GatsbyTypes.MarkdownRemarkConnection;
-    }>(`
+    const result = await graphql<ArticlesQueryResult>(`
       {
-        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+        allMarkdownRemark(
+          sort: { fields: [frontmatter___date], order: DESC }
+          limit: 1000
+          filter: { frontmatter: { ignore_in_list: { ne: true } } }
+        ) {
           nodes {
             id
             fields {

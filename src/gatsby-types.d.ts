@@ -801,7 +801,7 @@ type Frontmatter = {
   readonly date: Maybe<Scalars['Date']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly toc: Maybe<Scalars['Boolean']>;
-  readonly tod: Maybe<Scalars['Boolean']>;
+  readonly ignore_in_list: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -1253,7 +1253,7 @@ type FrontmatterFilterInput = {
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly toc: Maybe<BooleanQueryOperatorInput>;
-  readonly tod: Maybe<BooleanQueryOperatorInput>;
+  readonly ignore_in_list: Maybe<BooleanQueryOperatorInput>;
 };
 
 type BooleanQueryOperatorInput = {
@@ -1580,7 +1580,7 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.toc'
-  | 'childrenMarkdownRemark.frontmatter.tod'
+  | 'childrenMarkdownRemark.frontmatter.ignore_in_list'
   | 'childrenMarkdownRemark.fields.slug'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
@@ -1721,7 +1721,7 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.toc'
-  | 'childMarkdownRemark.frontmatter.tod'
+  | 'childMarkdownRemark.frontmatter.ignore_in_list'
   | 'childMarkdownRemark.fields.slug'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
@@ -3527,7 +3527,7 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.date'
   | 'frontmatter.tags'
   | 'frontmatter.toc'
-  | 'frontmatter.tod'
+  | 'frontmatter.ignore_in_list'
   | 'fields.slug'
   | 'excerpt'
   | 'rawMarkdownBody'
@@ -4694,6 +4694,11 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
 type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];
   previousPostId: Maybe<Scalars['String']>;
@@ -4717,28 +4722,15 @@ type articlesByIdsQuery = { readonly allMarkdownRemark: { readonly nodes: Readon
       & { readonly frontmatter: Maybe<Pick<Frontmatter, 'title' | 'date' | 'description' | 'tags'>>, readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>> }
     )>, readonly pageInfo: Pick<PageInfo, 'totalCount' | 'currentPage' | 'perPage'> } };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
-type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type AllArticlesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<(
-        Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
-        & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc'>> }
-      )> }> } };
+type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
 type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<Frontmatter, 'tags'>> }> }> } };
-
-type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -4765,5 +4757,13 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type AllArticlesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<(
+        Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
+        & { readonly fields: Maybe<Pick<Fields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<Frontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc'>> }
+      )> }> } };
 
 }
