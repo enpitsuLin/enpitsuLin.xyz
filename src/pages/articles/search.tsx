@@ -47,7 +47,7 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
         <Container maxW="container.xl">
           <Flex>
             <Box w={{ base: 'full', md: '66%' }}>
-              <Box mb={8}>
+              <Box mb={5} pt={4}>
                 <Text fontSize="4xl">{query} 搜索结果</Text>
                 <Text fontSize="sm"> 结果数：{resultCount}</Text>
               </Box>

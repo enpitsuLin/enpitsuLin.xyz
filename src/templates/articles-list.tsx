@@ -30,7 +30,7 @@ const BlogPostTemplate: FunctionComponent<Props> = ({ data, location, pageContex
       <AnimatedContent>
         <Container maxW="container.xl">
           <Flex>
-            <Box w={{ base: 'full', lg: '66%' }}>
+            <Box w={{ base: 'full', lg: '66%' }} pt={4}>
               <Box display={{ base: 'full', lg: 'none' }}>
                 <SearchCard />
               </Box>

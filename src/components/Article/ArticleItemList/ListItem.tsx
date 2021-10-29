@@ -11,7 +11,7 @@ interface Props {
 
 const ArticleItem: FunctionComponent<Props> = ({ article }) => {
   return (
-    <Card>
+    <Card my={0} mb={8}>
       <Text as="h1" fontSize="3xl">
         <Link to={`/articles${article.fields?.slug}`}>{article.frontmatter?.title}</Link>
       </Text>

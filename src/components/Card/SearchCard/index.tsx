@@ -17,6 +17,7 @@ const SearchCard: FunctionComponent = () => {
           placeholder={`在${articleCount}篇文章中搜索`}
           _placeholder={{ position: 'absolute', top: '50%', left: '0.75rem', transform: 'translateY(-50%)' }}
           onChange={val => {
+            if (!val) return;
             setQuery(val.target.value);
           }}
           onKeyUp={e => {
