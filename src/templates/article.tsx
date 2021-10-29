@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import { Container, Flex, Box, Button } from '@chakra-ui/react';
+import { Container, Flex, Box } from '@chakra-ui/react';
 import { BasicLayout } from '@/layouts';
 import Seo from '@/components/seo';
 import ArticleHeader from '@/components/Article/ArticleHeader';
@@ -68,7 +68,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             <Flex>
               <Box w={['full', 'full', '75%', '75%']}>
                 <ArticleContent article={article} ref={articleRef} />
-                {!article.frontmatter?.ignore_in_list && <ArticleNav previous={previous} next={next} />}
+                {article.frontmatter?.ignore_in_list && <ArticleNav previous={previous} next={next} />}
               </Box>
               <Box w="25%" display={{ base: 'none', md: 'block' }}>
                 <ArticleToc
