@@ -794,8 +794,8 @@ type Frontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly description: Maybe<Scalars['String']>;
   readonly date: Maybe<Scalars['Date']>;
-  readonly toc: Maybe<Scalars['Boolean']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly toc: Maybe<Scalars['Boolean']>;
   readonly tod: Maybe<Scalars['Boolean']>;
 };
 
@@ -1242,8 +1242,8 @@ type FrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
-  readonly toc: Maybe<BooleanQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
+  readonly toc: Maybe<BooleanQueryOperatorInput>;
   readonly tod: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -1459,8 +1459,8 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.title'
   | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.date'
-  | 'childrenMarkdownRemark.frontmatter.toc'
   | 'childrenMarkdownRemark.frontmatter.tags'
+  | 'childrenMarkdownRemark.frontmatter.toc'
   | 'childrenMarkdownRemark.frontmatter.tod'
   | 'childrenMarkdownRemark.fields.slug'
   | 'childrenMarkdownRemark.excerpt'
@@ -1519,8 +1519,8 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.title'
   | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.date'
-  | 'childMarkdownRemark.frontmatter.toc'
   | 'childMarkdownRemark.frontmatter.tags'
+  | 'childMarkdownRemark.frontmatter.toc'
   | 'childMarkdownRemark.frontmatter.tod'
   | 'childMarkdownRemark.fields.slug'
   | 'childMarkdownRemark.excerpt'
@@ -3244,8 +3244,8 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.title'
   | 'frontmatter.description'
   | 'frontmatter.date'
-  | 'frontmatter.toc'
   | 'frontmatter.tags'
+  | 'frontmatter.toc'
   | 'frontmatter.tod'
   | 'fields.slug'
   | 'excerpt'

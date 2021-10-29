@@ -1,65 +1,35 @@
 /// <reference path="../src/gatsby-types.d.ts" />
 import { GatsbyNode, Actions } from 'gatsby';
 import { createFilePath } from 'gatsby-source-filesystem';
-import { resolve } from 'path';
-
-type CreatePages = GatsbyNode['createPages'];
-
-type CreateWebpackConfig = GatsbyNode['onCreateWebpackConfig'];
-
-type CreatePage = Actions['createPage'];
-
-/** 文章页模板 */
+import { resolve, join } from 'path';
 const ArticleTemplate = resolve('./src/templates/article.tsx');
-/** 文章列表 分页模板 */
 const ArticlesListTemplate = resolve('./src/templates/articles-list.tsx');
-/** 文章所属的路由 列表为 `${__ARTICLE_PATH__}/:pageNum` 文章为 `${__ARTICLE_PATH__}/:articleName` */
-const __ARTICLE_PATH__ = 'articles';
 
-export const createPages: CreatePages = async ({ actions, graphql, reporter }) => {
-  const { createPage } = actions;
-
-  const result = await graphql<{
-    allMarkdownRemark: GatsbyTypes.MarkdownRemarkConnection;
-  }>(`
-    {
-      allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
-        nodes {
-          id
-          fields {
-            slug
-          }
-        }
-      }
-    }
-  `);
-
-  if (result.errors || !result.data) {
-    reporter.panicOnBuild('Some thing wrong on loading your articles', result.errors);
-    return;
+/** 文章所属的路由 列表为 `${ARTICLE_PATH}/:pageNum` 文章为 `${ARTICLE_PATH}/:articleName` */
+const ARTICLE_PATH = 'articles';
+/** Custom Schema */
+const CUSTOM_SCHEMA = `
+  type SiteSiteMetadata {
+    author: String
+    siteUrl: String
+    lastUpdateTime: Date
   }
 
-  const articles = result.data.allMarkdownRemark.nodes;
-
-  // create articles page by template
-  if (articles.length > 0) {
-    articles.forEach((article, index) => {
-      const previousPostId = index === 0 ? null : articles[index - 1].id;
-      const nextPostId = index === articles.length - 1 ? null : articles[index + 1].id;
-
-      createPage({
-        path: `${__ARTICLE_PATH__}${article.fields?.slug}`,
-        component: ArticleTemplate,
-        context: {
-          id: article.id,
-          previousPostId,
-          nextPostId
-        }
-      });
-    });
-    generateArticleList(createPage, articles as GatsbyTypes.MarkdownRemark[], 5);
+  type MarkdownRemark implements Node {
+    frontmatter: Frontmatter
+    fields: Fields
   }
-};
+
+  type Frontmatter {
+    title: String
+    description: String
+    date: Date @dateformat
+  }
+
+  type Fields {
+    slug: String
+  }
+`;
 
 /**
  * 生成文章列表页
@@ -67,8 +37,12 @@ export const createPages: CreatePages = async ({ actions, graphql, reporter }) =
  * @param articles
  * @param size
  */
-const generateArticleList = (createPage: CreatePage, articles: GatsbyTypes.MarkdownRemark[], pageSize: number) => {
-  const pagePath = (index: number) => `${__ARTICLE_PATH__}${index === 0 ? '' : `/${index + 1}`}`;
+const generateArticleList = (
+  createPage: Actions['createPage'],
+  articles: GatsbyTypes.MarkdownRemark[],
+  pageSize: number
+) => {
+  const pagePath = (index: number) => `${ARTICLE_PATH}${index === 0 ? '' : `/${index + 1}`}`;
 
   const pageCount = Math.ceil(articles.length / pageSize);
 
@@ -87,53 +61,74 @@ const generateArticleList = (createPage: CreatePage, articles: GatsbyTypes.Markd
   });
 };
 
-export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-  if (node.internal.type === `MarkdownRemark`) {
-    const value = createFilePath({ node, getNode });
-
-    createNodeField({
-      name: `slug`,
-      node,
-      value
+/**
+ * 导出gatsbyConfig
+ */
+const gatsbyConfig: GatsbyNode = {
+  onCreateWebpackConfig: ({ actions }) => {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          '@': join(__dirname, '../src')
+        }
+      }
     });
+  },
+
+  createPages: async ({ actions, graphql, reporter }) => {
+    const { createPage } = actions;
+
+    const result = await graphql<{
+      allMarkdownRemark: GatsbyTypes.MarkdownRemarkConnection;
+    }>(`
+      {
+        allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }, limit: 1000) {
+          nodes {
+            id
+            fields {
+              slug
+            }
+          }
+        }
+      }
+    `);
+
+    if (result.errors || !result.data) {
+      reporter.panicOnBuild('Some thing wrong on loading your articles', result.errors);
+      return;
+    }
+
+    const articles = result.data.allMarkdownRemark.nodes;
+
+    // create articles page by template
+    if (articles.length > 0) {
+      articles.forEach((article, index) => {
+        const previousPostId = index === 0 ? null : articles[index - 1].id;
+        const nextPostId = index === articles.length - 1 ? null : articles[index + 1].id;
+
+        createPage({
+          path: `${ARTICLE_PATH}${article.fields?.slug}`,
+          component: ArticleTemplate,
+          context: {
+            id: article.id,
+            previousPostId,
+            nextPostId
+          }
+        });
+      });
+      generateArticleList(createPage, articles as GatsbyTypes.MarkdownRemark[], 5);
+    }
+  },
+  onCreateNode: ({ node, actions, getNode }) => {
+    const { createNodeField } = actions;
+    if (node.internal.type === `MarkdownRemark`) {
+      const value = createFilePath({ node, getNode });
+      createNodeField({ name: `slug`, node, value });
+    }
+  },
+  createSchemaCustomization: ({ actions }) => {
+    const { createTypes } = actions;
+    createTypes(CUSTOM_SCHEMA);
   }
 };
-
-export const createSchemaCustomization: GatsbyNode['createSchemaCustomization'] = ({ actions }) => {
-  const { createTypes } = actions;
-  const typesDefs = `
-    type SiteSiteMetadata {
-      author: String
-      siteUrl: String
-      lastUpdateTime: Date
-    }
-
-    type MarkdownRemark implements Node {
-      frontmatter: Frontmatter
-      fields: Fields
-    }
-
-    type Frontmatter {
-      title: String
-      description: String
-      date: Date @dateformat
-    }
-
-    type Fields {
-      slug: String
-    }
-  `;
-
-  createTypes(typesDefs);
-};
-
-export const onCreateWebpackConfig: CreateWebpackConfig = ({ actions }) => {
-  actions.setWebpackConfig({
-    resolve: {
-      alias: {
-        '@/': resolve(__dirname, './src/')
-      }
-    }
-  });
-};
+export default gatsbyConfig;
