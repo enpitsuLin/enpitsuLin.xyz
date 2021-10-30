@@ -7,31 +7,6 @@ const ArticlesListTemplate = resolve('./src/templates/articles-list.tsx');
 
 /** 文章所属的路由 列表为 `${ARTICLE_PATH}/:pageNum` 文章为 `${ARTICLE_PATH}/:articleName` */
 const ARTICLE_PATH = 'articles';
-/** Custom Schema */
-const CUSTOM_SCHEMA = `
-  type SiteSiteMetadata {
-    author: String
-    siteUrl: String
-    lastUpdateTime: Date
-  }
-
-  type MarkdownRemark implements Node {
-    frontmatter: Frontmatter
-    fields: Fields
-  }
-
-  type Frontmatter {
-    title: String
-    description: String
-    date: Date @dateformat
-    path: String
-    toc: Boolean
-  }
-
-  type Fields {
-    slug: String
-  }
-`;
 
 type ArticlesQueryResult = { allMarkdownRemark: GatsbyTypes.MarkdownRemarkConnection };
 
@@ -127,10 +102,6 @@ const gatsbyConfig: GatsbyNode = {
       const value = createFilePath({ node, getNode });
       createNodeField({ name: `slug`, node, value });
     }
-  },
-  createSchemaCustomization: ({ actions }) => {
-    const { createTypes } = actions;
-    createTypes(CUSTOM_SCHEMA);
   }
 };
 export default gatsbyConfig;
