@@ -69,7 +69,17 @@ const Plugins: PluginRef[] = [
           resolve: 'gatsby-remark-prismjs',
           options: {
             classPrefix: 'language-',
-            noInlineHighlight: true
+            noInlineHighlight: true,
+            languageExtensions: [
+              {
+                language: 'vue',
+                extend: 'html',
+                definition: {
+                  superscript_types: /(vue)/
+                },
+                prompt: { user: 'root', host: 'localhost' }
+              }
+            ]
           }
         },
         `gatsby-remark-copy-linked-files`,
