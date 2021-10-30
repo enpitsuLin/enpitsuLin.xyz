@@ -25,15 +25,15 @@ ignore_in_list: true
   - 技术栈主要是`Vue`，一些`React`，`Typescript` 重度使用者
 - Web 后端
   - 程度：使用过
-  - 主要是`RoR`、`Node.js`这种快速产出的 demo
+  - 主要是`RoR`、`Node.js`写过一些快速产出的 demo
 - DevOps
   - 程度：了解
   - 简单的网站部署和维护工作，希望以后学习更多
 - 移动端
-  - H5 和 Uni-app，原生开发没有尝试，仅仅试过`Hello World`
+  - H5 和 Uni-app，原生开发没有尝试，仅仅试过安卓`Hello World`
 - 算法/数据结构
   - 不太彳亍，以后为了找工作还是得刷刷题
 - 语言
   - 比较熟悉:`Typescript/Javascript`,`Ruby`
-  - 能写:`Python`,`Kotlin`
+  - 能写:`Python`,`C#`
   - 想学:`Rust`
