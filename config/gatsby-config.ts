@@ -66,15 +66,10 @@ const Plugins: PluginRef[] = [
           }
         },
         {
-          resolve: 'gatsby-remark-vscode',
+          resolve: 'gatsby-remark-prismjs',
           options: {
-            inlineCode: {
-              marker: '±'
-            },
-            theme: 'Dark+ (default dark)',
-            languageAliases: {
-              shell: 'sh'
-            }
+            classPrefix: 'language-',
+            noInlineHighlight: true
           }
         },
         `gatsby-remark-copy-linked-files`,

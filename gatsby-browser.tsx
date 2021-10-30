@@ -5,9 +5,5 @@ import DefaultTheme from './src/theme';
 
 export const wrapRootElement = props => {
   const { element } = props;
-  return (
-    <ChakraProvider theme={DefaultTheme}>
-      {element}
-    </ChakraProvider>
-  );
+  return <ChakraProvider theme={DefaultTheme}>{element}</ChakraProvider>;
 };

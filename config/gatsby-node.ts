@@ -41,9 +41,9 @@ const generateArticleList = (
 };
 
 /**
- * 导出gatsbyConfig
+ * 导出gatsbyNode
  */
-const gatsbyConfig: GatsbyNode = {
+const gatsbyNode: GatsbyNode = {
   onCreateWebpackConfig: ({ actions }) => {
     actions.setWebpackConfig({
       resolve: {
@@ -104,4 +104,4 @@ const gatsbyConfig: GatsbyNode = {
     }
   }
 };
-export default gatsbyConfig;
+export default gatsbyNode;
