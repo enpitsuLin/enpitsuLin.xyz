@@ -14,7 +14,7 @@ const NotFoundPage: React.FC<Props> = ({ location }) => {
       <Seo title="404: Not Found" />
       <AnimatedContent>
         <Container maxW="container.xl">
-          <Flex h="4xl" alignItems="center" alignContent="center" mt={4}>
+          <Flex alignItems="center" alignContent="center" justifyContent="center" mt={4}>
             <Box>
               <Badge borderRadius="full" px="2" colorScheme="teal">
                 404: Not Found

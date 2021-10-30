@@ -3465,7 +3465,7 @@ type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 type AllArticlesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<(
         Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
-        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc'>> }
+        & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc' | 'path' | 'ignore_in_list'>> }
       )> }> } };
 
 type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
