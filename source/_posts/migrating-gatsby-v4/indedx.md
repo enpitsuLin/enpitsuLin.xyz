@@ -72,6 +72,8 @@ yarn remove gatsby-remark-vscode
 yarn add gatsby-remark-prismjs prismjs
 ```
 
+并配置一下gatsby-config中的一些选项就ok了，换用这个高亮插件顺便想增加一些别的代码块效果比如复制和显示代码类型名称。
+
 # 总结
 
 v4 的更新还算顺利，因为没有很依赖非官方的插件来实现自己的页面，大多数是使用的 react 的生态和自己来写，所以说还是靠自己和写的代码质量高比较靠谱呀
