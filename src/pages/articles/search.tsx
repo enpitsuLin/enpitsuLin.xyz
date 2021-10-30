@@ -10,9 +10,11 @@ import { Container, Flex, Box, Text } from '@chakra-ui/react';
 import { navigateToSearchPage } from '@/utils/article';
 import SearchCard from '@/components/Card/SearchCard';
 import TagsCard from '@/components/Card/TagsCard';
+import Affix from '@/components/Affix';
 
 interface Query {
   query?: string;
+  tag?: string;
   page?: number;
 }
 
@@ -20,9 +22,12 @@ const pageSize = 5;
 
 interface Props extends PageRendererProps {}
 const SearchPage: FunctionComponent<Props> = ({ location }) => {
-  const { query, page = 1 } = parseQuery(location.search) as Query;
+  const { query, tag, page = 1 } = parseQuery(location.search) as Query;
   const allArticles = useAllArticles();
   let searchResult = allArticles;
+  if (tag) {
+    searchResult = allArticles.filter(article => article.frontmatter?.tags?.includes(tag));
+  }
   if (query) {
     searchResult = allArticles.filter(article => {
       // query keyword in title
@@ -31,6 +36,10 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
       }
       // query keyword in tags
       if (article.frontmatter?.tags?.includes(query)) {
+        return true;
+      }
+      // query keyword in excerpt
+      if (article.excerpt?.includes(query)) {
         return true;
       }
       return false;
@@ -42,15 +51,16 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
 
   return (
     <BasicLayout location={location}>
-      <Seo title={`${query} 搜索结果`} />
+      <Seo title={query ? `${query} 搜索结果` : `${tag} 标签的文章`} />
       <AnimatedContent>
         <Container maxW="container.xl">
           <Flex>
             <Box w={{ base: 'full', md: '66%' }}>
               <Box mb={5} pt={4}>
-                <Text fontSize="4xl">{query} 搜索结果</Text>
+                <Text fontSize="4xl">{query ? `${query} 搜索结果` : `${tag} 标签的文章`}</Text>
                 <Text fontSize="sm"> 结果数：{resultCount}</Text>
               </Box>
+
               <ArticleItemList
                 articles={searchResult}
                 pageCount={pageCount}
@@ -62,8 +72,10 @@ const SearchPage: FunctionComponent<Props> = ({ location }) => {
               />
             </Box>
             <Box w="33%" display={{ base: 'none', md: 'block' }} pl={8}>
-              <SearchCard />
-              <TagsCard />
+              <Affix offsetTop="calc(4.75rem + 4px)">
+                <SearchCard />
+                <TagsCard />
+              </Affix>
             </Box>
           </Flex>
         </Container>
