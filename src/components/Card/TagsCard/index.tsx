@@ -1,5 +1,5 @@
 import useAllTag from '@/hooks/useAllTags';
-import { navigateToSearchPage } from '@/utils/article';
+import { navigateToTagPage } from '@/utils/article';
 import { Flex, Box, useColorModeValue } from '@chakra-ui/react';
 import React, { FunctionComponent } from 'react';
 
@@ -27,7 +27,7 @@ const TagsCard: FunctionComponent = () => {
               cursor="pointer"
               _hover={{ bg: tagHoverBg }}
               onClick={() => {
-                navigateToSearchPage(item.tag);
+                navigateToTagPage(item.tag);
               }}
             >
               <Box as="span" fontSize="14" p="4px">

@@ -16,7 +16,7 @@ export default function useAllArticles() {
         ) {
           nodes {
             childMarkdownRemark {
-              excerpt(format: HTML)
+              excerpt(format: PLAIN)
               fields {
                 slug
               }
@@ -30,6 +30,8 @@ export default function useAllArticles() {
                 tags
                 title
                 toc
+                path
+                ignore_in_list
               }
             }
           }

@@ -23,3 +23,11 @@ export function navigateToArticle(slug: string) {
 export function navigateToSearchPage(query: string, page = 1) {
   navigate(`/articles/search?query=${query}${page > 1 ? `&page=${page}` : ''}`);
 }
+/**
+ * navigate to search tag page
+ * @param tag tag
+ * @param page page
+ */
+export function navigateToTagPage(tag: string, page = 1) {
+  navigate(`/articles/search?tag=${tag}${page > 1 ? `&page=${page}` : ''}`);
+}
