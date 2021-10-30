@@ -68,7 +68,7 @@ const BlogPostTemplate: React.FC<Props> = ({ data, location }) => {
             <Flex>
               <Box w={['full', 'full', '75%', '75%']}>
                 <ArticleContent article={article} ref={articleRef} />
-                {article.frontmatter?.ignore_in_list && <ArticleNav previous={previous} next={next} />}
+                {article.frontmatter?.ignore_in_list != true && <ArticleNav previous={previous} next={next} />}
               </Box>
               <Box w="25%" display={{ base: 'none', md: 'block' }}>
                 <ArticleToc
@@ -107,6 +107,8 @@ export const pageQuery = graphql`
         date(formatString: "YYYY 年 MM月 DD日 ")
         description
         tags
+        path
+        ignore_in_list
       }
       timeToRead
       wordCount {

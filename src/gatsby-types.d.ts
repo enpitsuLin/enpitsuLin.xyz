@@ -3441,7 +3441,7 @@ type BlogPostBySlugQueryVariables = Exact<{
 
 type BlogPostBySlugQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description'>> }>, readonly markdownRemark: Maybe<(
     Pick<MarkdownRemark, 'id' | 'excerpt' | 'html' | 'timeToRead'>
-    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date' | 'description' | 'tags'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MarkdownHeading, 'value' | 'depth' | 'id'>>>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
+    & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date' | 'description' | 'tags' | 'path' | 'ignore_in_list'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly headings: Maybe<ReadonlyArray<Maybe<Pick<MarkdownHeading, 'value' | 'depth' | 'id'>>>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>> }
   )>, readonly previous: Maybe<{ readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }>, readonly next: Maybe<{ readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title'>> }> };
 
 type articlesByIdsQueryVariables = Exact<{
