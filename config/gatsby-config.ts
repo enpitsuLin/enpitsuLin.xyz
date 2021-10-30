@@ -77,7 +77,7 @@ const Plugins: PluginRef[] = [
                 definition: {
                   superscript_types: /(vue)/
                 },
-                prompt: { user: 'root', host: 'localhost' }
+                prompt: { user: 'enpitsulin', host: 'localhost', global: true }
               }
             ]
           }

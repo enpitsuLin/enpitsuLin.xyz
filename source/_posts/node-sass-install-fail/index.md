@@ -12,7 +12,7 @@ description: 由于某些不可描述的原因,使用node包管理器安装node-
 
 node-sass 是我们开发中很常见的依赖包，也是安装时间冗长和最常见到报错的依赖。无论是自己的项目想要使用还是使用他人的项目进行依赖安装,运行
 
-```shell
+```shell{promptUser:enpitsulin}
 npm install
 ```
 
@@ -28,19 +28,19 @@ npm install
 
 一般来说都是推荐直接使用 cnpm 下载能够改善
 
-```shell
+```shell{promptUser:enpitsulin}
 cnpm install
 ```
 
 或者更改源设置更完美,没有一些隐性 bug 出现.
 
-```shell
+```shell{promptUser:enpitsulin}
 npm config set registry https://registry.npm.taobao.org
 ```
 
 或者可以仅将 node-sass 的下载源更改成淘宝镜像
 
-```shell
+```shell{promptUser:enpitsulin}
 npm config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
 ```
 
@@ -48,7 +48,7 @@ npm config set sass-binary-site http://npm.taobao.org/mirrors/node-sass
 
 node-sass 除了 npm 部分的代码，还会下载二进制文件，但是默认源是 github，总所周知,github 国内访问较慢,特殊时期甚至无法访问。我们也可以将其改成国内源,直接添加一条环境变量:
 
-```shell
+```shell{promptUser:enpitsulin}
 set SASS_BINARY_SITE=https://npm.taobao.org/mirrors/node-sass/ && npm install node-sass
 ```
 
@@ -64,7 +64,7 @@ sass_binary_site=https://npm.taobao.org/mirrors/node-sass/
 
 最终解决方法!使用梯子并设置代理
 
-```shell
+```shell{promptUser:enpitsulin}
 npm config set proxy http://127.0.0.1:#你梯子开启的本地端口#
 npm install node-sass
 
@@ -78,7 +78,7 @@ npm config delete proxy
 
 查询指令如下
 
-```shell
+```shell{promptUser:enpitsulin}
 node -p "[process.platform, process.arch, process.versions.modules].join('-')"
 ```
 
@@ -90,7 +90,7 @@ node -p "[process.platform, process.arch, process.versions.modules].join('-')"
 
 然后我们需要手动指定 node-sass 二进制文件的下载源为下载的那个文件.
 
-```shell
+```shell{promptUser:enpitsulin}
 npm config set sass-binary-path 你存放刚才下载的二进制文件的目录
 // 例如 npm config set sass-binary-path e:/web/win32-x64-48_binding.node
 ```

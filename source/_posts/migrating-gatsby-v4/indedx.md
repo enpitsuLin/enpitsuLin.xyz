@@ -27,7 +27,7 @@ tags:
 
 或者直接运行
 
-```shell
+```shell{promptUser:enpitsulin}
 npm install gatsby@next
 ```
 
@@ -35,7 +35,7 @@ npm install gatsby@next
 
 直接运行，然后就有图形化的 CLI 来选择更新的，直接把`gatsby-`开头的都升级了
 
-```shell
+```shell{promptUser:enpitsulin}
 yarn upgrade-interactive
 ```
 
@@ -63,7 +63,14 @@ const onCreateWebpackConfig: Gatsby['onCreateWebpackConfig'] = ({ actions }) => 
 
 ## gatsby-remark-vscode
 
-好像暂时没有迁移到 v4 的意思，准备换用官方的 gatsby-remark-mdx
+好像暂时没有迁移到 v4 的意思，准备换用官方的 `gatsby-remark-prismjs`
+
+卸载原来的`gatsby-remark-vscode`并安装`gatsby-remark-prismjs`、`prismjs`
+
+```shell{promptUser:enpitsulin}
+yarn remove gatsby-remark-vscode
+yarn add gatsby-remark-prismjs prismjs
+```
 
 # 总结
 

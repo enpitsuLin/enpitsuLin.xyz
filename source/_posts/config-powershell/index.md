@@ -21,13 +21,13 @@ toc: true
 
 Scoop
 
-```shell
+```shell{promptUser:enpitsulin}
 scoop install colortool
 ```
 
 Chocolatey
 
-```shell
+```shell{promptUser:enpitsulin}
 choco install colortool
 ```
 
@@ -37,7 +37,7 @@ choco install colortool
 
 ColorTool 使用非常简单。我们可以利用下面这个命令进行查看工具自带的几个主题：
 
-```shell
+```shell{promptUser:enpitsulin}
 # 注：-s 代表 schemes
 colortool -s
 ```
@@ -46,7 +46,7 @@ colortool -s
 
 前面的几个 .ini 和 .itermcolors 就是主题配置文件，我们可以直接通过下面这个命令设置主题：
 
-```shell
+```shell{promptUser:enpitsulin}
 # 临时查看
 colortool <主题名称>
 # 定义默认值
@@ -56,7 +56,7 @@ colortool -d <主题名称>
 比如我们希望将主题配色更换为
 OneHalfDark.itermcolors，只需要输入下面这个命令就可以更换并预览更新：
 
-```shell
+```shell{promptUser:enpitsulin}
 colortool OneHalfDark
 ```
 
@@ -99,19 +99,19 @@ PowerShell 等 Shell 的一个基本的命令单元大致如下：
 
 然后，运行命令以安装 posh-git，这是 oh-my-posh 的依赖。
 
-```shell
+```shell{promptUser:enpitsulin}
 Install-Module posh-git -Scope CurrentUser
 ```
 
 如果此前没有安装 NuGet 提供程序，则此时会提示安装 NuGet；如果此前没有开启执行任意脚本，此处也会提示执行脚本。如果没有权限执行脚本，可能需要先执行
 
-```shell
+```shell{promptUser:enpitsulin}
 Set-ExecutionPolicy Bypass
 ```
 
 接下来，运行命令以安装 oh-my-posh 本身。
 
-```shell
+```shell{promptUser:enpitsulin}
 Install-Module oh-my-posh  -Scope CurrentUser
 ```
 
@@ -124,7 +124,7 @@ Install-Module oh-my-posh  -Scope CurrentUser
 接下来，我们需要对 oh-my-posh 进行配置
 首先
 
-```shell
+```shell{promptUser:enpitsulin}
 if (!(Test-Path -Path $PROFILE )) { New-Item -Type File -Path $PROFILE -Force }
 notepad $PROFILE
 ```
