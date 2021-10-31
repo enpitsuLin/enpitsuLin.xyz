@@ -16,13 +16,13 @@ description: 感觉一个页面白白净净的似乎也有些无趣,遂增加一
 
 使用终端命令在项目内安装模块
 
-```shell{promptUser:enpitsulin}
+```shell
 npm install --save hexo-helper-live2d
 ```
 
 以及安装所需的 live2d 模型,这里我选用的是一个简单的黑猫模型.
 
-```shell{promptUser:enpitsulin}
+```shell
 npm install live2d-widget-model-hijiki
 ```
 
@@ -30,7 +30,7 @@ npm install live2d-widget-model-hijiki
 
 往`_config.yml`文件中添加下列语句
 
-```YAML
+```yaml
 # Live2D
 live2d:
   enable: true
@@ -52,7 +52,7 @@ live2d:
 
 然后直接
 
-```shell{promptUser:enpitsulin}
+```shell
 hexo s -g
 ```
 

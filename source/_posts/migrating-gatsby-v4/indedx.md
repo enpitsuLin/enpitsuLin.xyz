@@ -27,7 +27,7 @@ tags:
 
 或者直接运行
 
-```shell{promptUser:enpitsulin}
+```shell
 npm install gatsby@next
 ```
 
@@ -35,7 +35,7 @@ npm install gatsby@next
 
 直接运行，然后就有图形化的 CLI 来选择更新的，直接把`gatsby-`开头的都升级了
 
-```shell{promptUser:enpitsulin}
+```shell
 yarn upgrade-interactive
 ```
 
@@ -63,16 +63,26 @@ const onCreateWebpackConfig: Gatsby['onCreateWebpackConfig'] = ({ actions }) => 
 
 ## gatsby-remark-vscode
 
-好像暂时没有迁移到 v4 的意思，准备换用官方的 `gatsby-remark-prismjs`
+~~好像暂时没有迁移到 v4 的意思，准备换用官方的 `gatsby-remark-prismjs`~~
 
-卸载原来的`gatsby-remark-vscode`并安装`gatsby-remark-prismjs`、`prismjs`
+~~卸载原来的`gatsby-remark-vscode`并安装`gatsby-remark-prismjs`、`prismjs`~~
 
-```shell{promptUser:enpitsulin}
+```shell
 yarn remove gatsby-remark-vscode
 yarn add gatsby-remark-prismjs prismjs
 ```
 
-并配置一下gatsby-config中的一些选项就ok了，换用这个高亮插件顺便想增加一些别的代码块效果比如复制和显示代码类型名称。
+~~并配置一下 gatsby-config 中的一些选项就 ok 了，换用这个高亮插件顺便想增加一些别的代码块效果比如复制和显示代码类型名称。~~
+
+### 开发 gatsby-remark-shiki
+
+因为各种代码高亮的插件都不太适合我想要的，直接自己开发了一个使用`shiki`的插件，希望能提供一个自定义程度更高的代码高亮功能
+
+```shell
+yarn add @enpitsulin/gatsby-remark-shiki
+```
+
+因为`gatsby-remark-shiki`被人取了，只能加个用户名作用域了=。=
 
 # 总结
 
