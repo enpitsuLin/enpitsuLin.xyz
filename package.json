@@ -12,7 +12,7 @@
     "@chakra-ui/react": "^1.6.7",
     "@emotion/react": "^11.4.1",
     "@emotion/styled": "^11.3.0",
-    "@enpitsulin/gatsby-remark-shiki": "^0.0.3",
+    "@enpitsulin/gatsby-remark-shiki": "^0.0.5",
     "@types/react-transition-group": "^4.4.2",
     "autoprefixer": "^10.3.4",
     "classnames": "^2.3.1",

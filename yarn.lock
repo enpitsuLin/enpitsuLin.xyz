@@ -2264,10 +2264,10 @@
     ts-node "^9"
     tslib "^2"
 
-"@enpitsulin/gatsby-remark-shiki@^0.0.3":
-  version "0.0.3"
-  resolved "https://registry.yarnpkg.com/@enpitsulin/gatsby-remark-shiki/-/gatsby-remark-shiki-0.0.3.tgz#c361bf2e78b291b838113add3f578f09c0f1544d"
-  integrity sha512-Lhv7dOvpwCi7Z2RfP915HSL33d/vTgab2CSfLc7gWdo+sLpmT5+VE+VqTcgjZl53JNciMmCaAcO71OA61e4Uiw==
+"@enpitsulin/gatsby-remark-shiki@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@enpitsulin/gatsby-remark-shiki/-/gatsby-remark-shiki-0.0.5.tgz#4a44861f6fa0b7f8d02b28d9440c49d77a848ede"
+  integrity sha512-ggJTV4ZlO1iB421BquIrYbJscg8YZDxMbfxiGqXveTPbj601G9hCAyM7u7qnzYleqeMXTxittUoul+WXwwv4fg==
   dependencies:
     babel-preset-gatsby-package "^2.0.0"
     shiki "^0.9.12"
@@ -7324,15 +7324,6 @@ gatsby-remark-images@^6.0.0:
     unist-util-select "^3.0.4"
     unist-util-visit-parents "^3.1.1"
 
-gatsby-remark-prismjs@^6.0.0:
-  version "6.0.0"
-  resolved "https://registry.npmmirror.com/gatsby-remark-prismjs/download/gatsby-remark-prismjs-6.0.0.tgz#0f4721fe2f54a0bf2ae7080295707d30a8c3bd73"
-  integrity sha1-D0ch/i9UoL8q5wgClXB9MKjDvXM=
-  dependencies:
-    "@babel/runtime" "^7.15.4"
-    parse-numeric-range "^1.2.0"
-    unist-util-visit "^2.0.3"
-
 gatsby-remark-responsive-iframe@^5.0.0:
   version "5.0.0"
   resolved "https://registry.npmmirror.com/gatsby-remark-responsive-iframe/download/gatsby-remark-responsive-iframe-5.0.0.tgz#3c8130588e0cac6b20909674684e346a09806e32"
@@ -11099,11 +11090,6 @@ parse-latin@^4.0.0:
     unist-util-modify-children "^2.0.0"
     unist-util-visit-children "^1.0.0"
 
-parse-numeric-range@^1.2.0:
-  version "1.3.0"
-  resolved "https://registry.nlark.com/parse-numeric-range/download/parse-numeric-range-1.3.0.tgz#7c63b61190d61e4d53a1197f0c83c47bb670ffa3"
-  integrity sha1-fGO2EZDWHk1ToRl/DIPEe7Zw/6M=
-
 parse-path@^4.0.0:
   version "4.0.3"
   resolved "https://registry.nlark.com/parse-path/download/parse-path-4.0.3.tgz#82d81ec3e071dcc4ab49aa9f2c9c0b8966bb22bf"
@@ -11720,11 +11706,6 @@ pretty-format@^3.5.1:
   version "3.8.0"
   resolved "https://registry.npmmirror.com/pretty-format/download/pretty-format-3.8.0.tgz?cache=0&sync_timestamp=1634626739813&other_urls=https%3A%2F%2Fregistry.npmmirror.com%2Fpretty-format%2Fdownload%2Fpretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
   integrity sha1-v77VbV6ad2ZF9LH/eqGjrE+jw4U=
-
-prismjs@^1.25.0:
-  version "1.25.0"
-  resolved "https://registry.nlark.com/prismjs/download/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
-  integrity sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=
 
 probe-image-size@^6.0.0:
   version "6.0.0"
