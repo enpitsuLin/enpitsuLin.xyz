@@ -1,5 +1,4 @@
 import { GatsbyConfig, PluginRef } from 'gatsby';
-
 import path from 'path';
 
 const siteTitle = `enpitsuLin's Blog`;
@@ -66,21 +65,7 @@ const Plugins: PluginRef[] = [
           }
         },
         {
-          resolve: 'gatsby-remark-prismjs',
-          options: {
-            classPrefix: 'language-',
-            noInlineHighlight: true,
-            languageExtensions: [
-              {
-                language: 'vue',
-                extend: 'html',
-                definition: {
-                  superscript_types: /(vue)/
-                },
-                prompt: { user: 'enpitsulin', host: 'localhost', global: true }
-              }
-            ]
-          }
+          resolve: `@enpitsulin/gatsby-remark-shiki`
         },
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`
