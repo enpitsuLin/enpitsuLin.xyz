@@ -80,7 +80,7 @@ const gatsbyNode: GatsbyNode = {
 
     const articles = result.data.allMarkdownRemark.nodes.filter(item => !item.frontmatter.ignore_in_list);
     const pages = result.data.allMarkdownRemark.nodes.filter(item => item.frontmatter.ignore_in_list);
-    console.log(pages, articles);
+    
     // create non-articles page
     if (pages.length > 0) {
       pages.forEach(page => {
