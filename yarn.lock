@@ -2264,10 +2264,10 @@
     ts-node "^9"
     tslib "^2"
 
-"@enpitsulin/gatsby-remark-shiki@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.npmjs.org/@enpitsulin/gatsby-remark-shiki/-/gatsby-remark-shiki-0.0.8.tgz#14f46779061f3caa65b007508a6ad6c1403d44e1"
-  integrity sha512-moPATpgiMxWjFEolW9AneEXaKihlTJ5XrUO1Q4JoKzxmaf6rTxV3deeDKSxGi7GL5iqRpMvdvIO5iWXd5VaJNA==
+"@enpitsulin/gatsby-remark-shiki@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.npmjs.org/@enpitsulin/gatsby-remark-shiki/-/gatsby-remark-shiki-0.0.9.tgz#3a4bebe3abab3cd172abfd714629b752dd5298ed"
+  integrity sha512-LHrR0yUQlX1yOJeVoCa5RS5X4yq6Gggpl2uNoUC0UtKlKMHoK9o+LBMzOlaG1AUx0AONm1NQM6GzjgYsgC1L4g==
   dependencies:
     babel-preset-gatsby-package "^2.0.0"
     clipboard "^2.0.8"

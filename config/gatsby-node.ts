@@ -53,7 +53,6 @@ const gatsbyNode: GatsbyNode = {
       }
     });
   },
-
   createPages: async ({ actions, graphql, reporter }) => {
     const { createPage } = actions;
 
@@ -64,6 +63,7 @@ const gatsbyNode: GatsbyNode = {
             id
             frontmatter {
               path
+              ignore_in_list
             }
             fields {
               slug
@@ -78,8 +78,19 @@ const gatsbyNode: GatsbyNode = {
       return;
     }
 
-    const articles = result.data.allMarkdownRemark.nodes;
-
+    const articles = result.data.allMarkdownRemark.nodes.filter(item => !item.frontmatter.ignore_in_list);
+    const pages = result.data.allMarkdownRemark.nodes.filter(item => item.frontmatter.ignore_in_list);
+    console.log(pages, articles);
+    // create non-articles page
+    if (pages.length > 0) {
+      pages.forEach(page => {
+        createPage({
+          path: page.frontmatter.path || page.fields?.slug,
+          component: ArticleTemplate,
+          context: { id: page.id, previousPostId: null, nextPostId: null }
+        });
+      });
+    }
     // create articles page by template
     if (articles.length > 0) {
       articles.forEach((article, index) => {
