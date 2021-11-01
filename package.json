@@ -1,8 +1,8 @@
 {
   "name": "enpitsulin-next",
-  "description": "A blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "enpitsulin Lin",
+  "description": "A blog powered by Gatsby and write by Markdown",
+  "version": "1.0.0",
+  "author": "enpitsulin",
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
@@ -53,9 +53,6 @@
     "typescript": "^4.4.2"
   },
   "homepage": "https://github.com/enpitsuLin/enpitsuLin.github.io#readme",
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
