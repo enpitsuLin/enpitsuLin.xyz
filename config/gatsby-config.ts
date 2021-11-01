@@ -65,7 +65,10 @@ const Plugins: PluginRef[] = [
           }
         },
         {
-          resolve: `@enpitsulin/gatsby-remark-shiki`
+          resolve: `@enpitsulin/gatsby-remark-shiki`,
+          options: {
+            theme: 'one-dark-pro'
+          }
         },
         `gatsby-remark-copy-linked-files`,
         `gatsby-remark-smartypants`
