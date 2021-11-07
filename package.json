@@ -1,4 +1,5 @@
 {
+  "private":"true",
   "name": "enpitsulin-next",
   "description": "A blog powered by Gatsby and write by Markdown",
   "version": "1.0.0",

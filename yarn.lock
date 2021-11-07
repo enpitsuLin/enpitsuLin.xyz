@@ -2264,13 +2264,15 @@
     ts-node "^9"
     tslib "^2"
 
-"@enpitsulin/gatsby-remark-shiki@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.npmjs.org/@enpitsulin/gatsby-remark-shiki/-/gatsby-remark-shiki-0.0.9.tgz#3a4bebe3abab3cd172abfd714629b752dd5298ed"
-  integrity sha512-LHrR0yUQlX1yOJeVoCa5RS5X4yq6Gggpl2uNoUC0UtKlKMHoK9o+LBMzOlaG1AUx0AONm1NQM6GzjgYsgC1L4g==
+"@enpitsulin/gatsby-remark-shiki@latest":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@enpitsulin/gatsby-remark-shiki/-/gatsby-remark-shiki-0.1.0.tgz#239a4c3e56fd0edffd00faa6067c665eee914366"
+  integrity sha512-x2geG9bXW16+8b5RODdL4cZbU3pEFIpH3I/SaMfr34DJEmsLrbdiJBNPy7uomINPqiZ98Ut8UOPOuwAY5ogmqw==
   dependencies:
     babel-preset-gatsby-package "^2.0.0"
     clipboard "^2.0.8"
+    react "^17.0.2"
+    react-dom "^17.0.2"
     shiki "^0.9.12"
     unist-util-visit "^2.0.1"
 
@@ -11968,10 +11970,10 @@ react-dev-utils@^11.0.4:
     strip-ansi "6.0.0"
     text-table "0.2.0"
 
-react-dom@^17.0.1:
+react-dom@^17.0.1, react-dom@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.npmmirror.com/react-dom/download/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
-  integrity sha1-7P+2hF462Nv83EmPDQqTlzZQLCM=
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-17.0.2.tgz#ecffb6845e3ad8dbfcdc498f0d0a939736502c23"
+  integrity sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
@@ -12067,10 +12069,10 @@ react-style-singleton@^2.1.0:
     invariant "^2.2.4"
     tslib "^1.0.0"
 
-react@^17.0.1:
+react@^17.0.1, react@^17.0.2:
   version "17.0.2"
-  resolved "https://registry.npmmirror.com/react/download/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
-  integrity sha1-0LXMUW0p6z7uOD91tihkz7aAADc=
+  resolved "https://registry.yarnpkg.com/react/-/react-17.0.2.tgz#d0b5cc516d29eb3eee383f75b62864cfb6800037"
+  integrity sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==
   dependencies:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
