@@ -14,6 +14,7 @@ export const FooterWrap: FunctionComponent<BoxProps> = props => {
 const poweredBy = [
   { name: 'React', link: 'https://reactjs.org/' },
   { name: 'Gatsby', link: 'https://www.gatsbyjs.org/' },
+  { name: 'Vercel', link: 'https://vercel.com/' },
   { name: 'GitHub Pages', link: 'https://pages.github.com/' },
   { name: 'TypeScript', link: 'https://www.typescriptlang.org/' }
 ];
