@@ -445,9 +445,9 @@ type MarkdownRemark_tableOfContentsArgs = {
 
 type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
-  readonly toc: Maybe<Scalars['Boolean']>;
   readonly date: Maybe<Scalars['Date']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
+  readonly toc: Maybe<Scalars['Boolean']>;
   readonly description: Maybe<Scalars['String']>;
   readonly path: Maybe<Scalars['String']>;
   readonly ignore_in_list: Maybe<Scalars['Boolean']>;
@@ -1062,9 +1062,9 @@ type MarkdownRemarkFilterInput = {
 
 type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
-  readonly toc: Maybe<BooleanQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
+  readonly toc: Maybe<BooleanQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
   readonly path: Maybe<StringQueryOperatorInput>;
   readonly ignore_in_list: Maybe<BooleanQueryOperatorInput>;
@@ -1280,9 +1280,9 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark.id'
   | 'childrenMarkdownRemark.frontmatter.title'
-  | 'childrenMarkdownRemark.frontmatter.toc'
   | 'childrenMarkdownRemark.frontmatter.date'
   | 'childrenMarkdownRemark.frontmatter.tags'
+  | 'childrenMarkdownRemark.frontmatter.toc'
   | 'childrenMarkdownRemark.frontmatter.description'
   | 'childrenMarkdownRemark.frontmatter.path'
   | 'childrenMarkdownRemark.frontmatter.ignore_in_list'
@@ -1341,9 +1341,9 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.internal.type'
   | 'childMarkdownRemark.id'
   | 'childMarkdownRemark.frontmatter.title'
-  | 'childMarkdownRemark.frontmatter.toc'
   | 'childMarkdownRemark.frontmatter.date'
   | 'childMarkdownRemark.frontmatter.tags'
+  | 'childMarkdownRemark.frontmatter.toc'
   | 'childMarkdownRemark.frontmatter.description'
   | 'childMarkdownRemark.frontmatter.path'
   | 'childMarkdownRemark.frontmatter.ignore_in_list'
@@ -3067,9 +3067,9 @@ type MarkdownRemarkEdge = {
 type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter.title'
-  | 'frontmatter.toc'
   | 'frontmatter.date'
   | 'frontmatter.tags'
+  | 'frontmatter.toc'
   | 'frontmatter.description'
   | 'frontmatter.path'
   | 'frontmatter.ignore_in_list'
@@ -3460,6 +3460,11 @@ type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
+type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'tags'>> }> }> } };
+
 type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3467,11 +3472,6 @@ type AllArticlesQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ re
         Pick<MarkdownRemark, 'excerpt' | 'timeToRead'>
         & { readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>>, readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'date' | 'description' | 'tags' | 'title' | 'toc' | 'path' | 'ignore_in_list'>> }
       )> }> } };
-
-type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'tags'>> }> }> } };
 
 type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
 
