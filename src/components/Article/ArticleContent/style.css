@@ -70,14 +70,14 @@
   width: 100%;
 }
 
-.article-content table tr:nth-child(2n - 1),
+/* .article-content table tr:nth-child(2n - 1),
 .article-content thead {
   background-color: var(--bg-highlight);
 }
 
 .article-content tbody tr:hover {
   background: var(--bg-color);
-}
+} */
 
 .article-content caption,
 .article-content td,
@@ -93,13 +93,13 @@
   border: 1px solid #555;
 }
 
-.article-content table tr th {
+/* .article-content table tr th {
   border-bottom: 3px solid #555;
   font-weight: 700;
   padding-bottom: 10px;
   background-color: var(--bg-color);
 }
-
+ */
 .article-content td {
   border-bottom-width: 1px;
 }
