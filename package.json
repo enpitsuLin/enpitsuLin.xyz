@@ -63,12 +63,12 @@
     "url": "git+git@github.com:enpitsuLin/enpitsuLin.github.io.git"
   },
   "scripts": {
-    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby build",
-    "dev": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby develop",
+    "build": "gatsby build",
+    "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
-    "start": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby clean&&gatsby develop",
-    "serve": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby serve",
-    "clean": "cross-env NODE_OPTIONS=--openssl-legacy-provider gatsby clean",
+    "start": "gatsby clean&&gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   }
 }
