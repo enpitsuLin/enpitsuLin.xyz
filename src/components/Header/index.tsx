@@ -16,7 +16,7 @@ const NavList = [
 ];
 const Header: FunctionComponent<Props> = ({ title }) => {
   const bg = useColorModeValue('white', 'gray.800');
-  const borderBottomColor = useColorModeValue('gray.100', 'gray.700');
+  const borderBottomColor = useColorModeValue('gray.100', 'gray.900');
   const boxShadow = useColorModeValue('0 0 10px 0 rgb(0 0 0 / 4%)', 'rgb(0 0 0 / 4%) 0px 0px 10px 0px');
 
   return (
