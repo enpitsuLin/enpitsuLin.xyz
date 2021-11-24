@@ -24,12 +24,14 @@ const themedWith = [
   { name: 'emotion', link: 'https://emotion.sh/docs/introduction' }
 ];
 
+const friendsLink = [{ name: '开往', link: 'https://travellings.link' }];
+
 const Footer: FunctionComponent = () => {
   return (
     <FooterWrap id="footer">
       <FooterContainer maxW="container.xl" pt={10} px={[4, 4, 10, 10]}>
         <Flex w="100%">
-          <Box flex="1">
+          <Box flex="2">
             <Bio />
           </Box>
           <Box flex="1" display={{ base: 'none', md: 'block' }}>
@@ -39,6 +41,10 @@ const Footer: FunctionComponent = () => {
           <Box flex="1" display={{ base: 'none', md: 'block' }}>
             <h6>🎨 描绘主题</h6>
             <List links={themedWith} />
+          </Box>
+          <Box flex="1" display={{ base: 'none', md: 'block' }}>
+            <h6>👨‍🎓 友情链接</h6>
+            <List links={friendsLink} />
           </Box>
         </Flex>
 
