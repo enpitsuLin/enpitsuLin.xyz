@@ -75,6 +75,17 @@ body.chakra-ui-dark .gt-container .gt-user .gt-ico svg {
   padding-bottom: 1.25em;
 }
 
+.gt-container .gt-btn {
+  border-color: var(--chakra-colors-teal-400);
+  background-color: var(--chakra-colors-gray-800);
+  color: var(--chakra-colors-gray-100);
+}
+.gt-container .gt-btn-preview:hover {
+  border-color: var(--chakra-colors-teal-400);
+  background-color: var(--chakra-colors-gray-800);
+  box-shadow: 1px 0 10px 10px rgb(237 232 232 / 5%);
+}
+
 body.chakra-ui-light .gt-container .gt-comment-content,
 .gt-container .gt-comment-content {
   background-color: var(--chakra-colors-gray-100);
