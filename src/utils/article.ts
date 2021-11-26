@@ -21,6 +21,7 @@ export function navigateToArticle(slug: string) {
  * @param page page
  */
 export function navigateToSearchPage(query: string, page = 1) {
+  if (!query) return;
   navigate(`/articles/search?query=${query}${page > 1 ? `&page=${page}` : ''}`);
 }
 /**
