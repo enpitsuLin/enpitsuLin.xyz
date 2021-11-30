@@ -1719,9 +1719,9 @@
     "@chakra-ui/react-utils" "1.2.1"
     "@chakra-ui/utils" "1.9.1"
 
-"@chakra-ui/gatsby-plugin@^2.0.1":
+"@chakra-ui/gatsby-plugin@^2.0.2":
   version "2.0.2"
-  resolved "https://registry.npmjs.org/@chakra-ui/gatsby-plugin/-/gatsby-plugin-2.0.2.tgz"
+  resolved "https://registry.npmjs.org/@chakra-ui/gatsby-plugin/-/gatsby-plugin-2.0.2.tgz#cb13d7be2107b85e9e5e234025cc7b48d76b612d"
   integrity sha512-M8Ks5xjoyHa5pppH4wKyJ/SIVJi+d4y59PRityuWVzLPjtyMjBvbH95oxbFWJ0rLGtA/8khcc7HSQTx5NOxWGw==
 
 "@chakra-ui/hooks@1.7.1":
@@ -1741,9 +1741,9 @@
   dependencies:
     "@chakra-ui/utils" "1.9.1"
 
-"@chakra-ui/icons@^1.0.15":
+"@chakra-ui/icons@^1.1.1":
   version "1.1.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/icons/-/icons-1.1.1.tgz"
+  resolved "https://registry.npmjs.org/@chakra-ui/icons/-/icons-1.1.1.tgz#e4b191fd38be999c4434ff2b1fb69a5eaf3cf226"
   integrity sha512-/+u6euCOFw6J1DZW7NcVFtib4mygJBoqRdsKiU1Z3uiTC+zQTBzcCt54NQ+kK8rhuNzJ+odahnt/AbjBJgZ+5A==
   dependencies:
     "@chakra-ui/icon" "1.2.1"
@@ -1913,9 +1913,9 @@
   dependencies:
     "@chakra-ui/utils" "^1.9.1"
 
-"@chakra-ui/react@^1.6.7":
+"@chakra-ui/react@^1.7.2":
   version "1.7.2"
-  resolved "https://registry.npmjs.org/@chakra-ui/react/-/react-1.7.2.tgz"
+  resolved "https://registry.npmjs.org/@chakra-ui/react/-/react-1.7.2.tgz#7613f33d4adc2384d2fa8675cb6e94780e5c4cbe"
   integrity sha512-2RxJHqYLSSB/dQQ9M4APxMopPfsU89A++63v8U8jiR7J8sUaa6Ded9ypTiIUY09J8v7mJAus4/ZSJxG7Zfd7aA==
   dependencies:
     "@chakra-ui/accordion" "1.4.1"
@@ -2195,13 +2195,6 @@
   resolved "https://registry.npmjs.org/@emotion/hash/-/hash-0.8.0.tgz"
   integrity sha512-kBJtf7PH6aWwZ6fka3zQ0p6SBYzx4fl1LoZXE2RrnYST9Xljm7WfKJrU4g/Xr3Beg72MLrp1AWNUmuYJTL7Cow==
 
-"@emotion/is-prop-valid@^0.8.2":
-  version "0.8.8"
-  resolved "https://registry.npm.taobao.org/@emotion/is-prop-valid/download/@emotion/is-prop-valid-0.8.8.tgz?cache=0&sync_timestamp=1612610983826&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40emotion%2Fis-prop-valid%2Fdownload%2F%40emotion%2Fis-prop-valid-0.8.8.tgz"
-  integrity sha1-2yixxDaKJZtgqXMR1qlS1P0BrBo=
-  dependencies:
-    "@emotion/memoize" "0.7.4"
-
 "@emotion/is-prop-valid@^1.1.1":
   version "1.1.1"
   resolved "https://registry.npmjs.org/@emotion/is-prop-valid/-/is-prop-valid-1.1.1.tgz"
@@ -2209,19 +2202,14 @@
   dependencies:
     "@emotion/memoize" "^0.7.4"
 
-"@emotion/memoize@0.7.4":
-  version "0.7.4"
-  resolved "https://registry.npm.taobao.org/@emotion/memoize/download/@emotion/memoize-0.7.4.tgz?cache=0&sync_timestamp=1607211718513&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40emotion%2Fmemoize%2Fdownload%2F%40emotion%2Fmemoize-0.7.4.tgz"
-  integrity sha1-Gb8PWvGRSREcQNmLsM+CEZ9dnus=
-
 "@emotion/memoize@^0.7.4", "@emotion/memoize@^0.7.5":
   version "0.7.5"
   resolved "https://registry.npmjs.org/@emotion/memoize/-/memoize-0.7.5.tgz"
   integrity sha512-igX9a37DR2ZPGYtV6suZ6whr8pTFtyHL3K/oLUotxpSVO2ASaprmAe2Dkq7tBo7CRY7MMDrAa9nuQP9/YG8FxQ==
 
-"@emotion/react@^11.4.1":
+"@emotion/react@^11.7.0":
   version "11.7.0"
-  resolved "https://registry.npmjs.org/@emotion/react/-/react-11.7.0.tgz"
+  resolved "https://registry.npmjs.org/@emotion/react/-/react-11.7.0.tgz#b179da970ac0e8415de3ac165deadf8d9c4bf89f"
   integrity sha512-WL93hf9+/2s3cA1JVJlz8+Uy6p6QWukqQFOm2OZO5ki51hfucHMOmbSjiyC3t2Y4RI8XUmBoepoc/24ny/VBbA==
   dependencies:
     "@babel/runtime" "^7.13.10"
@@ -2248,9 +2236,9 @@
   resolved "https://registry.npmjs.org/@emotion/sheet/-/sheet-1.1.0.tgz"
   integrity sha512-u0AX4aSo25sMAygCuQTzS+HsImZFuS8llY8O7b9MDRzbJM0kVJlAz6KNDqcG7pOuQZJmj/8X/rAW+66kMnMW+g==
 
-"@emotion/styled@^11.3.0":
+"@emotion/styled@^11.6.0":
   version "11.6.0"
-  resolved "https://registry.npmjs.org/@emotion/styled/-/styled-11.6.0.tgz"
+  resolved "https://registry.npmjs.org/@emotion/styled/-/styled-11.6.0.tgz#9230d1a7bcb2ebf83c6a579f4c80e0664132d81d"
   integrity sha512-mxVtVyIOTmCAkFbwIp+nCjTXJNgcz4VWkOYQro87jE2QBTydnkiYusMrRGFtzuruiGK4dDaNORk4gH049iiQuw==
   dependencies:
     "@babel/runtime" "^7.13.10"
@@ -3393,9 +3381,9 @@
     "@types/node" "*"
     form-data "^3.0.0"
 
-"@types/node@*", "@types/node@>=10.0.0":
+"@types/node@*", "@types/node@>=10.0.0", "@types/node@^16.11.11":
   version "16.11.11"
-  resolved "https://registry.npmjs.org/@types/node/-/node-16.11.11.tgz"
+  resolved "https://registry.npmjs.org/@types/node/-/node-16.11.11.tgz#6ea7342dfb379ea1210835bada87b3c512120234"
   integrity sha512-KB0sixD67CeecHC33MYn+eYARkqTheIRNuu97y2XMjR7Wu3XibO1vaY6VBV6O/a89SPI81cEUIYT87UqUWlZNw==
 
 "@types/node@^8.5.7":
@@ -3430,17 +3418,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-dom@^17.0.9":
+"@types/react-dom@^17.0.11":
   version "17.0.11"
-  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.11.tgz"
+  resolved "https://registry.npmjs.org/@types/react-dom/-/react-dom-17.0.11.tgz#e1eadc3c5e86bdb5f7684e00274ae228e7bcc466"
   integrity sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==
-  dependencies:
-    "@types/react" "*"
-
-"@types/react-transition-group@^4.4.2":
-  version "4.4.4"
-  resolved "https://registry.npmmirror.com/@types/react-transition-group/download/@types/react-transition-group-4.4.4.tgz"
-  integrity sha1-rNTM6qK+a3V9th7XtDLhAyQtFj4=
   dependencies:
     "@types/react" "*"
 
@@ -4063,10 +4044,10 @@ auto-bind@~4.0.0:
   resolved "https://registry.npmmirror.com/auto-bind/download/auto-bind-4.0.0.tgz"
   integrity sha1-41ifxsLaj3ykO6n4T6UqdE/Jl/s=
 
-autoprefixer@^10.3.4, autoprefixer@^10.4.0:
+autoprefixer@^10.4.0:
   version "10.4.0"
-  resolved "https://registry.npmmirror.com/autoprefixer/download/autoprefixer-10.4.0.tgz"
-  integrity sha1-w1d+syoQeaRA7CU+QE6vHrITiMg=
+  resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-10.4.0.tgz#c3577eb32a1079a440ec253e404eaf1eb21388c8"
+  integrity sha512-7FdJ1ONtwzV1G43GDD0kpVMn/qbiNqyOPMFTX5nRffI+7vgWoFEc6DcXOxHJxrWNDXrZh18eDsZjvZGUljSRGA==
   dependencies:
     browserslist "^4.17.5"
     caniuse-lite "^1.0.30001272"
@@ -6887,19 +6868,6 @@ fragment-cache@^0.2.1:
   dependencies:
     map-cache "^0.2.2"
 
-framer-motion@^4.1.17:
-  version "4.1.17"
-  resolved "https://registry.npmmirror.com/framer-motion/download/framer-motion-4.1.17.tgz"
-  integrity sha1-QClGklKmLqWZkC5akrU3EgzIlyE=
-  dependencies:
-    framesync "5.3.0"
-    hey-listen "^1.0.8"
-    popmotion "9.3.6"
-    style-value-types "4.1.4"
-    tslib "^2.1.0"
-  optionalDependencies:
-    "@emotion/is-prop-valid" "^0.8.2"
-
 framesync@5.3.0:
   version "5.3.0"
   resolved "https://registry.npmjs.org/framesync/-/framesync-5.3.0.tgz"
@@ -8224,11 +8192,6 @@ header-case@^2.0.4:
   dependencies:
     capital-case "^1.0.4"
     tslib "^2.0.3"
-
-hey-listen@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.npm.taobao.org/hey-listen/download/hey-listen-1.0.8.tgz"
-  integrity sha1-jllWH/ckkI3hqpJO1uzISlapqmg=
 
 hicat@^0.8.0:
   version "0.8.0"
@@ -11380,16 +11343,6 @@ pngjs@^3.0.0, pngjs@^3.3.3:
   resolved "https://registry.npmjs.org/pngjs/-/pngjs-3.4.0.tgz"
   integrity sha512-NCrCHhWmnQklfH4MtJMRjZ2a8c80qXeMlQMv2uVp9ISJMTt562SbGd6n2oq0PaPgKm7Z6pL9E2UlLIhC+SHL3w==
 
-popmotion@9.3.6:
-  version "9.3.6"
-  resolved "https://registry.npmmirror.com/popmotion/download/popmotion-9.3.6.tgz"
-  integrity sha1-tSNvoo8kKv84cbniNyHwkxMySNE=
-  dependencies:
-    framesync "5.3.0"
-    hey-listen "^1.0.8"
-    style-value-types "4.1.4"
-    tslib "^2.1.0"
-
 posix-character-classes@^0.1.0:
   version "0.1.1"
   resolved "https://registry.npmjs.org/posix-character-classes/-/posix-character-classes-0.1.1.tgz"
@@ -11735,12 +11688,7 @@ prepend-http@^2.0.0:
   resolved "https://registry.npmjs.org/prepend-http/-/prepend-http-2.0.0.tgz"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
 
-prettier@2.4.1:
-  version "2.4.1"
-  resolved "https://registry.nlark.com/prettier/download/prettier-2.4.1.tgz"
-  integrity sha1-Zx4RyJwUpM/Ids5WQQbEpnJsn1w=
-
-prettier@^2.4.1:
+prettier@^2.4.1, prettier@^2.5.0:
   version "2.5.0"
   resolved "https://registry.npmjs.org/prettier/-/prettier-2.5.0.tgz"
   integrity sha512-FM/zAKgWTxj40rH03VxzIPdXmj39SwSjwG0heUcNFwI+EMZJnY93yAiKXM3dObIKAM5TA88werc8T/EwhB45eg==
@@ -12058,10 +12006,10 @@ react-helmet@^6.1.0:
     react-fast-compare "^3.1.1"
     react-side-effect "^2.1.0"
 
-react-icons@^4.2.0:
+react-icons@^4.3.1:
   version "4.3.1"
-  resolved "https://registry.npmmirror.com/react-icons/download/react-icons-4.3.1.tgz"
-  integrity sha1-L6kq67vHH0PS2y7RrtBzYRJOkco=
+  resolved "https://registry.npmjs.org/react-icons/-/react-icons-4.3.1.tgz#2fa92aebbbc71f43d2db2ed1aed07361124e91ca"
+  integrity sha512-cB10MXLTs3gVuXimblAdI71jrJx8njrJZmNMEMC+sQu5B/BIOmlsAjskdqpn81y8UBVEGuHODd7/ci5DvoSzTQ==
 
 react-is@^16.12.0, react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
@@ -13423,14 +13371,6 @@ style-to-object@^0.3.0:
   dependencies:
     inline-style-parser "0.1.1"
 
-style-value-types@4.1.4:
-  version "4.1.4"
-  resolved "https://registry.npmmirror.com/style-value-types/download/style-value-types-4.1.4.tgz"
-  integrity sha1-gPN8tPsCTWOUCHQD37J16LtifnU=
-  dependencies:
-    hey-listen "^1.0.8"
-    tslib "^2.1.0"
-
 stylehacks@^5.0.1:
   version "5.0.1"
   resolved "https://registry.npmjs.org/stylehacks/-/stylehacks-5.0.1.tgz"
@@ -13766,10 +13706,10 @@ trough@^1.0.0:
   resolved "https://registry.npmjs.org/true-case-path/-/true-case-path-2.2.1.tgz"
   integrity sha512-0z3j8R7MCjy10kc/g+qg7Ln3alJTodw9aDuVWZa3uiWqfuBMKeAeP2ocWcxoyM3D73yz3Jt/Pu4qPr4wHSdB/Q==
 
-ts-node@^10.2.1:
+ts-node@^10.4.0:
   version "10.4.0"
-  resolved "https://registry.npmmirror.com/ts-node/download/ts-node-10.4.0.tgz"
-  integrity sha1-aA+IlFiF9ObPRQ5/DWIj3UBIlfc=
+  resolved "https://registry.npmjs.org/ts-node/-/ts-node-10.4.0.tgz#680f88945885f4e6cf450e7f0d6223dd404895f7"
+  integrity sha512-g0FlPvvCXSIO1JDF6S232P5jPYqBkRL9qly81ZgAOSU7rwI0stphCgd2kLiCrU9DjQCrJMWEqcNSjQL02s6d8A==
   dependencies:
     "@cspotcode/source-map-support" "0.7.0"
     "@tsconfig/node10" "^1.0.7"
@@ -13929,9 +13869,9 @@ typeface-montserrat@1.1.13:
   resolved "https://registry.nlark.com/typeface-montserrat/download/typeface-montserrat-1.1.13.tgz"
   integrity sha1-KhZynBdN0ajD/sBahRt3JUEmBsw=
 
-typescript@^4.4.2:
+typescript@^4.5.2:
   version "4.5.2"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-4.5.2.tgz"
+  resolved "https://registry.npmjs.org/typescript/-/typescript-4.5.2.tgz#8ac1fba9f52256fdb06fb89e4122fa6a346c2998"
   integrity sha512-5BlMof9H1yGt0P8/WF+wPNw6GfctgGjXp5hkblpyT+8rkASSmkUKMXrxR0Xg8ThVCi/JnHQiKXeBaEwCeQwMFw==
 
 ua-parser-js@^0.7.30:
