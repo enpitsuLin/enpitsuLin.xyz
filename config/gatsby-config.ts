@@ -136,23 +136,21 @@ const Plugins: PluginRef[] = [
       ]
     }
   },
-  /*  {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `enpitsuLin's Blog`,
-        short_name: `enpitsuLin`,
-        start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#156363`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png` // This path is relative to the root of the site.
-      }
-    }, */
+  {
+    resolve: `gatsby-plugin-manifest`,
+    options: {
+      name: `enpitsuLin's Blog`,
+      short_name: `enpitsuLin`,
+      start_url: `/`,
+      background_color: `#ffffff`,
+      theme_color: `#156363`,
+      display: `standalone`,
+      icon: `src/assets/images/icon.png`
+    }
+  },
   `gatsby-plugin-react-helmet`,
   `gatsby-plugin-gatsby-cloud`,
-  // this (optional) plugin enables Progressive Web App + Offline functionality
-  // To learn more, visit: https://gatsby.dev/offline
-  // `gatsby-plugin-offline`,
+  `gatsby-plugin-offline`,
   {
     resolve: `gatsby-plugin-typegen`,
     options: {
