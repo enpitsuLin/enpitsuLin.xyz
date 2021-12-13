@@ -1,6 +1,7 @@
 import React, { FunctionComponent } from 'react';
 import { PageRendererProps } from 'gatsby';
 import { Box, Flex, Text, Icon } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 import { FaClock } from 'react-icons/fa';
 
 import useSiteMetadata from '@/hooks/useSiteMetadata';
@@ -16,6 +17,28 @@ import Contacts from '@/components/Contacts';
 type Props = PageRendererProps;
 
 const maxims = ['来自一个有梦想 、 暂时碌碌无为的人'];
+
+const BlinkCursor = styled(Box)`
+  opacity: 0.6;
+  animation: blink 1.2s linear infinite;
+  @keyframes blink {
+    0% {
+      opacity: 0;
+    }
+    40% {
+      opacity: 0;
+    }
+    40.1% {
+      opacity: 1;
+    }
+    99.9% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+`;
 
 const BlogIndex: FunctionComponent<Props> = ({ location }) => {
   const text = useTypeWriter(maxims);
@@ -35,6 +58,7 @@ const BlogIndex: FunctionComponent<Props> = ({ location }) => {
                 </Text>
                 <Text as="p" py={1} my={2} h={6}>
                   <span>{text || ' '}</span>
+                  <BlinkCursor as="span">|</BlinkCursor>
                 </Text>
                 <Box py={1} my={2}></Box>
                 <Contacts mb={4} />
