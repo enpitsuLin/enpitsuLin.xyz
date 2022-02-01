@@ -7,6 +7,13 @@ const siteDescription = `一根有梦想的笔 想描绘脑海里的场景.`;
 const siteUrl = `https://enpitsulin.github.io/`;
 
 const Plugins: PluginRef[] = [
+  {
+    resolve: 'gatsby-plugin-typescript',
+    options: {
+      isTSX: true,
+      allExtensions: true
+    }
+  },
   `gatsby-plugin-image`,
   {
     resolve: `gatsby-source-filesystem`,

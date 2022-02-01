@@ -14,3 +14,7 @@ declare module '*.jpg' {
   export = module;
 }
 
+declare module '*.module.css' {
+  const content: { [className: string]: string };
+  export = content;
+}
