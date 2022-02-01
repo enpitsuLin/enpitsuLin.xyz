@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: netlify
   commit_messages:
-    create: "Create {{collection}} `{{slug}}`"
-    update: "Update {{collection}} `{{slug}}`"
-    delete: "Delete {{collection}} `{{slug}}`"
-    uploadMedia: "[skip ci] Upload `{{path}}`"
-    deleteMedia: "[skip ci] Delete `{{path}}`"
+    create: "create {{collection}} `{{slug}}`"
+    update: "update {{collection}} `{{slug}}`"
+    delete: "delete {{collection}} `{{slug}}`"
+    uploadMedia: "[skip ci] upload `{{path}}`"
+    deleteMedia: "[skip ci] delete `{{path}}`"
 
 local_backend: true
 
@@ -20,6 +20,7 @@ collections:
     folder: "content/post/"
     create: true
     slug: "index"
+    media_folder: ""
     path: "{{path}}/index"
     editor:
       preview: true
@@ -28,5 +29,12 @@ collections:
       - { label: "路径", name: "path", widget: "string" }
       - { label: "日期", name: "date", widget: "datetime" }
       - { label: "描述", name: "description", widget: "string" }
+      - {
+          label: "标签",
+          name: Tags,
+          widget: tags,
+          separator: ",",
+          required: false,
+        }
       - { label: "正文", name: "body", widget: "markdown" }
-      - { label: "图片", name: "image", widget: "image" , required: false}
+      - { label: "图片", name: "image", widget: "image", required: false }
