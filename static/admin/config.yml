@@ -26,9 +26,14 @@ collections:
       preview: true
     fields:
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "路径", name: "path", widget: "string" }
+      - { label: "路径", name: "path", widget: "string", required: false }
       - { label: "日期", name: "date", widget: "datetime" }
-      - { label: "描述", name: "description", widget: "string" }
+      - {
+          label: "描述",
+          name: "description",
+          widget: "string",
+          required: false,
+        }
       - {
           label: "标签",
           name: "tags",
@@ -37,7 +42,6 @@ collections:
           required: false,
         }
       - { label: "正文", name: "body", widget: "markdown" }
-      - { label: "图片", name: "image", widget: "image", required: false }
 
   - name: "pages"
     label: "Pages"
