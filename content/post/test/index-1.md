@@ -6,3 +6,4 @@ description: test
 image: qq图片20211207180940.jpg
 ---
 测试
+![](/qq图片20211207180940.jpg)
