@@ -1,6 +1,3 @@
 [build]
     publish = "public"
-    command = "pnpm build"
-
-[build.environment]
-    NPM_FLAGS="--version"
+    command = "npm run build"

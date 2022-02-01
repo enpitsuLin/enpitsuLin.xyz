@@ -63,7 +63,6 @@
     "url": "git+git@github.com:enpitsuLin/enpitsuLin.github.io.git"
   },
   "scripts": {
-    "prebuild": "[[ $CI = true ]] && npx pnpm@3 install -r --store=node_modules/.pnpm-store || echo skiping pnpm install",
     "build": "gatsby build",
     "dev": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
