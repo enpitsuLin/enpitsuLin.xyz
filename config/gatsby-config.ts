@@ -18,14 +18,14 @@ const Plugins: PluginRef[] = [
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      path: path.join(__dirname, '../source/_posts'),
+      path: path.join(__dirname, '../content/posts'),
       name: `posts`
     }
   },
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      path: path.join(__dirname, '../source'),
+      path: path.join(__dirname, '../content/page'),
       name: `blog`
     }
   },
