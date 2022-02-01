@@ -1,6 +1,12 @@
 backend:
   name: git-gateway
   branch: netlify
+  commit_messages:
+    create: "Create {{collection}} `{{slug}}`"
+    update: "Update {{collection}} `{{slug}}`"
+    delete: "Delete {{collection}} `{{slug}}`"
+    uploadMedia: "[skip ci] Upload `{{path}}`"
+    deleteMedia: "[skip ci] Delete `{{path}}`"
 
 local_backend: true
 
@@ -11,18 +17,16 @@ publish_mode: editorial_workflow
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/post"
+    folder: "content/post/"
     create: true
     slug: "index"
-    media_folder: ""
-    public_folder: ""
-    path: "index"
+    path: "{{path}}/index"
     editor:
       preview: true
     fields:
       - { label: "标题", name: "title", widget: "string" }
-      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "路径", name: "path", widget: "string" }
       - { label: "日期", name: "date", widget: "datetime" }
       - { label: "描述", name: "description", widget: "string" }
       - { label: "正文", name: "body", widget: "markdown" }
-      - { label: "图片", name: "image", widget: "image" }
+      - { label: "图片", name: "image", widget: "image" , required: false}
