@@ -1,4 +1,4 @@
-locale: 'cn'
+locale: "cn"
 backend:
   name: git-gateway
   branch: netlify
@@ -10,6 +10,7 @@ backend:
     deleteMedia: "[skip ci] delete `{{path}}`"
 
 local_backend: true
+
 media_folder: static/img
 public_folder: /img
 
@@ -30,7 +31,7 @@ collections:
       - { label: "描述", name: "description", widget: "string" }
       - {
           label: "标签",
-          name: Tags,
+          name: "tags",
           widget: tags,
           separator: ",",
           required: false,

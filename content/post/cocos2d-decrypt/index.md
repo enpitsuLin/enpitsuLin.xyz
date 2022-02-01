@@ -1,7 +1,9 @@
 ---
 title: cocos2d手游逆向——XXTEA加密
 date: 2020-04-03 14:24:46
-tags: ['逆向', '安卓']
+tags: 
+  - 逆向
+  - 安卓
 toc: true
 description:
 ---
