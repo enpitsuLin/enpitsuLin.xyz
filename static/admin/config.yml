@@ -1,3 +1,4 @@
+locale: 'cn'
 backend:
   name: git-gateway
   branch: netlify
@@ -45,17 +46,23 @@ collections:
         name: "about"
         fields:
           - { label: "标题", name: "title", widget: "string" }
-          - { label: "正文", name: "body", widget: "markdown" }
           - {
               label: "日期",
               name: "date",
-              widget: "hidden",
+              widget: "datetime",
               default: "2021-10-29 14:59:00",
             }
-          - { label: "路径", name: "path", widget: "hidden", default: "/about" }
+          - {
+              label: "路径",
+              name: "path",
+              widget: "string",
+              default: "/about",
+              pattern: ["^/.+", "必须为路径"],
+            }
           - {
               label: "列表忽略",
               name: "ignore_in_list",
               widget: "hidden",
               default: true,
             }
+          - { label: "正文", name: "body", widget: "markdown" }
