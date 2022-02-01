@@ -9,14 +9,12 @@ backend:
     deleteMedia: "[skip ci] delete `{{path}}`"
 
 local_backend: true
-
 media_folder: static/img
 public_folder: /img
-publish_mode: editorial_workflow
 
 collections:
-  - name: "blog"
-    label: "文章"
+  - name: "post"
+    label: "Post"
     folder: "content/post/"
     create: true
     slug: "index"
@@ -40,30 +38,21 @@ collections:
       - { label: "图片", name: "image", widget: "image", required: false }
 
   - name: "pages"
-    label: "页面"
+    label: "Pages"
     files:
       - file: "content/pages/about/index.md"
         label: "关于我"
         name: "about"
         fields:
-          - {
-              label: "标题",
-              name: "title",
-              widget: "hidden",
-              default: "关于我",
-            }
+          - { label: "标题", name: "title", widget: "string" }
+          - { label: "正文", name: "body", widget: "markdown" }
           - {
               label: "日期",
               name: "date",
               widget: "hidden",
               default: "2021-10-29 14:59:00",
             }
-          - {
-              label: "日期",
-              name: "path",
-              widget: "hidden",
-              default: "/about",
-            }
+          - { label: "路径", name: "path", widget: "hidden", default: "/about" }
           - {
               label: "列表忽略",
               name: "ignore_in_list",
