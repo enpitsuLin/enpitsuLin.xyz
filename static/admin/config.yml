@@ -1,6 +1,6 @@
 backend:
   name: git-gateway
-  branch: master
+  branch: netlify
 
 local_backend: true
 
@@ -11,16 +11,18 @@ publish_mode: editorial_workflow
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "content/post"
     create: true
     slug: "index"
     media_folder: ""
     public_folder: ""
-    path: "{{title}}/index"
+    path: "index"
     editor:
       preview: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Description", name: "description", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "标题", name: "title", widget: "string" }
+      - { label: "Slug", name: "slug", widget: "string" }
+      - { label: "日期", name: "date", widget: "datetime" }
+      - { label: "描述", name: "description", widget: "string" }
+      - { label: "正文", name: "body", widget: "markdown" }
+      - { label: "图片", name: "image", widget: "image" }
