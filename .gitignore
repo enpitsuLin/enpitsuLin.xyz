@@ -67,8 +67,3 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
-
-# Pulgin generate
-src/__generated__/
-src/__generated__/gatsby-introspection.json
-src/__generated__/gatsby-plugin-documents.graphql

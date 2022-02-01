@@ -154,14 +154,7 @@ const Plugins: PluginRef[] = [
   {
     resolve: `gatsby-plugin-typegen`,
     options: {
-      outputPath: `src/gatsby-types.d.ts`,
-      emitSchema: {
-        'src/__generated__/gatsby-introspection.json': true,
-        'src/__generated__/gatsby-plugin-documents.graphql': true
-      },
-      emitPluginDocuments: {
-        'src/__generated__/gatsby-plugin-documents.graphql': true
-      }
+      outputPath: `src/gatsby-types.d.ts`
     }
   }
 ];
