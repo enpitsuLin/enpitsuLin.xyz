@@ -156,6 +156,12 @@ const Plugins: PluginRef[] = [
     options: {
       outputPath: `src/gatsby-types.d.ts`
     }
+  },
+  {
+    resolve: `gatsby-plugin-netlify-cms`,
+    options: {
+      modulePath: path.join(__dirname, `../src/cms/index`)
+    }
   }
 ];
 
