@@ -1,0 +1,37 @@
+ul.tags {
+    display: block;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-end: 0px;
+  }
+  .tags {
+    list-style: none;
+    padding-left: 0;
+    display: inline-block;
+  }
+  .tags li {
+    padding: 0;
+    margin: 0;
+    display: inline-block;
+  }
+  .tags .tag {
+    background: rgba(0, 0, 0, 0.05);
+    color: rgba(0, 0, 0, 0.6);
+    border-radius: 3px;
+    padding: 5px 10px;
+    display: inline-block;
+    margin: 0 10px 10px 0;
+  }
+  .tag:hover {
+    transition: all 0.2s;
+    background-color: crimson;
+    color: white;
+  }
+  .tag:hover::after {
+    border-left-color: crimson;
+  }
+  .tags a {
+    text-decoration: none;
+  }
+  
