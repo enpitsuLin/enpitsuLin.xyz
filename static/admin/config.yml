@@ -16,7 +16,7 @@ publish_mode: editorial_workflow
 
 collections:
   - name: "blog"
-    label: "Blog"
+    label: "文章"
     folder: "content/post/"
     create: true
     slug: "index"
@@ -38,3 +38,35 @@ collections:
         }
       - { label: "正文", name: "body", widget: "markdown" }
       - { label: "图片", name: "image", widget: "image", required: false }
+
+  - name: "pages"
+    label: "页面"
+    files:
+      - file: "content/pages/about/index.md"
+        label: "关于我"
+        name: "about"
+        fields:
+          - {
+              label: "标题",
+              name: "title",
+              widget: "hidden",
+              default: "关于我",
+            }
+          - {
+              label: "日期",
+              name: "date",
+              widget: "hidden",
+              default: "2021-10-29 14:59:00",
+            }
+          - {
+              label: "日期",
+              name: "path",
+              widget: "hidden",
+              default: "/about",
+            }
+          - {
+              label: "列表忽略",
+              name: "ignore_in_list",
+              widget: "hidden",
+              default: true,
+            }
