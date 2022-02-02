@@ -1,7 +1,7 @@
 import { Box } from '@chakra-ui/layout';
 import classNames from 'classnames';
 import React, { forwardRef } from 'react';
-import './style.css';
+import * as contentStyle from './style.module.css';
 
 interface Props {
   article: GatsbyTypes.MarkdownRemark;
@@ -12,7 +12,7 @@ const ArticleContent = forwardRef<HTMLDivElement, Props>(({ article, excerpt = f
   return (
     <Box>
       <div
-        className={classNames('article-content', excerpt && 'excerpt')}
+        className={classNames(contentStyle.articleContent, excerpt && 'excerpt')}
         dangerouslySetInnerHTML={{
           __html: excerpt ? article.frontmatter?.description || (article.excerpt as string) : (article.html as string)
         }}
