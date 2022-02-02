@@ -1,5 +1,5 @@
 import React, { FunctionComponent } from 'react';
-import { BasicLayout } from '@/layouts';
+import { BasicLayout } from '@/components/BasicLayout';
 import { PageRendererProps } from 'gatsby';
 import { parseQuery } from '@/utils/location';
 import useAllArticles from '@/hooks/useAllArticles';

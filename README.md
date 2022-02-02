@@ -4,6 +4,7 @@
 [![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
 [![Chakra UI](https://img.shields.io/badge/Built%20with-Chakra%20UI-81e6d9)](https://chakra-ui.com/)
 [![style: emotion](https://img.shields.io/badge/style-%E2%9C%A8emotion-d4a25e?colorA=45c7e1)](https://github.com/emotion-js/emotion)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/16632d60-e290-4817-8612-3803fed558a8/deploy-status)](https://app.netlify.com/sites/nostalgic-hodgkin-223cde/deploys)
 
 Currently it is built with [Gatsby](https://www.gatsbyjs.org/).
 
@@ -17,6 +18,7 @@ Currently it is built with [Gatsby](https://www.gatsbyjs.org/).
 - Site Search 
   - support  searching articles without any third-party services
 - Post articles by markdown, code and contents separated
+- Use NetlifyCMS to manage articles content without git workflows
 
 ## Tools an Framework Used
 
@@ -28,6 +30,7 @@ Currently it is built with [Gatsby](https://www.gatsbyjs.org/).
 - [gitalk](https://github.com/gitalk/gitalk):A super easy to use third-party comment system based on Github Issue.
 - [GitHub Pages](https://pages.github.com/):A free and popular static website host.
 - [GitHub Actions](https://github.com/features/actions): CI/CD built directly into the repo!
+- [NetlifyCMS](https://www.netlifycms.org/): headless content management system
 
 # TODO
 

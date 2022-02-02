@@ -7,18 +7,25 @@ const siteDescription = `一根有梦想的笔 想描绘脑海里的场景.`;
 const siteUrl = `https://enpitsulin.github.io/`;
 
 const Plugins: PluginRef[] = [
+  {
+    resolve: 'gatsby-plugin-typescript',
+    options: {
+      isTSX: true,
+      allExtensions: true
+    }
+  },
   `gatsby-plugin-image`,
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      path: path.join(__dirname, '../source/_posts'),
+      path: path.join(__dirname, '../content/posts/'),
       name: `posts`
     }
   },
   {
     resolve: `gatsby-source-filesystem`,
     options: {
-      path: path.join(__dirname, '../source'),
+      path: path.join(__dirname, '../content/pages'),
       name: `blog`
     }
   },
@@ -155,6 +162,12 @@ const Plugins: PluginRef[] = [
     resolve: `gatsby-plugin-typegen`,
     options: {
       outputPath: `src/gatsby-types.d.ts`
+    }
+  },
+  {
+    resolve: `gatsby-plugin-netlify-cms`,
+    options: {
+      modulePath: path.join(__dirname, `../src/cms/index`)
     }
   }
 ];

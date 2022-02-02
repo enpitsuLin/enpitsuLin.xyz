@@ -1,7 +1,7 @@
 import React from 'react';
-import './src/styles/index.css';
 import { ChakraProvider } from '@chakra-ui/react';
-import DefaultTheme from './src/theme';
+import DefaultTheme from './src/styles/theme';
+import './src/styles/index.css';
 import '@enpitsulin/gatsby-remark-shiki/style/toolbar.css';
 
 export const wrapRootElement = props => {

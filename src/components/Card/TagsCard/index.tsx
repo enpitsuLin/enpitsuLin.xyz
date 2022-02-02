@@ -16,15 +16,17 @@ const TagsCard: FunctionComponent = () => {
         {allTags.map(item => {
           return (
             <Box
-              as="span"
+              as="a"
               key={item.tag}
               bg={tagBg}
               display="inline-block"
-              p="1px"
+              p="2px"
               mr={1}
               mb={1}
-              borderRadius="base"
               cursor="pointer"
+              borderRadius="base"
+              title={`搜索带有 ${item.tag} 标签的文章`}
+              transition="background-color .2s linear"
               _hover={{ bg: tagHoverBg }}
               onClick={() => {
                 navigateToTagPage(item.tag);
@@ -35,16 +37,17 @@ const TagsCard: FunctionComponent = () => {
               </Box>
               <Box
                 as="span"
+                display="inline-block"
+                borderRadius="base"
                 fontSize="75%"
                 fontWeight="700"
                 lineHeight="none"
                 bg="teal.400"
-                py="0.25rem"
+                p=".25em .4em"
                 color="#fff"
                 textAlign="center"
-                px="0.4rem"
-                ml={1}
-                borderRadius="base"
+                verticalAlign="text-bottom"
+                whiteSpace="nowrap"
               >
                 {item.count}
               </Box>

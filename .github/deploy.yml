@@ -1,10 +1,9 @@
 name: Gatsby Publish
 
 on:
-  workflow_dispatch:
-    inputs:
-      title:
-        description: 'Publish Title'
+  push:
+    branches:
+      - master
 
 jobs:
   build:

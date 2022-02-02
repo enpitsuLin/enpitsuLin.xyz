@@ -448,10 +448,10 @@ type MarkdownRemarkFrontmatter = {
   readonly title: Maybe<Scalars['String']>;
   readonly toc: Maybe<Scalars['Boolean']>;
   readonly date: Maybe<Scalars['Date']>;
-  readonly path: Maybe<Scalars['String']>;
-  readonly ignore_in_list: Maybe<Scalars['Boolean']>;
   readonly tags: Maybe<ReadonlyArray<Maybe<Scalars['String']>>>;
   readonly description: Maybe<Scalars['String']>;
+  readonly path: Maybe<Scalars['String']>;
+  readonly ignore_in_list: Maybe<Scalars['Boolean']>;
 };
 
 
@@ -1066,10 +1066,10 @@ type MarkdownRemarkFrontmatterFilterInput = {
   readonly title: Maybe<StringQueryOperatorInput>;
   readonly toc: Maybe<BooleanQueryOperatorInput>;
   readonly date: Maybe<DateQueryOperatorInput>;
-  readonly path: Maybe<StringQueryOperatorInput>;
-  readonly ignore_in_list: Maybe<BooleanQueryOperatorInput>;
   readonly tags: Maybe<StringQueryOperatorInput>;
   readonly description: Maybe<StringQueryOperatorInput>;
+  readonly path: Maybe<StringQueryOperatorInput>;
+  readonly ignore_in_list: Maybe<BooleanQueryOperatorInput>;
 };
 
 type BooleanQueryOperatorInput = {
@@ -1284,10 +1284,10 @@ type FileFieldsEnum =
   | 'childrenMarkdownRemark.frontmatter.title'
   | 'childrenMarkdownRemark.frontmatter.toc'
   | 'childrenMarkdownRemark.frontmatter.date'
-  | 'childrenMarkdownRemark.frontmatter.path'
-  | 'childrenMarkdownRemark.frontmatter.ignore_in_list'
   | 'childrenMarkdownRemark.frontmatter.tags'
   | 'childrenMarkdownRemark.frontmatter.description'
+  | 'childrenMarkdownRemark.frontmatter.path'
+  | 'childrenMarkdownRemark.frontmatter.ignore_in_list'
   | 'childrenMarkdownRemark.excerpt'
   | 'childrenMarkdownRemark.rawMarkdownBody'
   | 'childrenMarkdownRemark.fileAbsolutePath'
@@ -1345,10 +1345,10 @@ type FileFieldsEnum =
   | 'childMarkdownRemark.frontmatter.title'
   | 'childMarkdownRemark.frontmatter.toc'
   | 'childMarkdownRemark.frontmatter.date'
-  | 'childMarkdownRemark.frontmatter.path'
-  | 'childMarkdownRemark.frontmatter.ignore_in_list'
   | 'childMarkdownRemark.frontmatter.tags'
   | 'childMarkdownRemark.frontmatter.description'
+  | 'childMarkdownRemark.frontmatter.path'
+  | 'childMarkdownRemark.frontmatter.ignore_in_list'
   | 'childMarkdownRemark.excerpt'
   | 'childMarkdownRemark.rawMarkdownBody'
   | 'childMarkdownRemark.fileAbsolutePath'
@@ -3073,10 +3073,10 @@ type MarkdownRemarkFieldsEnum =
   | 'frontmatter.title'
   | 'frontmatter.toc'
   | 'frontmatter.date'
-  | 'frontmatter.path'
-  | 'frontmatter.ignore_in_list'
   | 'frontmatter.tags'
   | 'frontmatter.description'
+  | 'frontmatter.path'
+  | 'frontmatter.ignore_in_list'
   | 'excerpt'
   | 'rawMarkdownBody'
   | 'fileAbsolutePath'
@@ -3436,6 +3436,11 @@ type ImageSharpSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
+type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
+
 type BlogPostBySlugQueryVariables = Exact<{
   id: Scalars['String'];
   previousPostId: Maybe<Scalars['String']>;
@@ -3459,11 +3464,6 @@ type articlesByIdsQuery = { readonly allMarkdownRemark: { readonly nodes: Readon
       & { readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'title' | 'date' | 'description' | 'tags'>>, readonly fields: Maybe<Pick<MarkdownRemarkFields, 'slug'>>, readonly wordCount: Maybe<Pick<MarkdownWordCount, 'words'>> }
     )>, readonly pageInfo: Pick<PageInfo, 'totalCount' | 'currentPage' | 'perPage'> } };
 
-type PagesQueryQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type PagesQueryQuery = { readonly allSiteFunction: { readonly nodes: ReadonlyArray<Pick<SiteFunction, 'functionRoute'>> }, readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
-
 type AllArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
@@ -3476,6 +3476,11 @@ type queryAllTagsQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 type queryAllTagsQuery = { readonly allFile: { readonly nodes: ReadonlyArray<{ readonly childMarkdownRemark: Maybe<{ readonly frontmatter: Maybe<Pick<MarkdownRemarkFrontmatter, 'tags'>> }> }> } };
+
+type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -3502,10 +3507,5 @@ type GatsbyImageSharpFluid_withWebp_tracedSVGFragment = Pick<ImageSharpFluid, 't
 type GatsbyImageSharpFluid_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpFluid_withWebp_noBase64Fragment = Pick<ImageSharpFluid, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type querySiteMetadataQueryVariables = Exact<{ [key: string]: never; }>;
-
-
-type querySiteMetadataQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'lastUpdateTime' | 'description' | 'author' | 'title' | 'siteUrl'>> }> };
 
 }
