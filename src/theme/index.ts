@@ -23,8 +23,7 @@ const colors = {
 const styles: Styles = {
   global: props => ({
     body: {
-      fontFamily: `Overpass, 'GlowSansSC', 'Helvetica Neue', 'microsoft yahei', -apple-system, BlinkMacSystemFont, Arial,
-      sans-serif`,
+      // fontFamily: `Overpass, 'GlowSansSC', 'Helvetica Neue', 'microsoft yahei', -apple-system, BlinkMacSystemFont, Arial, sans-serif`,
       color: mode('gray.700', 'whiteAlpha.900')(props),
       bg: mode('gray.50', 'gray.900')(props),
       lineHeight: 'base'
