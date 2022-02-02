@@ -85,7 +85,13 @@ const TagInput = styled.div`
   }
 `;
 
-const TagControl: React.FC<CmsWidgetControlProps<string[]>> = ({ classNameWrapper, forID, onChange }) => {
+const TagControl: React.FC<CmsWidgetControlProps<string[]>> = ({
+  classNameWrapper,
+  forID,
+  onChange,
+  setActiveStyle,
+  setInactiveStyle
+}) => {
   const [tags, setTags] = useState<string[]>([]);
   const [value, setValue] = useState('');
 
@@ -128,6 +134,8 @@ const TagControl: React.FC<CmsWidgetControlProps<string[]>> = ({ classNameWrappe
                   console.log(`${tag} exist`);
                 }
               }}
+              onFocus={setActiveStyle}
+              onBlur={setInactiveStyle}
             />
           </li>
         </ul>
