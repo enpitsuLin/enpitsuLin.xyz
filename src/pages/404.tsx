@@ -1,6 +1,6 @@
 import React from 'react';
 import { PageRendererProps, navigate } from 'gatsby';
-import { BasicLayout } from '@/layouts/';
+import { BasicLayout } from '@/components/BasicLayout';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import { Container, Flex, Box, Badge, Button, Text } from '@chakra-ui/react';

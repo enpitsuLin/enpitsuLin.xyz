@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
-import { BasicLayout } from '@/layouts';
+import { BasicLayout } from '@/components/BasicLayout';
 import Seo from '@/components/seo';
 import AnimatedContent from '@/components/AnimatedContent';
 import ArticleItemList from '@/components/Article/ArticleItemList';

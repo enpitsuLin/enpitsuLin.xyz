@@ -1,7 +1,7 @@
 import React, { useCallback, useRef, useEffect, useState } from 'react';
 import { graphql, PageRendererProps } from 'gatsby';
 import { Container, Flex, Box } from '@chakra-ui/react';
-import { BasicLayout } from '@/layouts';
+import { BasicLayout } from '@/components/BasicLayout';
 import Seo from '@/components/seo';
 import ArticleHeader from '@/components/Article/ArticleHeader';
 import AnimatedContent from '@/components/AnimatedContent';

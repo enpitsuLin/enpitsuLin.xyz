@@ -5,7 +5,7 @@ import styled from '@emotion/styled';
 import { FaClock } from 'react-icons/fa';
 
 import useSiteMetadata from '@/hooks/useSiteMetadata';
-import { BasicLayout } from '@/layouts/';
+import { BasicLayout } from '@/components/BasicLayout';
 import Seo from '@/components/seo';
 import useTypeWriter from '@/hooks/useTypewriter';
 import AnimatedContent from '@/components/AnimatedContent';
