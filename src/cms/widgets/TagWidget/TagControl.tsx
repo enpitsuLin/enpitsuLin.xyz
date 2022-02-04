@@ -88,11 +88,12 @@ const TagInput = styled.div`
 const TagControl: React.FC<CmsWidgetControlProps<string[]>> = ({
   classNameWrapper,
   forID,
+  value: originValue,
   onChange,
   setActiveStyle,
   setInactiveStyle
 }) => {
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, setTags] = useState<string[]>(originValue);
   const [value, setValue] = useState('');
 
   const handleTags = (newTags: string[]) => {
