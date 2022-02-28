@@ -1,6 +1,6 @@
 ---
 title: Openlayers中的将图层裁切
-path: openlayer-layer-clip
+path: /openlayer-layer-clip
 date: 2022-02-11 09:16
 tags:
   - Openlayers
