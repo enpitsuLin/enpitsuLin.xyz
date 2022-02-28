@@ -80,12 +80,12 @@ const gatsbyNode: GatsbyNode = {
 
     const articles = result.data.allMarkdownRemark.nodes.filter(item => !item.frontmatter.ignore_in_list);
     const pages = result.data.allMarkdownRemark.nodes.filter(item => item.frontmatter.ignore_in_list);
-    
+
     // create non-articles page
     if (pages.length > 0) {
       pages.forEach(page => {
         createPage({
-          path: page.frontmatter.path || page.fields?.slug,
+          path: page.frontmatter.ignore_in_list ? page.frontmatter.path : page.fields?.slug,
           component: ArticleTemplate,
           context: { id: page.id, previousPostId: null, nextPostId: null }
         });
@@ -99,7 +99,9 @@ const gatsbyNode: GatsbyNode = {
 
         // frontmatter path first
         createPage({
-          path: article.frontmatter.path || `${ARTICLE_PATH}${article.fields?.slug}`,
+          path: article.frontmatter.path
+            ? `${ARTICLE_PATH}${article.frontmatter.path}`
+            : `${ARTICLE_PATH}${article.fields?.slug}`,
           component: ArticleTemplate,
           context: { id: article.id, previousPostId, nextPostId }
         });
