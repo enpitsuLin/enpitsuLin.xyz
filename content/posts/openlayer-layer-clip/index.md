@@ -1,11 +1,11 @@
 ---
 title: Openlayers中的将图层裁切
+path: openlayer-layer-clip
 date: 2022-02-11 09:16
 tags:
   - Openlayers
   - WebGIS
 ---
-
 一般来说使用 ol 绘制地图时从 gis 服务中获取的贴片地图可以是为所需的设计切好行政区划形状的，但是遇到提供的服务不太好去修改这个形状的时候可能就需要前端来将地图来裁切加工。
 
 一般来说行政区划形状可以通过 gis 服务获取或者使用静态 geojson 资源获取一个面要素数据，我们可以通过面要素数据来将所需的形状切出来，但是 openlayer 没有现成的 api 来完成。这时候我们就需要用到 canvas 的 [globalCompositeOperation](https://developer.mozilla.org/zh-CN/docs/Web/API/CanvasRenderingContext2D/globalCompositeOperation) 来完成。
@@ -69,7 +69,7 @@ baseLayer.on('postrender', evt => {
 ```typescript
 const clipLayer = new VectorLayer({
   source: new VectorSource({
-    features: new EsriJson().readFeatures(require('路径')),//format 同服务
+    features: [new EsriJson().readFeatures(require('路径'))],//format 同服务
   });
 });
 ```
