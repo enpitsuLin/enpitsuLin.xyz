@@ -41,6 +41,7 @@
   "devDependencies": {
     "@types/node": "^17.0.23",
     "@types/react": "^17.0.43",
+    "@types/react-helmet": "^6.1.5",
     "eslint": "^8.11.0",
     "eslint-config-next": "^12.1.0",
     "prettier": "^2.6.0",
