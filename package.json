@@ -1,0 +1,46 @@
+{
+  "name": "enpitsulin.github.io",
+  "version": "2.0.0",
+  "description": "A personal blog powered by next.js",
+  "main": "n/a",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next export",
+    "lint": "next lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/enpitsuLin/enpitsuLin.github.io.git"
+  },
+  "author": "enpitsulin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/enpitsuLin/enpitsuLin.github.io/issues"
+  },
+  "homepage": "https://github.com/enpitsuLin/enpitsuLin.github.io#readme",
+  "dependencies": {
+    "@chakra-ui/react": "^1.8.6",
+    "@emotion/react": "11",
+    "@emotion/styled": "11",
+    "@mdx-js/loader": "^2.1.0",
+    "@next/mdx": "^12.1.0",
+    "classnames": "^2.3.1",
+    "dayjs": "^1.11.0",
+    "framer-motion": "6",
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-icons": "^4.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.23",
+    "@types/react": "^17.0.43",
+    "eslint": "^8.11.0",
+    "eslint-config-next": "^12.1.0",
+    "prettier": "^2.6.0",
+    "typescript": "^4.6.3"
+  }
+}
