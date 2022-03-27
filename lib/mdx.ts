@@ -103,7 +103,7 @@ export async function getFileBySlug(type, slug) {
       fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
       ...frontmatter,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
-    },
+    } as Record<string, any>,
   }
 }
 

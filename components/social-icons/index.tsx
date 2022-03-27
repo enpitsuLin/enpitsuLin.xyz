@@ -10,7 +10,7 @@ import Twitter from './twitter.svg'
 interface Props {
   kind: string
   href: string
-  size: number
+  size?: number
 }
 
 const components = {
