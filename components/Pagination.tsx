@@ -1,9 +1,11 @@
 import Link from '@/components/Link'
 
-const Pagination: React.FC<{ totalPages: number; currentPage: number }> = ({
-  totalPages,
-  currentPage,
-}) => {
+interface Props {
+  totalPages: number
+  currentPage: number
+}
+
+export default function Pagination({ totalPages, currentPage }: Props) {
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages
 
@@ -37,5 +39,3 @@ const Pagination: React.FC<{ totalPages: number; currentPage: number }> = ({
     </div>
   )
 }
-
-export default Pagination

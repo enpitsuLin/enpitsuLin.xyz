@@ -18,14 +18,14 @@ interface CommonSEOProps {
   canonicalUrl?: string
 }
 
-const CommonSEO: React.FC<CommonSEOProps> = ({
+const CommonSEO = ({
   title,
   description,
   ogType,
   ogImage,
   twImage,
   canonicalUrl,
-}) => {
+}: CommonSEOProps) => {
   const router = useRouter()
   return (
     <Head>
@@ -60,7 +60,7 @@ interface PageSEOProps {
   description: string
 }
 
-export const PageSEO: React.FC<PageSEOProps> = ({ title, description }) => {
+export const PageSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -74,7 +74,7 @@ export const PageSEO: React.FC<PageSEOProps> = ({ title, description }) => {
   )
 }
 
-export const TagSEO: React.FC<PageSEOProps> = ({ title, description }) => {
+export const TagSEO = ({ title, description }: PageSEOProps) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
@@ -104,8 +104,7 @@ interface BlogSeoProps extends PostFrontMatter {
   url: string
 }
 
-
-export const BlogSEO: React.FC<BlogSeoProps> = ({
+export const BlogSEO = ({
   authorDetails,
   title,
   summary,
@@ -114,11 +113,10 @@ export const BlogSEO: React.FC<BlogSeoProps> = ({
   url,
   images = [],
   canonicalUrl,
-}) => {
-  const router = useRouter()
+}: BlogSeoProps) => {
   const publishedAt = new Date(date).toISOString()
   const modifiedAt = new Date(lastmod || date).toISOString()
-  let imagesArr =
+  const imagesArr =
     images.length === 0
       ? [siteMetadata.socialBanner]
       : typeof images === 'string'

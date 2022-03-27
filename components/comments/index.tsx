@@ -1,5 +1,10 @@
 import siteMetadata from '@/data/siteMetadata'
 import dynamic from 'next/dynamic'
+import { PostFrontMatter } from 'types/PostFrontMatter'
+
+interface Props {
+  frontMatter: PostFrontMatter
+}
 
 const UtterancesComponent = dynamic(
   () => {
@@ -20,10 +25,8 @@ const DisqusComponent = dynamic(
   { ssr: false }
 )
 
-const Comments: React.FC<{ frontMatter: { slug: string; title: string } }> = ({ frontMatter }) => {
-  let term: string
-  const comment = siteMetadata?.comment
-  if (!comment || Object.keys(comment).length === 0) return <></>
+const Comments = ({ frontMatter }: Props) => {
+  let term
   switch (
     siteMetadata.comment.giscusConfig.mapping ||
     siteMetadata.comment.utterancesConfig.issueTerm

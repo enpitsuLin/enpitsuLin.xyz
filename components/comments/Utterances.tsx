@@ -3,7 +3,11 @@ import { useTheme } from 'next-themes'
 
 import siteMetadata from '@/data/siteMetadata'
 
-const Utterances: React.FC<{ issueTerm: string }> = ({ issueTerm }) => {
+interface Props {
+  issueTerm: string
+}
+
+const Utterances = ({ issueTerm }: Props) => {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
   const { theme, resolvedTheme } = useTheme()
   const commentsTheme =

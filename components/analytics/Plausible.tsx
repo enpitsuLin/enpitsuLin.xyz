@@ -2,7 +2,7 @@ import Script from 'next/script'
 
 import siteMetadata from '@/data/siteMetadata'
 
-const PlausibleScript: React.FC = () => {
+const PlausibleScript = () => {
   return (
     <>
       <Script

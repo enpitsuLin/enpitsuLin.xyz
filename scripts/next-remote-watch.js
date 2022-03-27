@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// Adapted from https://github.com/hashicorp/next-remote-watch
+// Adapated from https://github.com/hashicorp/next-remote-watch
 // A copy of next-remote-watch with an additional ws reload emitter.
 // The app listens to the event and triggers a client-side router refresh
 // see components/ClientReload.js

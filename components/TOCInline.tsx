@@ -1,27 +1,7 @@
-/**
- * @typedef TocHeading
- * @prop {string} value
- * @prop {number} depth
- * @prop {string} url
- */
+import { Toc } from 'types/Toc'
 
-/**
- * Generates an inline table of contents
- * Exclude titles matching this string (new RegExp('^(' + string + ')$', 'i')).
- * If an array is passed the array gets joined with a pipe (new RegExp('^(' + array.join('|') + ')$', 'i')).
- *
- * @param {{
- *  toc: TocHeading[],
- *  indentDepth?: number,
- *  fromHeading?: number,
- *  toHeading?: number,
- *  asDisclosure?: boolean,
- *  exclude?: string|string[]
- * }} props
- *
- */
-interface TocProps {
-  toc: { value: string; depth: number; url: string }[]
+interface TOCInlineProps {
+  toc: Toc
   indentDepth?: number
   fromHeading?: number
   toHeading?: number
@@ -29,14 +9,29 @@ interface TocProps {
   exclude?: string | string[]
 }
 
-const TOCInline: React.FC<TocProps> = ({
+/**
+ * Generates an inline table of contents
+ * Exclude titles matching this string (new RegExp('^(' + string + ')$', 'i')).
+ * If an array is passed the array gets joined with a pipe (new RegExp('^(' + array.join('|') + ')$', 'i')).
+ *
+ * @param {TOCInlineProps} {
+ *   toc,
+ *   indentDepth = 3,
+ *   fromHeading = 1,
+ *   toHeading = 6,
+ *   asDisclosure = false,
+ *   exclude = '',
+ * }
+ *
+ */
+const TOCInline = ({
   toc,
   indentDepth = 3,
   fromHeading = 1,
   toHeading = 6,
   asDisclosure = false,
   exclude = '',
-}) => {
+}: TOCInlineProps) => {
   const re = Array.isArray(exclude)
     ? new RegExp('^(' + exclude.join('|') + ')$', 'i')
     : new RegExp('^(' + exclude + ')$', 'i')

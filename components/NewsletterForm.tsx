@@ -1,14 +1,14 @@
-import { useRef, useState } from 'react'
+import React, { useRef, useState } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
 
-const NewsletterForm: React.FC<{ title?: string }> = ({ title = 'Subscribe to the newsletter' }) => {
-  const inputEl = useRef(null)
+const NewsletterForm = ({ title = 'Subscribe to the newsletter' }) => {
+  const inputEl = useRef<HTMLInputElement>(null)
   const [error, setError] = useState(false)
   const [message, setMessage] = useState('')
   const [subscribed, setSubscribed] = useState(false)
 
-  const subscribe = async (e) => {
+  const subscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     const res = await fetch(`/api/${siteMetadata.newsletter.provider}`, {

@@ -7,6 +7,9 @@ import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { ReactNode } from 'react'
+import { PostFrontMatter } from 'types/PostFrontMatter'
+import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 const discussUrl = (slug) =>
@@ -21,7 +24,15 @@ const postDateTemplate: Intl.DateTimeFormatOptions = {
   day: 'numeric',
 }
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
+interface Props {
+  frontMatter: PostFrontMatter
+  authorDetails: AuthorFrontMatter[]
+  next?: { slug: string; title: string }
+  prev?: { slug: string; title: string }
+  children: ReactNode
+}
+
+export default function PostLayout({ frontMatter, authorDetails, next, prev, children }: Props) {
   const { slug, fileName, date, title, tags } = frontMatter
 
   return (

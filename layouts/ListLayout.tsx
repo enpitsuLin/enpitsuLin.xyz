@@ -1,16 +1,17 @@
 import Link from '@/components/Link'
 import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import { useState } from 'react'
+import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
-
-const ListLayout: React.FC<{
-  posts: any[]
+import { PostFrontMatter } from 'types/PostFrontMatter'
+interface Props {
+  posts: PostFrontMatter[]
   title: string
-  initialDisplayPosts?: any[]
-  pagination?: { totalPages: number; currentPage: number }
-}> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
+  initialDisplayPosts?: PostFrontMatter[]
+  pagination?: ComponentProps<typeof Pagination>
+}
+
+export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }: Props) {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
@@ -94,4 +95,3 @@ const ListLayout: React.FC<{
     </>
   )
 }
-export default ListLayout
