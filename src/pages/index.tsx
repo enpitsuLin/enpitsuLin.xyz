@@ -1,3 +1,3 @@
-export default () => {
-  return <div></div>;
+export default ({ content }) => {
+  return <div>home</div>;
 };
