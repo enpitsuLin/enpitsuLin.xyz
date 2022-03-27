@@ -3,8 +3,10 @@ import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import ListLayout from '@/layouts/ListLayout'
 import { POSTS_PER_PAGE } from '../../blog'
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import { PostFrontMatter } from 'types/PostFrontMatter'
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
   const totalPosts = await getAllFilesFrontMatter('blog')
   const totalPages = Math.ceil(totalPosts.length / POSTS_PER_PAGE)
   const paths = Array.from({ length: totalPages }, (_, i) => ({
@@ -17,12 +19,16 @@ export async function getStaticPaths() {
   }
 }
 
-export async function getStaticProps(context) {
+export const getStaticProps: GetStaticProps<{
+  posts: PostFrontMatter[]
+  initialDisplayPosts: PostFrontMatter[]
+  pagination: { currentPage: number; totalPages: number }
+}> = async (context) => {
   const {
     params: { page },
   } = context
   const posts = await getAllFilesFrontMatter('blog')
-  const pageNumber = parseInt(page)
+  const pageNumber = parseInt(page as string)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
     POSTS_PER_PAGE * pageNumber
@@ -41,7 +47,11 @@ export async function getStaticProps(context) {
   }
 }
 
-export default function PostPage({ posts, initialDisplayPosts, pagination }) {
+export default function PostPage({
+  posts,
+  initialDisplayPosts,
+  pagination,
+}: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />

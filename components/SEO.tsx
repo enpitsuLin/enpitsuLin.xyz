@@ -1,23 +1,24 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
+import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
+import { PostFrontMatter } from 'types/PostFrontMatter'
 
-interface CommonProps {
+interface CommonSEOProps {
   title: string
   description: string
-  ogType?: string
-  ogImage?: string | { url: string }[]
-  twImage?: string
+  ogType: string
+  ogImage:
+    | string
+    | {
+        '@type': string
+        url: string
+      }[]
+  twImage: string
   canonicalUrl?: string
-  authorDetails?: { name: string }[]
-  summary?: string
-  date?: string
-  lastmod?: string
-  url?: string
-  images?: string[]
 }
 
-const CommonSEO: React.FC<CommonProps> = ({
+const CommonSEO: React.FC<CommonSEOProps> = ({
   title,
   description,
   ogType,
@@ -54,7 +55,12 @@ const CommonSEO: React.FC<CommonProps> = ({
   )
 }
 
-export const PageSEO: React.FC<CommonProps> = ({ title, description }) => {
+interface PageSEOProps {
+  title: string
+  description: string
+}
+
+export const PageSEO: React.FC<PageSEOProps> = ({ title, description }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -68,7 +74,7 @@ export const PageSEO: React.FC<CommonProps> = ({ title, description }) => {
   )
 }
 
-export const TagSEO: React.FC<CommonProps> = ({ title, description }) => {
+export const TagSEO: React.FC<PageSEOProps> = ({ title, description }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
@@ -93,7 +99,13 @@ export const TagSEO: React.FC<CommonProps> = ({ title, description }) => {
   )
 }
 
-export const BlogSEO: React.FC<CommonProps> = ({
+interface BlogSeoProps extends PostFrontMatter {
+  authorDetails?: AuthorFrontMatter[]
+  url: string
+}
+
+
+export const BlogSEO: React.FC<BlogSeoProps> = ({
   authorDetails,
   title,
   summary,

@@ -1,5 +1,7 @@
+import { NextApiRequest, NextApiResponse } from 'next'
+
 /* eslint-disable import/no-anonymous-default-export */
-export default async (req, res) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { email } = req.body
   if (!email) {
     return res.status(400).json({ error: 'Email is required' })
