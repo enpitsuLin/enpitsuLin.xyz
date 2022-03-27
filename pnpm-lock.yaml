@@ -30,6 +30,7 @@ specifiers:
   typescript: ^4.6.3
   unist-util-remove: ^3.1.0
   unist-util-visit: ^4.1.0
+  windicss: ^3.5.1
   windicss-webpack-plugin: ^1.6.7
 
 dependencies:
@@ -64,6 +65,7 @@ devDependencies:
   typescript: 4.6.3
   unist-util-remove: registry.npmmirror.com/unist-util-remove/3.1.0
   unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.0
+  windicss: registry.npmmirror.com/windicss/3.5.1
   windicss-webpack-plugin: registry.npmmirror.com/windicss-webpack-plugin/1.6.7
 
 packages:
