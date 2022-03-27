@@ -1,6 +1,6 @@
 import Script from 'next/script'
 
-const SimpleAnalyticsScript = () => {
+const SimpleAnalyticsScript: React.FC = () => {
   return (
     <>
       <Script strategy="lazyOnload" id="sa-script">

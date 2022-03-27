@@ -20,8 +20,8 @@ const DisqusComponent = dynamic(
   { ssr: false }
 )
 
-const Comments = ({ frontMatter }) => {
-  let term
+const Comments: React.FC<{ frontMatter: { slug: string; title: string } }> = ({ frontMatter }) => {
+  let term: string
   const comment = siteMetadata?.comment
   if (!comment || Object.keys(comment).length === 0) return <></>
   switch (

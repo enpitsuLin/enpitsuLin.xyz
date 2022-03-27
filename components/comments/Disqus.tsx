@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 
 import siteMetadata from '@/data/siteMetadata'
 
-const Disqus = ({ frontMatter }) => {
+const Disqus: React.FC<{
+  frontMatter: { slug: string }
+}> = ({ frontMatter }) => {
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
 
   const COMMENTS_ID = 'disqus_thread'
@@ -17,7 +19,7 @@ const Disqus = ({ frontMatter }) => {
     if (window.DISQUS === undefined) {
       const script = document.createElement('script')
       script.src = 'https://' + siteMetadata.comment.disqusConfig.shortname + '.disqus.com/embed.js'
-      script.setAttribute('data-timestamp', +new Date())
+      script.setAttribute('data-timestamp', new Date().valueOf().toString())
       script.setAttribute('crossorigin', 'anonymous')
       script.async = true
       document.body.appendChild(script)

@@ -2,7 +2,29 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 import siteMetadata from '@/data/siteMetadata'
 
-const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl }) => {
+interface CommonProps {
+  title: string
+  description: string
+  ogType?: string
+  ogImage?: string | { url: string }[]
+  twImage?: string
+  canonicalUrl?: string
+  authorDetails?: { name: string }[]
+  summary?: string
+  date?: string
+  lastmod?: string
+  url?: string
+  images?: string[]
+}
+
+const CommonSEO: React.FC<CommonProps> = ({
+  title,
+  description,
+  ogType,
+  ogImage,
+  twImage,
+  canonicalUrl,
+}) => {
   const router = useRouter()
   return (
     <Head>
@@ -14,7 +36,7 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
       <meta property="og:site_name" content={siteMetadata.title} />
       <meta property="og:description" content={description} />
       <meta property="og:title" content={title} />
-      {ogImage.constructor.name === 'Array' ? (
+      {Array.isArray(ogImage) ? (
         ogImage.map(({ url }) => <meta property="og:image" content={url} key={url} />)
       ) : (
         <meta property="og:image" content={ogImage} key={ogImage} />
@@ -32,7 +54,7 @@ const CommonSEO = ({ title, description, ogType, ogImage, twImage, canonicalUrl 
   )
 }
 
-export const PageSEO = ({ title, description }) => {
+export const PageSEO: React.FC<CommonProps> = ({ title, description }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   return (
@@ -46,7 +68,7 @@ export const PageSEO = ({ title, description }) => {
   )
 }
 
-export const TagSEO = ({ title, description }) => {
+export const TagSEO: React.FC<CommonProps> = ({ title, description }) => {
   const ogImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const twImageUrl = siteMetadata.siteUrl + siteMetadata.socialBanner
   const router = useRouter()
@@ -71,7 +93,7 @@ export const TagSEO = ({ title, description }) => {
   )
 }
 
-export const BlogSEO = ({
+export const BlogSEO: React.FC<CommonProps> = ({
   authorDetails,
   title,
   summary,

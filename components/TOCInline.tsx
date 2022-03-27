@@ -20,7 +20,16 @@
  * }} props
  *
  */
-const TOCInline = ({
+interface TocProps {
+  toc: { value: string; depth: number; url: string }[]
+  indentDepth?: number
+  fromHeading?: number
+  toHeading?: number
+  asDisclosure?: boolean
+  exclude?: string | string[]
+}
+
+const TOCInline: React.FC<TocProps> = ({
   toc,
   indentDepth = 3,
   fromHeading = 1,

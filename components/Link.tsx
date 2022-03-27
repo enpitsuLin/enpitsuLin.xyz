@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import Link from 'next/link'
 
-const CustomLink = ({ href, ...rest }) => {
+const CustomLink: React.FC<JSX.IntrinsicElements['a']> = ({ href, ...rest }) => {
   const isInternalLink = href && href.startsWith('/')
   const isAnchorLink = href && href.startsWith('#')
 

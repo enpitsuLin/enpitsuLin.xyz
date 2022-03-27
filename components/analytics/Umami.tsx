@@ -2,7 +2,7 @@ import Script from 'next/script'
 
 import siteMetadata from '@/data/siteMetadata'
 
-const UmamiScript = () => {
+const UmamiScript: React.FC = () => {
   return (
     <>
       <Script

@@ -2,7 +2,7 @@ import Script from 'next/script'
 
 import siteMetadata from '@/data/siteMetadata'
 
-const GAScript = () => {
+const GAScript: React.FC = () => {
   return (
     <>
       <Script

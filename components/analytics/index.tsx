@@ -6,7 +6,7 @@ import siteMetadata from '@/data/siteMetadata'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
-const Analytics = () => {
+const Analytics: React.FC = () => {
   return (
     <>
       {isProduction && siteMetadata.analytics.plausibleDataDomain && <Plausible />}

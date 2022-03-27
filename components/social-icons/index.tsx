@@ -7,6 +7,12 @@ import Twitter from './twitter.svg'
 
 // Icons taken from: https://simpleicons.org/
 
+interface Props {
+  kind: string
+  href: string
+  size: number
+}
+
 const components = {
   mail: Mail,
   github: Github,
@@ -16,7 +22,7 @@ const components = {
   twitter: Twitter,
 }
 
-const SocialIcon = ({ kind, href, size = 8 }) => {
+const SocialIcon: React.FC<Props> = ({ kind, href, size = 8 }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
