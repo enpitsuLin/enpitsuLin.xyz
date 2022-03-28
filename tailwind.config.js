@@ -1,8 +1,16 @@
 // @ts-check
-/* eslint-disable @typescript-eslint/no-var-requires */
-
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
+
+const fontFamily =
+  typeof defaultTheme.fontFamily == 'function'
+    ? defaultTheme.fontFamily({
+        theme: defaultTheme,
+        negative: undefined,
+        colors: undefined,
+        breakpoints: undefined,
+      })
+    : defaultTheme.fontFamily
 
 /** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
@@ -29,7 +37,7 @@ module.exports = {
         14: '3.5rem',
       },
       fontFamily: {
-        sans: ['InterVariable', ...defaultTheme.fontFamily.sans],
+        sans: ['InterVariable', ...fontFamily.sans],
       },
       colors: {
         primary: colors.teal,
