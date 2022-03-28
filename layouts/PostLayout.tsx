@@ -32,7 +32,7 @@ interface Props {
 }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }: Props) {
-  const { slug, fileName, date, title, tags } = frontMatter
+  const { slug, fileName, date, title, tags, readingTime } = frontMatter
 
   return (
     <SectionContainer>
@@ -69,46 +69,27 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
               <dt className="sr-only">Authors</dt>
               <dd>
                 <ul className="flex justify-center space-x-8 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
-                  {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2" key={author.name}>
-                      {author.avatar && (
-                        <Image
-                          src={author.avatar}
-                          width="38px"
-                          height="38px"
-                          alt="avatar"
-                          className="h-10 w-10 rounded-full"
-                        />
-                      )}
-                      <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                            >
-                              {author.twitter.replace('https://twitter.com/', '@')}
-                            </Link>
-                          )}
-                        </dd>
-                      </dl>
-                    </li>
-                  ))}
+                  {readingTime && (
+                    <>
+                      <li className="flex items-center space-x-2">
+                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                          Words
+                        </h2>
+                        <div className="flex flex-wrap">{readingTime.words}</div>
+                      </li>
+                      <li className="flex items-center space-x-2">
+                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
+                          ReadingTime
+                        </h2>
+                        <div className="flex flex-wrap">{readingTime.text}</div>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </dd>
             </dl>
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
-              <div className="pt-6 pb-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(slug)} rel="nofollow">
-                  {'Discuss on Twitter'}
-                </Link>
-                {` • `}
-                <Link href={editUrl(fileName)}>{'View on GitHub'}</Link>
-              </div>
               <div id="comment"></div>
             </div>
             <footer>
