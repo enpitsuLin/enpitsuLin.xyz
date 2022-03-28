@@ -1,12 +1,12 @@
 ---
-name: Tails Azimuth
+name: enpitsulin
 avatar: /static/images/avatar.png
 occupation: Professor of Atmospheric Science
-company: Stanford University
-email: address@yoursite.com
-twitter: https://twitter.com/Twitter
-linkedin: https://www.linkedin.com
-github: https://github.com
+company: undefined
+email: enpitsulin@gmail.com
+zhihu: https://zhihu.com/people/enpitsulin
+qq: http://wpa.qq.com/msgrd?v=3&uin=1092199651&site=qq&menu=yes
+github: https://github.com/enpitsulin
 ---
 
 Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
