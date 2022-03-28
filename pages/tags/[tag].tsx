@@ -13,7 +13,7 @@ import { PostFrontMatter } from 'types/PostFrontMatter'
 const root = process.cwd()
 
 export async function getStaticPaths() {
-  const tags = await getAllTags('blog')
+  const tags = await getAllTags()
 
   return {
     paths: Object.keys(tags).map((tag) => ({
