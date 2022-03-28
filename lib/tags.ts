@@ -3,7 +3,7 @@ import kebabCase from './utils/kebabCase'
 import { flattenArray } from './utils/files'
 
 export async function getAllTags() {
-  const fms = await getAllFilesFrontMatter('blog')
+  const fms = await getAllFilesFrontMatter()
 
   const tagCount = flattenArray(fms.map((fm) => fm.tags)).reduce((map, tag) => {
     const formattedTag = kebabCase(tag)

@@ -29,7 +29,7 @@ export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[]; tag: str
   context
 ) => {
   const tag = context.params.tag as string
-  const allPosts = await getAllFilesFrontMatter('blog')
+  const allPosts = await getAllFilesFrontMatter()
   const filteredPosts = allPosts.filter(
     (post) => post.draft !== true && post.tags.map((t) => kebabCase(t)).includes(tag)
   )

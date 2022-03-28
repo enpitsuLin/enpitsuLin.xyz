@@ -109,8 +109,8 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
   }
 }
 
-export async function getAllFilesFrontMatter(folder: 'blog') {
-  const prefixPaths = path.join(root, 'data', folder)
+export async function getAllFilesFrontMatter() {
+  const prefixPaths = path.join(root, 'data', 'blog')
 
   const files = getAllFilesRecursively(prefixPaths)
 
@@ -125,7 +125,7 @@ export async function getAllFilesFrontMatter(folder: 'blog') {
     }
     const source = fs.readFileSync(file, 'utf8')
     const matterFile = matter(source)
-    const frontmatter = matterFile.data as AuthorFrontMatter | PostFrontMatter
+    const frontmatter = matterFile.data as PostFrontMatter
     if ('draft' in frontmatter && frontmatter.draft !== true) {
       allFrontMatter.push({
         ...frontmatter,
