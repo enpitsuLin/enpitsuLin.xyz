@@ -1,7 +1,8 @@
 import { IconType } from 'react-icons'
-import { FaTwitter, FaEnvelope, FaGithub, FaYoutube, FaFacebook, FaLinkedin } from 'react-icons/fa'
+import { FaQq, FaEnvelope, FaGithub, FaSteam, FaZhihu } from 'react-icons/fa'
+import FaBilibili from './FaBilibili'
 
-type SocialKind = 'mail' | 'github' | 'facebook' | 'youtube' | 'linkedin' | 'twitter'
+type SocialKind = 'mail' | 'github' | 'zhihu' | 'bilibili' | 'steam' | 'qq'
 
 interface SocialIconProps {
   kind: SocialKind
@@ -12,10 +13,10 @@ interface SocialIconProps {
 const components: Record<SocialKind, IconType> = {
   mail: FaEnvelope,
   github: FaGithub,
-  facebook: FaFacebook,
-  youtube: FaYoutube,
-  linkedin: FaLinkedin,
-  twitter: FaTwitter,
+  zhihu: FaZhihu,
+  bilibili: FaBilibili,
+  steam: FaSteam,
+  qq: FaQq,
 }
 const sizeMap = {
   small: `h-6 w-6`,

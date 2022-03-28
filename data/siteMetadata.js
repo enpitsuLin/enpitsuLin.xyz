@@ -12,10 +12,10 @@ const siteMetadata = {
   socialBanner: '/static/images/twitter-card.png',
   email: 'enpitsulin@gmail.com',
   github: 'https://github.com/enpitsulin',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
-  youtube: 'https://youtube.com',
-  linkedin: 'https://www.linkedin.com',
+  qq: 'http://wpa.qq.com/msgrd?v=3&uin=1092199651&site=qq&menu=yes',
+  zhihu: 'https://zhihu.com/people/enpitsulin',
+  bilibili: 'https://space.bilibili.com/423632',
+  steam: 'https://steamcommunity.com/profiles/76561198338250608/',
   locale: 'zh-Hans',
   analytics: {
     // If you want to use an analytics provider you have to add it to the
