@@ -12,18 +12,22 @@ const fontFamily =
       })
     : defaultTheme.fontFamily
 
+const includes = [
+  './pages/**/*.tsx',
+  './components/**/*.tsx',
+  './layouts/**/*.tsx',
+  './lib/**/*.ts',
+  './data/**/*.mdx',
+]
+
 /** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
+  mode: 'jit',
+  purge: includes,
   experimental: {
     optimizeUniversalDefaults: true,
   },
-  content: [
-    './pages/**/*.tsx',
-    './components/**/*.tsx',
-    './layouts/**/*.tsx',
-    './lib/**/*.ts',
-    './data/**/*.mdx',
-  ],
+  content: includes,
   darkMode: 'class',
   theme: {
     extend: {
