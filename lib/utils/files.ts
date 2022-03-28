@@ -6,7 +6,7 @@ const pipe =
   (x) =>
     fns.reduce((v, f) => f(v), x)
 
-const flattenArray = (input) =>
+export const flattenArray = (input: any[]): any[] =>
   input.reduce((acc, item) => [...acc, ...(Array.isArray(item) ? item : [item])], [])
 
 const map = (fn) => (input) => input.map(fn)

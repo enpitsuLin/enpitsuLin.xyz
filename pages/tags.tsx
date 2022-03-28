@@ -7,7 +7,7 @@ import kebabCase from '@/lib/utils/kebabCase'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
 export const getStaticProps: GetStaticProps<{ tags: Record<string, number> }> = async () => {
-  const tags = await getAllTags('blog')
+  const tags = await getAllTags()
 
   return { props: { tags } }
 }
