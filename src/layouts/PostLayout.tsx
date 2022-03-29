@@ -3,11 +3,11 @@ import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
-import siteMetadata from '/data/siteMetadata'
+import siteMetadata from 'data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { ReactNode } from 'react'
-import { PostFrontMatter } from 'types/PostFrontMatter'
-import { AuthorFrontMatter } from 'types/AuthorFrontMatter'
+import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',

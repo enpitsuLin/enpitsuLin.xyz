@@ -1,4 +1,4 @@
-import { Toc } from 'types/Toc'
+import { Toc } from '@/types/Toc'
 
 interface TOCInlineProps {
   toc: Toc
