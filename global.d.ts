@@ -6,7 +6,3 @@ interface Window {
   plausible: { q: any[]; (...arguments: any[]): void }
   sa_event: (...arguments: any[]) => void
 }
-
-declare module 'mdast-util-to-string' {
-  export function toString(node: any): string
-}

@@ -8,6 +8,7 @@ specifiers:
   '@tailwindcss/forms': ^0.4.0
   '@tailwindcss/typography': ^0.5.0
   '@types/js-yaml': ^4.0.5
+  '@types/mdast': ^3.0.10
   '@types/react': ^17.0.14
   '@types/tailwindcss': ^2.2.0
   '@typescript-eslint/eslint-plugin': ^4.28.1
@@ -28,6 +29,7 @@ specifiers:
   image-size: 1.0.0
   inquirer: ^8.1.1
   lint-staged: ^11.0.0
+  mdast-util-to-string: ^3.1.0
   mdx-bundler: ^8.0.0
   next: 12.0.9
   next-remote-watch: ^1.0.0
@@ -63,6 +65,7 @@ dependencies:
   '@mailchimp/mailchimp_marketing': registry.npmmirror.com/@mailchimp/mailchimp_marketing/3.0.74
   '@tailwindcss/forms': registry.npmmirror.com/@tailwindcss/forms/0.4.1_tailwindcss@3.0.23
   '@tailwindcss/typography': registry.npmmirror.com/@tailwindcss/typography/0.5.2_tailwindcss@3.0.23
+  '@types/mdast': 3.0.10
   autoprefixer: registry.npmmirror.com/autoprefixer/10.4.4_postcss@8.4.12
   esbuild: registry.npmmirror.com/esbuild/0.13.15
   github-slugger: registry.npmmirror.com/github-slugger/1.4.0
@@ -110,6 +113,7 @@ devDependencies:
   husky: registry.npmmirror.com/husky/6.0.0
   inquirer: registry.npmmirror.com/inquirer/8.2.2
   lint-staged: registry.npmmirror.com/lint-staged/11.2.6
+  mdast-util-to-string: 3.1.0
   next-remote-watch: registry.npmmirror.com/next-remote-watch/1.0.0
   prettier: registry.npmmirror.com/prettier/2.6.1
   prettier-plugin-tailwindcss: registry.npmmirror.com/prettier-plugin-tailwindcss/0.1.8_prettier@2.6.1
@@ -284,6 +288,12 @@ packages:
   /@types/js-yaml/4.0.5:
     resolution: {integrity: sha512-FhpRzf927MNQdRZP0J5DLIdTXhjLYzeUTmLAu69mnVksLH9CJY3IuSeEgbKUki7GQZm0WqDkGzyxju2EZGD2wA==}
     dev: true
+
+  /@types/mdast/3.0.10:
+    resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
+    dependencies:
+      '@types/unist': 2.0.6
+    dev: false
 
   /@types/parse5/6.0.3:
     resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==}
@@ -537,6 +547,9 @@ packages:
     transitivePeerDependencies:
       - encoding
     dev: false
+
+  /mdast-util-to-string/3.1.0:
+    resolution: {integrity: sha512-n4Vypz/DZgwo0iMHLQL49dJzlp7YtAJP+N07MZHpjPf/5XJuHUWstviF4Mn2jEiR/GNmtnRRqnwsXExk3igfFA==}
 
   /moo/0.5.1:
     resolution: {integrity: sha512-I1mnb5xn4fO80BH9BLcF0yLypy2UKl+Cb01Fu0hJRkJjlCRtxZMWkTdAtDd5ZqCOxtCkhmRwyI57vWT+1iZ67w==}
@@ -2879,7 +2892,7 @@ packages:
     name: '@types/hast'
     version: 2.3.4
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/@types/json-schema/7.0.11:
@@ -2898,14 +2911,6 @@ packages:
     resolution: {integrity: sha512-DUlIj2nk0YnJdlWgsFuVKcX27MLW0KbKmGVoUHmFr+74FYYNUDAaj9ZqTADvsbE8rfxuVmSFc7KczYn5Y09ozg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/katex/-/katex-0.11.1.tgz}
     name: '@types/katex'
     version: 0.11.1
-    dev: false
-
-  registry.npmmirror.com/@types/mdast/3.0.10:
-    resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/mdast/-/mdast-3.0.10.tgz}
-    name: '@types/mdast'
-    version: 3.0.10
-    dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
     dev: false
 
   registry.npmmirror.com/@types/mdurl/1.0.2:
@@ -5611,7 +5616,7 @@ packages:
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
       '@types/parse5': registry.npmmirror.com/@types/parse5/6.0.3
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       hastscript: registry.npmmirror.com/hastscript/7.0.2
       property-information: registry.npmmirror.com/property-information/6.1.1
       vfile: 5.3.2
@@ -5671,7 +5676,7 @@ packages:
     version: 2.1.2
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/hast-util-is-event-handler/2.0.0:
@@ -5704,7 +5709,7 @@ packages:
     version: 5.0.1
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       bcp-47-match: registry.npmmirror.com/bcp-47-match/2.0.1
       comma-separated-tokens: registry.npmmirror.com/comma-separated-tokens/2.0.2
       css-selector-parser: registry.npmmirror.com/css-selector-parser/1.4.1
@@ -5728,7 +5733,7 @@ packages:
     dependencies:
       '@types/estree-jsx': registry.npmmirror.com/@types/estree-jsx/0.0.1
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       comma-separated-tokens: registry.npmmirror.com/comma-separated-tokens/2.0.2
       estree-util-attach-comments: registry.npmmirror.com/estree-util-attach-comments/2.0.0
       estree-util-is-identifier-name: registry.npmmirror.com/estree-util-is-identifier-name/2.0.0
@@ -6533,7 +6538,7 @@ packages:
     name: mdast-util-definitions
     version: 5.1.0
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       '@types/unist': 2.0.6
       unist-util-visit: registry.npmmirror.com/unist-util-visit/3.1.0
     dev: false
@@ -6553,7 +6558,7 @@ packages:
     name: mdast-util-footnote
     version: 1.0.0
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
       micromark-util-normalize-identifier: registry.npmmirror.com/micromark-util-normalize-identifier/1.0.0
     dev: false
@@ -6563,10 +6568,10 @@ packages:
     name: mdast-util-from-markdown
     version: 1.2.0
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/mdast': 3.0.10
+      '@types/unist': 2.0.6
       decode-named-character-reference: registry.npmmirror.com/decode-named-character-reference/1.0.1
-      mdast-util-to-string: registry.npmmirror.com/mdast-util-to-string/3.1.0
+      mdast-util-to-string: 3.1.0
       micromark: registry.npmmirror.com/micromark/3.0.10
       micromark-util-decode-numeric-character-reference: registry.npmmirror.com/micromark-util-decode-numeric-character-reference/1.0.0
       micromark-util-decode-string: registry.npmmirror.com/micromark-util-decode-string/1.0.2
@@ -6592,7 +6597,7 @@ packages:
     name: mdast-util-gfm-autolink-literal
     version: 1.0.2
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       ccount: registry.npmmirror.com/ccount/2.0.1
       mdast-util-find-and-replace: registry.npmmirror.com/mdast-util-find-and-replace/2.1.0
       micromark-util-character: registry.npmmirror.com/micromark-util-character/1.1.0
@@ -6603,7 +6608,7 @@ packages:
     name: mdast-util-gfm-footnote
     version: 1.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
       micromark-util-normalize-identifier: registry.npmmirror.com/micromark-util-normalize-identifier/1.0.0
     dev: false
@@ -6613,7 +6618,7 @@ packages:
     name: mdast-util-gfm-strikethrough
     version: 1.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
     dev: false
 
@@ -6634,7 +6639,7 @@ packages:
     name: mdast-util-gfm-task-list-item
     version: 1.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
     dev: false
 
@@ -6659,7 +6664,7 @@ packages:
     name: mdast-util-math
     version: 2.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       longest-streak: registry.npmmirror.com/longest-streak/3.0.1
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
     dev: false
@@ -6671,7 +6676,7 @@ packages:
     dependencies:
       '@types/estree-jsx': registry.npmmirror.com/@types/estree-jsx/0.0.1
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-from-markdown: registry.npmmirror.com/mdast-util-from-markdown/1.2.0
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
     transitivePeerDependencies:
@@ -6685,7 +6690,7 @@ packages:
     dependencies:
       '@types/estree-jsx': registry.npmmirror.com/@types/estree-jsx/0.0.1
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       ccount: registry.npmmirror.com/ccount/2.0.1
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
       parse-entities: registry.npmmirror.com/parse-entities/4.0.0
@@ -6714,7 +6719,7 @@ packages:
     dependencies:
       '@types/estree-jsx': registry.npmmirror.com/@types/estree-jsx/0.0.1
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-from-markdown: registry.npmmirror.com/mdast-util-from-markdown/1.2.0
       mdast-util-to-markdown: registry.npmmirror.com/mdast-util-to-markdown/1.3.0
     transitivePeerDependencies:
@@ -6727,7 +6732,7 @@ packages:
     version: 12.1.1
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       '@types/mdurl': registry.npmmirror.com/@types/mdurl/1.0.2
       mdast-util-definitions: registry.npmmirror.com/mdast-util-definitions/5.1.0
       mdurl: registry.npmmirror.com/mdurl/1.0.1
@@ -6743,19 +6748,13 @@ packages:
     name: mdast-util-to-markdown
     version: 1.3.0
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/mdast': 3.0.10
+      '@types/unist': 2.0.6
       longest-streak: registry.npmmirror.com/longest-streak/3.0.1
-      mdast-util-to-string: registry.npmmirror.com/mdast-util-to-string/3.1.0
+      mdast-util-to-string: 3.1.0
       micromark-util-decode-string: registry.npmmirror.com/micromark-util-decode-string/1.0.2
       unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.0
       zwitch: registry.npmmirror.com/zwitch/2.0.2
-    dev: false
-
-  registry.npmmirror.com/mdast-util-to-string/3.1.0:
-    resolution: {integrity: sha512-n4Vypz/DZgwo0iMHLQL49dJzlp7YtAJP+N07MZHpjPf/5XJuHUWstviF4Mn2jEiR/GNmtnRRqnwsXExk3igfFA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/mdast-util-to-string/-/mdast-util-to-string-3.1.0.tgz}
-    name: mdast-util-to-string
-    version: 3.1.0
     dev: false
 
   registry.npmmirror.com/mdn-data/2.0.14:
@@ -7769,7 +7768,7 @@ packages:
     name: parse-entities
     version: 4.0.0
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       character-entities: registry.npmmirror.com/character-entities/2.0.1
       character-entities-legacy: registry.npmmirror.com/character-entities-legacy/3.0.0
       character-reference-invalid: registry.npmmirror.com/character-reference-invalid/2.0.1
@@ -8717,7 +8716,7 @@ packages:
     name: remark-footnotes
     version: 4.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-footnote: registry.npmmirror.com/mdast-util-footnote/1.0.0
       micromark-extension-footnote: registry.npmmirror.com/micromark-extension-footnote/1.0.2
       unified: registry.npmmirror.com/unified/10.1.2
@@ -8728,7 +8727,7 @@ packages:
     name: remark-frontmatter
     version: 4.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-frontmatter: registry.npmmirror.com/mdast-util-frontmatter/1.0.0
       micromark-extension-frontmatter: registry.npmmirror.com/micromark-extension-frontmatter/1.0.0
       unified: registry.npmmirror.com/unified/10.1.2
@@ -8739,7 +8738,7 @@ packages:
     name: remark-gfm
     version: 3.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-gfm: registry.npmmirror.com/mdast-util-gfm/2.0.1
       micromark-extension-gfm: registry.npmmirror.com/micromark-extension-gfm/2.0.1
       unified: registry.npmmirror.com/unified/10.1.2
@@ -8752,7 +8751,7 @@ packages:
     name: remark-math
     version: 5.1.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-math: registry.npmmirror.com/mdast-util-math/2.0.1
       micromark-extension-math: registry.npmmirror.com/micromark-extension-math/2.0.2
       unified: registry.npmmirror.com/unified/10.1.2
@@ -8775,7 +8774,7 @@ packages:
     name: remark-parse
     version: 10.0.1
     dependencies:
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-from-markdown: registry.npmmirror.com/mdast-util-from-markdown/1.2.0
       unified: registry.npmmirror.com/unified/10.1.2
     transitivePeerDependencies:
@@ -8788,7 +8787,7 @@ packages:
     version: 10.1.0
     dependencies:
       '@types/hast': registry.npmmirror.com/@types/hast/2.3.4
-      '@types/mdast': registry.npmmirror.com/@types/mdast/3.0.10
+      '@types/mdast': 3.0.10
       mdast-util-to-hast: registry.npmmirror.com/mdast-util-to-hast/12.1.1
       unified: registry.npmmirror.com/unified/10.1.2
     dev: false
@@ -9785,7 +9784,7 @@ packages:
     name: unified
     version: 10.1.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       bail: registry.npmmirror.com/bail/2.0.2
       extend: registry.npmmirror.com/extend/3.0.2
       is-buffer: registry.npmmirror.com/is-buffer/2.0.5
@@ -9807,7 +9806,7 @@ packages:
     name: unist-util-filter
     version: 4.0.0
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       unist-util-is: registry.npmmirror.com/unist-util-is/5.1.1
       unist-util-visit-parents: registry.npmmirror.com/unist-util-visit-parents/5.1.0
     dev: false
@@ -9817,7 +9816,7 @@ packages:
     name: unist-util-find-after
     version: 4.0.0
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       unist-util-is: registry.npmmirror.com/unist-util-is/5.1.1
     dev: false
 
@@ -9838,7 +9837,7 @@ packages:
     name: unist-util-position-from-estree
     version: 1.1.1
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/unist-util-position/4.0.2:
@@ -9846,7 +9845,7 @@ packages:
     name: unist-util-position
     version: 4.0.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/unist-util-remove-position/4.0.1:
@@ -9854,7 +9853,7 @@ packages:
     name: unist-util-remove-position
     version: 4.0.1
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       unist-util-visit: registry.npmmirror.com/unist-util-visit/4.1.0
     dev: false
 
@@ -9863,7 +9862,7 @@ packages:
     name: unist-util-stringify-position
     version: 3.0.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/unist-util-visit-parents/4.1.1:
@@ -9880,7 +9879,7 @@ packages:
     name: unist-util-visit-parents
     version: 5.1.0
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       unist-util-is: registry.npmmirror.com/unist-util-is/5.1.1
     dev: false
 
@@ -9974,7 +9973,7 @@ packages:
     name: vfile-location
     version: 4.0.1
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       vfile: 5.3.2
     dev: false
 
