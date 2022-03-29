@@ -22,7 +22,7 @@ specifiers:
   eslint-plugin-prettier: ^4.0.0
   file-loader: ^6.2.0
   github-slugger: ^1.4.0
-  globby: 13.1.1
+  globby: 11.0.4
   gray-matter: ^4.0.3
   husky: ^7.0.4
   image-size: 1.0.1
@@ -107,7 +107,7 @@ devDependencies:
   eslint-config-prettier: 8.5.0_eslint@8.12.0
   eslint-plugin-prettier: 4.0.0_b253a92c95b42c3296c682f11cccb3bd
   file-loader: 6.2.0
-  globby: 13.1.1
+  globby: 11.0.4
   husky: 7.0.4
   inquirer: 8.2.2
   lint-staged: 12.3.7
@@ -4115,8 +4115,8 @@ packages:
       type-fest: 0.20.2
     dev: true
 
-  /globby/11.1.0:
-    resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
+  /globby/11.0.4:
+    resolution: {integrity: sha512-9O4MVG9ioZJ08ffbcyVYyLOJLk5JQ688pJ4eMGLpdWLHq/Wr1D9BlriLQyL0E+jbkuePVZXYFj47QM/v093wHg==}
     engines: {node: '>=10'}
     dependencies:
       array-union: 2.1.0
@@ -4127,15 +4127,16 @@ packages:
       slash: 3.0.0
     dev: true
 
-  /globby/13.1.1:
-    resolution: {integrity: sha512-XMzoDZbGZ37tufiv7g0N4F/zp3zkwdFtVbV3EHsVl1KQr4RPLfNoT068/97RPshz2J5xYNEjLKKBKaGHifBd3Q==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+  /globby/11.1.0:
+    resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
+    engines: {node: '>=10'}
     dependencies:
+      array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.2.11
       ignore: 5.2.0
       merge2: 1.4.1
-      slash: 4.0.0
+      slash: 3.0.0
     dev: true
 
   /gray-matter/4.0.3:
@@ -6953,11 +6954,6 @@ packages:
   /slash/3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
-    dev: true
-
-  /slash/4.0.0:
-    resolution: {integrity: sha512-3dOsAHXXUkQTpOYcoAxLIorMTp4gIQr5IW3iVb7A7lFIp0VHhnynm9izx6TssdrIcVIESAlVjtnO2K8bg+Coew==}
-    engines: {node: '>=12'}
     dev: true
 
   /slice-ansi/3.0.0:
