@@ -1,3 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid meet" viewBox="344.5639097744361 330.27819548872174 111.73684210526318 91.21804511278197" width="53.87" height="43.61"><defs><path d="M453.3 331.28L453.3 359.85L388.64 418.5L388.64 388.42L453.3 331.28Z" id="aFZf6T5ED"></path><linearGradient id="gradientb2ThqnP5Op" gradientUnits="userSpaceOnUse" x1="420.97" y1="331.28" x2="420.97" y2="418.5"><stop style="stop-color: #06b6d4;stop-opacity: 1" offset="0%"></stop><stop style="stop-color: #67e8f9;stop-opacity: 1" offset="100%"></stop></linearGradient><path d="M410.23 331.28L410.23 359.85L345.56 418.5L345.56 388.42L410.23 331.28Z" id="a9fehgwfM"></path><linearGradient id="gradientk1wNV9Ostb" gradientUnits="userSpaceOnUse" x1="377.89" y1="331.28" x2="377.89" y2="418.5"><stop style="stop-color: #06b6d4;stop-opacity: 1" offset="0%"></stop><stop style="stop-color: #67e8f9;stop-opacity: 1" offset="100%"></stop></linearGradient></defs><g><g><use xlink:href="#aFZf6T5ED" opacity="1" fill="url(#gradientb2ThqnP5Op)"></use></g><g><use xlink:href="#a9fehgwfM" opacity="1" fill="url(#gradientk1wNV9Ostb)"></use></g></g></svg>
+<svg version="1.1" id="logo"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="53.87" height="43.61"  viewBox="0 0 128 128" enable-background="new 0 0 128 128" xml:space="preserve">
+	<circle id="bg" fill="#2C3133" cx="64" cy="64" r="61"/>
+	<path id="pencil" fill="#FFFFFF" d="M98.5,54.8c4.2,4.2,2.2,7.2,2.2,7.2L70.5,90.9l-13,3.1l-0.3-0.2l3.4-12.3L91,52.7
+	c0.6-0.2,1.9-0.6,3.7-0.2l-32,30.5l-0.4,3.7l2.8,2.6l3.6-0.8l1.2-1.7l0.2-2.8l-1.7-2.4L97.6,54C98.1,54.2,98.1,54.2,98.5,54.8z
+	 M106.3,47.4c-2.6-2.4-7.2-2.4-9.9,0.2l-3.1,2.9c0,0,3.6-1.6,7.6,2.1c4.3,4,2.2,7.2,2.2,7.2l2.9-2.6c1.6-1.5,2.2-3.4,2.2-5.2
+	C108.3,50.3,107.8,48.5,106.3,47.4z"/>
+	<path id="border" fill="#FFFFFF" d="M64-0.3c-35.5,0-64,28.6-64,64.2s28.5,64.2,64,64.2s64-28.6,64-64.2C127.9,28.2,99.4-0.3,64-0.3
+	z M64,125c-33.7,0-61-27.3-61-61S30.3,3,64,3s61,27.3,61,61S97.7,125,64,125z"/>
+	<path id="path" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-miterlimit="10" d="M58.3,93.2C27.8,85,24.9,70.8,41.2,61.4
+	c10-5.8,34.8-9.8,39.6-20.8c4.5-10.2-6.4-18.7-31.6-18.7"/>
+</svg>
+
