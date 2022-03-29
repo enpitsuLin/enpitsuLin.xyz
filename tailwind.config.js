@@ -23,7 +23,6 @@ const includes = [
 /** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
 module.exports = {
   mode: 'jit',
-  purge: includes,
   experimental: {
     optimizeUniversalDefaults: true,
   },
