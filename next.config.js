@@ -1,11 +1,15 @@
+//@ts-check
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
 
 /**
- * @type {import('next/dist/next-server/server/config').NextConfig}
+ * @type {import('next').NextConfig}
  **/
-module.exports = withBundleAnalyzer({
+const config = {
+  image: {
+    loader: 'static',
+  },
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   eslint: {
@@ -42,4 +46,5 @@ module.exports = withBundleAnalyzer({
 
     return config
   },
-})
+}
+module.exports = withBundleAnalyzer(config)
