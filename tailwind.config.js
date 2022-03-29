@@ -13,11 +13,11 @@ const fontFamily =
     : defaultTheme.fontFamily
 
 const includes = [
-  './pages/**/*.tsx',
-  './components/**/*.tsx',
-  './layouts/**/*.tsx',
-  './lib/**/*.ts',
-  './data/**/*.mdx',
+  './src/pages/**/*.tsx',
+  './src/components/**/*.tsx',
+  './src/layouts/**/*.tsx',
+  './src/lib/**/*.ts',
+  './src/data/**/*.mdx',
 ]
 
 /** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
