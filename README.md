@@ -1,12 +1,9 @@
 # enpitsulin.github.io
 
-[![Gatsby Publish](https://github.com/enpitsuLin/enpitsuLin.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/enpitsuLin/enpitsuLin.github.io/actions/workflows/deploy.yml)
-[![made-with-Markdown](https://img.shields.io/badge/Made%20with-Markdown-1f425f.svg)](http://commonmark.org)
-[![Chakra UI](https://img.shields.io/badge/Built%20with-Chakra%20UI-81e6d9)](https://chakra-ui.com/)
-[![style: emotion](https://img.shields.io/badge/style-%E2%9C%A8emotion-d4a25e?colorA=45c7e1)](https://github.com/emotion-js/emotion)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/16632d60-e290-4817-8612-3803fed558a8/deploy-status)](https://app.netlify.com/sites/nostalgic-hodgkin-223cde/deploys)
+[![MDXSupport](https://img.shields.io/badge/support-gray?logoWidth=40&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBhcmlhLWhpZGRlbj0idHJ1ZSIgcm9sZT0iaW1nIiBjbGFzcz0iaWNvbmlmeSBpY29uaWZ5LS1sb2dvcyIgd2lkdGg9Ijc3LjI5IiBoZWlnaHQ9IjMyIiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0IiB2aWV3Qm94PSIwIDAgNTEyIDIxMiI+PHBhdGggZmlsbD0iI0ZGRiIgZD0iTTE5LjQ3OCAyLjc4M2g0NzMuMDQ0YzkuMjIgMCAxNi42OTUgNy40NzUgMTYuNjk1IDE2LjY5NVYxOTJjMCA5LjIyLTcuNDc1IDE2LjY5Ni0xNi42OTUgMTYuNjk2SDE5LjQ3OGMtOS4yMiAwLTE2LjY5NS03LjQ3NS0xNi42OTUtMTYuNjk2VjE5LjQ3OGMwLTkuMjIgNy40NzUtMTYuNjk1IDE2LjY5NS0xNi42OTVaIj48L3BhdGg+PHBhdGggZmlsbD0iI0VBRUFFQSIgZD0iTTE5LjQ3OCAwaDQ3My4wNDRDNTAzLjI3OSAwIDUxMiA4LjcyIDUxMiAxOS40NzhWMTkyYzAgMTAuNzU4LTguNzIgMTkuNDc4LTE5LjQ3OCAxOS40NzhIMTkuNDc4QzguNzIxIDIxMS40NzggMCAyMDIuNzU4IDAgMTkyVjE5LjQ3OEMwIDguNzIxIDguNzIgMCAxOS40NzggMFptMCA1LjU2NWMtNy42ODQgMC0xMy45MTMgNi4yMy0xMy45MTMgMTMuOTEzVjE5MmMwIDcuNjg0IDYuMjMgMTMuOTEzIDEzLjkxMyAxMy45MTNoNDczLjA0NGM3LjY4NCAwIDEzLjkxMy02LjIyOSAxMy45MTMtMTMuOTEzVjE5LjQ3OGMwLTcuNjg0LTYuMjMtMTMuOTEzLTEzLjkxMy0xMy45MTNIMTkuNDc4WiI+PC9wYXRoPjxwYXRoIGQ9Im0yNzIuNjk2IDQwLjIwM2wtLjAwMiA4NC44OTZsMzEuMTg1LTMxLjE3OGwxNS43NCAxNS43NDFsLTU3LjY0MiA1Ny42MzhsLTU4LjM2OS01OC4zNjlsMTUuNzQxLTE1Ljc0MWwzMS4wODUgMzEuMDg1bC4wMDEtODQuMDcyek03Mi4xNjIgMTYyLjk3OVY5Ny4yMzJsNDAuMjU1IDQwLjI1N2w0MC41Ni00MC41NTd2NjUuMzgzaDIyLjI2MVY0My4xOTJsLTYyLjgyIDYyLjgxNmwtNjIuNTE3LTYyLjUyMXYxMTkuNDkyeiI+PC9wYXRoPjxwYXRoIGZpbGw9IiNGOUFDMDAiIGQ9Im00NDcuODQ3IDM2LjY1MWwxNS43NCAxNS43NDFsLTQ3LjE0OSA0Ny4xNDdsNDUuNjk5IDQ1LjcwMWwtMTUuNzQxIDE1Ljc0MWwtNDUuNy00NS42OTlsLTQ1LjcwMSA0NS42OTlsLTE1Ljc0LTE1Ljc0MWw0NS42OTUtNDUuNzAxbC00Ny4xNDYtNDcuMTQ3bDE1Ljc0LTE1Ljc0MWw0Ny4xNTIgNDcuMTQ2eiI+PC9wYXRoPjwvc3ZnPg==)](https://mdxjs.com/)
+[![style: tailwindcss](https://img.shields.io/badge/style-tailwindcss-green?logo=tailwindcss)](https://tailwindcss.com/)
 
-Currently it is built with [Gatsby](https://www.gatsbyjs.org/).
+Currently it is built with [Nextjs](https://nextjs.org/).
 
 [Check it out now!](https://enpitsulin.github.io)
 
@@ -15,30 +12,16 @@ Currently it is built with [Gatsby](https://www.gatsbyjs.org/).
 - Static website with modern web technologies
 - Built without templates
 - Auto-generated RSS feed
-- Site Search 
-  - support  searching articles without any third-party services
-- Post articles by markdown, code and contents separated
-- Use NetlifyCMS to manage articles content without git workflows
+- Site Search
+  - support searching articles without any third-party services
+- Post articles by MDX, code and contents separated
 
-## Tools an Framework Used
+## Tools and Framework Used
 
-- [Gatsby](https://www.gatsbyjs.org/): the blazing-fast and flexible static site generator with a big community for [React](https://facebook.github.io/react/).
-- [TypeScript](https://www.typescriptlang.org/): TypeScript is JavaScript with syntax for types.
-- [Chakra-UI](https://chakra-ui.com/): A simple component library use emotion to customize user own theme.
-- [emotion](https://github.com/emotion-js/emotionn): Not only ChakraUI depends to but also a very performant and flexible CSS-in-JS library.
-- [react-icons](https://github.com/react-icons/react-icons):An easy-to-use icon library for React.
-- [gitalk](https://github.com/gitalk/gitalk):A super easy to use third-party comment system based on Github Issue.
-- [GitHub Pages](https://pages.github.com/):A free and popular static website host.
-- [GitHub Actions](https://github.com/features/actions): CI/CD built directly into the repo!
-- [NetlifyCMS](https://www.netlifycms.org/): headless content management system
-
-# TODO
-
-- [x] Article content's markdown style
-- [x] Website Search
-- [x] Comment with [gitalk](https://github.com/gitalk/gitalk)
-- [ ] Add global State management
-- [ ] More...
+- [Nextjs](https://nextjs.org/)
+- [Tailwindcss](https://tailwindcss.com/)
+- [MDX](https://mdxjs.com/)
+- [react-icons](https://react-icons.netlify.com/)
 
 # License
 
