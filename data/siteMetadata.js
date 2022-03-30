@@ -2,7 +2,7 @@ const siteMetadata = {
   title: "enpitsulin's Blog",
   author: 'enpitsulin',
   headerTitle: "enpitsulin's Blog",
-  description: 'A blog created with Next.js and Tailwind.css',
+  description: 'Make Things happy',
   language: 'zh-Hans',
   theme: 'system', // system, dark or light
   siteUrl: 'https://enpitsulin.github.io',
