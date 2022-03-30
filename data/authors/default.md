@@ -1,7 +1,7 @@
 ---
 name: enpitsulin
-avatar: /static/images/avatar.png
-occupation: Professor of Atmospheric Science
+avatar: https://avatars.githubusercontent.com/u/29378026
+occupation: FE Engineer
 company: undefined
 email: enpitsulin@gmail.com
 zhihu: https://zhihu.com/people/enpitsulin
@@ -9,8 +9,6 @@ qq: http://wpa.qq.com/msgrd?v=3&uin=1092199651&site=qq&menu=yes
 github: https://github.com/enpitsulin
 ---
 
-Tails Azimuth is a professor of atmospheric sciences at the Stanford AI Lab. His research interests includes complexity modelling of tailwinds, headwinds and crosswinds.
+小城温州的一个不算特别菜的前端开发工程师，对技术充满热爱，喜欢鼓捣奇奇怪怪的东西。
 
-He leads the clean energy group which develops 3D air pollution-climate models, writes differential equation solvers, and manufactures titanium plated air ballons. In his free time he bakes raspberry pi.
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed neque elit, tristique placerat feugiat ac, facilisis vitae arcu. Proin eget egestas augue. Praesent ut sem nec arcu pellentesque aliquet. Duis dapibus diam vel metus tempus vulputate.
+曾一度对 ACGN 文化有较大的兴趣，但是现在没有当初那么狂热了。喜欢玩各种各样的 PC、switch 游戏~~任豚~~，是个 FF14 咸鱼玩家。
