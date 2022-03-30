@@ -7,7 +7,7 @@ import formatDate from '@/lib/utils/formatDate'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 
-const MAX_DISPLAY = 5
+const MAX_DISPLAY = 3
 
 export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = async () => {
   const posts = await getAllFilesFrontMatter()
@@ -42,8 +42,8 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
                         <time dateTime={date}>{formatDate(date)}</time>
                       </dd>
                     </dl>
-                    <div className="space-y-5 xl:col-span-3">
-                      <div className="space-y-6">
+                    <div className="space-y-4 xl:col-span-3">
+                      <div className="space-y-4">
                         <div>
                           <h2 className="text-2xl font-bold leading-8 tracking-tight">
                             <Link
