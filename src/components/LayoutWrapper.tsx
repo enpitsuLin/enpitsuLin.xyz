@@ -13,7 +13,7 @@ const LayoutWrapper: React.FC = ({ children }) => {
   const stuckClasses =
     'py-2 md:py-5 sticky -top-1 z-50 transition-all backdrop-filter backdrop-blur-md mx-auto border-b border-slate-900/10 dark:border-slate-300/10 mb-16 w-full'
   const unstuckClasses =
-    'py-2 md:py-8 sticky -top-1 z-50 transition-all backdrop-filter backdrop-blur-md mx-auto border-b border-b-0 border-slate-900/10 dark:border-slate-300/10 mb-16 w-full'
+    'py-2 md:py-8 sticky -top-1 z-50 transition-all mx-auto border-b border-b-0 border-slate-900/10 dark:border-slate-300/10 mb-16 w-full'
 
   const classes = stuck ? stuckClasses : unstuckClasses
 
