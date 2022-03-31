@@ -50,7 +50,7 @@ const LayoutWrapper: React.FC = ({ children }) => {
                 <Link
                   key={link.title}
                   href={link.href}
-                  className="p-1 font-medium text-gray-900 dark:text-gray-100 sm:p-4 hover:text-blue-500 dark:hover:text-blue-400"
+                  className="p-1 font-medium text-gray-900 dark:text-gray-200 sm:p-4 hover:text-gray-500 dark:hover:text-white"
                 >
                   {link.title}
                 </Link>
