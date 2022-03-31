@@ -1,8 +1,32 @@
 import Link from '@/components/Link'
+import { ReactNode } from 'react'
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 interface Props {
   totalPages: number
   currentPage: number
+}
+
+interface ButtonProps {
+  disabled?: boolean
+  suffix?: () => ReactNode
+  prefix?: () => ReactNode
+}
+
+const IconButton: React.FC<ButtonProps> = ({ disabled = false, prefix, suffix, children }) => {
+  const disableClasses = 'cursor-not-allowed disabled:opacity-50'
+  return (
+    <button
+      className={['flex items-center justify-center', disabled && disableClasses]
+        .filter(Boolean)
+        .join(' ')}
+      disabled={disabled}
+    >
+      {prefix && prefix()}
+      <span className="mx-2">{children}</span>
+      {suffix && suffix()}
+    </button>
+  )
 }
 
 export default function Pagination({ totalPages, currentPage }: Props) {
@@ -13,26 +37,26 @@ export default function Pagination({ totalPages, currentPage }: Props) {
     <div className="space-y-2 pt-6 pb-8 md:space-y-5">
       <nav className="flex justify-between">
         {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
+          <IconButton prefix={() => <FaArrowLeft />} disabled={!prevPage}>
             Previous
-          </button>
+          </IconButton>
         )}
         {prevPage && (
           <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <button>Previous</button>
+            <IconButton prefix={() => <FaArrowLeft />}>Previous</IconButton>
           </Link>
         )}
         <span>
           {currentPage} of {totalPages}
         </span>
         {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
+          <IconButton suffix={() => <FaArrowRight />} disabled={!nextPage}>
             Next
-          </button>
+          </IconButton>
         )}
         {nextPage && (
           <Link href={`/blog/page/${currentPage + 1}`}>
-            <button>Next</button>
+            <IconButton suffix={() => <FaArrowRight />}>Next</IconButton>
           </Link>
         )}
       </nav>
