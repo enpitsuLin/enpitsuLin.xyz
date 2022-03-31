@@ -37,6 +37,7 @@ const siteMetadata = {
     darkTheme: 'transparent_dark',
     themeURL: '',
   },
+  lastUpdateTime: new Date(),
 }
 
 module.exports = siteMetadata
