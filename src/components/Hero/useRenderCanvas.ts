@@ -25,25 +25,25 @@ function reset() {
       })
   )
 }
-function useMouse() {
+function useMouse(target: React.RefObject<HTMLElement>) {
   const mouseCoordinate = useRef<MousePos>({ x: null, y: null })
   useEffect(() => {
-    document.addEventListener('mousemove', onMouseMove)
+    target.current.addEventListener('mousemove', onMouseMove)
     return () => {
-      document.removeEventListener('mousemove', onMouseMove)
+      target.current.removeEventListener('mousemove', onMouseMove)
     }
   }, [])
 
   return mouseCoordinate
 
   function onMouseMove(e: MouseEvent) {
-    const { clientX: x, clientY: y } = e
+    const { offsetX: x, offsetY: y } = e
     mouseCoordinate.current = { x, y }
   }
 }
 
 export function useRenderCanvas(canvasRef: React.RefObject<HTMLCanvasElement>) {
-  const mouse = useMouse()
+  const mouse = useMouse(canvasRef)
   const [context, setCtx] = useState<CanvasRenderingContext2D | null>(null)
   const raf = useRef<number>()
 
