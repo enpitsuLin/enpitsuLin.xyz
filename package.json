@@ -19,6 +19,7 @@
     "autoprefixer": "^10.4.4",
     "dayjs": "^1.11.0",
     "esbuild": "^0.14.28",
+    "framer-motion": "^6.2.8",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
     "image-size": "1.0.1",
