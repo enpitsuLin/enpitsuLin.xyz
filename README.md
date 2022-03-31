@@ -14,7 +14,9 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 - Auto-generated RSS feed
 - Site Search
   - support searching articles without any third-party services
-- Post articles by MDX, code and contents separated
+- Post articles by [MDX](https://mdxjs.com/), code and contents separated
+- Mobil-friendly view
+- Light and Dark theme
 
 ## Tools and Framework Used
 
