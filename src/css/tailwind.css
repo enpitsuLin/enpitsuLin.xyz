@@ -17,6 +17,11 @@
 .csl-entry {
   @apply my-5;
 }
+@layer utilities {
+  .transition-in > span {
+    opacity: 1;
+  }
+}
 
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
