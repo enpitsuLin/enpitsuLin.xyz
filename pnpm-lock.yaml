@@ -14,6 +14,7 @@ specifiers:
   '@typescript-eslint/parser': ^5.17.0
   autoprefixer: ^10.4.4
   cross-env: ^7.0.3
+  dayjs: ^1.11.0
   dedent: ^0.7.0
   esbuild: ^0.14.28
   eslint: ^8.12.0
@@ -65,6 +66,7 @@ dependencies:
   '@tailwindcss/typography': 0.5.2_tailwindcss@3.0.23
   '@types/mdast': 3.0.10
   autoprefixer: 10.4.4_postcss@8.4.12
+  dayjs: 1.11.0
   esbuild: 0.14.28
   github-slugger: 1.4.0
   gray-matter: 4.0.3
@@ -2889,6 +2891,10 @@ packages:
   /data-uri-to-buffer/4.0.0:
     resolution: {integrity: sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==}
     engines: {node: '>= 12'}
+    dev: false
+
+  /dayjs/1.11.0:
+    resolution: {integrity: sha512-JLC809s6Y948/FuCZPm5IX8rRhQwOiyMb2TfVVQEixG7P8Lm/gt5S7yoQZmC8x1UehI9Pb7sksEt4xx14m+7Ug==}
     dev: false
 
   /deasync/0.1.24:

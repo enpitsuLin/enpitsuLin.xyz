@@ -17,6 +17,7 @@
     "@tailwindcss/typography": "^0.5.2",
     "@types/mdast": "^3.0.10",
     "autoprefixer": "^10.4.4",
+    "dayjs": "^1.11.0",
     "esbuild": "^0.14.28",
     "github-slugger": "^1.4.0",
     "gray-matter": "^4.0.3",
