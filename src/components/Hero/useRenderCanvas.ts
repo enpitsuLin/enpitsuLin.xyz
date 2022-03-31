@@ -27,10 +27,12 @@ function reset() {
 }
 function useMouse(target: React.RefObject<HTMLElement>) {
   const mouseCoordinate = useRef<MousePos>({ x: null, y: null })
+  const [targetEl, setTargetEl] = useState<HTMLElement>()
   useEffect(() => {
+    setTargetEl(target.current)
     target.current.addEventListener('mousemove', onMouseMove)
     return () => {
-      target.current.removeEventListener('mousemove', onMouseMove)
+      targetEl && targetEl.removeEventListener('mousemove', onMouseMove)
     }
   }, [])
 
