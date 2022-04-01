@@ -58,8 +58,8 @@ const LayoutWrapper: React.FC = ({ children }) => {
               ))}
             </div>
             <ThemeSwitch />
-            <MobileNav />
             <I18nSwitch />
+            <MobileNav />
           </div>
         </div>
       </header>
