@@ -1,9 +1,9 @@
 ---
 title: 使用Nextjs重构我的博客
 date: 2022-3-30 9:34:00
-tags: ['blog', 'tailwindcss']
-draft: true
-summary: 从Gatsby迁移到Nextjs，抛弃大而全的而选择小而美的框架，并简单的使用了一个模板，但是一些功能展示效果和页面样式还是有待改进的。
+tags: ['blog', 'tailwindcss', 'nextjs']
+draft: false
+summary: 又到了一年一度鼓捣博客的时间咳咳，因为升级 gatsby 导致仓库收到太多依赖警告了，同时意识到大而全的框架的一些缺点，所以决定抛弃 Gatsby 转而使用 Nextjs
 ---
 
 又到了一年一度鼓捣博客的时间~~咳咳~~，因为升级 gatsby 导致仓库收到太多依赖警告了，同时意识到大而全的框架的一些缺点，所以决定抛弃 Gatsby 转而使用 Nextjs
@@ -22,7 +22,7 @@ summary: 从Gatsby迁移到Nextjs，抛弃大而全的而选择小而美的框�
 
 但是在集成的过程中发现在 Nextjs 中使用 MDX 如果不作为 pages 页面交给 Nextjs 处理则无法进行很好的自定义，但是通过`next-mdx-remote` 或 `mdx-bundler`在渲染的时候需要使用`new Function()`
 
-然后在寻找解决方法的过程中发现了一个[模板](https://github.com/timlrx/tailwind-nextjs-starter-blog)，同时此模板使用了[tailwindcss](https://tailwindcss.com/)，近期我也总是有在使用同类型的[windicss](https://windicss.org/)~~因为之前 tailwind 没有 JIT 模式~~
+虽然最后解决了这个问题，但是觉得不是很优雅，然后在寻找解决方法的过程中发现了一个[模板](https://github.com/timlrx/tailwind-nextjs-starter-blog)，同时此模板使用了[tailwindcss](https://tailwindcss.com/)，近期我也总是有在使用同类型的[windicss](https://windicss.org/)~~因为之前 tailwind 没有 JIT 模式~~
 
 然后就转而使用该模板，很多布局我觉得挺不错的，但是其中的一些功能和页面展示样式我觉得还是需要改进，首页之类的还过于简陋。
 
@@ -31,3 +31,35 @@ summary: 从Gatsby迁移到Nextjs，抛弃大而全的而选择小而美的框�
 在先前 Gastby 最后的版本中我使用了 Netlify CMS 来管理内容，基本也形成了 JAMStack 的结构，但是使用体验来说着实还是差点，作为内容管理我觉得使用体验不是很到位。
 
 中途也尝试用 Notion 来做内容管理，但多多少少又一些不如直接 markdown 来的效果好
+
+## 使用额外的内容管理
+
+现在目标是通过 Sukka 大佬的这篇文章[使用 Next.js + Hexo 重构我的博客](https://blog.skk.moe/post/use-nextjs-and-hexo-to-rebuild-my-blog/)的启发使用 hexo 与 nextjs 整合或者与 [contentlayers](https://github.com/contentlayerdev/contentlayer) 结合。
+
+### contentlayer
+
+这个包的野心很大，目标是整合各种内容源——无论是本地文件如 MDX、markdown、json、纯文本或者是 CMS 都可以通过其进行管理
+
+但其部分目标功能处于 wip 状态，不过可能的未来能和 notion 集成我觉得挺香的。
+
+### hexo
+
+Hexo 不仅是一个静态站点生成器，其内部的数据库还暴露了一系列 api 可以直接操作本地的文章
+
+这部分可以参考 Sukka 大佬的文章和 hexo 官方文档，而且有一方面的优点 hexo 可以基于文件系统将数据持久化，这个可以让构建省去一部分的时间资源
+
+同时 hexo 集成的一些功能如 rss 和 sitemap 生成可以让我将现有的此部分内容重构为更简单的代码，还有很多 hexo cli 能提供的功能也是很香
+
+# 集成 i18n
+
+其实国际化似乎对于我这个小博客没有什么多大的作用，但是一直在工作中用不上，就算是为以后的英文文章铺路？会有吗？
+
+## next-translate
+
+其实看仓库的提交记录就知道一开始是选择`next-i18next`来做 i18n 的但是发现需要对所有动态路由手动增加 props，十分的麻烦，然后还是使用了`next-translate`
+
+日后的计划是对文章的 frontmatter 增加额外的 `lang` 属性用于标识语言,然后在文章列表显示语言标签来标识文章内容的语言，以及可能未来有的双语文章中切换语言就以后在做额外的处理吧。
+
+不过格式化时间字符串似乎还是跟随读者的语言而变化的，这个还是有待改善的。
+
+~~做字符串翻译工作也好费时间~~
