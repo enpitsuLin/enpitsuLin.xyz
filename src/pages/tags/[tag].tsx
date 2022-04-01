@@ -9,7 +9,7 @@ import fs from 'fs'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import path from 'path'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
-import { i18nPaths } from '@/lib/utils/i18nPaths'
+import { i18nPaths } from '@/lib/utils/i18n'
 
 const root = process.cwd()
 

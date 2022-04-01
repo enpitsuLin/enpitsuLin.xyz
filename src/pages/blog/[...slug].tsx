@@ -8,7 +8,7 @@ import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/l
 import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { Toc } from '@/types/Toc'
-import { i18nPaths } from '@/lib/utils/i18nPaths'
+import { i18nPaths } from '@/lib/utils/i18n'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
