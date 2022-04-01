@@ -9,6 +9,7 @@ import { ReactNode } from 'react'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import Comments from '@/components/Comments'
+import useTranslation from 'next-translate/useTranslation'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -26,6 +27,7 @@ interface Props {
 }
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }: Props) {
+  const { t } = useTranslation('common')
   const { slug, date, title, tags, readingTime } = frontMatter
 
   return (
@@ -67,15 +69,17 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     <>
                       <li className="flex items-center space-x-2">
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Words
+                          {t('post.words')}
                         </h2>
                         <div className="flex flex-wrap">{readingTime.words}</div>
                       </li>
                       <li className="flex items-center space-x-2">
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          ReadingTime
+                          {t('post.reading-time')}
                         </h2>
-                        <div className="flex flex-wrap">{readingTime.text}</div>
+                        <div className="flex flex-wrap">
+                          {t('post.reading-time-var', { time: Math.round(readingTime.minutes) })}
+                        </div>
                       </li>
                     </>
                   )}
@@ -91,7 +95,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 {tags && (
                   <div className="py-4 xl:py-8">
                     <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      Tags
+                      {t('post.tags')}
                     </h2>
                     <div className="flex flex-wrap">
                       {tags.map((tag) => (
@@ -105,7 +109,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     {prev && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Previous Article
+                          {t('post.previous-post')}
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${prev.slug}`}>{prev.title}</Link>
@@ -115,7 +119,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                     {next && (
                       <div>
                         <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Next Article
+                          {t('post.next-post')}
                         </h2>
                         <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
                           <Link href={`/blog/${next.slug}`}>{next.title}</Link>
@@ -130,7 +134,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                   href="/blog"
                   className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  &larr; Back to the blog
+                  &larr; {t('post.back-to-blog')}
                 </Link>
               </div>
             </footer>

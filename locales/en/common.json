@@ -6,7 +6,14 @@
         "about": "About"
     },
     "post": {
+        "words": "Words",
         "comment": "Load Comments",
+        "reading-time": "ReadingTime",
+        "reading-time-var": "{{time}} min read",
+        "tags": "Tags",
+        "previous-post": "Previous Article",
+        "next-post": "Next Article",
+        "back-to-blog": "Back to Blog",
         "page": {
             "previous": "Previous",
             "next": "Next"

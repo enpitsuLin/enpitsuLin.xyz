@@ -6,7 +6,14 @@
         "about": "关于"
     },
     "post": {
+        "words": "字数",
         "comment": "加载评论",
+        "reading-time": "阅读时间",
+        "reading-time-var": "约 {{time}} 分钟",
+        "tags": "标签",
+        "previous-post": "上一篇",
+        "next-post": "下一篇",
+        "back-to-blog": "返回文章列表",
         "page": {
             "previous": "上一页",
             "next": "下一页"
