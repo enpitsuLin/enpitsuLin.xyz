@@ -5,7 +5,7 @@
 
 Currently it is built with [Nextjs](https://nextjs.org/).
 
-[Check it out now!](https://enpitsulin.github.io)
+[Check it out now!](https://blog.enpitsulin.xyz/)
 
 ## Features
 
