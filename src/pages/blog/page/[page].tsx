@@ -5,6 +5,7 @@ import ListLayout from '@/layouts/ListLayout'
 import { POSTS_PER_PAGE } from '../../blog'
 import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { i18nPaths } from '@/lib/utils/i18n'
 
 export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
   const totalPosts = await getAllFilesFrontMatter()
@@ -14,7 +15,7 @@ export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
   }))
 
   return {
-    paths,
+    paths: i18nPaths(paths),
     fallback: false,
   }
 }
