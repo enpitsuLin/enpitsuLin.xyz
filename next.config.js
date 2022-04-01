@@ -1,6 +1,5 @@
 //@ts-check
-const { i18n } = require('./next-i18next.config')
-
+const nextTranslate = require('next-translate')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
@@ -9,7 +8,6 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
  * @type {import('next').NextConfig}
  **/
 const config = {
-  i18n,
   image: {
     loader: 'static',
   },
@@ -50,4 +48,5 @@ const config = {
     return config
   },
 }
-module.exports = withBundleAnalyzer(config)
+// @ts-ignore
+module.exports = nextTranslate(withBundleAnalyzer(config))

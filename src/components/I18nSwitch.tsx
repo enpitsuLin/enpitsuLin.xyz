@@ -1,8 +1,6 @@
 import { useState } from 'react'
-import { i18n } from 'next-i18next.config'
+import { locales } from 'i18n'
 import { useRouter } from 'next/router'
-
-const locales = i18n.locales
 
 const I18nSwitch = () => {
   const router = useRouter()

@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useTranslation } from 'next-i18next'
+import useTranslation from 'next-translate/useTranslation'
 import headerNavLinks from 'data/headerNavLinks'
 import siteMetadata from 'data/siteMetadata'
 import Link from './Link'
@@ -8,7 +8,7 @@ import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 
 const Header = () => {
-  const { t } = useTranslation('header')
+  const { t } = useTranslation('common')
 
   const [stuck, setStuck] = useState(false)
   const ref = useRef<HTMLHeadElement>()
