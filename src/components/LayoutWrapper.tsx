@@ -6,6 +6,7 @@ import Footer from './Footer'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 import { useEffect, useRef, useState } from 'react'
+import I18nSwitch from './I18nSwitch'
 
 const LayoutWrapper: React.FC = ({ children }) => {
   const [stuck, setStuck] = useState(false)
@@ -58,6 +59,7 @@ const LayoutWrapper: React.FC = ({ children }) => {
             </div>
             <ThemeSwitch />
             <MobileNav />
+            <I18nSwitch />
           </div>
         </div>
       </header>
