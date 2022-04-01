@@ -5,6 +5,9 @@
         "tags": "Tags",
         "about": "About"
     },
+    "search": {
+        "placeholder": "Search articles"
+    },
     "post": {
         "words": "Words",
         "comment": "Load Comments",

@@ -5,6 +5,9 @@
         "tags": "标签",
         "about": "关于"
     },
+    "search": {
+        "placeholder": "搜索文章"
+    },
     "post": {
         "words": "字数",
         "comment": "加载评论",

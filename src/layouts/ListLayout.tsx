@@ -4,6 +4,7 @@ import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import useTranslation from 'next-translate/useTranslation'
 
 interface Props {
   posts: PostFrontMatter[]
@@ -13,6 +14,7 @@ interface Props {
 }
 
 const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
+  const { t } = useTranslation('common')
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
@@ -32,10 +34,10 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
           </h1>
           <div className="relative max-w-lg">
             <input
-              aria-label="Search articles"
+              aria-label={t('search.placeholder')}
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder="Search articles"
+              placeholder={t('search.placeholder')}
               className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
             />
             <svg
