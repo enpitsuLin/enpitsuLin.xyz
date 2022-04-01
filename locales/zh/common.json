@@ -4,5 +4,12 @@
         "blog": "文章",
         "tags": "标签",
         "about": "关于"
+    },
+    "post": {
+        "comment": "加载评论",
+        "page": {
+            "previous": "上一页",
+            "next": "下一页"
+        }
     }
 }

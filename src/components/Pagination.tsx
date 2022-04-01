@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import { ReactNode } from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import useTranslation from 'next-translate/useTranslation'
 
 interface Props {
   totalPages: number
@@ -29,7 +30,8 @@ const IconButton: React.FC<ButtonProps> = ({ disabled = false, prefix, suffix, c
   )
 }
 
-export default function Pagination({ totalPages, currentPage }: Props) {
+const Pagination: React.FC<Props> = ({ totalPages, currentPage }) => {
+  const { t } = useTranslation('common')
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages
 
@@ -38,12 +40,12 @@ export default function Pagination({ totalPages, currentPage }: Props) {
       <nav className="flex justify-between">
         {!prevPage && (
           <IconButton prefix={() => <FaArrowLeft />} disabled={!prevPage}>
-            Previous
+            {t('post.page.previous')}
           </IconButton>
         )}
         {prevPage && (
           <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <IconButton prefix={() => <FaArrowLeft />}>Previous</IconButton>
+            <IconButton prefix={() => <FaArrowLeft />}>{t('post.page.previous')}</IconButton>
           </Link>
         )}
         <span>
@@ -51,15 +53,17 @@ export default function Pagination({ totalPages, currentPage }: Props) {
         </span>
         {!nextPage && (
           <IconButton suffix={() => <FaArrowRight />} disabled={!nextPage}>
-            Next
+            {t('post.page.next')}
           </IconButton>
         )}
         {nextPage && (
           <Link href={`/blog/page/${currentPage + 1}`}>
-            <IconButton suffix={() => <FaArrowRight />}>Next</IconButton>
+            <IconButton suffix={() => <FaArrowRight />}>{t('post.page.next')}</IconButton>
           </Link>
         )}
       </nav>
     </div>
   )
 }
+
+export default Pagination

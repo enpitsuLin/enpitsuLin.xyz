@@ -4,5 +4,12 @@
         "blog": "Blog",
         "tags": "Tags",
         "about": "About"
+    },
+    "post": {
+        "comment": "Load Comments",
+        "page": {
+            "previous": "Previous",
+            "next": "Next"
+        }
     }
 }

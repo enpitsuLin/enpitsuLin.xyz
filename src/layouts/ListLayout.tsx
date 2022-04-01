@@ -4,6 +4,7 @@ import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+
 interface Props {
   posts: PostFrontMatter[]
   title: string
@@ -11,7 +12,7 @@ interface Props {
   pagination?: ComponentProps<typeof Pagination>
 }
 
-export default function ListLayout({ posts, title, initialDisplayPosts = [], pagination }: Props) {
+const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {
     const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
@@ -95,3 +96,4 @@ export default function ListLayout({ posts, title, initialDisplayPosts = [], pag
     </>
   )
 }
+export default ListLayout

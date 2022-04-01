@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import { useTheme } from 'next-themes'
+import useTranslation from 'next-translate/useTranslation'
 import siteMetadata from 'data/siteMetadata'
 
 const Comments: React.FC<{ mapping: string }> = ({ mapping }) => {
+  const { t } = useTranslation('common')
   const [enableLoadComments, setEnabledLoadComments] = useState(true)
 
   const { theme, resolvedTheme } = useTheme()
@@ -56,7 +58,7 @@ const Comments: React.FC<{ mapping: string }> = ({ mapping }) => {
   return (
     <div id="comment">
       <div className="pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
-        {enableLoadComments && <button onClick={LoadComments}>Load Comments</button>}
+        {enableLoadComments && <button onClick={LoadComments}>{t('post.comment')}</button>}
         <div className="giscus" id={COMMENTS_ID} />
       </div>
     </div>
