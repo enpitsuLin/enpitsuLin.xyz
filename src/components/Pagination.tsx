@@ -2,6 +2,7 @@ import Link from '@/components/Link'
 import { ReactNode } from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import useTranslation from 'next-translate/useTranslation'
+import { classes } from '@/lib/utils/classes'
 
 interface Props {
   totalPages: number
@@ -18,9 +19,7 @@ const IconButton: React.FC<ButtonProps> = ({ disabled = false, prefix, suffix, c
   const disableClasses = 'cursor-not-allowed disabled:opacity-50'
   return (
     <button
-      className={['flex items-center justify-center', disabled && disableClasses]
-        .filter(Boolean)
-        .join(' ')}
+      className={classes(['flex items-center justify-center', disabled && disableClasses])}
       disabled={disabled}
     >
       {prefix && prefix()}
