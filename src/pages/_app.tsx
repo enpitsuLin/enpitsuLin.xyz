@@ -4,6 +4,7 @@ import 'katex/dist/katex.css'
 
 import '@fontsource/inter/variable-full.css'
 
+import { appWithTranslation } from 'next-i18next'
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
@@ -16,7 +17,7 @@ import { ClientReload } from '@/components/ClientReload'
 const isDevelopment = process.env.NODE_ENV === 'development'
 const isSocket = process.env.SOCKET
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider attribute="class" defaultTheme={siteMetadata.theme}>
       <Head>
@@ -30,3 +31,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   )
 }
+
+export default appWithTranslation(App)

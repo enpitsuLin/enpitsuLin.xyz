@@ -9,18 +9,19 @@ import fs from 'fs'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import path from 'path'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { i18nPaths } from '@/lib/utils/i18nPaths'
 
 const root = process.cwd()
 
 export async function getStaticPaths() {
   const tags = await getAllTags()
-
+  const paths = Object.keys(tags).map((tag) => ({
+    params: {
+      tag,
+    },
+  }))
   return {
-    paths: Object.keys(tags).map((tag) => ({
-      params: {
-        tag,
-      },
-    })),
+    paths: i18nPaths(paths),
     fallback: false,
   }
 }

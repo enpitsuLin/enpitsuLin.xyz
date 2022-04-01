@@ -1,34 +1,40 @@
 import fs from 'fs'
+import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next'
+
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
 import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
 import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { Toc } from '@/types/Toc'
+import { i18nPaths } from '@/lib/utils/i18nPaths'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
-export async function getStaticPaths() {
+interface Props {
+  post: { mdxSource: string; toc: Toc; frontMatter: PostFrontMatter }
+  authorDetails: AuthorFrontMatter[]
+  prev?: { slug: string; title: string }
+  next?: { slug: string; title: string }
+}
+
+export const getStaticPaths: GetStaticPaths = () => {
   const posts = getFiles('blog')
+  const paths = posts.map((p) => ({
+    params: {
+      slug: formatSlug(p).split('/'),
+    },
+  }))
+
   return {
-    paths: posts.map((p) => ({
-      params: {
-        slug: formatSlug(p).split('/'),
-      },
-    })),
+    paths: i18nPaths(paths),
     fallback: false,
   }
 }
 
 // @ts-ignore
-export const getStaticProps: GetStaticProps<{
-  post: { mdxSource: string; toc: Toc; frontMatter: PostFrontMatter }
-  authorDetails: AuthorFrontMatter[]
-  prev?: { slug: string; title: string }
-  next?: { slug: string; title: string }
-}> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ params, locale }) => {
   const slug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter()
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
@@ -59,12 +65,12 @@ export const getStaticProps: GetStaticProps<{
   }
 }
 
-export default function Blog({
+const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
   post,
   authorDetails,
   prev,
   next,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}) => {
   const { mdxSource, toc, frontMatter } = post
 
   return (
@@ -92,3 +98,5 @@ export default function Blog({
     </>
   )
 }
+
+export default Blog
