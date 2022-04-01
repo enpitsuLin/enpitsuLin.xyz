@@ -1,9 +1,10 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { defaultLocale } from 'i18n'
 
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang="en" className="scroll-smooth">
+      <Html lang={defaultLocale} className="scroll-smooth">
         <Head>
           <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
           <link
