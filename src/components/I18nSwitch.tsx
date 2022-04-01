@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { i18n } from 'next-i18next.config'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 const locales = i18n.locales
 
