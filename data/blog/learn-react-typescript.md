@@ -43,7 +43,7 @@ function Button(props:PropsWithChildren<ButtonProps>): ReactElement<Props> {
  * function expression
  * 此处props会推断成PropsWithChildren<ButtonProps>
  */
-const Button:FunctionComponent<Props> = (props)=>
+const Button:React.FC<Props> = (props)=>
 ```
 
 ## 对于 Class 组件的 Prop 类型
@@ -57,5 +57,3 @@ class SomeComponent extends Component<Props, State> {
   ///...
 }
 ```
-
-而且注意是一定需要的 prop 增加其可选
