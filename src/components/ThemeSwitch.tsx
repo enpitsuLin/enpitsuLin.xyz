@@ -17,6 +17,7 @@ const ThemeSwitch: React.FC = () => {
       className="ml-1 flex h-8 w-8 items-center justify-center bg-transparent p-0 text-lg sm:ml-4"
       whileHover={{
         scale: 1.2,
+        rotate: 220,
         transition: { duration: 0.2 },
       }}
       whileTap={{
@@ -29,9 +30,9 @@ const ThemeSwitch: React.FC = () => {
       onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
     >
       {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-        <FaSun size={20} />
+        <FaSun size={20} className="hover:text-amber-600" />
       ) : (
-        <FaMoon size={20} />
+        <FaMoon size={20} className="hover:text-blue-500" />
       )}
     </Button>
   )
