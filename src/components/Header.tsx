@@ -34,14 +34,12 @@ const Header = () => {
   return (
     <header className={classes} ref={ref}>
       <div className="flex justify-between items-center max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-5xl xl:px-0">
-        <Link href="/" aria-label={siteMetadata.headerTitle}>
-          <div className="flex items-center justify-between">
-            {typeof siteMetadata.headerTitle === 'string' ? (
-              <div className="h-6 text-2xl font-semibold sm:block">{siteMetadata.headerTitle}</div>
-            ) : (
-              siteMetadata.headerTitle
-            )}
-          </div>
+        <Link
+          href="/"
+          aria-label={siteMetadata.headerTitle}
+          className="h-6 text-2xl font-semibold sm:block "
+        >
+          {siteMetadata.author}
         </Link>
 
         <div className="flex items-center text-base leading-5">
