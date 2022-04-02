@@ -7,7 +7,7 @@ const I18nSwitch = () => {
   const [open, setOpen] = useState(false)
 
   const inactiveClasses =
-    'group flex rounded-md items-center w-full px-2 py-2 text-sm justify-center text-gray-900 hover:bg-gray-100'
+    'group flex rounded-md items-center w-full px-2 py-2 text-sm justify-center text-gray-900 hover:bg-gray-100 '
   const activeClasses = [inactiveClasses, 'bg-gray-200'].join(' ')
 
   const changeLanguage = (locale: string) => {
@@ -36,7 +36,7 @@ const I18nSwitch = () => {
           className="absolute right-0 w-14 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
         >
-          <div className="px-1 py-1 " role="none">
+          <div className="px-1 py-1 cursor-pointer" role="none">
             {locales.map((locale) => (
               <a
                 role="none"
@@ -44,9 +44,7 @@ const I18nSwitch = () => {
                 className={locale == router.locale ? activeClasses : inactiveClasses}
                 onClick={() => changeLanguage(locale)}
               >
-                <span role="none" className="cursor-pointer">
-                  {locale.toUpperCase()}
-                </span>
+                <span role="none">{locale.toUpperCase()}</span>
               </a>
             ))}
           </div>
