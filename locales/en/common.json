@@ -22,5 +22,12 @@
             "previous": "Previous",
             "next": "Next"
         }
+    },
+    "exception": {
+        "not-found": {
+            "title": "Oops! That page can't be found.",
+            "desc": "But dont worry, you can find plenty of other things on our homepage.",
+            "back": "Back to homepage"
+        }
     }
 }
