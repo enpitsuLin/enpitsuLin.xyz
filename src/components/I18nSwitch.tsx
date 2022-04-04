@@ -33,7 +33,7 @@ const I18nSwitch = () => {
       </div>
       {open && (
         <div
-          className="absolute right-0 w-14 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="absolute z-20 right-0 w-14 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
         >
           <div className="px-1 py-1 cursor-pointer" role="none">
