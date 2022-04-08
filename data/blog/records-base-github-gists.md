@@ -338,11 +338,11 @@ export async function getRecords() {
 }
 ```
 
-这里有几种方法在页面中拿到数据,使用`getStaticProps`/`getServerProps`,或者在页面中使用 fetch 或者 xhr 获取数据并渲染~~推荐使用 swr~~
+这里有几种方法在页面中拿到数据,使用`getStaticProps`/`getServerSideProps`,或者在页面中使用 fetch 或者 xhr 获取数据并渲染~~推荐使用 swr~~
 
 如果目的是创建一个静态页面的话只能使用`getStaticProps`或者在页面运行是的时候获取数据
 
-如果是托管在 Vercel 之类的网站托管服务或者自己的服务器部署的话可以使用`getServerProps`
+如果是托管在 Vercel 之类的网站托管服务或者自己的服务器部署的话可以使用`getServerSideProps`
 
 #### getStaticProps
 
@@ -396,7 +396,7 @@ const Home: React.FC<Props> = ({ records }) => {
 export default Home;
 ```
 
-使用 getServerProps 的话则和 getStaticProps 基本一致但是需要托管在平台上或者自己部署
+使用 getServerSideProps 的话则和 getStaticProps 基本一致但是需要托管在平台上或者自己部署
 
 如果在运行时获取的话需要在`useEffect`中获取或者使用 swr 的`useSWR`,具体就不展示这两种用法了
 
