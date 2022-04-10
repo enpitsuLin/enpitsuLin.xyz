@@ -10,6 +10,8 @@ import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import Comments from '@/components/Comments'
 import useTranslation from 'next-translate/useTranslation'
+import { Toc } from '@/types/Toc'
+import formatDate from '@/lib/utils/formatDate'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -24,9 +26,10 @@ interface Props {
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
   children: ReactNode
+  toc: Toc
 }
 
-export default function PostLayout({ frontMatter, authorDetails, next, prev, children }: Props) {
+const PostLayout: React.FC<Props> = ({ frontMatter, authorDetails, next, prev, toc, children }) => {
   const { t } = useTranslation('common')
   const { slug, date, title, tags, readingTime } = frontMatter
 
@@ -37,7 +40,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
         authorDetails={authorDetails}
         {...frontMatter}
       />
-      <ScrollTopAndComment />
+      <ScrollTopAndComment toc={toc} />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
           <header className="pt-6 xl:pb-6">
@@ -46,9 +49,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
+                    <time dateTime={date}>{formatDate(date)}</time>
                   </dd>
                 </div>
               </dl>
@@ -144,3 +145,4 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
     </SectionContainer>
   )
 }
+export default PostLayout

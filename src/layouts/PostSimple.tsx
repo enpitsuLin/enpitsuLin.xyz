@@ -8,26 +8,28 @@ import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { ReactNode } from 'react'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import Comments from '@/components/Comments'
+import { Toc } from '@/types/Toc'
 
 interface Props {
   frontMatter: PostFrontMatter
   children: ReactNode
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
+  toc: Toc
 }
 
-export default function PostLayout({ frontMatter, next, prev, children }: Props) {
+const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc }) => {
   const { slug, date, title } = frontMatter
 
   return (
     <SectionContainer>
       <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} />
-      <ScrollTopAndComment />
+      <ScrollTopAndComment toc={toc} />
       <article>
-        <div>
-          <header>
-            <div className="space-y-1 border-b border-gray-200 pb-10 text-center dark:border-gray-700">
-              <dl>
+        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+          <header className="pt-6 xl:pb-6">
+            <div className="space-y-1 text-center">
+              <dl className="space-y-10">
                 <div>
                   <dt className="sr-only">Published on</dt>
                   <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
@@ -78,3 +80,4 @@ export default function PostLayout({ frontMatter, next, prev, children }: Props)
     </SectionContainer>
   )
 }
+export default PostLayout
