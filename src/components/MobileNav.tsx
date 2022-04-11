@@ -52,6 +52,7 @@ const MobileNavMenuIcon: React.FC<IconProps> = ({
             translateY: 7,
           },
         }}
+        style={{ originX: '12px', originY: '5px' }}
         {...lineProps}
       />
       <motion.line
@@ -84,6 +85,7 @@ const MobileNavMenuIcon: React.FC<IconProps> = ({
             translateY: -7,
           },
         }}
+        style={{ originX: '12px', originY: '19px' }}
         {...lineProps}
       />
     </motion.svg>
