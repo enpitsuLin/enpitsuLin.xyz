@@ -48,8 +48,8 @@ pnpm add -D @types/node @types/react @types/react-dom typescript windicss windic
 ```json:package.json
 {
     ...
-    "scripts={
-        "dev":next",
+    "scripts":{
+        "dev":"next",
     }
 }
 ```
