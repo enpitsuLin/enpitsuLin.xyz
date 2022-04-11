@@ -1,13 +1,20 @@
+import { AnimatePresence, motion, useCycle } from 'framer-motion'
 import { MdClose, MdMenu } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
 import headerNavLinks from 'data/headerNavLinks'
-import { AnimatePresence, motion, useCycle } from 'framer-motion'
 
 const MobileNav = () => {
   const [open, cycleOpen] = useCycle(false, true)
   const { t } = useTranslation('common')
-
+  const onClick = () => {
+    if (open) {
+      document.body.style.overflow = 'auto'
+    } else {
+      document.body.style.overflow = 'hidden'
+    }
+    cycleOpen()
+  }
   return (
     <div className="sm:hidden flex items-center">
       <motion.button
@@ -18,7 +25,7 @@ const MobileNav = () => {
           rotate: 180,
           transition: { duration: 0.2 },
         }}
-        onClick={() => cycleOpen()}
+        onClick={onClick}
       >
         {open ? (
           <MdClose size={20} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
@@ -47,9 +54,20 @@ const MobileNav = () => {
                   key={t(link.title)}
                   href={link.href}
                   className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-                  onClick={() => cycleOpen()}
+                  onClick={onClick}
                 >
-                  <div className="px-12 py-4">{t(link.title)}</div>
+                  <motion.div
+                    className="px-12 py-4"
+                    whileHover={{ scale: 1.1 }}
+                    variants={{
+                      closed: {
+                        opacity: 0,
+                      },
+                      open: { opacity: 1 },
+                    }}
+                  >
+                    {t(link.title)}
+                  </motion.div>
                 </Link>
               ))}
             </nav>
