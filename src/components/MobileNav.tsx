@@ -1,72 +1,63 @@
 import { useState } from 'react'
-
+import { MdClose, MdMenu } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
 import headerNavLinks from 'data/headerNavLinks'
+import { AnimatePresence, createDomMotionComponent, motion, useCycle } from 'framer-motion'
+const Button = createDomMotionComponent('button')
 
 const MobileNav = () => {
-  const [navShow, setNavShow] = useState(false)
+  const [open, cycleOpen] = useCycle(false, true)
   const { t } = useTranslation('common')
 
-  const onToggleNav = () => {
-    setNavShow((status) => {
-      if (status) {
-        document.body.style.overflow = 'hidden auto'
-      } else {
-        // Prevent scrolling
-        document.body.style.overflow = 'hidden'
-      }
-      return !status
-    })
-  }
-
   return (
-    <div className="sm:hidden">
-      <button
+    <div className="sm:hidden flex items-center">
+      <Button
         type="button"
-        className="ml-1 mr-1 h-8 w-8 rounded py-1"
+        className="h-8 w-8"
         aria-label="Toggle Menu"
-        onClick={onToggleNav}
+        whileTap={{
+          rotate: 180,
+          transition: { duration: 0.2 },
+        }}
+        onClick={() => cycleOpen()}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          className="text-gray-900 dark:text-gray-100"
-        >
-          {navShow ? (
-            <path
-              fillRule="evenodd"
-              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clipRule="evenodd"
-            />
-          ) : (
-            <path
-              fillRule="evenodd"
-              d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-              clipRule="evenodd"
-            />
-          )}
-        </svg>
-      </button>
-      <div
-        className={`fixed top-[60px] right-0 z-10 h-screen w-full transform bg-gray-200 opacity-95 duration-300 ease-in-out dark:bg-gray-800 ${
-          navShow ? 'translate-x-0' : 'translate-x-full'
-        }`}
-      >
-        <nav className="fixed mt-8 h-full w-full">
-          {headerNavLinks.map((link) => (
-            <Link
-              key={t(link.title)}
-              href={link.href}
-              className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
-              onClick={onToggleNav}
-            >
-              <div className="px-12 py-4">{t(link.title)}</div>
-            </Link>
-          ))}
-        </nav>
-      </div>
+        {open ? (
+          <MdClose size={20} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
+        ) : (
+          <MdMenu size={20} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
+        )}
+      </Button>
+      <AnimatePresence>
+        {open && (
+          <motion.aside
+            animate={{
+              width: '100%',
+            }}
+            exit={{
+              width: 0,
+              transition: { duration: 0.3 },
+            }}
+            initial={{ width: 0 }}
+            className={`fixed top-[60px] right-0 z-10 h-screen w-full bg-gray-200 opacity-95 dark:bg-gray-800 ${
+              open ? 'translate-x-0' : 'translate-x-full'
+            }`}
+          >
+            <nav className="fixed mt-8 h-full w-full">
+              {headerNavLinks.map((link) => (
+                <Link
+                  key={t(link.title)}
+                  href={link.href}
+                  className="text-2xl font-bold tracking-widest text-gray-900 dark:text-gray-100"
+                  onClick={() => cycleOpen()}
+                >
+                  <div className="px-12 py-4">{t(link.title)}</div>
+                </Link>
+              ))}
+            </nav>
+          </motion.aside>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
