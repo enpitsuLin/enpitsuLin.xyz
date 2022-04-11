@@ -15,16 +15,19 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 - Site Search
   - support searching articles without any third-party services
 - Post articles by [MDX](https://mdxjs.com/), code and contents separated
+- I18n Support (Chinese & English currently)
 - Mobile-friendly view
 - Light and Dark theme
 
 ## Tools and Framework Used
 
-- [Nextjs](https://nextjs.org/)
-- [Tailwindcss](https://tailwindcss.com/)
-- [MDX](https://mdxjs.com/)
-- [react-icons](https://react-icons.netlify.com/)
-- [framer-motion](https://framer.com/motion/)
+- [Nextjs](https://nextjs.org/): React meta framewro to create website or app
+- [Tailwindcss](https://tailwindcss.com/): A utility-first CSS framework for styled websites and apps
+- [MDX](https://mdxjs.com/): Allows use JSX in markdown content
+- [react-icons](https://react-icons.netlify.com/): An extremely abundant but easy-to-use icon library for React
+- [framer-motion](https://framer.com/motion/): An animation library that makes creating animations easier
+- [Vercel](https://vercel.com/): cloud platform for hosting website
+- [next-translate](https://github.com/vinissimus/next-translate): I18n library for nextjs
 
 # License
 
