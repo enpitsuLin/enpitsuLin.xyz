@@ -49,7 +49,7 @@ pnpm add -D @types/node @types/react @types/react-dom typescript windicss windic
 {
     ...
     "scripts={
-        "dev="next",
+        "dev":next",
     }
 }
 ```

@@ -25,7 +25,7 @@ const baseLayer = new Tile({
 
 当然这个图层可以不一定是贴片地图，不过大多数业务上还是以这个为主的。
 
-## GIS 服务中获取裁切范围
+# GIS 服务中获取裁切范围
 
 然后需要以裁切的面要素数据建立一个`Vector`图层，并绑定其 source 的`addFeature`事件使基础图层可见范围与`clipLayer`一致
 
@@ -63,7 +63,7 @@ baseLayer.on('postrender', (evt) => {
 
 当`globalCompositeOperation`设置为`destination-in`，canvas 会仅绘制与画布内容重合的内容，其他会保持透明，同时我们将`getVectorContext(evt)`即`baseLayer`重新绘制要素就能够获得被裁切后的贴片地图了。
 
-## 静态内容中获取裁切范围
+# 静态内容中获取裁切范围
 
 文件中获取就是把`VectorLayer`构造参数中的 url 换成 features 然后用 format 从文件中读取 features 就行了
 
