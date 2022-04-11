@@ -12,6 +12,7 @@ import Comments from '@/components/Comments'
 import useTranslation from 'next-translate/useTranslation'
 import { Toc } from '@/types/Toc'
 import formatDate from '@/lib/utils/formatDate'
+import PostHeader from '@/components/PostHeader'
 
 const postDateTemplate: Intl.DateTimeFormatOptions = {
   weekday: 'long',
@@ -43,21 +44,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, authorDetails, next, prev, t
       <ScrollTopAndComment toc={toc} />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <header className="pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>{formatDate(date)}</time>
-                  </dd>
-                </div>
-              </dl>
-              <div>
-                <PageTitle>{title}</PageTitle>
-              </div>
-            </div>
-          </header>
+          <PostHeader title={title} date={date} />
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
