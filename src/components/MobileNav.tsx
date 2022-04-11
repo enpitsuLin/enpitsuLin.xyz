@@ -1,8 +1,94 @@
-import { AnimatePresence, motion, useCycle } from 'framer-motion'
+import { AnimatePresence, motion, SVGMotionProps, useCycle } from 'framer-motion'
 import { MdClose, MdMenu } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
 import headerNavLinks from 'data/headerNavLinks'
+
+interface IconProps extends SVGMotionProps<SVGSVGElement> {
+  width?: number
+  height?: number
+  isOpen?: boolean
+}
+
+const MobileNavMenuIcon: React.FC<IconProps> = ({
+  isOpen = false,
+  width = 24,
+  height = 24,
+  ...props
+}) => {
+  const variant = isOpen ? 'opened' : 'closed'
+
+  const lineProps = {
+    stroke: 'currentColor',
+    strokeWidth: 2,
+    vectorEffect: 'non-scaling-stroke',
+    initial: 'closed',
+    animate: variant,
+  }
+  const unitHeight = 24
+  const unitWidth = (unitHeight * (width as number)) / (height as number)
+
+  return (
+    <motion.svg
+      viewBox={`0 0 ${unitWidth} ${unitHeight}`}
+      overflow="visible"
+      preserveAspectRatio="none"
+      width={width}
+      height={height}
+      {...props}
+    >
+      <motion.line
+        x1="2"
+        x2={unitWidth - 2}
+        y1="5"
+        y2="5"
+        variants={{
+          closed: {
+            rotate: 0,
+            translateY: 0,
+          },
+          opened: {
+            rotate: 45,
+            translateY: 7,
+          },
+        }}
+        {...lineProps}
+      />
+      <motion.line
+        x1="2"
+        x2={unitWidth - 2}
+        y1="12"
+        y2="12"
+        variants={{
+          closed: {
+            opacity: 1,
+          },
+          opened: {
+            opacity: 0,
+          },
+        }}
+        {...lineProps}
+      />
+      <motion.line
+        x1="2"
+        x2={unitWidth - 2}
+        y1="19"
+        y2="19"
+        variants={{
+          closed: {
+            rotate: 0,
+            translateY: 0,
+          },
+          opened: {
+            rotate: -45,
+            translateY: -7,
+          },
+        }}
+        {...lineProps}
+      />
+    </motion.svg>
+  )
+}
 
 const MobileNav = () => {
   const [open, cycleOpen] = useCycle(false, true)
@@ -17,21 +103,8 @@ const MobileNav = () => {
   }
   return (
     <div className="sm:hidden flex items-center">
-      <motion.button
-        type="button"
-        className="h-8 w-8"
-        aria-label="Toggle Menu"
-        whileTap={{
-          rotate: 180,
-          transition: { duration: 0.2 },
-        }}
-        onClick={onClick}
-      >
-        {open ? (
-          <MdClose size={20} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
-        ) : (
-          <MdMenu size={20} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
-        )}
+      <motion.button type="button" className="h-8 w-8" aria-label="Toggle Menu" onClick={onClick}>
+        <MobileNavMenuIcon isOpen={open} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
       </motion.button>
       <AnimatePresence>
         {open && (
