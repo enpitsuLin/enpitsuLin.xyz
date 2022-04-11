@@ -1,10 +1,8 @@
-import { useState } from 'react'
 import { MdClose, MdMenu } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
 import headerNavLinks from 'data/headerNavLinks'
-import { AnimatePresence, createDomMotionComponent, motion, useCycle } from 'framer-motion'
-const Button = createDomMotionComponent('button')
+import { AnimatePresence, motion, useCycle } from 'framer-motion'
 
 const MobileNav = () => {
   const [open, cycleOpen] = useCycle(false, true)
@@ -12,7 +10,7 @@ const MobileNav = () => {
 
   return (
     <div className="sm:hidden flex items-center">
-      <Button
+      <motion.button
         type="button"
         className="h-8 w-8"
         aria-label="Toggle Menu"
@@ -27,7 +25,7 @@ const MobileNav = () => {
         ) : (
           <MdMenu size={20} className="w-8 h-8 text-gray-900 dark:text-gray-100" />
         )}
-      </Button>
+      </motion.button>
       <AnimatePresence>
         {open && (
           <motion.aside

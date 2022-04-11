@@ -15,7 +15,7 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 - Site Search
   - support searching articles without any third-party services
 - Post articles by [MDX](https://mdxjs.com/), code and contents separated
-- Mobil-friendly view
+- Mobile-friendly view
 - Light and Dark theme
 
 ## Tools and Framework Used
@@ -24,6 +24,7 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 - [Tailwindcss](https://tailwindcss.com/)
 - [MDX](https://mdxjs.com/)
 - [react-icons](https://react-icons.netlify.com/)
+- [framer-motion](https://framer.com/motion/)
 
 # License
 
