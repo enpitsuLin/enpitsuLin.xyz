@@ -36,6 +36,10 @@
   @apply transition-all duration-300 rounded-xl bg-gray-600 dark:bg-gray-400;
 }
 
+button{
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
 input:-webkit-autofill,
 input:-webkit-autofill:focus {
