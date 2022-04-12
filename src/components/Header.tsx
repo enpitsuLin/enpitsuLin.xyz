@@ -33,7 +33,7 @@ const Header = () => {
 
   return (
     <header className={classes} ref={ref}>
-      <div className="flex justify-between items-center max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-6xl xl:px-0">
+      <div className="flex justify-between items-center max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-8xl xl:px-0">
         <Link
           href="/"
           aria-label={siteMetadata.headerTitle}

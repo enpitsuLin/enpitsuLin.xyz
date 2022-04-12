@@ -7,7 +7,7 @@ const LayoutWrapper: React.FC = ({ children }) => {
     <>
       <Header />
       <SectionContainer>
-        <div className="flex h-screen flex-col justify-between">
+        <div className="flex h-screen flex-col justify-between pt-24">
           <main className="mb-auto">{children}</main>
           <Footer />
         </div>
