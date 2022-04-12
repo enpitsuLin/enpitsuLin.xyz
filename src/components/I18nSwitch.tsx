@@ -19,11 +19,7 @@ const I18nSwitch = () => {
       <div>
         <button
           className="inline-flex justify-center w-full px-[22px] py-[12px] text-sm font-medium text-gray-500 rounded-md bg-opacity-20 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-100 focus-visible:ring-opacity-75"
-          id="headlessui-menu-button-10"
           type="button"
-          aria-haspopup="true"
-          aria-expanded="true"
-          aria-controls="headlessui-menu-items-20"
           onClick={() => {
             setOpen((open) => !open)
           }}
