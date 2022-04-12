@@ -3,7 +3,6 @@ title: 理解Node.js的事件驱动模型
 draft: false
 date: 2020-07-25 21:21:04
 tags: ['node']
-layout: PostSimple
 summary: nodejs是单进程单线程，但是基于V8的强大驱动力，以及事件驱动模型，nodejs的性能非常高，简单来理解下nodejs的事件驱动模型
 ---
 

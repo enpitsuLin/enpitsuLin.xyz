@@ -3,7 +3,6 @@ title: 新增一个live2d插件
 date: 2019-03-27 22:00:22
 tags: ['hexo', 'live2d', 'blog']
 draft: false
-layout: PostSimple
 summary: 感觉一个页面白白净净的似乎也有些无趣,遂增加一个有生气的物件
 ---
 

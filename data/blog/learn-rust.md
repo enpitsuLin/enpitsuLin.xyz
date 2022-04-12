@@ -2,7 +2,6 @@
 title: 简单上手一下Rust
 draft: false
 date: 2021-11-23 21:47:00
-layout: PostSimple
 tags: ['rust']
 summary: Rust 正在 JS 基建圈愈发流行,在开发中也或多或少的使用了基于rust的工具,或许趁机了解一下并不是坏事
 ---

@@ -3,7 +3,6 @@ title: 迁移到Gatsby v4
 draft: false
 date: 2021-10-29 10:50:00
 tags: ['blog', 'gatsby']
-layout: PostSimple
 summary: gatsby v4 发布了，将依赖升级简单迁移一下
 ---
 

@@ -3,7 +3,6 @@ title: 使用Syncthing来同步代码
 draft: false
 date: 2021-11-10 11:23:40
 tags: ['data', 'sync']
-layout: PostSimple
 summary: 在不同的机器上总会遇到需要同步数据的需求，这时Syncthing就能很好的帮我们解决这个问题。
 ---
 

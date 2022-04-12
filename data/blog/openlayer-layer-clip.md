@@ -4,7 +4,6 @@ date: '2022-02-11'
 draft: false
 tags: ['openlayers', 'webgis', 'canvas']
 summary: 业务中遇到需要对图层裁切可以使用Openlayer根据矢量数据对图层裁切而不是依赖于gis所发布的服务
-layout: PostSimple
 ---
 
 一般来说使用 ol 绘制地图时从 gis 服务中获取的贴片地图可以是为所需的设计切好行政区划形状的，但是遇到提供的服务不太好去修改这个形状的时候可能就需要前端来将地图来裁切加工。

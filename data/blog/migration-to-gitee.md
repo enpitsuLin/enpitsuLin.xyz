@@ -3,7 +3,6 @@ title: 博客迁移到gitee
 draft: false
 date: 2020-03-27 13:32:30
 tags: ['hexo', 'blog', 'git']
-layout: PostSimple
 summary: github 在国内是越来越难访问，闲的蛋疼就把这个博客迁移到 gitee 上，现在访问速度终于可以接受了
 ---
 

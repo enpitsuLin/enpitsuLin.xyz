@@ -2,7 +2,6 @@
 title: node-sass 安装失败解决方案
 draft: false
 date: 2020-08-14 22:12:34
-layout: PostSimple
 tags: ['web', 'node']
 summary: 由于某些不可描述的原因,使用node包管理器安装node-sass无论什么环境下总是会出现下载安装失败...
 ---

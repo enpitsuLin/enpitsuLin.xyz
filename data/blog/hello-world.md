@@ -3,7 +3,6 @@ title: Hello world
 date: 2019-03-26 19:04:47
 draft: false
 tags: ['life', 'blog']
-layout: PostSimple
 summary: Hello world!
 ---
 

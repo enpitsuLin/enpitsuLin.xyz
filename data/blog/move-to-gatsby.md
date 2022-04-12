@@ -3,7 +3,6 @@ title: 博客使用 Gatsby 构建
 date: 2021-09-15 16:09:00
 draft: false
 tags: ['react', 'gatsby', 'blog']
-layout: PostSimple
 summary: 本身使用静态博客写作挺简单的，但是工作后总有经验增长而且突然新的想法就把博客程序从 Hexo 花了点时间换成 Gatsby 从0构建了新的博客网站。
 ---
 

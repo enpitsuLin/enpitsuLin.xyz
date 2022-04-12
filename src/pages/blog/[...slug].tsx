@@ -10,7 +10,7 @@ import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { Toc } from '@/types/Toc'
 import { i18nPaths } from '@/lib/utils/i18n'
 
-const DEFAULT_LAYOUT = 'PostLayout'
+const DEFAULT_LAYOUT = 'PostSimple'
 
 interface Props {
   post: { mdxSource: string; toc: Toc; frontMatter: PostFrontMatter }
