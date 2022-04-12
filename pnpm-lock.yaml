@@ -7,7 +7,6 @@ specifiers:
   '@types/js-yaml': ^4.0.5
   '@types/mdast': ^3.0.10
   '@types/react': ^17.0.43
-  '@types/tailwindcss': ^3.0.10
   '@typescript-eslint/eslint-plugin': ^5.17.0
   '@typescript-eslint/parser': ^5.17.0
   cross-env: ^7.0.3
@@ -36,7 +35,6 @@ specifiers:
   next-translate: ^1.3.5
   preact: ^10.7.0
   prettier: ^2.6.2
-  prettier-plugin-tailwindcss: ^0.1.8
   react: 17.0.2
   react-dom: 17.0.2
   react-icons: ^4.3.1
@@ -97,7 +95,6 @@ devDependencies:
   '@svgr/webpack': 6.2.1
   '@types/js-yaml': 4.0.5
   '@types/react': 17.0.43
-  '@types/tailwindcss': registry.npmmirror.com/@types/tailwindcss/3.0.10
   '@typescript-eslint/eslint-plugin': 5.17.0_689ff565753ecf7c3328c07fad067df5
   '@typescript-eslint/parser': 5.17.0_eslint@8.12.0+typescript@4.6.3
   cross-env: 7.0.3
@@ -114,7 +111,6 @@ devDependencies:
   mdast-util-to-string: 3.1.0
   next-remote-watch: 1.0.0
   prettier: registry.npmmirror.com/prettier/2.6.2
-  prettier-plugin-tailwindcss: 0.1.8_prettier@2.6.2
   socket.io: 4.4.1
   socket.io-client: 4.4.1
   typescript: 4.6.3
@@ -6072,15 +6068,6 @@ packages:
       fast-diff: 1.2.0
     dev: true
 
-  /prettier-plugin-tailwindcss/0.1.8_prettier@2.6.2:
-    resolution: {integrity: sha512-hwarSBCswAXa+kqYtaAkFr3Vop9o04WOyZs0qo3NyvW8L7f1rif61wRyq0+ArmVThOuRBcJF5hjGXYk86cwemg==}
-    engines: {node: '>=12.17.0'}
-    peerDependencies:
-      prettier: '>=2.2.0'
-    dependencies:
-      prettier: registry.npmmirror.com/prettier/2.6.2
-    dev: true
-
   /prismjs/1.27.0:
     resolution: {integrity: sha512-t13BGPUlFDR7wRB5kQDG4jjl7XeuH6jbJGt11JHPL96qwsEHNX2+68tFXqc1/k+/jALsbSWJKUOT/hcYAZ5LkA==}
     engines: {node: '>=6'}
@@ -7875,12 +7862,6 @@ packages:
     name: '@types/parse5'
     version: 6.0.3
     dev: false
-
-  registry.npmmirror.com/@types/tailwindcss/3.0.10:
-    resolution: {integrity: sha512-1UnZIHO0NOPyPlPFV0HuMjki2SHkvG9uBA1ZehWj/OQMSROk503nuNyyfmJSIT289yewxTbKoPG+KLxYRvfIIg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/tailwindcss/-/tailwindcss-3.0.10.tgz}
-    name: '@types/tailwindcss'
-    version: 3.0.10
-    dev: true
 
   registry.npmmirror.com/@types/unist/2.0.6:
     resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/unist/-/unist-2.0.6.tgz}

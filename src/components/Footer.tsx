@@ -23,7 +23,7 @@ export default function Footer() {
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
           Powered by <Link href="https://nextjs.org/">Nextjs</Link> Theme with{' '}
-          <Link href="https://tailwindcss.com/">Tailwind</Link>
+          <Link href="https://windicss.org/">Windicss</Link>
         </div>
       </div>
     </footer>

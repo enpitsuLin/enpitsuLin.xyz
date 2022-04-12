@@ -1,5 +1,5 @@
 import 'windi.css'
-import '@/css/tailwind.css'
+import '@/css/windi.css'
 import '@/css/prism.css'
 import 'katex/dist/katex.css'
 

@@ -25,7 +25,7 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 ## Tools and Framework Used
 
 - [Nextjs](https://nextjs.org/): React meta framewro to create website or app
-- [Tailwindcss](https://tailwindcss.com/): A utility-first CSS framework for styled websites and apps
+- [windicss](https://windicss.org/): A utility-first CSS framework for styled websites and apps
 - [MDX](https://mdxjs.com/): Allows use JSX in markdown content
 - [react-icons](https://react-icons.netlify.com/): An extremely abundant but easy-to-use icon library for React
 - [framer-motion](https://framer.com/motion/): An animation library that makes creating animations easier
