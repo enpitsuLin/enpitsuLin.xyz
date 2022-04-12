@@ -1,4 +1,4 @@
-//@ts-check
+const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
 const nextTranslate = require('next-translate')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
@@ -17,6 +17,7 @@ const config = {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
   webpack: (config, { dev, isServer }) => {
+    config.plugins.push(new WindiCSSWebpackPlugin())
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
       use: [

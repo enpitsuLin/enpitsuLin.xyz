@@ -1,32 +1,16 @@
-// @ts-check
-const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
+import { defineConfig } from 'windicss/helpers'
+import colors from 'windicss/colors'
+import defaultTheme from 'windicss/defaultTheme'
+import formsPlugin from 'windicss/plugin/forms'
+import TypographyPlugin from 'windicss/plugin/typography'
 
-const fontFamily =
-  typeof defaultTheme.fontFamily == 'function'
-    ? defaultTheme.fontFamily({
-        theme: defaultTheme,
-        negative: undefined,
-        colors: undefined,
-        breakpoints: undefined,
-      })
-    : defaultTheme.fontFamily
+const fontFamily = defaultTheme.fontFamily
 
-const includes = [
-  './src/pages/**/*.tsx',
-  './src/components/**/*.tsx',
-  './src/layouts/**/*.tsx',
-  './src/lib/**/*.ts',
-  './src/data/**/*.mdx',
-]
-
-/** @type {import("tailwindcss/tailwind-config").TailwindConfig } */
-module.exports = {
-  mode: 'jit',
-  experimental: {
-    optimizeUniversalDefaults: true,
+export default defineConfig({
+  extract: {
+    include: ['**/*.{jsx,tsx,css}'],
+    exclude: ['node_modules', '.git', '.next'],
   },
-  content: includes,
   darkMode: 'class',
   theme: {
     extend: {
@@ -44,8 +28,7 @@ module.exports = {
       },
       colors: {
         primary: colors.teal,
-        //@ts-ignore
-        gray: colors.neutral, // TODO: Remove ts-ignore after tw types gets updated to v3
+        gray: colors.neutral,
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -180,5 +163,5 @@ module.exports = {
       }),
     },
   },
-  plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
-}
+  plugins: [formsPlugin, TypographyPlugin],
+})
