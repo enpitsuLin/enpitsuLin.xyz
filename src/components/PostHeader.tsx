@@ -1,5 +1,6 @@
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { useState, useEffect } from 'react'
 import PageTitle from './PageTitle'
 import Tag from './Tag'
 
@@ -8,7 +9,15 @@ interface Props {
 }
 
 const PostHeader: React.FC<Props> = ({ frontMatter }) => {
-  const { title, date, readingTime, tags } = frontMatter
+  const { title, date, readingTime, tags, slug } = frontMatter
+  const [visit, setVisit] = useState(0)
+
+  useEffect(() => {
+    fetch(`/api/get-visit?slug=${slug}`).then(async (response) => {
+      const data = (await response.json()) as { count: number; message: string }
+      setVisit(data.count)
+    })
+  }, [])
   return (
     <header className="pt-6 xl:pb-6">
       <div className="space-y-8 text-center">
@@ -30,15 +39,21 @@ const PostHeader: React.FC<Props> = ({ frontMatter }) => {
               </dd>
             </div>
             <div>
+              <dt className="sr-only">Reading time</dt>
+              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                {Math.round(readingTime.minutes)} 分钟阅读
+              </dd>
+            </div>
+            <div>
               <dt className="sr-only">Word count</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                 约 {readingTime.words} 字
               </dd>
             </div>
             <div>
-              <dt className="sr-only">Reading time</dt>
+              <dt className="sr-only">Reads</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {Math.round(readingTime.minutes)} 分钟阅读
+                {visit} 次阅读
               </dd>
             </div>
           </dl>
