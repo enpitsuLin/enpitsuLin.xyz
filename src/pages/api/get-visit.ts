@@ -7,57 +7,45 @@ const client = new faunadb.Client({
   secret: process.env.FAUNADB_SECRET,
 })
 
-async function getFaunadbIndex<T = any>(index: string, ...data: any[]) {
+async function isIndexExist(index: string, ...query: (string | number)[]) {
+  return client.query(q.Exists(q.Match(q.Index(index), ...query)))
+}
+
+async function getIndex<T = any>(index: string, ...data: any[]) {
   return client.query<{ ref: string; ts: number; data: T }>(q.Get(q.Match(q.Index(index), ...data)))
+}
+
+async function createCollection<T = any>(name: string, data: T) {
+  return client.query(q.Create(q.Collection(name), { data }))
+}
+
+async function updateCollection<T = any>(ref: string, data: T) {
+  if (process.env.NODE_ENV === 'production') return client.query(q.Update(ref, { data }))
+  return void 0
 }
 
 async function getWebsiteVisit() {
   const date = dayjs().format('YYYY-MM-DD')
-  const isTodayExist = await client.query(q.Exists(q.Match(q.Index('website_visit'), date)))
-  if (!isTodayExist) {
-    await client.query(
-      q.Create(q.Collection('post_visit_count'), {
-        data: {
-          date,
-          count: 0,
-        },
-      })
-    )
-  }
-  const document = await getFaunadbIndex('website_visit', date)
-  await client.query(
-    q.Update(document.ref, {
-      data: {
-        count: document.data.count + 1,
-      },
-    })
-  )
+  const isTodayExist = await isIndexExist('website_visit', date)
+
+  if (!isTodayExist) await createCollection('website_visit', { date, count: 0 })
+
+  const document = await getIndex('website_visit', date)
+
+  await updateCollection(document.ref, { count: document.data.count + 1 })
+
   return document
 }
 
 async function getPostVisit(slug: string) {
-  const isSlugExist = await client.query(q.Exists(q.Match(q.Index('visit_by_slug'), slug)))
+  const isSlugExist = await isIndexExist('visit_by_slug', slug)
 
-  if (!isSlugExist) {
-    await client.query(
-      q.Create(q.Collection('post_visit_count'), {
-        data: {
-          slug,
-          count: 0,
-        },
-      })
-    )
-  }
+  if (!isSlugExist) await createCollection('post_visit_count', { slug, count: 0 })
 
-  const document = await getFaunadbIndex('visit_by_slug', slug)
+  const document = await getIndex('visit_by_slug', slug)
 
-  await client.query(
-    q.Update(document.ref, {
-      data: {
-        count: document.data.count + 1,
-      },
-    })
-  )
+  await updateCollection(document.ref, { count: document.data.count + 1 })
+
   return document
 }
 
