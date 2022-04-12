@@ -28,7 +28,7 @@ async function getWebsiteVisit() {
   const date = dayjs().format('YYYY-MM-DD')
   const isTodayExist = await isIndexExist('website_visit', date)
 
-  if (!isTodayExist) await createCollection('website_visit', { date, count: 0 })
+  if (!isTodayExist) await createCollection('website_visit', { date, count: 1 })
 
   const document = await getIndex('website_visit', date)
 
@@ -40,7 +40,7 @@ async function getWebsiteVisit() {
 async function getPostVisit(slug: string) {
   const isSlugExist = await isIndexExist('visit_by_slug', slug)
 
-  if (!isSlugExist) await createCollection('post_visit_count', { slug, count: 0 })
+  if (!isSlugExist) await createCollection('post_visit_count', { slug, count: 1 })
 
   const document = await getIndex('visit_by_slug', slug)
 
