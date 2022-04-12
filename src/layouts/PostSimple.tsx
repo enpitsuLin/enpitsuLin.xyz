@@ -28,7 +28,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
       <ScrollTopAndComment toc={toc} />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <PostHeader title={title} date={date} />
+          <PostHeader frontMatter={frontMatter} />
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:divide-y-0 "
             style={{ gridTemplateRows: 'auto 1fr' }}
