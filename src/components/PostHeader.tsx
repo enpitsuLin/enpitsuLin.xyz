@@ -20,9 +20,9 @@ const PostHeader: React.FC<Props> = ({ frontMatter }) => {
   }, [])
   return (
     <header className="pt-6 xl:pb-6">
-      <div className="space-y-8 text-center">
+      <div className="space-y-12 text-center">
         <PageTitle>{title}</PageTitle>
-        <div>
+        <div className="pb-6">
           <dl className="flex justify-center flex-wrap space-x-4">
             <div>
               <dt className="sr-only">Tags</dt>
