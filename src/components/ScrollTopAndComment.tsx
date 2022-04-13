@@ -43,7 +43,7 @@ const ScrollTopAndComment: React.FC<{ toc: Toc }> = ({ toc }) => {
   }
   return (
     <div className="fixed right-8 bottom-8 hidden flex-col gap-3 md:flex z-20">
-      <Button aria-label="Scroll To Comment" onClick={handleScrollToComment.bind(this)}>
+      <Button aria-label="Scroll To Comment" onClick={handleScrollToComment}>
         <FaComment className="h-4 w-4" />
       </Button>
       {toc.length > 0 && (
