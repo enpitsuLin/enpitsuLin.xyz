@@ -5,7 +5,7 @@ import { FaArrowUp, FaComment, FaList } from 'react-icons/fa'
 const Button: React.FC<JSX.IntrinsicElements['button']> = ({ children, ...rest }) => {
   const classes = [
     rest.className,
-    'rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600',
+    'rounded-full bg-gray-200 p-2 text-gray-700 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600',
   ].join(' ')
   return (
     <button {...rest} type="button" className={classes}>
@@ -57,12 +57,12 @@ const ScrollTopAndComment: React.FC<{ toc: Toc }> = ({ toc }) => {
             <FaList className="h-4 w-4" />
           </Button>
           {tocShow && (
-            <div className="absolute right-10 bottom-0 h-80 w-80 rounded-md shadow-md p-4 overflow-y-auto">
+            <div className="absolute right-10 bottom-0 h-80 w-80 bg-gray-200 dark:bg-gray-700 shadow rounded-md p-4 overflow-y-auto">
               <div className="flex flex-col">
                 {toc.map((h) => (
                   <a
                     key={h.value}
-                    className="hover:bg-gray-500 cursor-pointer my-1 px-1"
+                    className="hover:bg-gray-100 dark:hover:bg-gray-500 cursor-pointer my-1 px-2"
                     style={{ marginLeft: `${(h.depth - 1) * 20}px` }}
                     onClick={() => {
                       handleScrollToToc(h.url)
