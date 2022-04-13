@@ -24,7 +24,7 @@ const siteMetadata = {
     googleAnalyticsId: '',
   },
   comment: {
-    shortname: process.env.NEXT_PUBLIC_DISQUS_SHORTNAME,
+    apikey: process.env.DISQUS_APIKEY,
   },
   lastUpdateTime: new Date(),
 }
