@@ -14,7 +14,7 @@ const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) =
     const disqus = new DisqusJS({
       shortname: 'enpitsulin',
       siteName: `enpitsulin's blog`,
-      api: 'http://disqusjs.enpitsulin.xyz/',
+      api: 'https://disqusjs.enpitsulin.xyz/',
       apikey: process.env.NEXT_PUBLIC_DISQUS_APIKEY,
     })
   }
