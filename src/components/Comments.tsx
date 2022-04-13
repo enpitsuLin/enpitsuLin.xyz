@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import 'disqusjs/dist/disqusjs.css'
 import DisqusJS from 'disqusjs'
-import siteMetadata from 'data/siteMetadata'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 
 const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) => {
@@ -11,11 +10,12 @@ const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) =
 
   function LoadComments() {
     setEnabledLoadComments(false)
+
     const disqus = new DisqusJS({
       shortname: 'enpitsulin',
-      siteName: 'enpitsulin',
+      siteName: `enpitsulin's blog`,
       api: 'http://disqusjs.enpitsulin.xyz/',
-      apikey: siteMetadata.comment.apikey,
+      apikey: process.env.NEXT_PUBLIC_DISQUS_APIKEY,
     })
   }
 

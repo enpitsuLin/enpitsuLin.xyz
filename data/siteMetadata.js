@@ -23,9 +23,6 @@ const siteMetadata = {
     umamiWebsiteId: '',
     googleAnalyticsId: '',
   },
-  comment: {
-    apikey: process.env.DISQUS_APIKEY,
-  },
   lastUpdateTime: new Date(),
 }
 
