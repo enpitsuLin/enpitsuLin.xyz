@@ -1,6 +1,8 @@
 interface Window {
-  disqus_config: any
-  DISQUS: any
+  disqus_config: () => void
+  DISQUS: {
+    reset: ({ reload: boolean }) => void
+  }
   dataLayer: any[]
   gtag: (...arguments: any[]) => void
   plausible: { q: any[]; (...arguments: any[]): void }
