@@ -20,7 +20,7 @@ const Hero: React.FC<Props> = ({ welcome }) => {
         className="w-full h-full bg-skin-base absolute inset-0 pointer-events-auto"
         id="canvas"
       />
-      <div className="relative z-10 flex h-[100vh] items-center justify-center">
+      <div className="relative z-10 flex h-[calc(100vh_-_166px)] items-center justify-center">
         <div ref={ref} className="px-4 text-3xl md:text-4xl cursor-default">
           {welcome.split('').map((latter, index) => (
             <span
