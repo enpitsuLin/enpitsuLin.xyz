@@ -15,7 +15,7 @@ const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) =
       shortname: 'enpitsulin',
       siteName: 'enpitsulin',
       api: 'http://disqusjs.enpitsulin.xyz/',
-      apiKey: siteMetadata.comment.apikey,
+      apikey: siteMetadata.comment.apikey,
     })
   }
 
