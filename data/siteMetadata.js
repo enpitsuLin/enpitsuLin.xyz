@@ -21,7 +21,7 @@ const siteMetadata = {
     plausibleDataDomain: '',
     simpleAnalytics: false,
     umamiWebsiteId: '',
-    googleAnalyticsId: '',
+    googleAnalyticsId: 'G-YB5GQDJZ4R',
   },
   lastUpdateTime: new Date(),
 }
