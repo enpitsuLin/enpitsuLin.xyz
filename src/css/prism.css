@@ -32,7 +32,24 @@
 }
 
 .highlight-line {
-  @apply -mx-4 border-l-4 border-primary-500  bg-gray-700 bg-opacity-50;
+  @apply border-primary-500 bg-gray-700 bg-opacity-50;
+}
+
+.diff-del {
+  @apply border-red-700 bg-red-700 bg-opacity-30 relative;
+}
+
+.diff-add {
+  @apply border-green-700 bg-green-700 bg-opacity-30 relative;
+}
+
+.diff-warn {
+  @apply border-orange-700 bg-orange-700 bg-opacity-30 relative;
+}
+
+[class*='diff-']::after {
+  content: attr(operator);
+  @apply absolute left-1 top-0 border-transparent;
 }
 
 .line-number::before {

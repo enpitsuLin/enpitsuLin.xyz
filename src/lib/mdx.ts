@@ -5,7 +5,6 @@ import path from 'path'
 import readingTime from 'reading-time'
 import getAllFilesRecursively from './utils/files'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
-import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import { Toc } from '@/types/Toc'
 // Remark packages
 import remarkGfm from 'remark-gfm'
@@ -22,6 +21,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
+import rehypePrismDiff from './rehype-highlight-diff'
 
 const root = process.cwd()
 
@@ -83,6 +83,7 @@ export async function getFileBySlug<T>(type: 'authors' | 'blog', slug: string | 
         rehypeKatex,
         [rehypeCitation, { path: path.join(root, 'data') }],
         [rehypePrismPlus, { ignoreMissing: true }],
+        rehypePrismDiff,
         rehypePresetMinify,
       ]
       return options
