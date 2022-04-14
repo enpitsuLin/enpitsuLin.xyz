@@ -20,9 +20,9 @@ export const MDXComponents: ComponentMap = {
   TOCInline,
   a: CustomLink,
   pre: Pre,
-  img: ({ alt, src }) => (
+  img: ({ alt, src, ...rest }) => (
     <PhotoView src={src}>
-      <img src={src} alt={alt} className="cursor-zoom-in" />
+      <img src={src} alt={alt} {...rest} className="cursor-zoom-in" />
     </PhotoView>
   ),
   wrapper: Wrapper,
