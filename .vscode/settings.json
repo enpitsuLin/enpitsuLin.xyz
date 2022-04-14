@@ -1,0 +1,13 @@
+{
+    "i18n-ally.localesPaths": [
+        "locales"
+    ],
+    "i18n-ally.sortKeys": true,
+    "i18n-ally.keepFulfilled": true,
+    "i18n-ally.namespace": true,
+    "i18n-ally.defaultNamespace": "common",
+    "i18n-ally.pathMatcher": "{locale}/{namespaces}.json",
+    "i18n-ally.sourceLanguage": "zh",
+    "i18n-ally.displayLanguage": "zh",
+    "i18n-ally.extract.keyMaxLength": 1000000,
+}
