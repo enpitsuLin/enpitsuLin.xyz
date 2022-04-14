@@ -15,10 +15,10 @@ const I18nSwitch = () => {
     setOpen(false)
   }
   return (
-    <div className="relative inline-block text-center">
+    <div className="text-center relative inline-block">
       <div>
         <button
-          className="inline-flex justify-center w-full px-[22px] py-[12px] text-sm font-medium text-gray-500 rounded-md bg-opacity-20 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-100 focus-visible:ring-opacity-75"
+          className="rounded-md font-medium bg-opacity-20 text-sm w-full py-[12px] px-[22px] text-gray-900 inline-flex justify-center dark:text-gray-200 hover:bg-gray-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-100 focus-visible:ring-opacity-75 dark:hover:text-black"
           type="button"
           onClick={() => {
             setOpen((open) => !open)
@@ -29,10 +29,10 @@ const I18nSwitch = () => {
       </div>
       {open && (
         <div
-          className="absolute z-20 right-0 w-14 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          className="divide-y bg-white rounded-md divide-gray-100 shadow-lg ring-black mt-2 origin-top-right right-0 ring-1 ring-opacity-5 w-14 z-20 absolute focus:outline-none"
           role="menu"
         >
-          <div className="px-1 py-1 cursor-pointer" role="none">
+          <div className="cursor-pointer py-1 px-1" role="none">
             {locales.map((locale) => (
               <a
                 role="none"
