@@ -1,6 +1,6 @@
 ---
 name: enpitsulin
-avatar: https://avatars.githubusercontent.com/u/29378026
+avatar: /static/images/avatar.jpg
 occupation: FE Engineer
 company: undefined
 email: enpitsulin@gmail.com
