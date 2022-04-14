@@ -15,10 +15,13 @@ summary: 因为最近在玩一款挂机类的手机游戏，但是玩的挺难�
 先是将手机安装的 APK 文件导出，直接 adb pull 将/data/app 里的 APK 文件拉取。
 
 然后解压查看 lib 目录发现
-![lib目录](./lib目录.jpg)
+
+![lib目录](https://s3.bmp.ovh/imgs/2022/04/14/b1c10a56f58b3649.jpg)
+
 很明显这是一款基于 cocos2dlua 开发的手游，然后来到\assets\src 目录下
 
-![src目录](./src目录.png)
+![src目录](https://s3.bmp.ovh/imgs/2022/04/14/955abebc583b9ff1.png)
+
 不过直接打开显示乱码，显然是经过加密的。
 
 ## 前期思考
@@ -26,15 +29,18 @@ summary: 因为最近在玩一款挂机类的手机游戏，但是玩的挺难�
 网上搜索 cocos2d 加密，根据文件的内容结构，应该是以 cocos2dlua 默认的加密方法 XXTEA 算法进行加密的。
 
 这种算法拥有相应的标识符和密钥，所以被加密的 lua 文件开头的一串`FF98392D`应该就是相应的标识
-![sign标识](./sign标识.png)
+
+![sign标识](https://s3.bmp.ovh/imgs/2022/04/14/8197f972c53a245b.png)
 
 接下来需要拿到密钥，直接拿起 IDA 对 cocos2dlua.so 进行调试。用 IDA 打开 so 等待自动分析完成，然后建立 string list，直接搜索这个标识`FF98392D`
-![定位到密钥和标识](./定位到密钥和标识.png)
+
+![定位到密钥和标识](https://s3.bmp.ovh/imgs/2022/04/14/d5871d72939102e4.png)
 
 可以看到一个奇怪的字符串 witu_xxWEM，然后使用网上下载的 XXTEADecrypt 软件进行解码。
 
 然后心满意足的打开.lua 脚本，惊讶的发现还是不可读的乱码。
-![还是乱码](./乱码.png)
+
+![还是乱码](https://s3.bmp.ovh/imgs/2022/04/14/7080caf02fec98c6.png)
 
 不过这个文件的前几个字节还是一样的有标识`LJ` 所以我想是不是还是经过了一层 XXTEA 的加密。
 
