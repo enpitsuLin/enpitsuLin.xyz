@@ -1,5 +1,6 @@
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import useTranslation from 'next-translate/useTranslation'
 import { useState, useEffect } from 'react'
 import PageTitle from './PageTitle'
 import Tag from './Tag'
@@ -11,6 +12,7 @@ interface Props {
 const PostHeader: React.FC<Props> = ({ frontMatter }) => {
   const { title, date, readingTime, tags, slug } = frontMatter
   const [visit, setVisit] = useState(0)
+  const { t } = useTranslation('common')
 
   useEffect(() => {
     fetch(`/api/get-visit?slug=${slug}`).then(async (response) => {
@@ -33,27 +35,27 @@ const PostHeader: React.FC<Props> = ({ frontMatter }) => {
               </dd>
             </div>
             <div>
-              <dt className="sr-only">Published on</dt>
+              <dt className="sr-only">{t('post.published-on')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                 <time dateTime={date}>{formatDate(date)}</time>
               </dd>
             </div>
             <div>
-              <dt className="sr-only">Reading time</dt>
+              <dt className="sr-only">{t('post.reading-time')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {Math.round(readingTime.minutes)} 分钟阅读
+                {t('post.reading-time-var', { time: Math.round(readingTime.minutes) })}
               </dd>
             </div>
             <div>
-              <dt className="sr-only">Word count</dt>
+              <dt className="sr-only">{t('post.words-count')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                约 {readingTime.words} 字
+                {t('post.words-count-var', { words: readingTime.words })}
               </dd>
             </div>
             <div>
-              <dt className="sr-only">Reads</dt>
+              <dt className="sr-only">{t('post.reads')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {visit} 次阅读
+                {t('post.reads-var', { reads: visit })}
               </dd>
             </div>
           </dl>

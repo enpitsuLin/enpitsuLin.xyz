@@ -10,10 +10,13 @@
         "placeholder": "搜索文章"
     },
     "post": {
-        "words": "字数",
-        "comment": "加载评论",
+        "published-on": "发布于",
         "reading-time": "阅读时间",
         "reading-time-var": "约 {{time}} 分钟",
+        "words-count": "字数统计",
+        "words-count-var": "约 {{words}} 字",
+        "reads": "阅读次数",
+        "reads-var": "{{reads}} 次阅读",
         "tags": "标签",
         "page": {
             "previous": "上一页",

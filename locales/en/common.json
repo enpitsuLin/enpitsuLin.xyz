@@ -10,10 +10,13 @@
         "placeholder": "Search articles"
     },
     "post": {
-        "words": "Words",
-        "comment": "Load Comments",
+        "published-on": "Published on",
         "reading-time": "ReadingTime",
         "reading-time-var": "{{time}} min read",
+        "words-count": "Word count",
+        "words-count-var": "{{words}} words",
+        "reads": "Reads",
+        "reads-var": "{{reads}} reads",
         "tags": "Tags",
         "page": {
             "previous": "Previous",
