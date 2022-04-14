@@ -27,7 +27,12 @@ const ThemeSwitch: React.FC = () => {
       }}
       aria-label="Toggle Dark Mode"
       type="button"
-      onClick={() => setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')}
+      onClick={() => {
+        setTheme(theme === 'dark' || resolvedTheme === 'dark' ? 'light' : 'dark')
+        if (window.DISQUS) {
+          window.DISQUS.reset({ reload: true })
+        }
+      }}
     >
       {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
         <FaSun size={20} className="hover:text-amber-600" />
