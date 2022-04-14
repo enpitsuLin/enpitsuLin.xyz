@@ -39,6 +39,7 @@ specifiers:
   react: 17.0.2
   react-dom: 17.0.2
   react-icons: ^4.3.1
+  react-photo-view: ^1.0.0
   reading-time: 1.5.0
   rehype-autolink-headings: ^6.1.1
   rehype-citation: ^0.2.5
@@ -78,6 +79,7 @@ dependencies:
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   react-icons: 4.3.1_react@17.0.2
+  react-photo-view: 1.0.0_react-dom@17.0.2+react@17.0.2
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
   rehype-citation: 0.2.5
@@ -6177,6 +6179,16 @@ packages:
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: true
+
+  /react-photo-view/1.0.0_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-OSy2PRYqGT4ho6vC4Tq/hDrt6Y+FPcbY2M2LXd7waxSBVXjFuuCDK20NVlgs0y+oYT38NsMIRKKyrwTBoIMIcg==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    dev: false
 
   /react/17.0.2:
     resolution: {integrity: sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA==}

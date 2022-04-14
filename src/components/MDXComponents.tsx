@@ -1,10 +1,12 @@
 /* eslint-disable react/display-name */
 import React, { useMemo } from 'react'
+import Pre from './Pre'
+import { PhotoProvider, PhotoView } from 'react-photo-view'
 import { ComponentMap, getMDXComponent } from 'mdx-bundler/client'
 import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
-import Pre from './Pre'
+import 'react-photo-view/dist/react-photo-view.css'
 
 const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) => {
   const Layout = require(`../layouts/${layout}`).default
@@ -17,6 +19,11 @@ export const MDXComponents: ComponentMap = {
   TOCInline,
   a: CustomLink,
   pre: Pre,
+  img: ({ alt, src }) => (
+    <PhotoView src={src}>
+      <img src={src} alt={alt} />
+    </PhotoView>
+  ),
   wrapper: Wrapper,
 }
 
@@ -29,5 +36,9 @@ interface Props {
 export const MDXLayoutRenderer = ({ layout, mdxSource, ...rest }: Props) => {
   const MDXLayout = useMemo(() => getMDXComponent(mdxSource), [mdxSource])
 
-  return <MDXLayout layout={layout} components={MDXComponents} {...rest} />
+  return (
+    <PhotoProvider>
+      <MDXLayout layout={layout} components={MDXComponents} {...rest} />
+    </PhotoProvider>
+  )
 }
