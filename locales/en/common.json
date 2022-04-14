@@ -1,33 +1,34 @@
 {
-    "welcome": "Hello",
-    "header": {
-        "home": "Home",
-        "blog": "Blog",
-        "tags": "Tags",
-        "about": "About"
-    },
-    "search": {
-        "placeholder": "Search articles"
-    },
-    "post": {
-        "published-on": "Published on",
-        "reading-time": "ReadingTime",
-        "reading-time-var": "{{time}} min read",
-        "words-count": "Word count",
-        "words-count-var": "{{words}} words",
-        "reads": "Reads",
-        "reads-var": "{{reads}} reads",
-        "tags": "Tags",
-        "page": {
-            "previous": "Previous",
-            "next": "Next"
-        }
-    },
-    "exception": {
-        "not-found": {
-            "title": "Oops! That page can't be found.",
-            "desc": "But dont worry, you can find plenty of other things on our homepage.",
-            "back": "Back to homepage"
-        }
+  "exception": {
+    "not-found": {
+      "back": "Back to homepage",
+      "desc": "But dont worry, you can find plenty of other things on our homepage.",
+      "title": "Oops! That page can't be found."
     }
+  },
+  "header": {
+    "about": "About",
+    "blog": "Blog",
+    "home": "Home",
+    "tags": "Tags"
+  },
+  "post": {
+    "no-post": "No posts found.",
+    "page": {
+      "next": "Next",
+      "previous": "Previous"
+    },
+    "published-on": "Published on",
+    "reading-time": "ReadingTime",
+    "reading-time-var": "{{time}} min read",
+    "reads": "Reads",
+    "reads-var": "{{reads}} reads",
+    "tags": "Tags",
+    "words-count": "Word count",
+    "words-count-var": "{{words}} words"
+  },
+  "search": {
+    "placeholder": "Search articles"
+  },
+  "welcome": "Hello"
 }
