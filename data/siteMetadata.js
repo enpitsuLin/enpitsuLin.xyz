@@ -18,7 +18,7 @@ const siteMetadata = {
   steam: 'https://steamcommunity.com/profiles/76561198338250608/',
   locale: 'zh-Hans',
   analytics: {
-    plausibleDataDomain: '',
+    plausibleDataDomain: 'enpitsulin.xyz',
     simpleAnalytics: false,
     umamiWebsiteId: '',
     googleAnalyticsId: 'G-YB5GQDJZ4R',
