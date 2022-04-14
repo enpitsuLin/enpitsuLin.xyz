@@ -22,7 +22,7 @@ export const MDXComponents: ComponentMap = {
   pre: Pre,
   img: ({ alt, src }) => (
     <PhotoView src={src}>
-      <img src={src} alt={alt} />
+      <img src={src} alt={alt} className="cursor-zoom-in" />
     </PhotoView>
   ),
   wrapper: Wrapper,

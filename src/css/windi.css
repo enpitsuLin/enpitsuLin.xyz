@@ -17,6 +17,14 @@
   .transition-in > span {
     opacity: 1;
   }
+  .cursor-zoom-in {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+  }
+  .cursor-zoom-in {
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+  }
 }
 
 ::-webkit-scrollbar {
