@@ -28,6 +28,7 @@ const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) =
       { threshold: [0] }
     )
     observer.observe(ele)
+    return () => observer.unobserve(ele)
   }, [])
 
   return (
