@@ -45,11 +45,11 @@ pnpm add -D @types/node @types/react @types/react-dom typescript windicss windic
 
 在`package.json`中新增一个 script
 
-```json:package.json
+```json:package.json diff
 {
     ...
     "scripts":{
-        "dev":"next",
++        "dev":"next",
     }
 }
 ```

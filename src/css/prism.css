@@ -47,6 +47,10 @@
   @apply border-orange-700 bg-orange-700 bg-opacity-30 relative;
 }
 
+.diff-comment {
+  @apply opacity-50 border-gray-700 bg-gray-700 bg-opacity-30 relative italic;
+}
+
 [class*='diff-']::after {
   content: attr(operator);
   @apply absolute left-1 top-0 border-transparent;

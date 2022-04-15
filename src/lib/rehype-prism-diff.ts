@@ -1,5 +1,5 @@
 import { visit } from 'unist-util-visit'
-import { Element } from 'hast'
+import { Element, ElementContent } from 'hast'
 
 function classList(node: Element) {
   if (!node.properties.className) {
@@ -73,6 +73,22 @@ function classList(node: Element) {
   return classList
 }
 
+function dfs(node: ElementContent) {
+  if ('children' in node) {
+    return node.children
+      .map(dfs)
+      .flat()
+      .find((i) => !!i)
+  }
+
+  if ('value' in node && node.value != '')
+    if (/^[-+!#]/.test(node.value)) {
+      return node
+    }
+}
+
+const classMap = { '+': 'add', '-': 'del', '!': 'warn', '#': 'comment' }
+
 export default function rehypePrismDiff() {
   return (tree: Element) => {
     visit(tree, 'element', (node: Element, index: number, parent: Element) => {
@@ -84,31 +100,15 @@ export default function rehypePrismDiff() {
 
       classList(node).add('code-diff')
       node.children.forEach((line) => {
-        if (line.type != 'element') return
-        line.children = line.children.filter((token) => {
-          if (token.type !== 'element' || token.tagName !== 'span') return true
-          if (classList(token).contains('operator')) {
-            if (!token.children.length || !token.children[0] || token.children[0].type !== 'text')
-              return true
-            const firstOperator = token.children[0].value
-            switch (firstOperator) {
-              case '-':
-                classList(line).add('diff-del')
-                line.properties.operator = '-'
-                return false
-              case '+':
-                classList(line).add('diff-add')
-                line.properties.operator = '+'
-                return false
-              case '!':
-                classList(line).add('diff-warn')
-                line.properties.operator = '!'
-                return false
-            }
-            return true
-          }
-          return true
-        })
+        if (line.type !== 'element') return
+        let operatorNode = dfs(line)
+        if (operatorNode) {
+          const operator = operatorNode.value.match(/^[-+!#]/)?.[0]
+
+          line.properties.operator = operator
+          operatorNode.value = operatorNode.value.slice(1)
+          classList(line).add(`diff-${classMap[operator]}`)
+        }
       })
     })
   }
