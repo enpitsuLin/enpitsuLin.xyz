@@ -1,5 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
-import 'disqusjs/dist/disqusjs.css'
+import React, { useEffect, useRef } from 'react'
 import DisqusJS from 'disqusjs'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 
