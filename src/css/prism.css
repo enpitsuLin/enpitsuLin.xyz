@@ -35,25 +35,20 @@
   @apply border-primary-500 bg-gray-700 bg-opacity-50;
 }
 
-.diff-del {
+.code-line.diff-deleted {
   @apply border-red-700 bg-red-700 bg-opacity-30 relative;
 }
 
-.diff-add {
+.code-line.diff-inserted {
   @apply border-green-700 bg-green-700 bg-opacity-30 relative;
 }
 
-.diff-warn {
+.code-line.diff-warn {
   @apply border-orange-700 bg-orange-700 bg-opacity-30 relative;
 }
 
-.diff-comment {
+.code-line.diff-comment {
   @apply opacity-50 border-gray-700 bg-gray-700 bg-opacity-30 relative italic;
-}
-
-[class*='diff-']::after {
-  content: attr(operator);
-  @apply absolute left-1 top-0 border-transparent;
 }
 
 .line-number::before {
