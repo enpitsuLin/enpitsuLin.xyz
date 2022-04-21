@@ -96,6 +96,7 @@ export default defineConfig({
             blockquote: {
               color: theme('colors.gray.900'),
               borderLeftColor: theme('colors.gray.200'),
+              margin: '1rem',
             },
           },
         },
@@ -157,6 +158,7 @@ export default defineConfig({
             blockquote: {
               color: theme('colors.gray.100'),
               borderLeftColor: theme('colors.gray.700'),
+              margin: '1rem',
             },
           },
         },
