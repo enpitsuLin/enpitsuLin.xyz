@@ -59,7 +59,8 @@ export default defineConfig({
               color: theme('colors.gray.900'),
             },
             pre: {
-              backgroundColor: theme('colors.gray.800'),
+              backgroundColor: theme('colors.neutral.200'),
+              color: 'hsl(230, 8%, 24%)',
             },
             code: {
               color: theme('colors.pink.500'),
