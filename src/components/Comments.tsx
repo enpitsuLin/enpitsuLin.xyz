@@ -31,7 +31,11 @@ const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) =
   }, [])
 
   return (
-    <div ref={comments} className="min-h-8 pt-6 pb-6 text-center text-gray-700 dark:text-gray-300">
+    <div
+      ref={comments}
+      id="comment"
+      className="min-h-8 pt-6 pb-6 text-center text-gray-700 dark:text-gray-300"
+    >
       <div className="disqus-frame" id={COMMENTS_ID} style={{ colorScheme: 'light' }} />
     </div>
   )
