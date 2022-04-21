@@ -60,7 +60,7 @@ export default defineConfig({
             },
             pre: {
               backgroundColor: theme('colors.neutral.200'),
-              color: 'hsl(230, 8%, 24%)',
+              color: theme('colors.gray.800'), //'hsl(230, 8%, 24%)',
             },
             code: {
               color: theme('colors.pink.500'),
@@ -130,6 +130,7 @@ export default defineConfig({
             },
             pre: {
               backgroundColor: theme('colors.gray.800'),
+              color: theme('colors.neutral.200'),
             },
             code: {
               backgroundColor: theme('colors.gray.800'),
