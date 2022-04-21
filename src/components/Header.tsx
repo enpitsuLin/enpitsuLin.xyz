@@ -36,8 +36,8 @@ const Header = () => {
   return (
     <header className={classes} ref={ref}>
       <div
-        className={`flex justify-between items-center max-w-3xl px-4 mx-auto sm:px-6 xl:px-0 transition-all duration-500 ${
-          stuck ? ' xl:max-w-8xl' : ' xl:max-w-6xl'
+        className={`flex justify-between items-center px-4 mx-auto sm:px-6 xl:px-0 transition-all duration-500 ${
+          stuck ? 'max-w-5xl xl:max-w-8xl' : 'max-w-3xl xl:max-w-6xl'
         }`}
       >
         <Link
@@ -54,7 +54,7 @@ const Header = () => {
               <Link
                 key={link.title}
                 href={link.href}
-                className="font-medium p-1 text-gray-900 filter invert sm:p-4 dark:text-gray-200 hover:text-gray-500 dark:hover:text-white"
+                className="font-medium p-1 text-gray-900 sm:p-4 dark:text-gray-200 hover:text-gray-500 dark:hover:text-white"
               >
                 {t(link.title)}
               </Link>
