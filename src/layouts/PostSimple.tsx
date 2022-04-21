@@ -34,11 +34,10 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
             </div>
-            <Comments frontMatter={frontMatter} />
-            <footer>
+            <footer className="border-b border-gray-400">
               <div className="flex flex-col text-sm font-medium sm:flex-row sm:justify-between sm:text-base">
                 {prev && (
-                  <div className="pt-4 xl:pt-8">
+                  <div className="py-4 xl:pt-8">
                     <Link
                       href={`/blog/${prev.slug}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -48,7 +47,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
                   </div>
                 )}
                 {next && (
-                  <div className="pt-4 xl:pt-8">
+                  <div className="py-4 xl:pt-8">
                     <Link
                       href={`/blog/${next.slug}`}
                       className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
@@ -59,6 +58,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
                 )}
               </div>
             </footer>
+            <Comments frontMatter={frontMatter} />
           </div>
         </div>
       </article>

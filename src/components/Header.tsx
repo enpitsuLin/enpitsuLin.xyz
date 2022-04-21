@@ -12,6 +12,8 @@ const Header = () => {
 
   const [stuck, setStuck] = useState(false)
   const ref = useRef<HTMLHeadElement>()
+
+  const a = <div className="bg-[#fff1] backdrop-filter backdrop-blur-md"></div>
   const stuckClasses =
     'py-2 md:py-3 sticky -top-1 z-50 transition-all backdrop-filter backdrop-blur-md mx-auto border-b border-slate-900/10 dark:border-slate-300/10 w-full'
   const unstuckClasses =
@@ -33,22 +35,26 @@ const Header = () => {
 
   return (
     <header className={classes} ref={ref}>
-      <div className="flex justify-between items-center max-w-3xl px-4 mx-auto sm:px-6 xl:max-w-8xl xl:px-0">
+      <div
+        className={`flex justify-between items-center max-w-3xl px-4 mx-auto sm:px-6 xl:px-0 transition-all duration-500 ${
+          stuck ? ' xl:max-w-8xl' : ' xl:max-w-6xl'
+        }`}
+      >
         <Link
           href="/"
           aria-label={siteMetadata.headerTitle}
-          className="h-6 text-2xl font-semibold sm:block "
+          className="font-semibold h-6 text-2xl sm:block "
         >
           {siteMetadata.author}
         </Link>
 
-        <div className="flex items-center text-base leading-5">
+        <div className="flex text-base leading-5 items-center">
           <div className="hidden sm:block">
             {headerNavLinks.map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
-                className="p-1 font-medium text-gray-900 dark:text-gray-200 sm:p-4 hover:text-gray-500 dark:hover:text-white"
+                className="font-medium p-1 text-gray-900 filter invert sm:p-4 dark:text-gray-200 hover:text-gray-500 dark:hover:text-white"
               >
                 {t(link.title)}
               </Link>
