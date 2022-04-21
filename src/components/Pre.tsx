@@ -30,10 +30,10 @@ const Pre = ({ children }: Props) => {
         <button
           aria-label="Copy code"
           type="button"
-          className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-gray-700 p-1 dark:bg-gray-800 ${
+          className={`absolute right-2 top-2 h-8 w-8 rounded border-2 bg-gray-100 p-1 dark:bg-gray-800 ${
             copied
               ? 'border-green-400 focus:border-green-400 focus:outline-none'
-              : 'border-gray-300'
+              : 'border-gray-600 dark:border-gray-300'
           }`}
           onClick={onCopy}
         >
@@ -42,7 +42,7 @@ const Pre = ({ children }: Props) => {
             viewBox="0 0 24 24"
             stroke="currentColor"
             fill="none"
-            className={copied ? 'text-green-400' : 'text-gray-300'}
+            className={copied ? 'text-green-400' : 'text-gray-600 dark:text-gray-300 '}
           >
             {copied ? (
               <>
