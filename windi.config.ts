@@ -85,7 +85,10 @@ export default defineConfig({
               paddingBottom: '2px',
               borderRadius: '0.25rem',
             },
-            hr: { borderColor: theme('colors.gray.200') },
+            hr: {
+              borderColor: theme('colors.gray.200'),
+              borderWidth: '1px',
+            },
             'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.500'),
@@ -138,7 +141,10 @@ export default defineConfig({
             details: {
               backgroundColor: theme('colors.gray.800'),
             },
-            hr: { borderColor: theme('colors.gray.700') },
+            hr: {
+              borderColor: theme('colors.gray.700'),
+              borderWidth: '1px',
+            },
             'ol li::marker': {
               fontWeight: '600',
               color: theme('colors.gray.400'),
