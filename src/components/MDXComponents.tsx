@@ -25,6 +25,11 @@ export const MDXComponents: ComponentMap = {
       <img src={src} alt={alt} {...rest} className="cursor-zoom-in" />
     </PhotoView>
   ),
+  del: (props) => (
+    <del title="你知道的太多了" className="heimu">
+      {props.children}
+    </del>
+  ),
   wrapper: Wrapper,
 }
 

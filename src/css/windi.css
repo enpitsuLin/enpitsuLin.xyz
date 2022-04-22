@@ -25,6 +25,13 @@
     cursor: -webkit-zoom-out;
     cursor: zoom-out;
   }
+  .heimu {
+    padding: 0.125rem 0.25rem;
+    @apply bg-dark-600 text-dark-600 no-underline;
+  }
+  .heimu:hover {
+    @apply text-white;
+  }
 }
 
 ::-webkit-scrollbar {
