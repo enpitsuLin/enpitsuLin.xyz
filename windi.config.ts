@@ -79,10 +79,10 @@ export default defineConfig({
             },
             details: {
               backgroundColor: theme('colors.gray.100'),
-              paddingLeft: '4px',
-              paddingRight: '4px',
-              paddingTop: '2px',
-              paddingBottom: '2px',
+              paddingLeft: '0.75rem',
+              paddingRight: '0.75rem',
+              paddingTop: '0.5rem',
+              paddingBottom: '0.5rem',
               borderRadius: '0.25rem',
             },
             hr: {
