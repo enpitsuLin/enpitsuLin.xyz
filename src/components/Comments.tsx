@@ -9,6 +9,7 @@ const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) =
 
   function LoadComments() {
     const disqus = new DisqusJS({
+      identifier: frontMatter.slug,
       shortname: 'enpitsulin',
       siteName: `enpitsulin's blog`,
       api: 'https://disqusjs.enpitsulin.xyz/',
