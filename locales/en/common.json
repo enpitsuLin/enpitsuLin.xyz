@@ -14,6 +14,7 @@
     "tags": "Tags"
   },
   "latest": "Latest",
+  "no-posts-found": "No posts found.",
   "post": {
     "no-post": "No posts found.",
     "page": {
