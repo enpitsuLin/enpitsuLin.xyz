@@ -39,7 +39,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
             <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
             </div>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700">
+            <div className="divide-y divide-gray-200 dark:divide-gray-700 hidden lg:block">
               <div className="py-4 xl:py-8">
                 <Link
                   href="/blog"
@@ -65,7 +65,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
             </div>
           </div>
           <footer>
-            <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
+            <div className="divide-gray-200 text-sm font-medium leading-5 flex-col lg:flex-row dark:divide-gray-700 flex justify-between">
               {prev && (
                 <div className="py-4 xl:pt-8">
                   <Link
