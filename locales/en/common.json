@@ -1,4 +1,5 @@
 {
+  "all-posts": "all posts",
   "exception": {
     "not-found": {
       "back": "Back to homepage",

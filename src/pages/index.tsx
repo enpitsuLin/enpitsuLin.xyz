@@ -88,10 +88,10 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
         <div className="flex justify-end text-base font-medium leading-6">
           <Link
             href="/blog"
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="all posts"
+            className="text-primary-500 capitalize hover:text-primary-600 dark:hover:text-primary-400"
+            aria-label={t('all-posts')}
           >
-            All Posts &rarr;
+            {t('all-posts')}
           </Link>
         </div>
       )}
