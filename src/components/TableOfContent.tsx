@@ -13,7 +13,7 @@ const TableOfContent: React.FC<{ toc: Toc }> = ({ toc }) => {
   }
 
   return (
-    <div className="h-0 py-8 top-10 hidden sticky lg:block">
+    <div className="h-0 py-8 lg:block">
       <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
         {t('toc')}
       </h2>
