@@ -12,7 +12,7 @@ import PostHeader from '@/components/PostHeader'
 import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import Tag from '@/components/Tag'
 import useTranslation from 'next-translate/useTranslation'
-import TOCInline from '@/components/TOCInline'
+import TableOfContent from '@/components/TableOfContent'
 
 interface Props {
   frontMatter: PostFrontMatter
@@ -37,7 +37,10 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
           >
-            <section>
+            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
+              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+            </div>
+            <div className="divide-y divide-gray-200 dark:divide-gray-700">
               {tags && (
                 <div className="py-4 xl:py-8">
                   <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
@@ -50,14 +53,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
                   </div>
                 </div>
               )}
-              <div className="bg-gray-200 dark:bg-gray-700 shadow p-2 rounded-md overflow-y-auto">
-                <div className="prose dark:prose-dark">
-                  <TOCInline toc={toc} asDisclosure />
-                </div>
-              </div>
-            </section>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
+              <TableOfContent toc={toc} />
             </div>
           </div>
           <footer>
