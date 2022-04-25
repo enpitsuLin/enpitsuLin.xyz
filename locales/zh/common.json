@@ -1,5 +1,4 @@
 {
-  "toc": "文章目录",
   "exception": {
     "not-found": {
       "back": "返回首页",
@@ -13,6 +12,7 @@
     "home": "主页",
     "tags": "标签"
   },
+  "latest": "最新文章",
   "post": {
     "no-post": "暂无文章",
     "page": {
@@ -31,5 +31,6 @@
   "search": {
     "placeholder": "搜索文章"
   },
+  "toc": "文章目录",
   "welcome": "你好"
 }

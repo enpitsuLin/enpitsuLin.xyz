@@ -1,5 +1,4 @@
 {
-  "toc": "Table of Contents",
   "exception": {
     "not-found": {
       "back": "Back to homepage",
@@ -13,6 +12,7 @@
     "home": "Home",
     "tags": "Tags"
   },
+  "latest": "Latest",
   "post": {
     "no-post": "No posts found.",
     "page": {
@@ -31,5 +31,6 @@
   "search": {
     "placeholder": "Search articles"
   },
+  "toc": "Table of Contents",
   "welcome": "Hello"
 }
