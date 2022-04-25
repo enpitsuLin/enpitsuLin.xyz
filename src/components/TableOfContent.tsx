@@ -17,14 +17,17 @@ const TableOfContent: React.FC<{ toc: Toc }> = ({ toc }) => {
       <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
         {t('toc')}
       </h2>
-      <ul>
+      <ul className="pt-2">
         {toc.map((heading) => (
-          <li key={heading.value}>
+          <li
+            key={heading.value}
+            onClick={() => {
+              handleScrollToToc(heading.url)
+            }}
+          >
             <span
-              onClick={() => {
-                handleScrollToToc(heading.url)
-              }}
-              className="cursor-pointer"
+              className="cursor-pointer text-sm text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+              style={{ marginLeft: `${heading.depth - 1}rem` }}
             >
               {heading.value}
             </span>

@@ -4,15 +4,14 @@ import { BlogSEO } from '@/components/SEO'
 import siteMetadata from 'data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import { ReactNode } from 'react'
-import Image from '@/components/Image'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import Comments from '@/components/Comments'
 import { Toc } from '@/types/Toc'
 import PostHeader from '@/components/PostHeader'
-import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
 import Tag from '@/components/Tag'
 import useTranslation from 'next-translate/useTranslation'
 import TableOfContent from '@/components/TableOfContent'
+import { FaArrowLeft } from 'react-icons/fa'
 
 interface Props {
   frontMatter: PostFrontMatter
@@ -41,12 +40,21 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
               <div className="prose max-w-none pt-10 pb-8 dark:prose-dark">{children}</div>
             </div>
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
+              <div className="py-4 xl:py-8">
+                <Link
+                  href="/blog"
+                  className="text-primary-500 hover:text-primary-600 flex items-center"
+                >
+                  <FaArrowLeft className="mr-3" />
+                  Back to the blog
+                </Link>
+              </div>
               {tags && (
                 <div className="py-4 xl:py-8">
                   <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
                     {t('header.tags')}
                   </h2>
-                  <div className="flex flex-wrap">
+                  <div className="pt-2 flex flex-wrap">
                     {tags.map((tag) => (
                       <Tag key={tag} text={tag} />
                     ))}
