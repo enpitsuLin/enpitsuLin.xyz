@@ -27,14 +27,6 @@ const PostHeader: React.FC<Props> = ({ frontMatter }) => {
         <div className="pb-6">
           <dl className="flex justify-center flex-wrap space-x-4">
             <div>
-              <dt className="sr-only">{t('header.tags')}</dt>
-              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {tags.map((tag) => (
-                  <Tag key={tag} text={tag} />
-                ))}
-              </dd>
-            </div>
-            <div>
               <dt className="sr-only">{t('post.published-on')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                 <time dateTime={date}>{formatDate(date)}</time>

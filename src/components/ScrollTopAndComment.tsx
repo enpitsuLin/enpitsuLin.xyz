@@ -15,9 +15,8 @@ const Button: React.FC<JSX.IntrinsicElements['button']> = ({ children, ...rest }
   )
 }
 
-const ScrollTopAndComment: React.FC<{ toc: Toc }> = ({ toc }) => {
+const ScrollTopAndComment: React.FC = () => {
   const [show, setShow] = useState(false)
-  const [tocShow, setTocShow] = useState(false)
 
   useEffect(() => {
     const handleWindowScroll = () => {
@@ -39,25 +38,7 @@ const ScrollTopAndComment: React.FC<{ toc: Toc }> = ({ toc }) => {
       <Button aria-label="Scroll To Comment" onClick={handleScrollToComment}>
         <FaComment className="h-4 w-4" />
       </Button>
-      {toc.length > 0 && (
-        <div className="relative">
-          <Button
-            aria-label="Table of content"
-            onClick={() => {
-              setTocShow((show) => !show)
-            }}
-          >
-            <FaList className="h-4 w-4" />
-          </Button>
-          {tocShow && (
-            <div className="absolute right-10 bottom-0 w-80 max-h-180 bg-gray-200 dark:bg-gray-700 shadow p-2 rounded-md overflow-y-auto">
-              <div className="prose dark:prose-dark">
-                <TOCInline toc={toc} asDisclosure />
-              </div>
-            </div>
-          )}
-        </div>
-      )}
+
       <Button
         aria-label="Scroll To Top"
         className={show ? 'md:block' : 'md:hidden'}
