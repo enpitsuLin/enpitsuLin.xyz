@@ -3,32 +3,18 @@ import siteMetadata from 'data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
 import generateRss from '@/lib/generate-rss'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import { getAllTags } from '@/lib/tags'
 import kebabCase from '@/lib/utils/kebabCase'
 import fs from 'fs'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import path from 'path'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
-import { i18nPaths } from '@/lib/utils/i18n'
 
 const root = process.cwd()
 
-export async function getStaticPaths() {
-  const tags = await getAllTags()
-  const paths = Object.keys(tags).map((tag) => ({
-    params: {
-      tag,
-    },
-  }))
-  return {
-    paths: i18nPaths(paths),
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[]; tag: string }> = async (
-  context
-) => {
+export const getServerSideProps: GetServerSideProps<{
+  posts: PostFrontMatter[]
+  tag: string
+}> = async (context) => {
   const tag = context.params.tag as string
   const allPosts = await getAllFilesFrontMatter()
   const filteredPosts = allPosts.filter(
@@ -46,7 +32,10 @@ export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[]; tag: str
   return { props: { posts: filteredPosts, tag } }
 }
 
-export default function Tag({ posts, tag }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Tag({
+  posts,
+  tag,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   // Capitalize first letter and convert space to dash
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)
   return (
