@@ -5,14 +5,7 @@ const dedent = require('dedent')
 
 const root = process.cwd()
 
-const authorPath = path.join(root, 'data', 'authors')
-
 const layoutPath = path.join(root, 'src/layouts')
-
-const getAuthors = () => {
-  const authorList = fs.readdirSync(authorPath).map((filename) => path.parse(filename).name)
-  return authorList
-}
 
 const getLayouts = () => {
   const layoutList = fs
@@ -32,7 +25,6 @@ const genFrontMatter = (answers) => {
   const tagArray = answers.tags.split(',')
   tagArray.forEach((tag, index) => (tagArray[index] = tag.trim()))
   const tags = "'" + tagArray.join("','") + "'"
-  const authorArray = answers.authors.length > 0 ? "'" + answers.authors.join("','") + "'" : ''
 
   let frontMatter = dedent`---
   title: ${answers.title ? answers.title : 'Untitled'}
@@ -44,10 +36,6 @@ const genFrontMatter = (answers) => {
   layout: ${answers.layout}
   canonicalUrl: ${answers.canonicalUrl}
   `
-
-  if (answers.authors.length > 0) {
-    frontMatter = frontMatter + '\n' + `authors: [${authorArray}]`
-  }
 
   frontMatter = frontMatter + '\n---'
 
@@ -66,12 +54,6 @@ inquirer
       message: 'Choose post extension:',
       type: 'list',
       choices: ['mdx', 'md'],
-    },
-    {
-      name: 'authors',
-      message: 'Choose authors:',
-      type: 'checkbox',
-      choices: getAuthors,
     },
     {
       name: 'summary',
