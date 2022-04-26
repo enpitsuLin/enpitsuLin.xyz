@@ -12,14 +12,7 @@ export const getServerSideProps: GetServerSideProps<{
   initialDisplayPosts: ComponentProps<typeof ListLayout>['initialDisplayPosts']
   pagination: ComponentProps<typeof ListLayout>['pagination']
 }> = async (ctx) => {
-  const apiUrl = `http://${ctx.req.headers.host}/api/get-visit`
-  const visits = (await (await fetch(apiUrl)).json()) as { data: { slug: string; count: number }[] }
-
-  const posts = (await getAllFilesFrontMatter()).map((p) => {
-    const data = visits.data.find((item) => item.slug === p.slug)
-    const reads = data?.count || 0
-    return { ...p, reads }
-  })
+  const posts = await getAllFilesFrontMatter()
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,
