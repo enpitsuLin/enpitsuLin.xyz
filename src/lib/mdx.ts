@@ -21,6 +21,7 @@ import rehypeKatex from 'rehype-katex'
 import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
+import rehypePrismDiff from 'rehype-prism-diff'
 
 const root = process.cwd()
 
@@ -82,6 +83,7 @@ export async function getFileBySlug<T>(type: 'blog', slug: string | string[]) {
         rehypeKatex,
         [rehypeCitation, { path: path.join(root, 'data') }],
         [rehypePrismPlus, { ignoreMissing: true }],
+        rehypePrismDiff,
         rehypePresetMinify,
       ]
       return options
