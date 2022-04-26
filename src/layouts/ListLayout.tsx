@@ -59,7 +59,7 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
         <ul>
           {!filteredBlogPosts.length && t('post.no-post')}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, tags, reads } = frontMatter
             return (
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
@@ -67,6 +67,10 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
                     <dt className="sr-only">{t('post.published-on')}</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date)}</time>
+                    </dd>
+                    <dt className="sr-only">{t('post.reads')}</dt>
+                    <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+                      <time dateTime={date}>{t('post.reads-var', { reads })}</time>
                     </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">
