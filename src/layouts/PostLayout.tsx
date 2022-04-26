@@ -77,7 +77,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
                 </div>
               )}
               {next && (
-                <div className="py-4 xl:pt-8">
+                <div className="py-4 sm:text-right xl:pt-8">
                   <Link
                     href={`/blog/${next.slug}`}
                     className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
