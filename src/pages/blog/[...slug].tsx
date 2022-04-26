@@ -1,6 +1,5 @@
 import fs from 'fs'
 import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next'
-
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
@@ -14,7 +13,6 @@ const DEFAULT_LAYOUT = 'PostLayout'
 
 interface Props {
   post: { mdxSource: string; toc: Toc; frontMatter: PostFrontMatter }
-  authorDetails: AuthorFrontMatter[]
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
 }
@@ -34,20 +32,13 @@ export const getStaticPaths: GetStaticPaths = () => {
 }
 
 // @ts-ignore
-export const getStaticProps: GetStaticProps<Props> = async ({ params, locale }) => {
+export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   const slug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter()
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
   const prev: { slug: string; title: string } = allPosts[postIndex + 1] || null
   const next: { slug: string; title: string } = allPosts[postIndex - 1] || null
   const post = await getFileBySlug<PostFrontMatter>('blog', slug)
-  // @ts-ignore
-  const authorList = post.frontMatter.authors || ['default']
-  const authorPromise = authorList.map(async (author) => {
-    const authorResults = await getFileBySlug<AuthorFrontMatter>('authors', [author])
-    return authorResults.frontMatter
-  })
-  const authorDetails = await Promise.all(authorPromise)
 
   // rss
   if (allPosts.length > 0) {
@@ -58,19 +49,13 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params, locale }) 
   return {
     props: {
       post,
-      authorDetails,
       prev,
       next,
     },
   }
 }
 
-const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
-  post,
-  authorDetails,
-  prev,
-  next,
-}) => {
+const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ post, prev, next }) => {
   const { mdxSource, toc, frontMatter } = post
 
   return (
@@ -81,7 +66,6 @@ const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({
           toc={toc}
           mdxSource={mdxSource}
           frontMatter={frontMatter}
-          authorDetails={authorDetails}
           prev={prev}
           next={next}
         />
