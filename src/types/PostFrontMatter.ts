@@ -12,7 +12,6 @@ export type PostFrontMatter = {
   draft?: boolean
   summary?: string
   images?: string[]
-  authors?: string[]
   layout?: string
   canonicalUrl?: string
   slug: string
