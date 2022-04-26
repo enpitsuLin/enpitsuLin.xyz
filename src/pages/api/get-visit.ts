@@ -23,7 +23,7 @@ async function updateCollection<T = any>(ref: string, data: T) {
   return void 0
 }
 
-async function getAllVisit() {
+export async function getAllVisit() {
   const { data } = await client.query<{ ref: string; ts: number; data: any[] }>(
     q.Paginate(q.Match(q.Index('all_visit')))
   )
@@ -36,7 +36,7 @@ async function getAllVisit() {
   return ret
 }
 
-async function getPostVisit(slug: string) {
+export async function getPostVisit(slug: string) {
   const isSlugExist = await isIndexExist('visit_by_slug', slug)
 
   if (!isSlugExist) await createCollection('post_visit_count', { slug, count: 1 })

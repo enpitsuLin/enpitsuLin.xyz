@@ -22,6 +22,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismDiff from 'rehype-prism-diff'
+import { getAllVisit } from '@/pages/api/get-visit'
 
 const root = process.cwd()
 
@@ -112,7 +113,7 @@ export async function getFileBySlug<T>(type: 'blog', slug: string | string[]) {
 
 export async function getAllFilesFrontMatter() {
   const prefixPaths = path.join(root, 'data', 'blog')
-
+  const postVisit = await getAllVisit()
   const files = getAllFilesRecursively(prefixPaths)
 
   const allFrontMatter: PostFrontMatter[] = []
@@ -127,10 +128,14 @@ export async function getAllFilesFrontMatter() {
     const source = fs.readFileSync(file, 'utf8')
     const matterFile = matter(source)
     const frontmatter = matterFile.data as PostFrontMatter
+    const slug = formatSlug(fileName)
+    const data = postVisit.find((item) => item.slug === slug)
+
     if ('draft' in frontmatter && frontmatter.draft !== true) {
       allFrontMatter.push({
         ...frontmatter,
-        slug: formatSlug(fileName),
+        reads: data?.count || 0,
+        slug,
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       })
     }

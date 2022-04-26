@@ -16,14 +16,8 @@ export const getServerSideProps: GetServerSideProps<{
   } = context
 
   const totalPosts = await getAllFilesFrontMatter()
-  const apiUrl = `http://${context.req.headers.host}/api/get-visit`
-  const visits = (await (await fetch(apiUrl)).json()) as { data: { slug: string; count: number }[] }
 
-  const posts = totalPosts.map((p) => {
-    const data = visits.data.find((item) => item.slug === p.slug)
-    const reads = data?.count || 0
-    return { ...p, reads }
-  })
+  const posts = totalPosts
   const pageNumber = parseInt(page as string)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
