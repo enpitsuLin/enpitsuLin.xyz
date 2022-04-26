@@ -22,12 +22,12 @@ export const getServerSideProps: GetServerSideProps<{
   )
 
   // rss
-  if (filteredPosts.length > 0) {
+  /* if (filteredPosts.length > 0) {
     const rss = generateRss(filteredPosts, `tags/${tag}/feed.xml`)
     const rssPath = path.join(root, 'public', 'tags', tag)
     fs.mkdirSync(rssPath, { recursive: true })
     fs.writeFileSync(path.join(rssPath, 'feed.xml'), rss)
-  }
+  } */
 
   return { props: { posts: filteredPosts, tag } }
 }
