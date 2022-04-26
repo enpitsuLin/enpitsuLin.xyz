@@ -3,24 +3,10 @@ import siteMetadata from 'data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import ListLayout from '@/layouts/ListLayout'
 import { POSTS_PER_PAGE } from '../../blog'
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
-import { i18nPaths } from '@/lib/utils/i18n'
 
-export const getStaticPaths: GetStaticPaths<{ page: string }> = async () => {
-  const totalPosts = await getAllFilesFrontMatter()
-  const totalPages = Math.ceil(totalPosts.length / POSTS_PER_PAGE)
-  const paths = Array.from({ length: totalPages }, (_, i) => ({
-    params: { page: (i + 1).toString() },
-  }))
-
-  return {
-    paths: i18nPaths(paths),
-    fallback: false,
-  }
-}
-
-export const getStaticProps: GetStaticProps<{
+export const getServerSideProps: GetServerSideProps<{
   posts: PostFrontMatter[]
   initialDisplayPosts: PostFrontMatter[]
   pagination: { currentPage: number; totalPages: number }
@@ -28,7 +14,16 @@ export const getStaticProps: GetStaticProps<{
   const {
     params: { page },
   } = context
-  const posts = await getAllFilesFrontMatter()
+
+  const totalPosts = await getAllFilesFrontMatter()
+  const apiUrl = `http://${context.req.headers.host}/api/get-visit`
+  const visits = (await (await fetch(apiUrl)).json()) as { data: { slug: string; count: number }[] }
+
+  const posts = totalPosts.map((p) => {
+    const data = visits.data.find((item) => item.slug === p.slug)
+    const reads = data?.count || 0
+    return { ...p, reads }
+  })
   const pageNumber = parseInt(page as string)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),
@@ -52,7 +47,7 @@ export default function PostPage({
   posts,
   initialDisplayPosts,
   pagination,
-}: InferGetStaticPropsType<typeof getStaticProps>) {
+}: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />

@@ -1,6 +1,5 @@
 import { NextApiHandler } from 'next'
 import faunadb from 'faunadb'
-import dayjs from 'dayjs'
 
 const q = faunadb.query
 const client = new faunadb.Client({
@@ -24,17 +23,17 @@ async function updateCollection<T = any>(ref: string, data: T) {
   return void 0
 }
 
-async function getWebsiteVisit() {
-  const date = dayjs().format('YYYY-MM-DD')
-  const isTodayExist = await isIndexExist('website_visit', date)
+async function getAllVisit() {
+  const { data } = await client.query<{ ref: string; ts: number; data: any[] }>(
+    q.Paginate(q.Match(q.Index('all_visit')))
+  )
 
-  if (!isTodayExist) await createCollection('website_visit', { date, count: 1 })
-
-  const document = await getIndex('website_visit', date)
-
-  await updateCollection(document.ref, { count: document.data.count + 1 })
-
-  return document
+  const ret = []
+  for await (let item of data) {
+    const res = await client.query<{ ref: string; ts: number; data: any[] }>(q.Get(item))
+    ret.push(res.data)
+  }
+  return ret
 }
 
 async function getPostVisit(slug: string) {
@@ -52,10 +51,10 @@ async function getPostVisit(slug: string) {
 const handler: NextApiHandler = async (req, res) => {
   const slug = req.query.slug as string
   if (!slug) {
-    const resWebsite = await getWebsiteVisit()
+    const resWebsite = await getAllVisit()
     return res.status(200).json({
-      message: 'get website visit success',
-      count: resWebsite.data.count,
+      message: 'get all post visit success',
+      data: resWebsite,
     })
   }
   const resPost = await getPostVisit(slug)
