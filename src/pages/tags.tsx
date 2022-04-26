@@ -3,6 +3,7 @@ import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from 'data/siteMetadata'
 import { getAllTags } from '@/lib/tags'
+import Tag from '@/components/Tag'
 import kebabCase from '@/lib/utils/kebabCase'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
 
@@ -31,19 +32,14 @@ export default function Tags({ tags }: InferGetStaticPropsType<typeof getStaticP
             return (
               <div
                 key={t}
-                className="inline-flex flex-row items-center relative rounded border border-gray-700 hover:border-accent font-medium mt-2 mb-2 mr-5 bg-day dark:bg-night bg-opacity-50 dark:bg-opacity-50"
+                className="inline-flex flex-row items-center relative font-medium mt-2 mb-2 mr-2 bg-day dark:bg-night bg-opacity-50 dark:bg-opacity-50"
               >
                 <Link
                   href={`/tags/${kebabCase(t)}`}
                   className="px-2 py-1 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  {t}
-                </Link>
-                <Link
-                  href={`/tags/${kebabCase(t)}`}
-                  className="inline-flex items-center h-full border-gray-700 border-l px-2 bg-gray-300 rounded-r dark:bg-gray-800 text-sm font-semibold"
-                >
-                  {tags[t]}
+                  <Tag text={t} />
+                  <span>({tags[t]})</span>
                 </Link>
               </div>
             )
