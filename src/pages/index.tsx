@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import useTranslation from 'next-translate/useTranslation'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
@@ -11,13 +11,13 @@ import Hero from '@/components/Hero'
 
 const MAX_DISPLAY = 3
 
-export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = async () => {
+export const getServerSideProps: GetServerSideProps<{ posts: PostFrontMatter[] }> = async () => {
   const posts = await getAllFilesFrontMatter()
 
   return { props: { posts } }
 }
 
-export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ posts }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { t } = useTranslation('common')
   return (
     <>
