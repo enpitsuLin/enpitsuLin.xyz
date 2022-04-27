@@ -20,7 +20,7 @@ const siteMetadata = {
   analytics: {
     plausibleDataDomain: 'enpitsulin.xyz',
     simpleAnalytics: false,
-    umamiWebsiteId: '',
+    umamiWebsiteId: '43380447-39ed-42d7-8524-4618e3dd6a68',
     googleAnalyticsId: 'G-YB5GQDJZ4R',
   },
   lastUpdateTime: new Date(),
