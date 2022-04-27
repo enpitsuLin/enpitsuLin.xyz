@@ -22,6 +22,7 @@ const siteMetadata = {
     simpleAnalytics: false,
     umamiWebsiteId: '',
     googleAnalyticsId: 'G-YB5GQDJZ4R',
+    ackeeDomainId: process.env.NEXT_PUBLIC_ACKEE_DOMAIN_ID,
   },
   lastUpdateTime: new Date(),
 }
