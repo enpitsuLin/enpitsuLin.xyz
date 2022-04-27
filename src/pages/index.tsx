@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import useTranslation from 'next-translate/useTranslation'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
@@ -11,13 +11,13 @@ import Hero from '@/components/Hero'
 
 const MAX_DISPLAY = 3
 
-export const getStaticProps: GetStaticProps<{ posts: PostFrontMatter[] }> = async () => {
+export const getServerSideProps: GetServerSideProps<{ posts: PostFrontMatter[] }> = async () => {
   const posts = await getAllFilesFrontMatter()
 
   return { props: { posts } }
 }
 
-export default function Home({ posts }: InferGetStaticPropsType<typeof getStaticProps>) {
+export default function Home({ posts }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const { t } = useTranslation('common')
   return (
     <>
@@ -35,15 +35,19 @@ export default function Home({ posts }: InferGetStaticPropsType<typeof getStatic
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && t('no-posts-found')}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags } = frontMatter
+            const { slug, date, title, summary, tags, reads } = frontMatter
             return (
               <li key={slug} className="py-8">
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
-                      <dt className="sr-only">Published on</dt>
+                      <dt className="sr-only">{t('post.published-on')}</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{formatDate(date)}</time>
+                      </dd>
+                      <dt className="sr-only">{t('post.reads')}</dt>
+                      <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
+                        <time dateTime={date}>{t('post.reads-var', { reads })}</time>
                       </dd>
                     </dl>
                     <div className="space-y-4 xl:col-span-3">
