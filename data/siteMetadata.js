@@ -5,8 +5,8 @@ const siteMetadata = {
   description: 'Make Things happy',
   language: 'zh-Hans',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://enpitsulin.github.io',
-  siteRepo: 'https://github.com/enpitsulin/enpitsulin.github.io',
+  siteUrl: 'https://enpitsulin.xyz',
+  siteRepo: 'https://github.com/enpitsulin/enpitsulin.xyz',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/twitter-card.png',
