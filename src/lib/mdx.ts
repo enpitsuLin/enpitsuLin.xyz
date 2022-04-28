@@ -22,7 +22,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismDiff from 'rehype-prism-diff'
-import { getAllVisit } from './post-visit'
+import { getAllVisit, getVisitBySlug } from './post-visit'
 
 const root = process.cwd()
 
@@ -43,9 +43,10 @@ export function dateSortDesc(a: string, b: string) {
   return 0
 }
 
-export async function getFileBySlug<T>(type: 'blog', slug: string | string[]) {
+export async function getFileBySlug<T>(type: 'blog', slug: string) {
   const mdxPath = path.join(root, 'data', type, `${slug}.mdx`)
   const mdPath = path.join(root, 'data', type, `${slug}.md`)
+  const reads = await getVisitBySlug(slug)
   const source = fs.existsSync(mdxPath)
     ? fs.readFileSync(mdxPath, 'utf8')
     : fs.readFileSync(mdPath, 'utf8')
@@ -105,6 +106,7 @@ export async function getFileBySlug<T>(type: 'blog', slug: string | string[]) {
       readingTime: readingTime(source),
       slug: slug || null,
       fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
+      reads: reads.data.count,
       ...frontmatter,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
     },

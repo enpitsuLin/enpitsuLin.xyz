@@ -1,13 +1,11 @@
 import fs from 'fs'
-import { GetStaticProps, GetStaticPaths, InferGetStaticPropsType } from 'next'
+import { GetServerSideProps, GetStaticPaths, InferGetServerSidePropsType } from 'next'
 import PageTitle from '@/components/PageTitle'
 import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
-import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/lib/mdx'
-import { AuthorFrontMatter } from '@/types/AuthorFrontMatter'
+import { formatSlug, getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { Toc } from '@/types/Toc'
-import { i18nPaths } from '@/lib/utils/i18n'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -17,22 +15,8 @@ interface Props {
   next?: { slug: string; title: string }
 }
 
-export const getStaticPaths: GetStaticPaths = () => {
-  const posts = getFiles('blog')
-  const paths = posts.map((p) => ({
-    params: {
-      slug: formatSlug(p).split('/'),
-    },
-  }))
-
-  return {
-    paths: i18nPaths(paths),
-    fallback: false,
-  }
-}
-
 // @ts-ignore
-export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
   const slug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter()
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
@@ -55,7 +39,11 @@ export const getStaticProps: GetStaticProps<Props> = async ({ params }) => {
   }
 }
 
-const Blog: React.FC<InferGetStaticPropsType<typeof getStaticProps>> = ({ post, prev, next }) => {
+const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+  post,
+  prev,
+  next,
+}) => {
   const { mdxSource, toc, frontMatter } = post
 
   return (
