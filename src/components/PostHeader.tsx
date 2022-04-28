@@ -10,15 +10,11 @@ interface Props {
 }
 
 const PostHeader: React.FC<Props> = ({ frontMatter }) => {
-  const { title, date, readingTime, tags, slug } = frontMatter
-  const [visit, setVisit] = useState(0)
+  const { title, date, readingTime, reads, slug } = frontMatter
   const { t } = useTranslation('common')
 
   useEffect(() => {
-    fetch(`/api/get-visit?slug=${slug}`).then(async (response) => {
-      const data = (await response.json()) as { count: number; message: string }
-      setVisit(data.count)
-    })
+    fetch(`/api/get-visit?slug=${slug}`)
   }, [])
   return (
     <header className="pt-6 xl:pb-6">
@@ -47,7 +43,7 @@ const PostHeader: React.FC<Props> = ({ frontMatter }) => {
             <div>
               <dt className="sr-only">{t('post.reads')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.reads-var', { reads: visit })}
+                {t('post.reads-var', { reads })}
               </dd>
             </div>
           </dl>
