@@ -68,7 +68,7 @@ async function generateSiteMap() {
 export const getStaticProps: GetStaticProps = async () => {
   const siteMap = await generateSiteMap()
   fs.writeFileSync('public/sitemap.xml', siteMap)
-  return { props: {}, redirect: { destination: 'sitemap.xml' } }
+  return { props: {} }
 }
 
 export default function SiteMap() {
