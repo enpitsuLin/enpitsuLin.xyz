@@ -24,12 +24,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
   const next: { slug: string; title: string } = allPosts[postIndex - 1] || null
   const post = await getFileBySlug<PostFrontMatter>('blog', slug)
 
-  // rss
-  if (allPosts.length > 0) {
-    const rss = generateRss(allPosts)
-    fs.writeFileSync('./public/feed.xml', rss)
-  }
-
   return {
     props: {
       post,
