@@ -16,6 +16,9 @@ const config = {
   eslint: {
     dirs: ['pages', 'components', 'lib', 'layouts', 'scripts'],
   },
+  async redirects() {
+    return [{ source: '/sitemap', destination: '/sitemap.xml', permanent: false }]
+  },
   webpack: (config, { dev, isServer }) => {
     config.plugins.push(new WindiCSSWebpackPlugin())
     config.module.rules.push({

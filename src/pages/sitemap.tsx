@@ -1,19 +1,17 @@
 import prettier from 'prettier'
 import siteMetadata from 'data/siteMetadata'
-import { GetServerSideProps } from 'next'
+import { GetStaticProps } from 'next'
 import { getAllTags } from '@/lib/tags'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import dayjs from 'dayjs'
 import { POSTS_PER_PAGE } from './blog'
-
-const lastmod = dayjs().format('YYYY-MM-DD')
+import fs from 'fs'
 
 async function generateSiteMap() {
   const allPosts = await getAllFilesFrontMatter()
   const tags = Object.keys(await getAllTags())
   const prettierConfig = await prettier.resolveConfig('/prettier.config.js')
 
-  const rootPage = ['', '/', '/blog', '/tags']
+  const rootPage = ['', '/blog', '/tags']
   const blogPages = Array.from(
     { length: Math.floor(allPosts.length / POSTS_PER_PAGE) - 1 },
     (_, i) => `/blog/page/${i + 2}`
@@ -21,9 +19,7 @@ async function generateSiteMap() {
   const allPages = [
     ...rootPage,
     ...blogPages,
-    ...allPosts.map((post) => {
-      return `/blog/${post.slug}`
-    }),
+
     ...tags.map((tags) => {
       return `/tags/${tags}`
     }),
@@ -32,16 +28,33 @@ async function generateSiteMap() {
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-            ${allPages
-              .map((page) => {
-                return `
-                        <url>
-                            <loc>${siteMetadata.siteUrl}${page}</loc>
-                            <lastmod>${lastmod}</lastmod>
-                        </url>
+          ${allPages
+            .map((page) => {
+              let lastmod = new Date().toJSON()
+              return `
+                    <url>
+                        <loc>${siteMetadata.siteUrl}${page}</loc>
+                        <lastmod>${lastmod}</lastmod>
+                    </url> 
                     `
-              })
-              .join('')}
+            })
+            .join('')}
+          ${allPosts
+            .map((post) => {
+              let lastmod = new Date().toJSON()
+              if (post.lastmod) {
+                lastmod = new Date(post.lastmod).toJSON()
+              } else {
+                lastmod = fs.statSync(post.fileName).mtime.toJSON()
+              }
+              return `
+                      <url>
+                          <loc>${siteMetadata.siteUrl}/blog/${post.slug}</loc>
+                          <lastmod>${lastmod}</lastmod>
+                      </url>
+                      `
+            })
+            .join('')}
         </urlset>
     `
 
@@ -52,11 +65,9 @@ async function generateSiteMap() {
   return formatted
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ res }) => {
-  res.setHeader('Content-Type', 'text/xml')
+export const getStaticProps: GetStaticProps = async () => {
   const siteMap = await generateSiteMap()
-  res.write(siteMap)
-  res.end()
+  fs.writeFileSync('public/sitemap.xml', siteMap)
   return { props: {} }
 }
 
