@@ -4,6 +4,7 @@ import { GetServerSideProps } from 'next'
 import { getAllTags } from '@/lib/tags'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
 import dayjs from 'dayjs'
+import { POSTS_PER_PAGE } from './blog'
 
 const lastmod = dayjs().format('YYYY-MM-DD')
 
@@ -13,8 +14,13 @@ async function generateSiteMap() {
   const prettierConfig = await prettier.resolveConfig('/prettier.config.js')
 
   const rootPage = ['', '/', '/blog', '/tags']
+  const blogPages = Array.from(
+    { length: Math.floor(allPosts.length / POSTS_PER_PAGE) - 1 },
+    (_, i) => `/blog/page/${i + 2}`
+  )
   const allPages = [
     ...rootPage,
+    ...blogPages,
     ...allPosts.map((post) => {
       return `/blog/${post.slug}`
     }),
