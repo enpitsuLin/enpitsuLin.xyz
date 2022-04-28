@@ -27,4 +27,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
   return { props: {} }
 }
 
-export default () => {}
+export default function Feed() {
+  return null
+}
