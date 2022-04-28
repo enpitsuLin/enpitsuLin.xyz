@@ -22,7 +22,7 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import rehypePrismDiff from 'rehype-prism-diff'
-import { getAllVisit } from '@/pages/api/get-visit'
+import { getAllVisit } from './post-visit'
 
 const root = process.cwd()
 
