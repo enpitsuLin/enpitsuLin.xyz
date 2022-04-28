@@ -12,7 +12,7 @@ async function generateSiteMap() {
   const tags = Object.keys(await getAllTags())
   const prettierConfig = await prettier.resolveConfig('/prettier.config.js')
 
-  const rootPage = ['', '/']
+  const rootPage = ['', '/', 'blog', 'tags']
   const allPages = [
     ...rootPage,
     ...allPosts.map((post) => {
