@@ -137,6 +137,7 @@ export async function getAllFilesFrontMatter() {
       allFrontMatter.push({
         ...frontmatter,
         reads: data?.count || 0,
+        fileName: path.join(prefixPaths, fileName),
         slug,
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       })
