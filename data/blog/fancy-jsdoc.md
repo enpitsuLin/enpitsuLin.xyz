@@ -4,6 +4,7 @@ date: 2021-09-26 20:21:12
 tags: ['Web', 'JavaScript']
 draft: false
 summary: 在现代前端项目中使用 ts 以及成为常态, 但是在很多还是只能使用 JavaScript 的项目中也往往也很需要静态类型检查, 但因为一些原因快速引入 ts 不太现实, 使用Jsdoc来标注类型可能是一种解决方法。
+lastmod: 2022-04-29 11:13:00
 ---
 
 在现代前端项目中使用 ts 以及成为常态~~TypeScript 成为事实上的 JavaScript,JS 大呼不可战胜~~
@@ -26,9 +27,9 @@ function deleteUser(id) {
 }
 ```
 
-# 开始使用
+## 启用JSDoc
 
-## 增加 jsconfig.json
+### 增加 jsconfig.json
 
 增加`jsconfig.json`的主要目的是告知 IDE 该工作区是一个 js 项目,配置如下，主要是让 IDE 知道项目的根路径和一些存在 js 文件的目录
 
@@ -45,7 +46,7 @@ function deleteUser(id) {
 }
 ```
 
-## 启用类型错误提示
+### 启用类型错误提示
 
 ```javascript
 // @ts-check
@@ -67,9 +68,9 @@ function deleteUser(id) {
 - @enum
 - @deprecated
 
-# 我常用的块标签
+## 我常用的块标签
 
-## @type 声明类型
+### @type 声明类型
 
 这可能是最常用的一个标签了,一般用于声明一个变量的类型
 
@@ -95,7 +96,7 @@ const onePerson: { name: string; sex: 'male' | 'female' } = { name: 'unknown', s
 + let tagName = 'div';
 ```
 
-## @typedef 定义可复用的类型
+### 定义可复用的类型
 
 jsdoc 中可以使用仅使用注释编写的文件来完成自定义类型的复用为虚拟注释,
 
@@ -127,7 +128,7 @@ interface Person {
 
 或者声明命名空间来使用,比较推荐使用命名空间
 
-## @namespace 命名空间
+### 命名空间
 
 与 Typescript 的命名空间类似 jsdoc 也同样能提供避免与其他第三方库中类型声明重复的方法就是命名空间
 
@@ -144,4 +145,42 @@ interface Person {
  */
 
 //然后就能使用`React.ElementNode`类型避免冲突了
+```
+ 
+ ### 泛型类型
+
+基础类型无法满足需求可以使用`@template`来定义泛型
+
+```javascript
+/**
+ * @template T
+ * @typedef {Object} generics
+ * @property {T} value
+ * @property {name} string
+ */
+```
+
+对于一些可能需要泛型的函数可以直接使用typescript 的方式
+
+```javascript
+/**
+ * @typedef {<T>(a:T,a:T)=>T} Add
+ */
+```
+
+### 直接从d.ts中导入类型
+
+对于更精细的类型我们甚至可以放在typescript文件中并通过导入功能导入
+
+```javascript:import.js
+/**
+ * @typedef {import('./test').Toc} Toc
+ */
+```
+
+```typescript:export.js
+export type Toc = {
+  value: string
+  depth: number
+}
 ```
