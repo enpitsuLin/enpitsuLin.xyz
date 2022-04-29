@@ -94,9 +94,17 @@
   right: 0;
 }
 
+#dsqjs .dsqjs-post-list {
+  @apply text-left;
+}
+
 #dsqjs .dsqjs-post-list .dsqjs-post-item {
   position: relative;
   margin-bottom: 16px;
+}
+
+#dsqjs .dsqjs-post-list .dsqjs-post-content{
+  @apply text-gray-700 dark:text-light-700;
 }
 
 #dsqjs .dsqjs-post-list .dsqjs-post-avatar {
