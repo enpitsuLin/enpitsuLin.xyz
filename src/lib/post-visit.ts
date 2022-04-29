@@ -23,6 +23,7 @@ async function updateCollection<T = any>(ref: string, data: T) {
 }
 
 export async function getAllVisit() {
+  if (process.env.NODE_ENV === 'development') return []
   const { data } = await client.query<{ ref: string; ts: number; data: any[] }>(
     q.Paginate(q.Match(q.Index('all_visit')))
   )
@@ -36,6 +37,9 @@ export async function getAllVisit() {
 }
 
 export async function getVisitBySlug(slug: string) {
+  if (process.env.NODE_ENV === 'development') {
+    return null
+  }
   const isSlugExist = await isIndexExist('visit_by_slug', slug)
 
   if (!isSlugExist) await createCollection('post_visit_count', { slug, count: 1 })
