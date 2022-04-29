@@ -108,6 +108,7 @@ export async function getFileBySlug<T>(type: 'blog', slug: string) {
       fileName: fs.existsSync(mdxPath) ? `${slug}.mdx` : `${slug}.md`,
       reads: reads.data.count,
       ...frontmatter,
+      lastmode: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
       date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
     },
   }
@@ -139,6 +140,7 @@ export async function getAllFilesFrontMatter() {
         reads: data?.count || 0,
         fileName: path.join(prefixPaths, fileName),
         slug,
+        lastmod: frontmatter.lastmod ? new Date(frontmatter.lastmod).toISOString() : null,
         date: frontmatter.date ? new Date(frontmatter.date).toISOString() : null,
       })
     }
