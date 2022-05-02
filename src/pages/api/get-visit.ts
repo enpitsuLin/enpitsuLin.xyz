@@ -3,7 +3,10 @@ import { NextApiHandler } from 'next'
 
 const handler: NextApiHandler = async (req, res) => {
   if (process.env.NODE_ENV === 'development') {
-    res.status(200)
+    res.status(200).json({
+      message: 'get post visit success',
+      count: 0,
+    })
     return
   }
   const slug = req.query.slug as string
