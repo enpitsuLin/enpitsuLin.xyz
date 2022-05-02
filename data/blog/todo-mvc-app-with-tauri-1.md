@@ -1,5 +1,5 @@
 ---
-title: 使用Tauri构建桌面端应用程序——以TodoMVC为例
+title: 使用Tauri构建桌面端应用程序——以TodoMVC为例（上）
 draft: true
 date: 2022-05-02 17:29:37
 lastmod: 2022-05-02 17:29:37
@@ -208,9 +208,9 @@ impl TodoApp {
 }
 ```
 
-然后就是抽象 CURD 成几个成员方法，由于 rust 不存在 new 这个关键词 我们构造一个类对象一般 `pub fn` 来返回一个存在 impl 的结构体，一般约定存在一个`pub fn new()`来对相应的类进行构造
+然后就是抽象 CURD 成几个成员方法，由于 rust 不存在 new 这个关键词 我们构造一个类对象一般约定存在一个`pub fn new()`来对相应的类进行构造，其实所谓的构造就是返回一个存在 impl 的结构体。
 
-于是有以下实现
+于是添加以下实现
 
 ```rust
 impl TodoApp{
@@ -242,6 +242,8 @@ impl TodoApp{
 **查询所有的 todo**
 
 使用到 `Connection.prepare()`方法，这个方法返回的`Statement`的几个方法可以接收参数然后将参数传递调用`prepare()`时的语句中进行查询并返回。这里使用`query_map`方法来得到一个迭代器，通过遍历迭代器我们获得了`Vec<Todo>`然后返回`Result<Vec<Todo>>`
+
+注意带有泛型但泛型不受参数控制的方法如 line 6 这个`row.get`调用希望传入泛型参数是以`row.get::<I, T>()`方式调用的。~~中文互联网基本没有一篇文章能指出的，或者是我搜的方法不对？~~
 
 ```rust {diff}
 impl TodoApp {
@@ -298,16 +300,18 @@ fn main() {
 + }
 ```
 
-但是我们发现注解报错了。
+#### 返回数据序列化
+
+写好 command 之后发现注解这里报错了。
 
 ![Error](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502222206.png)
 
 这里是因为我们返回的`Vec<Todo>`不是可以序列化的类型不能通过指令返回到前端，回到 todo.rs
 
 ```rust:todo.rs {diff}
-+ use serde::{Deserialize, Serialize};
++ use serde::{Serialize};
 
-+ #[derive(Serialize, Deserialize)]
++ #[derive(Serialize)]
 pub struct Todo {
     pub id: String,
     pub label: String,
@@ -319,3 +323,23 @@ pub struct Todo {
 然后我们在界面上右键检查打开控制台然后输入`await __TAURI__.invoke("get_todos")`应该就能看到返回的空数组了
 
 ![](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502222623.png)
+
+#### invoke 参数反序列化
+
+其实需要序列化和反序列化的原因就和前后端分离的 web 应用一样，在传输层使用的是 json 格式，但应用需要真正的对象，所以需要通过注解给对象添加 Serialize 和 Deserialize 接口
+
+同时 invoke 方法也是可以接受第二个参数作为对 commond 调用的参数的，但是参数也需要具备从 json 格式反序列化数据的能力，于是增加注解
+
+```rust:todo.rs {diff}
+- use serde::{Deserialize};
++ use serde::{Serialize, Deserialize};
+
+- #[derive(Serialize)]
++ #[derive(Serialize, Deserialize)]
+pub struct Todo {
+    pub id: String,
+    pub label: String,
+    pub done: bool,
+    pub is_delete: bool,
+}
+```
