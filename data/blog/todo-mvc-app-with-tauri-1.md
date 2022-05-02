@@ -1,13 +1,13 @@
 ---
 title: 使用Tauri构建桌面端应用程序——以TodoMVC为例（上）
-draft: true
+draft: false
 date: 2022-05-02 17:29:37
 lastmod: 2022-05-02 17:29:37
 tags: ['rust', 'tauri']
 summary: rust太难学了？学习了rust不会实践？简单使用 Tauri 搭建经典实战项目TodoMVC 来做实践吧。你会发现rust真的很好玩，tauri也是非常的快，转变思维使用rust来写代码真的很爽。
 ---
 
-Rust 学的一头雾水？错，其实是太难了根本学不会，直接上实践就完事了。就用学习一个框架最经典的实战项目 TodoMVC，我们实现一个 rust+sqlite 做后端 、react 做前端的~~跨平台~~桌面端 app
+Rust 学的一头雾水？错，是太难了根本学不会，直接上实践就完事了。就用学习一个框架最经典的实战项目 TodoMVC，我们实现一个 rust+sqlite 做后端 、react 做前端的~~跨平台~~桌面端 app
 
 ## 创建 Tauri 项目
 
@@ -356,7 +356,7 @@ pub struct Todo {
 
 ### 完善 CURD
 
-除了使用`Connection::prepare`我们也可以从`Connection`直接`execute`SQL 语句，比如这个新增 todo，从 invoke 中获取 todo 参数并反序列化成`Todo`对象，然后结构获得 id 和 label 然后传递给 SQL 语句的参数完成 INSERT
+除了使用`Connection::prepare`返回的`Statement`中的方法，我们也可以从`Connection`直接`execute`SQL 语句，比如这个新增 todo，从 invoke 中获取 todo 参数并反序列化成`Todo`对象，然后结构获得 id 和 label 然后传递给 SQL 语句的参数完成 INSERT
 
 ```rust
 pub fn new_todo(&self, todo: Todo) -> bool {
@@ -377,7 +377,7 @@ pub fn new_todo(&self, todo: Todo) -> bool {
 }
 ```
 
-同理还有`update_todo`、`get_todo`，这里就不多列代码了，就给一个函数签名吧, 这里愿意通过 Result 封装或者不封装其实应该问题都不大，看个人喜好了。
+同理还有`update_todo`、`get_todo`，这里就不多列代码了，就给一个函数签名吧, 这里返回值愿意通过 Result 封装或者不封装其实应该问题都不大，看个人喜好了。
 
 ```rust
 pub fn update_todo(&self, todo: Todo) -> bool {
@@ -387,3 +387,43 @@ pub fn get_todo(&self, id: String) -> Result<Todo> {
   // also more code
 }
 ```
+
+同理也需要增加相应的指令
+
+```rust:main.rs
+#[tauri::command]
+fn new_todo(todo: Todo) -> bool {
+    let app = TodoApp::new().unwrap();
+    let result = app.new_todo(todo);
+    app.conn.close();
+    result
+}
+
+#[tauri::command]
+fn update_todo(todo: Todo) -> bool {
+    //to be implemented
+}
+
+#[tauri::command]
+fn toggle_done(id: String) -> bool {
+    //to be implemented
+}
+```
+
+以及别忘了在 generate_handler 中增加
+
+```rust:main.rs {diff}
+fn main() {
+    tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![
+            get_todos,
++            new_todo,
++            toggle_done,
++            update_todo
+        ])
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+}
+```
+
+至此我们就基本完成了 TodoMVC 的后端，接下来在下篇中使用 react + jotai + 一些包 来完成这个应用的前端以及与rust后端的通信~~这部分就很水了，基本就是基础的react~~
