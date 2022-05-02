@@ -7,7 +7,7 @@ tags: ['rust', 'tauri']
 summary: rust太难学了？学习了rust不会实践？简单使用 Tauri 搭建经典实战项目TodoMVC 来做实践吧。你会发现rust真的很好玩，tauri也是非常的快，转变思维使用rust来写代码真的很爽。
 ---
 
-Rust 学的一头雾水？错，其实是太难了根本学不会，直接上实践就完事了。就用框架最经典的实战项目 TodoMVC，我们实现一个 rust+sqlite 做后端 、react 做前端的~~跨平台~~桌面端 app
+Rust 学的一头雾水？错，其实是太难了根本学不会，直接上实践就完事了。就用学习一个框架最经典的实战项目 TodoMVC，我们实现一个 rust+sqlite 做后端 、react 做前端的~~跨平台~~桌面端 app
 
 ## 创建 Tauri 项目
 
@@ -146,11 +146,13 @@ pnpm tauri dev
 
 然后我们就可以使用 invoke 调用 rust 后端提供的方法了
 
+> 以下的操作均为 `src-tauri/` 目录下
+
 ### 使用 sqlite
 
 首先添加 [rusqlite](https://github.com/rusqlite/rusqlite) 依赖来获得操作 sqlite 的能力
 
-```toml:src-tauri/Cargo.toml {diff}
+```toml:Cargo.toml {diff}
 [dependencies]
 # ...
 + rusqlite = { version = "0.27.0", features = ["bundled"] }
@@ -173,6 +175,8 @@ fn connect() -> Result<()>{
 
 ## 设计 TodoApp 类
 
+### 设计表结构
+
 首先我们设计一下数据库表结构
 
 Todo 表比较简单的结构，建表语句：
@@ -186,7 +190,9 @@ CREATE TABLE IF NOT EXISTS Todo (
 )
 ```
 
-然后我们新建一个`todo.rs`模块,同时建立一个 Todo 结构体做类型，这里都用 pub 因为我们可能在 main 中使用的时候访问这些属性
+### todo 模块
+
+然后我们新建一个`todo.rs`模块,同时建立一个 Todo 结构体作为数据库行的类型供未来使用，这里都用 pub 因为我们可能在 main 中使用的时候访问这些属性
 
 ```rust
 pub struct Todo {
@@ -212,7 +218,7 @@ impl TodoApp {
 
 于是添加以下实现
 
-```rust
+```rust:src/todo.rs
 impl TodoApp{
     pub fn new()->Result<TodoApp>{
         let db_path = "db.sqlite";
@@ -235,17 +241,21 @@ impl TodoApp{
 
 然后我们就可以通过`TodoApp::new().unwrap()`来构造一个 TodoApp 类了，使用 unwrap()拆解枚举类型中的 Ok 即我们返回的 TodoApp
 
-### CURD
+### 实现 TodoApp 各种方法
 
-以及能够构造类了，那么我们希望能对 sqlite 进行 CURD 等操作，当然需要相应的方法，如 get_todos、get_todo(id)、new_todo(todo)、update_todo(todo)，没有删除的方法因为设计表就已经设计了 is_delete 字段，决定我们的删除还是软删除，硬删除暂时不实现
+既然已经能够构造类了，那么我们希望能对 sqlite 进行 CURD 等操作，当然需要相应的方法，如 `get_todos`、`get_todo(id)`、`new_todo(todo)`、`update_todo(todo)`，没有删除的方法因为设计表就已经设计了 is_delete 字段，决定我们的删除还是软删除，硬删除暂时不(lān de)实现
 
-**查询所有的 todo**
+#### 查询所有的 todo
 
-使用到 `Connection.prepare()`方法，这个方法返回的`Statement`的几个方法可以接收参数然后将参数传递调用`prepare()`时的语句中进行查询并返回。这里使用`query_map`方法来得到一个迭代器，通过遍历迭代器我们获得了`Vec<Todo>`然后返回`Result<Vec<Todo>>`
+使用到 `Connection.prepare()`方法，这个方法返回的`Statement`的几个方法`query_map`、`execute`等，可以接收参数然后将参数传递调用`prepare()`时的语句中进行查询并返回。
 
-注意带有泛型但泛型不受参数控制的方法如 line 6 这个`row.get`调用希望传入泛型参数是以`row.get::<I, T>()`方式调用的。~~中文互联网基本没有一篇文章能指出的，或者是我搜的方法不对？~~
+这里我们使用`query_map`方法来得到一个迭代器，通过遍历迭代器我们获得了`Vec<Todo>`就是 Todo 对象的数组然后将其通过`Result`枚举包装然后返回
 
-```rust {diff}
+注意带有泛型但泛型不受参数控制的方法如 line 6 这个`row.get`方法传入泛型参数是以`row.get::<I, T>()`方式调用的。
+
+因为 sqlite 中没有 boolean 类型所以我们使用 numeric 通过 1 或 0 来标识 true 或 false，使用对于这两个字段都需要记得处理一下
+
+```rust:src/todo.rs {diff}
 impl TodoApp {
 #   ...
     pub fn get_todos(&self) -> Result<Vec<Todo>> {
@@ -274,7 +284,7 @@ impl TodoApp {
 
 于是我们可以获得 Sqlite 中的数据了，但是仍然需要提供 command 来供前端调用，我们回到 main.ts，先引入模块并导入 Todo 和 TodoApp
 
-```rust:main.ts {diff}
+```rust:src/main.rs {diff}
 #![cfg_attr(
     all(not(debug_assertions), target_os = "w&mut &mut indows"),
     windows_subsystem = "windows"
@@ -300,7 +310,7 @@ fn main() {
 + }
 ```
 
-#### 返回数据序列化
+**返回数据序列化**
 
 写好 command 之后发现注解这里报错了。
 
@@ -324,7 +334,7 @@ pub struct Todo {
 
 ![](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502222623.png)
 
-#### invoke 参数反序列化
+**invoke 参数反序列化**
 
 其实需要序列化和反序列化的原因就和前后端分离的 web 应用一样，在传输层使用的是 json 格式，但应用需要真正的对象，所以需要通过注解给对象添加 Serialize 和 Deserialize 接口
 
@@ -341,5 +351,39 @@ pub struct Todo {
     pub label: String,
     pub done: bool,
     pub is_delete: bool,
+}
+```
+
+### 完善 CURD
+
+除了使用`Connection::prepare`我们也可以从`Connection`直接`execute`SQL 语句，比如这个新增 todo，从 invoke 中获取 todo 参数并反序列化成`Todo`对象，然后结构获得 id 和 label 然后传递给 SQL 语句的参数完成 INSERT
+
+```rust
+pub fn new_todo(&self, todo: Todo) -> bool {
+    let Todo { id, label, .. } = todo;
+    match self
+        .conn
+        .execute("INSERT INTO Todo (id, label) VALUES (?, ?)", [id, label])
+    {
+        Ok(insert) => {
+            println!("{} row inserted", insert);
+            true
+        }
+        Err(err) => {
+            println!("some error: {}", err);
+            false
+        }
+    }
+}
+```
+
+同理还有`update_todo`、`get_todo`，这里就不多列代码了，就给一个函数签名吧, 这里愿意通过 Result 封装或者不封装其实应该问题都不大，看个人喜好了。
+
+```rust
+pub fn update_todo(&self, todo: Todo) -> bool {
+  // more code
+}
+pub fn get_todo(&self, id: String) -> Result<Todo> {
+  // also more code
 }
 ```
