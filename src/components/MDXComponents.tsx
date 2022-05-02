@@ -22,10 +22,10 @@ export const MDXComponents: ComponentMap = {
   pre: Pre,
   img: ({ alt, src, ...rest }) => (
     <PhotoView src={src}>
-      <div className="flex flex-col items-center justify-center">
+      <span className="flex flex-col items-center justify-center">
         <img src={src} alt={alt} {...rest} className="cursor-zoom-in" />
-        {alt && <p className="p-0 !m-0 text-sm opacity-60">{alt}</p>}
-      </div>
+        {alt && <span className="p-0 !m-0 text-sm opacity-60">{alt}</span>}
+      </span>
     </PhotoView>
   ),
   del: (props) => (
