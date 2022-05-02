@@ -140,16 +140,70 @@ pnpm tauri dev
 
 ## 开发后端
 
+实现 web 界面功能先放到一边，先来考虑下 rust 后端操作，先了解下 tauri 怎么通信的
+
 根据[官方文档](https://tauri.studio/docs/guides/command)我们可以通过 TauriAPI 包或者设置`tauri.conf.json > build > withGlobalTauri`为 true 来将 invoke 挂载到 window.\_\_TAURI\_\_ 对象上
 
 然后我们就可以使用 invoke 调用 rust 后端提供的方法了
 
 ### 使用 sqlite
 
-首先添加 rusqlite 依赖来获得操作 sqlite 的能力
+首先添加 [rusqlite](https://github.com/rusqlite/rusqlite) 依赖来获得操作 sqlite 的能力
 
 ```toml:src-tauri/Cargo.toml {diff}
 [dependencies]
 # ...
 + rusqlite = { version = "0.27.0", features = ["bundled"] }
+```
+
+### 实现对 sqlite 数据库的操作
+
+参考 [rusqlite](https://github.com/rusqlite/rusqlite#readme)的用法，我们创建一个方法来创建数据库连接。
+
+```rust
+fn connect() -> Result<()>{
+    let db_path = "db.sqlite";
+    let db = Connection::open(&db_path)?;
+    println!("{}", db.is_autocommit());
+    Ok(())
+}
+```
+
+然后我们可以实现更多的方法来对数据库增删改查，但写太多方法每次都要创建数据库连接然后断开，比较麻烦，于是我们可以实现一个结构体`TodoApp`来封装常用的方法
+
+### TodoApp
+
+首先我们设计一下数据库表结构
+
+Todo 表比较简单的结构，建表语句：
+
+```sqlite
+CREATE TABLE IF NOT EXISTS Todo (
+    id          varchar(64)     PRIMARY KEY,
+    label       text            NOT NULL,
+    done        numeric         DEFAULT 0,
+    is_delete   numeric         DEFAULT 0
+)
+```
+
+然后我们新建一个`todo.rs`模块,同时建立一个 Todo 结构体做类型，这里都用 pub 因为我们可能在 main 中使用的时候访问这些属性
+
+```rust
+pub struct Todo {
+    pub id: String,
+    pub label: String,
+    pub done: bool,
+    pub is_delete: bool,
+}
+```
+
+以及 TodoApp 暂时未实现内部的方法
+
+```rust
+pub struct TodoApp {
+    pub conn: Connection,
+}
+impl TodoApp {
+    //To be implement
+}
 ```
