@@ -42,7 +42,8 @@ const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (
 
   return (
     <>
-      {'draft' in frontMatter && frontMatter.draft !== true ? (
+      {'draft' in frontMatter &&
+      (process.env.NODE_ENV === 'development' || frontMatter.draft !== true) ? (
         <MDXLayoutRenderer
           layout={frontMatter.layout || DEFAULT_LAYOUT}
           toc={toc}
