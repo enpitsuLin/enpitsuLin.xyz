@@ -2,7 +2,7 @@
 title: 使用Tauri构建桌面端应用程序——以TodoMVC为例（上）
 draft: false
 date: 2022-05-02 17:29:37
-lastmod: 2022-05-02 17:29:37
+lastmod: 2022-05-03 16:26:37
 tags: ['rust', 'tauri']
 summary: rust太难学了？学习了rust不会实践？简单使用 Tauri 搭建经典实战项目TodoMVC 来做实践吧。你会发现rust真的很好玩，tauri也是非常的快，转变思维使用rust来写代码真的很爽。
 ---
@@ -426,4 +426,8 @@ fn main() {
 }
 ```
 
-至此我们就基本完成了 TodoMVC 的后端，接下来在下篇中使用 react + jotai + 一些包 来完成这个应用的前端以及与rust后端的通信~~这部分就很水了，基本就是基础的react~~
+至此我们就基本完成了 TodoMVC 的后端，接下来在下篇中使用 react + jotai + 一些包 来完成这个应用的前端以及与 rust 后端的通信~~这部分就很水了，基本就是基础的 react~~
+
+## 下篇链接
+
+[使用Tauri构建桌面端应用程序——以TodoMVC为例（下）](/blog/todo-mvc-app-with-tauri-1)
