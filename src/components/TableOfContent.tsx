@@ -7,7 +7,7 @@ const TableOfContent: React.FC<{ toc: Toc }> = ({ toc }) => {
     const el = document.querySelector(selector) as HTMLElement
     const { offsetTop } = el
     window.scrollTo({
-      top: offsetTop < 1000 ? offsetTop - 69 : offsetTop,
+      top: offsetTop - 69,
       behavior: 'smooth',
     })
   }
