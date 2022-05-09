@@ -41,7 +41,7 @@ const SocialIcon: React.FC<SocialIconProps> = ({ kind, href, size = 'medium' }) 
       <span className="sr-only">{kind}</span>
       <SocialSvg
         className={[
-          `fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400`,
+          `fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400`,
           sizeClass,
         ].join(' ')}
       />
