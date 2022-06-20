@@ -10,7 +10,7 @@ interface IconProps extends SVGMotionProps<SVGSVGElement> {
   isOpen?: boolean
 }
 
-const MobileNavMenuIcon: React.FC<IconProps> = ({
+const MobileNavMenuIcon: React.FC<React.PropsWithChildren<IconProps>> = ({
   isOpen = false,
   width = 24,
   height = 24,

@@ -13,7 +13,7 @@ interface Props {
   pagination?: ComponentProps<typeof Pagination>
 }
 
-const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
+const ListLayout: React.FC<React.PropsWithChildren<Props>> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
   const { t } = useTranslation('common')
   const [searchValue, setSearchValue] = useState('')
   const filteredBlogPosts = posts.filter((frontMatter) => {

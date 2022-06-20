@@ -2,7 +2,7 @@ import SectionContainer from './SectionContainer'
 import Footer from './Footer'
 import Header from './Header'
 
-const LayoutWrapper: React.FC = ({ children }) => {
+const LayoutWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
     <>
       <Header />

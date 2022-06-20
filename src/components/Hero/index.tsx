@@ -5,7 +5,7 @@ interface Props {
   welcome: string
 }
 
-const Hero: React.FC<Props> = ({ welcome }) => {
+const Hero: React.FC<React.PropsWithChildren<Props>> = ({ welcome }) => {
   const canvas = useRef<HTMLCanvasElement>()
   const parent = useRef<HTMLDivElement>()
   const ref = useRef<HTMLDivElement>(null)

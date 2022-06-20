@@ -5,7 +5,7 @@ import { FaMoon, FaSun } from 'react-icons/fa'
 
 const Button = createDomMotionComponent('button')
 
-const ThemeSwitch: React.FC = () => {
+const ThemeSwitch: React.FC<React.PropsWithChildren> = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
 

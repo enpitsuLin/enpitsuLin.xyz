@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { FaArrowUp, FaComment, FaList } from 'react-icons/fa'
 import TOCInline from './TOCInline'
 
-const Button: React.FC<JSX.IntrinsicElements['button']> = ({ children, ...rest }) => {
+const Button: React.FC<React.PropsWithChildren<JSX.IntrinsicElements['button']>> = ({ children, ...rest }) => {
   const classes = [
     rest.className,
     'rounded-full bg-gray-200 p-2 text-gray-700 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600',
@@ -15,7 +15,7 @@ const Button: React.FC<JSX.IntrinsicElements['button']> = ({ children, ...rest }
   )
 }
 
-const ScrollTopAndComment: React.FC = () => {
+const ScrollTopAndComment: React.FC<React.PropsWithChildren> = () => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {

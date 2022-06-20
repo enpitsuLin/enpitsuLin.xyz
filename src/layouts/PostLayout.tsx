@@ -21,7 +21,7 @@ interface Props {
   toc: Toc
 }
 
-const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc }) => {
+const PostLayout: React.FC<React.PropsWithChildren<Props>> = ({ frontMatter, next, prev, children, toc }) => {
   const { t } = useTranslation('common')
   const { slug, tags, readingTime } = frontMatter
 

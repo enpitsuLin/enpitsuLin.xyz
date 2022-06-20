@@ -15,7 +15,7 @@ interface ButtonProps {
   prefix?: () => ReactNode
 }
 
-const IconButton: React.FC<ButtonProps> = ({ disabled = false, prefix, suffix, children }) => {
+const IconButton: React.FC<React.PropsWithChildren<ButtonProps>> = ({ disabled = false, prefix, suffix, children }) => {
   const disableClasses = 'cursor-not-allowed disabled:opacity-50'
   return (
     <button
@@ -29,7 +29,7 @@ const IconButton: React.FC<ButtonProps> = ({ disabled = false, prefix, suffix, c
   )
 }
 
-const Pagination: React.FC<Props> = ({ totalPages, currentPage }) => {
+const Pagination: React.FC<React.PropsWithChildren<Props>> = ({ totalPages, currentPage }) => {
   const { t } = useTranslation('common')
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages

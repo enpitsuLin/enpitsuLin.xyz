@@ -33,7 +33,7 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
   }
 }
 
-const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+const Blog: React.FC<React.PropsWithChildren<InferGetServerSidePropsType<typeof getServerSideProps>>> = ({
   post,
   prev,
   next,
