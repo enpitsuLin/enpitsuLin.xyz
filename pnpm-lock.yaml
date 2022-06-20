@@ -8,6 +8,7 @@ specifiers:
   '@types/js-yaml': ^4.0.5
   '@types/mdast': ^3.0.10
   '@types/react': ^18.0.12
+  '@types/unist': ^2.0.6
   '@typescript-eslint/eslint-plugin': ^5.27.1
   '@typescript-eslint/parser': ^5.27.1
   cross-env: ^7.0.3
@@ -103,6 +104,7 @@ devDependencies:
   '@types/js-yaml': 4.0.5
   '@types/mdast': 3.0.10
   '@types/react': 18.0.12
+  '@types/unist': 2.0.6
   '@typescript-eslint/eslint-plugin': 5.27.1_aq7uryhocdbvbqum33pitcm3y4
   '@typescript-eslint/parser': 5.27.1_ud6rd4xtew5bv4yhvkvu24pzm4
   cross-env: 7.0.3
@@ -7889,12 +7891,6 @@ packages:
     version: 6.0.3
     dev: false
 
-  registry.npmmirror.com/@types/unist/2.0.6:
-    resolution: {integrity: sha512-PBjIUxZHOuj0R15/xuwJYjFi+KZdNFrehocChv4g5hu6aFroHue8m0lBP0POdK2nKzbw0cgV1mws8+V/JAcEkQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/unist/-/unist-2.0.6.tgz}
-    name: '@types/unist'
-    version: 2.0.6
-    dev: false
-
   registry.npmmirror.com/bail/2.0.2:
     resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bail/-/bail-2.0.2.tgz}
     name: bail
@@ -7938,7 +7934,7 @@ packages:
     dependencies:
       '@types/hast': 2.3.4
       '@types/parse5': registry.npmmirror.com/@types/parse5/6.0.3
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       hastscript: 7.0.2
       property-information: registry.npmmirror.com/property-information/6.1.1
       vfile: registry.npmmirror.com/vfile/5.3.2
@@ -8041,7 +8037,7 @@ packages:
     name: unified
     version: 10.1.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       bail: registry.npmmirror.com/bail/2.0.2
       extend: registry.npmmirror.com/extend/3.0.2
       is-buffer: registry.npmmirror.com/is-buffer/2.0.5
@@ -8055,7 +8051,7 @@ packages:
     name: unist-util-stringify-position
     version: 3.0.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
     dev: false
 
   registry.npmmirror.com/vfile-location/4.0.1:
@@ -8063,7 +8059,7 @@ packages:
     name: vfile-location
     version: 4.0.1
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       vfile: registry.npmmirror.com/vfile/5.3.2
     dev: false
 
@@ -8072,7 +8068,7 @@ packages:
     name: vfile-message
     version: 3.1.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       unist-util-stringify-position: registry.npmmirror.com/unist-util-stringify-position/3.0.2
     dev: false
 
@@ -8081,7 +8077,7 @@ packages:
     name: vfile
     version: 5.3.2
     dependencies:
-      '@types/unist': registry.npmmirror.com/@types/unist/2.0.6
+      '@types/unist': 2.0.6
       is-buffer: registry.npmmirror.com/is-buffer/2.0.5
       unist-util-stringify-position: registry.npmmirror.com/unist-util-stringify-position/3.0.2
       vfile-message: registry.npmmirror.com/vfile-message/3.1.2

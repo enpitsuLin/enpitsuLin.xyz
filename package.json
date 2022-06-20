@@ -53,6 +53,7 @@
     "@types/js-yaml": "^4.0.5",
     "@types/mdast": "^3.0.10",
     "@types/react": "^18.0.12",
+    "@types/unist": "^2.0.6",
     "@typescript-eslint/eslint-plugin": "^5.27.1",
     "@typescript-eslint/parser": "^5.27.1",
     "cross-env": "^7.0.3",
