@@ -3,7 +3,7 @@ import FaEnvelope from '~icons/fa6-solid/envelope'
 import FaGithub from '~icons/fa6-brands/github'
 import FaSteam from '~icons/fa6-brands/steam'
 import FaZhihu from '~icons/fa6-brands/zhihu'
-import FaBilibili from './FaBilibili'
+import FaBilibili from '~icons/fa6-brands/bilibili'
 
 type SocialKind = 'mail' | 'github' | 'zhihu' | 'bilibili' | 'steam' | 'qq'
 
