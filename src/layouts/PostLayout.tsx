@@ -11,7 +11,7 @@ import PostHeader from '@/components/PostHeader'
 import Tag from '@/components/Tag'
 import useTranslation from 'next-translate/useTranslation'
 import TableOfContent from '@/components/TableOfContent'
-import { FaArrowLeft } from 'react-icons/fa'
+import CarbonArrowLeft from '~icons/carbon/arrow-left'
 
 interface Props {
   frontMatter: PostFrontMatter
@@ -21,7 +21,13 @@ interface Props {
   toc: Toc
 }
 
-const PostLayout: React.FC<React.PropsWithChildren<Props>> = ({ frontMatter, next, prev, children, toc }) => {
+const PostLayout: React.FC<React.PropsWithChildren<Props>> = ({
+  frontMatter,
+  next,
+  prev,
+  children,
+  toc,
+}) => {
   const { t } = useTranslation('common')
   const { slug, tags, readingTime } = frontMatter
 
@@ -45,7 +51,7 @@ const PostLayout: React.FC<React.PropsWithChildren<Props>> = ({ frontMatter, nex
                   href="/blog"
                   className="text-primary-500 hover:text-primary-600 flex items-center"
                 >
-                  <FaArrowLeft className="mr-3" />
+                  <CarbonArrowLeft className="mr-3" />
                   Back to the blog
                 </Link>
               </div>

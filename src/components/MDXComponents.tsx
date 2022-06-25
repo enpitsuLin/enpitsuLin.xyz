@@ -6,7 +6,10 @@ import { ComponentMap, getMDXComponent } from 'mdx-bundler/client'
 import Image from './Image'
 import CustomLink from './Link'
 import TOCInline from './TOCInline'
-import { FiZoomIn, FiZoomOut, FiRotateCcw, FiRotateCw } from 'react-icons/fi'
+import CarbonZoomIn from '~icons/carbon/zoom-in'
+import CarbonZoomOut from '~icons/carbon/zoom-out'
+import CarbonRotateClockwiseAlt from '~icons/carbon/rotate-clockwise-alt'
+import CarbonRotateCounterclockwise from '~icons/carbon/rotate-counterclockwise'
 import 'react-photo-view/dist/react-photo-view.css'
 
 const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) => {
@@ -51,24 +54,20 @@ export const MDXLayoutRenderer = ({ layout, mdxSource, ...rest }: Props) => {
       toolbarRender={({ onScale, scale, onRotate, rotate }) => {
         return (
           <>
-            <FiZoomIn
-              size={44}
-              className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+            <CarbonZoomIn
+              className="text-36px p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
               onClick={() => onScale(scale + 1)}
             />
-            <FiZoomOut
-              size={44}
-              className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+            <CarbonZoomOut
+              className="text-36px p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
               onClick={() => onScale(scale - 1)}
             />
-            <FiRotateCcw
-              size={44}
-              className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+            <CarbonRotateCounterclockwise
+              className="text-36px p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
               onClick={() => onRotate(rotate - 90)}
             />
-            <FiRotateCw
-              size={44}
-              className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+            <CarbonRotateClockwiseAlt
+              className="text-36px p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
               onClick={() => onRotate(rotate + 90)}
             />
           </>

@@ -1,9 +1,11 @@
-import { Toc } from '@/types/Toc'
 import { useEffect, useState } from 'react'
-import { FaArrowUp, FaComment, FaList } from 'react-icons/fa'
-import TOCInline from './TOCInline'
+import CarbonArrowUp from '~icons/carbon/arrow-up'
+import CarbonAddComment from '~icons/carbon/add-comment'
 
-const Button: React.FC<React.PropsWithChildren<JSX.IntrinsicElements['button']>> = ({ children, ...rest }) => {
+const Button: React.FC<React.PropsWithChildren<JSX.IntrinsicElements['button']>> = ({
+  children,
+  ...rest
+}) => {
   const classes = [
     rest.className,
     'rounded-full bg-gray-200 p-2 text-gray-700 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600',
@@ -36,7 +38,7 @@ const ScrollTopAndComment: React.FC<React.PropsWithChildren> = () => {
   return (
     <div className="fixed right-8 bottom-8 hidden flex-col gap-3 md:flex z-20">
       <Button aria-label="Scroll To Comment" onClick={handleScrollToComment}>
-        <FaComment className="h-4 w-4" />
+        <CarbonAddComment className="h-4 w-4" />
       </Button>
 
       <Button
@@ -44,7 +46,7 @@ const ScrollTopAndComment: React.FC<React.PropsWithChildren> = () => {
         className={show ? 'md:block' : 'md:hidden'}
         onClick={handleScrollTop}
       >
-        <FaArrowUp className="h-4 w-4" />
+        <CarbonArrowUp className="h-4 w-4" />
       </Button>
     </div>
   )

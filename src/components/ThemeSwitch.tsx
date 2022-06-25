@@ -1,7 +1,8 @@
 import { createDomMotionComponent } from 'framer-motion'
 import { useTheme } from 'next-themes'
 import { useEffect, useState } from 'react'
-import { FaMoon, FaSun } from 'react-icons/fa'
+import FaMoon from '~icons/fa6-solid/moon'
+import FaSun from '~icons/fa6-solid/sun'
 
 const Button = createDomMotionComponent('button')
 
@@ -35,9 +36,9 @@ const ThemeSwitch: React.FC<React.PropsWithChildren> = () => {
       }}
     >
       {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
-        <FaSun size={20} className="hover:text-amber-600" />
+        <FaSun className="text-20px hover:text-amber-600" />
       ) : (
-        <FaMoon size={20} className="hover:text-blue-500" />
+        <FaMoon className="text-20px hover:text-blue-500" />
       )}
     </Button>
   )

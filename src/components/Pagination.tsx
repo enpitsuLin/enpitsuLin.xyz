@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import { ReactNode } from 'react'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import CarbonArrowLeft from '~icons/carbon/arrow-left'
+import CarbonArrowRight from '~icons/carbon/arrow-right'
 import useTranslation from 'next-translate/useTranslation'
 import { classes } from '@/lib/utils/classes'
 
@@ -15,7 +16,12 @@ interface ButtonProps {
   prefix?: () => ReactNode
 }
 
-const IconButton: React.FC<React.PropsWithChildren<ButtonProps>> = ({ disabled = false, prefix, suffix, children }) => {
+const IconButton: React.FC<React.PropsWithChildren<ButtonProps>> = ({
+  disabled = false,
+  prefix,
+  suffix,
+  children,
+}) => {
   const disableClasses = 'cursor-not-allowed disabled:opacity-50'
   return (
     <button
@@ -38,26 +44,26 @@ const Pagination: React.FC<React.PropsWithChildren<Props>> = ({ totalPages, curr
     <div className="space-y-2 pt-6 pb-8 md:space-y-5">
       <nav className="flex justify-between">
         {!prevPage && (
-          <IconButton prefix={() => <FaArrowLeft />} disabled={!prevPage}>
+          <IconButton prefix={() => <CarbonArrowLeft />} disabled={!prevPage}>
             {t('post.page.previous')}
           </IconButton>
         )}
         {prevPage && (
           <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <IconButton prefix={() => <FaArrowLeft />}>{t('post.page.previous')}</IconButton>
+            <IconButton prefix={() => <CarbonArrowLeft />}>{t('post.page.previous')}</IconButton>
           </Link>
         )}
         <span>
           {currentPage} of {totalPages}
         </span>
         {!nextPage && (
-          <IconButton suffix={() => <FaArrowRight />} disabled={!nextPage}>
+          <IconButton suffix={() => <CarbonArrowRight />} disabled={!nextPage}>
             {t('post.page.next')}
           </IconButton>
         )}
         {nextPage && (
           <Link href={`/blog/page/${currentPage + 1}`}>
-            <IconButton suffix={() => <FaArrowRight />}>{t('post.page.next')}</IconButton>
+            <IconButton suffix={() => <CarbonArrowRight />}>{t('post.page.next')}</IconButton>
           </Link>
         )}
       </nav>

@@ -1,5 +1,8 @@
-import { IconType } from 'react-icons'
-import { FaQq, FaEnvelope, FaGithub, FaSteam, FaZhihu } from 'react-icons/fa'
+import FaQq from '~icons/fa6-brands/qq'
+import FaEnvelope from '~icons/fa6-solid/envelope'
+import FaGithub from '~icons/fa6-brands/github'
+import FaSteam from '~icons/fa6-brands/steam'
+import FaZhihu from '~icons/fa6-brands/zhihu'
 import FaBilibili from './FaBilibili'
 
 type SocialKind = 'mail' | 'github' | 'zhihu' | 'bilibili' | 'steam' | 'qq'
@@ -10,7 +13,7 @@ interface SocialIconProps {
   size?: 'small' | 'medium' | 'large'
 }
 
-const components: Record<SocialKind, IconType> = {
+const components = {
   mail: FaEnvelope,
   github: FaGithub,
   zhihu: FaZhihu,
@@ -24,7 +27,11 @@ const sizeMap = {
   large: `h-12 w-12`,
 }
 
-const SocialIcon: React.FC<React.PropsWithChildren<SocialIconProps>> = ({ kind, href, size = 'medium' }) => {
+const SocialIcon: React.FC<React.PropsWithChildren<SocialIconProps>> = ({
+  kind,
+  href,
+  size = 'medium',
+}) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 
