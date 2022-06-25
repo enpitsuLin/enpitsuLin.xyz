@@ -1,8 +1,11 @@
 const WindiCSSWebpackPlugin = require('windicss-webpack-plugin')
+const IconsPlugin = require('unplugin-icons/webpack')
 const nextTranslate = require('next-translate')
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 })
+
+const plugins = [new WindiCSSWebpackPlugin(), IconsPlugin({ compiler: 'jsx', jsx: 'react' })]
 
 /**
  * @type {import('next').NextConfig}
@@ -20,7 +23,9 @@ const config = {
     return [{ source: '/sitemap', destination: '/sitemap.xml', permanent: false }]
   },
   webpack: (config, { dev, isServer }) => {
-    config.plugins.push(new WindiCSSWebpackPlugin())
+    plugins.forEach((plugin) => {
+      config.plugins.push(plugin)
+    })
     config.module.rules.push({
       test: /\.(png|jpe?g|gif|mp4)$/i,
       use: [
