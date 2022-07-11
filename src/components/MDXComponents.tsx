@@ -11,9 +11,10 @@ import CarbonZoomOut from '~icons/carbon/zoom-out'
 import CarbonRotateClockwiseAlt from '~icons/carbon/rotate-clockwise-alt'
 import CarbonRotateCounterclockwise from '~icons/carbon/rotate-counterclockwise'
 import 'react-photo-view/dist/react-photo-view.css'
+import dynamic from 'next/dynamic'
 
 const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) => {
-  const Layout = require(`../layouts/${layout}`).default
+  const Layout = dynamic(() => import(`../layouts/${layout}`))
   return <Layout {...rest} />
 }
 
