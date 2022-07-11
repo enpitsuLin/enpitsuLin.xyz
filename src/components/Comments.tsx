@@ -2,7 +2,9 @@ import React, { useEffect, useRef } from 'react'
 import DisqusJS from 'disqusjs'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 
-const Comments: React.FC<React.PropsWithChildren<{ frontMatter: PostFrontMatter }>> = ({ frontMatter }) => {
+const Comments: React.FC<React.PropsWithChildren<{ frontMatter: PostFrontMatter }>> = ({
+  frontMatter,
+}) => {
   const comments = useRef<HTMLDivElement>()
 
   const COMMENTS_ID = 'disqus_thread'

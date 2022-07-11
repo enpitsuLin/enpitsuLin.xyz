@@ -33,11 +33,9 @@ export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) 
   }
 }
 
-const Blog: React.FC<React.PropsWithChildren<InferGetServerSidePropsType<typeof getServerSideProps>>> = ({
-  post,
-  prev,
-  next,
-}) => {
+const Blog: React.FC<
+  React.PropsWithChildren<InferGetServerSidePropsType<typeof getServerSideProps>>
+> = ({ post, prev, next }) => {
   const { mdxSource, toc, frontMatter } = post
 
   return (
