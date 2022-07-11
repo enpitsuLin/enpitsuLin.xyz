@@ -8,12 +8,7 @@ export interface CardProps {
   href: string
 }
 
-const Card: React.FC<React.PropsWithChildren<CardProps>> = ({
-  title,
-  description,
-  imgSrc,
-  href,
-}) => (
+const Card: React.FC<CardProps> = ({ title, description, imgSrc, href }) => (
   <div className="md p-4 md:w-1/2" style={{ maxWidth: '544px' }}>
     <div
       className={`${

@@ -35,7 +35,7 @@ const IconButton: React.FC<React.PropsWithChildren<ButtonProps>> = ({
   )
 }
 
-const Pagination: React.FC<React.PropsWithChildren<Props>> = ({ totalPages, currentPage }) => {
+const Pagination: React.FC<Props> = ({ totalPages, currentPage }) => {
   const { t } = useTranslation('common')
   const prevPage = currentPage - 1 > 0
   const nextPage = currentPage + 1 <= totalPages

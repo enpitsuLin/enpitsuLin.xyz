@@ -21,9 +21,11 @@ export const getServerSideProps: GetServerSideProps<{
 
   return { props: { initialDisplayPosts, posts, pagination } }
 }
-const Blog: React.FC<
-  React.PropsWithChildren<InferGetServerSidePropsType<typeof getServerSideProps>>
-> = ({ posts, initialDisplayPosts, pagination }) => {
+const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
+  posts,
+  initialDisplayPosts,
+  pagination,
+}) => {
   return (
     <>
       <PageSEO title={`Blog - ${siteMetadata.author}`} description={siteMetadata.description} />

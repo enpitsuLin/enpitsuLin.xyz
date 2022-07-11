@@ -15,7 +15,6 @@ import CarbonArrowLeft from '~icons/carbon/arrow-left'
 
 interface Props {
   frontMatter: PostFrontMatter
-  children: ReactNode
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
   toc: Toc

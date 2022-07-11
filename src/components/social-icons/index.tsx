@@ -27,11 +27,7 @@ const sizeMap = {
   large: `h-12 w-12`,
 }
 
-const SocialIcon: React.FC<React.PropsWithChildren<SocialIconProps>> = ({
-  kind,
-  href,
-  size = 'medium',
-}) => {
+const SocialIcon: React.FC<SocialIconProps> = ({ kind, href, size = 'medium' }) => {
   if (!href || (kind === 'mail' && !/^mailto:\w+([.-]?\w+)@\w+([.-]?\w+)(.\w{2,3})+$/.test(href)))
     return null
 

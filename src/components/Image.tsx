@@ -1,6 +1,6 @@
 import NextImage, { ImageProps } from 'next/image'
 
-const Image: React.FC<React.PropsWithChildren<ImageProps>> = (props) => {
+const Image: React.FC<ImageProps> = (props) => {
   return <NextImage {...props} />
 }
 

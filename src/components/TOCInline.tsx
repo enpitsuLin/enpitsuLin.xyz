@@ -25,7 +25,7 @@ interface TOCInlineProps {
  * }
  *
  */
-const TOCInline: React.FC<React.PropsWithChildren<TOCInlineProps>> = ({
+const TOCInline: React.FC<TOCInlineProps> = ({
   toc,
   indentDepth = 3,
   fromHeading = 1,

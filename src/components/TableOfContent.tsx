@@ -1,7 +1,7 @@
 import { Toc } from '@/types/Toc'
 import useTranslation from 'next-translate/useTranslation'
 
-const TableOfContent: React.FC<React.PropsWithChildren<{ toc: Toc }>> = ({ toc }) => {
+const TableOfContent: React.FC<{ toc: Toc }> = ({ toc }) => {
   const { t } = useTranslation('common')
   const handleScrollToToc = (selector: string) => {
     const el = document.querySelector(selector) as HTMLElement

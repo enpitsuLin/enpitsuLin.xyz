@@ -9,7 +9,7 @@ interface Props {
   frontMatter: PostFrontMatter
 }
 
-const PostHeader: React.FC<React.PropsWithChildren<Props>> = ({ frontMatter }) => {
+const PostHeader: React.FC<Props> = ({ frontMatter }) => {
   const { title, date, readingTime, reads, slug } = frontMatter
   const { t } = useTranslation('common')
 

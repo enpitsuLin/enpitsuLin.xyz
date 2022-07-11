@@ -17,7 +17,7 @@ const Button: React.FC<React.PropsWithChildren<JSX.IntrinsicElements['button']>>
   )
 }
 
-const ScrollTopAndComment: React.FC<React.PropsWithChildren> = () => {
+const ScrollTopAndComment: React.FC = () => {
   const [show, setShow] = useState(false)
 
   useEffect(() => {
