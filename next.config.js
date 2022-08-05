@@ -11,8 +11,8 @@ const plugins = [new WindiCSSWebpackPlugin(), IconsPlugin({ compiler: 'jsx', jsx
  * @type {import('next').NextConfig}
  **/
 const config = {
-  image: {
-    loader: 'static',
+  images: {
+    loader: 'custom',
   },
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
