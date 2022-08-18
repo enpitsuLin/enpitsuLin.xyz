@@ -37,7 +37,6 @@ specifiers:
   next-remote-watch: ^1.0.0
   next-themes: ^0.2.0
   next-translate: ^1.5.0
-  preact: ^10.10.0
   prettier: ^2.7.1
   react: 18.2.0
   react-dom: 18.2.0
@@ -67,7 +66,7 @@ specifiers:
 dependencies:
   '@fontsource/inter': 4.5.11
   dayjs: 1.11.4
-  disqusjs: 3.0.1_k4ccgpa7xqukodx67ubh2i3rn4
+  disqusjs: 3.0.1_react@18.2.0
   esbuild: 0.14.53
   faunadb: 4.6.0
   framer-motion: 7.0.0_biqbaboplfbrettd7655fr4n2y
@@ -78,7 +77,6 @@ dependencies:
   next: 12.2.4_biqbaboplfbrettd7655fr4n2y
   next-themes: 0.2.0_vyccxgqxcnj5vudpssiumaxlme
   next-translate: 1.5.0_next@12.2.4+react@18.2.0
-  preact: 10.10.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-photo-view: 1.2.2_biqbaboplfbrettd7655fr4n2y
@@ -3150,7 +3148,7 @@ packages:
     hasBin: true
     dev: false
 
-  /disqusjs/3.0.1_k4ccgpa7xqukodx67ubh2i3rn4:
+  /disqusjs/3.0.1_react@18.2.0:
     resolution: {integrity: sha512-zx9QSEu4kuLYOUi1IGqdb90xPlt/HMg9r3/hAchDsiBp+bsIA/dW2sUHlQC1SlHKJZHQzMF/hd9rJIGyN9qXbw==}
     peerDependencies:
       preact: ^10.7.1
@@ -3161,7 +3159,6 @@ packages:
       react:
         optional: true
     dependencies:
-      preact: 10.10.0
       react: 18.2.0
       zustand: 4.0.0_react@18.2.0
     transitivePeerDependencies:
@@ -6323,10 +6320,6 @@ packages:
       nanoid: 3.3.4
       picocolors: 1.0.0
       source-map-js: 1.0.2
-    dev: false
-
-  /preact/10.10.0:
-    resolution: {integrity: sha512-fszkg1iJJjq68I4lI8ZsmBiaoQiQHbxf1lNq+72EmC/mZOsFF5zn3k1yv9QGoFgIXzgsdSKtYymLJsrJPoamjQ==}
     dev: false
 
   /prebuild-install/7.1.1:
