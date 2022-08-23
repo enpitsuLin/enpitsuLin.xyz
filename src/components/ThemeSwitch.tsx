@@ -10,8 +10,8 @@ const ThemeSwitch: React.FC = () => {
   const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
 
-  // When mounted on client, now we can show the UI
   useEffect(() => setMounted(true), [])
+  if (!mounted) return null
 
   return (
     <Button
@@ -35,7 +35,7 @@ const ThemeSwitch: React.FC = () => {
         }
       }}
     >
-      {mounted && (theme === 'dark' || resolvedTheme === 'dark') ? (
+      {theme === 'dark' || resolvedTheme === 'dark' ? (
         <FaSun className="text-20px hover:text-amber-600" />
       ) : (
         <FaMoon className="text-20px hover:text-blue-500" />
