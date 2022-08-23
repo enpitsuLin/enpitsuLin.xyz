@@ -14,7 +14,7 @@ import 'react-photo-view/dist/react-photo-view.css'
 import dynamic from 'next/dynamic'
 
 const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) => {
-  const Layout = dynamic(() => import(`../layouts/${layout}`))
+  const Layout = dynamic(() => import(`../layouts/${layout}`), { suspense: true })
   return <Layout {...rest} />
 }
 
