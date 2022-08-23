@@ -8,6 +8,7 @@ specifiers:
   '@types/disqusjs': ^1.3.0
   '@types/js-yaml': ^4.0.5
   '@types/mdast': ^3.0.10
+  '@types/node': ^18.7.11
   '@types/react': ^18.0.17
   '@types/unist': ^2.0.6
   '@typescript-eslint/eslint-plugin': ^5.34.0
@@ -100,6 +101,7 @@ devDependencies:
   '@types/disqusjs': 1.3.0
   '@types/js-yaml': 4.0.5
   '@types/mdast': 3.0.10
+  '@types/node': 18.7.11
   '@types/react': 18.0.17
   '@types/unist': 2.0.6
   '@typescript-eslint/eslint-plugin': 5.34.0_euudt5oqhhodkyae5tf6wjmsda
@@ -2082,6 +2084,10 @@ packages:
   /@types/ms/0.7.31:
     resolution: {integrity: sha512-iiUgKzV9AuaEkZqkOLDIvlQiL6ltuZd9tGcW3gwpnX8JbuiuhFlEGmmFXEXkN50Cvq7Os88IY2v0dkDqXYWVgA==}
     dev: false
+
+  /@types/node/18.7.11:
+    resolution: {integrity: sha512-KZhFpSLlmK/sdocfSAjqPETTMd0ug6HIMIAwkwUpU79olnZdQtMxpQP+G1wDzCH7na+FltSIhbaZuKdwZ8RDrw==}
+    dev: true
 
   /@types/parse-json/4.0.0:
     resolution: {integrity: sha512-//oorEZjL6sbPcKUaCdIGlIUeH26mgzimjBB77G6XRgnDl/L5wOnpyBGRe/Mmf5CVW3PwEBE1NjiMZ/ssFh4wA==}
