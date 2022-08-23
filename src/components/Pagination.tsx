@@ -49,9 +49,11 @@ const Pagination: React.FC<Props> = ({ totalPages, currentPage }) => {
           </IconButton>
         )}
         {prevPage && (
-          <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
-            <IconButton prefix={() => <CarbonArrowLeft />}>{t('post.page.previous')}</IconButton>
-          </Link>
+          <IconButton prefix={() => <CarbonArrowLeft />}>
+            <Link href={currentPage - 1 === 1 ? `/blog/` : `/blog/page/${currentPage - 1}`}>
+              {t('post.page.previous')}
+            </Link>
+          </IconButton>
         )}
         <span>
           {currentPage} of {totalPages}
@@ -62,9 +64,9 @@ const Pagination: React.FC<Props> = ({ totalPages, currentPage }) => {
           </IconButton>
         )}
         {nextPage && (
-          <Link href={`/blog/page/${currentPage + 1}`}>
-            <IconButton suffix={() => <CarbonArrowRight />}>{t('post.page.next')}</IconButton>
-          </Link>
+          <IconButton suffix={() => <CarbonArrowRight />}>
+            <Link href={`/blog/page/${currentPage + 1}`}>{t('post.page.next')}</Link>
+          </IconButton>
         )}
       </nav>
     </div>
