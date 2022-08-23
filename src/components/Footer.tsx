@@ -1,8 +1,13 @@
 import Link from './Link'
 import siteMetadata from 'data/siteMetadata'
 import SocialIcon from '@/components/social-icons'
-
+import { useEffect, useState } from 'react'
 export default function Footer() {
+  const [year, setYear] = useState<number>()
+  useEffect(() => {
+    const curYear = new Date().getFullYear()
+    setYear(curYear)
+  }, [])
   return (
     <footer>
       <div className="mt-16 mb-6 flex flex-col items-center">
@@ -17,7 +22,7 @@ export default function Footer() {
         <div className="mb-2 flex space-x-2 text-sm text-gray-500 dark:text-gray-400">
           <Link href="/">{siteMetadata.author}</Link>
           <div>{` • `}</div>
-          <div>{`© ${new Date().getFullYear()}`}</div>
+          <div>{`© ${year}`}</div>
           <div>{` • `}</div>
           <Link href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</Link>
         </div>
