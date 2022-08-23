@@ -35,7 +35,7 @@ const ThemeSwitch: React.FC = () => {
         }
       }}
     >
-      {theme === 'dark' || resolvedTheme === 'dark' ? (
+      {theme === 'light' || resolvedTheme === 'light' ? (
         <FaSun className="text-20px hover:text-amber-600" />
       ) : (
         <FaMoon className="text-20px hover:text-blue-500" />
