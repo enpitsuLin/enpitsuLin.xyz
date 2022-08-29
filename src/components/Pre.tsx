@@ -1,6 +1,10 @@
-import { type PropsWithChildren, useState, useRef } from 'react'
+import { useState, useRef, ReactNode } from 'react'
 
-const Pre: React.FC<PropsWithChildren> = ({ children }) => {
+interface Props {
+  children: ReactNode
+}
+
+const Pre = ({ children }: Props) => {
   const textInput = useRef(null)
   const [hovered, setHovered] = useState(false)
   const [copied, setCopied] = useState(false)
