@@ -1,4 +1,5 @@
 import { AnimatePresence, motion, SVGMotionProps, useCycle } from 'framer-motion'
+import { MdClose, MdMenu } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
 import headerNavLinks from 'data/headerNavLinks'
