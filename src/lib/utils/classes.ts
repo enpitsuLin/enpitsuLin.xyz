@@ -1,3 +1,3 @@
-export function classes(args: string[]): string {
+export function classes(args: (string | null | undefined)[]): string {
   return args.filter(Boolean).join(' ')
 }
