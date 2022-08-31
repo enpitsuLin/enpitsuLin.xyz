@@ -2,18 +2,10 @@
 title: 使用Tauri构建桌面端应用程序——以TodoMVC为例（下）
 draft: false
 date: 2022-05-03 11:33:37
-lastmod: 2022-05-03 16:26:37
+lastmod: 2022-08-31 10:18:37
 tags: ['rust', 'tauri']
 summary: 上篇我们完成了基于sqlite数据库+rust的后端逻辑，但是仅仅有后端逻辑肯定不够，那么还需要完善前端，那么我们再简单的基于jotai状态管理来管理应用内的数据以及完善相应的调用rust后端的逻辑。
 ---
-
-**上篇的一些小问题**
-
-其实上篇的连接数据库的方式可能不太符合应有的逻辑，是每次 command 都会重新开启一次数据库连接再执行相应的 sql 语句，这其实是由于 `rusqlite::Connection` 没有实现进程内共享的接口，无论是使用简单的使用`lazy_static!`宏创建全局变量存储连接还是使用 truri 的 [State](https://tauri.studio/docs/guides/command#accessing-managed-state) 控制都不会被编译通过，注定无法在多个进程中共享，所以就只能使用这种笨办法先实现功能。~~其实是懒得找解决方案~~
-
-如果有更好的解决方法可以评论告知下\_(:3」∠)\_
-
-> 相关讨论见 [#188](https://github.com/rusqlite/rusqlite/issues/188) (**note**:这是一个从 16 年就开始的 issue)
 
 没看上一篇的可以看看 [使用 Tauri 构建桌面端应用程序——以 TodoMVC 为例（上）](/blog/todo-mvc-app-with-tauri-1)
 
