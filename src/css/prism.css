@@ -36,19 +36,19 @@
 }
 
 .code-line.diff-deleted {
-  @apply border-red-700 bg-red-700 bg-opacity-30 relative;
+  @apply border-red-700 bg-red-700 bg-opacity-30 relative pointer-events-none;
 }
 
 .code-line.diff-inserted {
-  @apply border-green-700 bg-green-700 bg-opacity-30 relative;
+  @apply border-green-700 bg-green-700 bg-opacity-30 relative pointer-events-none;
 }
 
 .code-line.diff-warn {
-  @apply border-orange-700 bg-orange-700 bg-opacity-30 relative;
+  @apply border-orange-700 bg-orange-700 bg-opacity-30 relative pointer-events-none;
 }
 
 .code-line.diff-comment {
-  @apply opacity-50 border-gray-700 bg-gray-700 bg-opacity-30 relative italic;
+  @apply opacity-50 border-gray-700 bg-gray-700 bg-opacity-30 relative italic pointer-events-none;
 }
 
 .line-number::before {
