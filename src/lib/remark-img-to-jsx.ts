@@ -1,4 +1,4 @@
-import { Parent, Node, Literal } from 'unist'
+import type { Parent, Node, Literal } from 'unist'
 import { visit } from 'unist-util-visit'
 import sizeOf from 'image-size'
 import fs from 'fs'

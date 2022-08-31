@@ -1,4 +1,4 @@
-import { Parent } from 'unist'
+import type { Parent } from 'unist'
 import { VFile } from 'vfile'
 import { visit } from 'unist-util-visit'
 import { load } from 'js-yaml'
