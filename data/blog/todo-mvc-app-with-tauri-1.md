@@ -2,7 +2,7 @@
 title: 使用Tauri构建桌面端应用程序——以TodoMVC为例（上）
 draft: false
 date: 2022-05-02 17:29:37
-lastmod: 2022-05-03 16:26:37
+lastmod: 2022-08-31 10:18:37
 tags: ['rust', 'tauri']
 summary: rust太难学了？学习了rust不会实践？简单使用 Tauri 搭建经典实战项目TodoMVC 来做实践吧。你会发现rust真的很好玩，tauri也是非常的快，转变思维使用rust来写代码真的很爽。
 ---
@@ -303,20 +303,56 @@ fn main() {
 
 + #[tauri::command]
 + fn get_todos() -> Vec<Todo> {
-+     let app = TodoApp::new().unwrap();
-+     let todos = app.get_todos().unwrap();
-+     app.conn.close();
-+     todos
++     todo!()
 + }
+```
+
+**封装 tauri 状态**
+
+我们需要使用 rust 标准库中的 Mutex 互斥锁以及 tauri 的 state 来让我们封装的 TodoApp 对象能够跨进程调用，首先新建一个`AppState`结构体做状态管理。
+
+然后通过`tauri::Builder`的`manage`方法来管理这个状态。然后我们就可以封装`command`来使用这个对象的的方法来获取数据了。
+
+```rust:src/main.rs {diff}
+#![cfg_attr(
+    all(not(debug_assertions), target_os = "windows"),
+    windows_subsystem = "windows"
+)]
+mod todo;
+use todo::{Todo, TodoApp};
+
++ struct AppState {
++     app: Mutex<TodoApp>,
++ }
+
+fn main() {
++   let app = TodoApp::new().unwrap();
+    tauri::Builder::default()
+        .invoke_handler(tauri::generate_handler![
+            get_todos,
+        ])
++       .manage(AppState {
++           app: Mutex::from(app),
++       })
+        .run(tauri::generate_context!())
+        .expect("error while running tauri application");
+}
+
+#[tauri::command]
+fn get_todos() -> Vec<Todo> {
++    let app = state.app.lock().unwrap();
++    let todos = app.get_todos().unwrap();
++    todos
+}
 ```
 
 **返回数据序列化**
 
 写好 command 之后发现注解这里报错了。
 
-![Error](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502222206.png)
+![Error](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220831103356.png)
 
-这里是因为我们返回的`Vec<Todo>`不是可以序列化的类型不能通过指令返回到前端，回到 todo.rs
+这里是因为我们返回的`Vec<Todo>`不是可以序列化的类型不能通过指令返回到前端，回到 todo.rs，我们增加注解给结构体增加序列化的功能。
 
 ```rust:todo.rs {diff}
 + use serde::{Serialize};
@@ -430,4 +466,4 @@ fn main() {
 
 ## 下篇链接
 
-[使用Tauri构建桌面端应用程序——以TodoMVC为例（下）](/blog/todo-mvc-app-with-tauri-1)
+[使用 Tauri 构建桌面端应用程序——以 TodoMVC 为例（下）](/blog/todo-mvc-app-with-tauri-1)
