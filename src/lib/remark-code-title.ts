@@ -1,4 +1,4 @@
-import { Parent } from 'unist'
+import type { Parent } from 'unist'
 import { visit } from 'unist-util-visit'
 
 export default function remarkCodeTitles() {
