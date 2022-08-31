@@ -1,6 +1,6 @@
 {
-  "name": "enpitsulin.github.io",
-  "version": "1.5.1",
+  "name": "enpitsulin.xyz",
+  "version": "n/a",
   "private": true,
   "scripts": {
     "dev": "next dev",
