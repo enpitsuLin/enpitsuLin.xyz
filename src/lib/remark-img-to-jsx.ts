@@ -43,7 +43,7 @@ export default function remarkImgToJsx() {
             const [imgAlt, attrStr] = imageNode.alt.split('|')
             imageNode.alt = imgAlt
 
-            const [, height, width] = attrStr.match(/height=(\d+),width=(\d+)/)
+            const [height, width] = attrStr.split('x')
 
             imageNode.type = 'mdxJsxFlowElement'
             imageNode.name = 'Image'

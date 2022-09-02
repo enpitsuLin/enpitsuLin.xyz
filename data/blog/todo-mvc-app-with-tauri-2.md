@@ -165,7 +165,7 @@ function App() {
 export default App
 ```
 
-![](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220503121658.png)
+![preview|1002x789](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220503121658.png)
 
 ### 新增 Todo
 
@@ -284,7 +284,7 @@ export default TodoList
 
 然后测试下效果，我们会发现这里应用会重载一次，因为对/tauri-src/目录下的文件修改就会触发 tauri 的 HMR，我们向 sqlite 就是修改了 db.sqlite 文件所以触发了一次，如果修改路径可能也会导致打包分发的时候路径出点问题，这个问题不知道怎么解决，希望有人能评论指出。
 
-![new todo](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220503152844.png)
+![new todo|1002x789](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220503152844.png)
 
 ### 修改和完成和删除 Todo
 
