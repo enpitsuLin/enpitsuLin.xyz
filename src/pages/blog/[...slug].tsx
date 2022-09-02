@@ -1,11 +1,9 @@
-import fs from 'fs'
-import { GetServerSideProps, GetStaticPaths, InferGetServerSidePropsType } from 'next'
-import PageTitle from '@/components/PageTitle'
-import generateRss from '@/lib/generate-rss'
 import { MDXLayoutRenderer } from '@/components/MDXComponents'
+import PageTitle from '@/components/PageTitle'
 import { formatSlug, getAllFilesFrontMatter, getFileBySlug } from '@/lib/mdx'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { Toc } from '@/types/Toc'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 const DEFAULT_LAYOUT = 'PostLayout'
 
@@ -16,7 +14,9 @@ interface Props {
 }
 
 // @ts-ignore
-export const getServerSideProps: GetServerSideProps<Props> = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps<Props> = async ({ params, res }) => {
+  res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
+
   const slug = (params.slug as string[]).join('/')
   const allPosts = await getAllFilesFrontMatter()
   const postIndex = allPosts.findIndex((post) => formatSlug(post.slug) === slug)
