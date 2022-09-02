@@ -10,6 +10,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 const config = {
   image: {
     loader: 'static',
+    domains: ['images-enpitsulin.oss-cn-beijing.aliyuncs.com'],
   },
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
