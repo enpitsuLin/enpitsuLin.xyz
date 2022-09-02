@@ -3,6 +3,7 @@
 [![MDXSupport][mdx-support-img]][mdx-home]
 [![style: windicss][tailwindcss-img]][tailwindcss-home]
 [![vercel][vercel-deploy-img]](https://blog.enpitsulin.xyz/)
+![checklyhq][checklyhq]
 
 enpitsulin.xyz is personal blog for [enpitsulin](http://github.com/enpitsulin)
 
@@ -55,3 +56,4 @@ MIT
 [tailwindcss-img]: https://img.shields.io/badge/style-windicss-green?logo=windicss
 [tailwindcss-home]: https://tailwindcss.com/
 [vercel-deploy-img]: https://therealsujitk-vercel-badge.vercel.app/?app=enpitsulin
+[checklyhq]: https://api.checklyhq.com/v1/badges/checks/73560121-856f-4a6f-ae92-c6cc1ab9ffed?style=flat&theme=default
