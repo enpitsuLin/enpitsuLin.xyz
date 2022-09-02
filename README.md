@@ -10,6 +10,13 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 
 [Check it out now!](https://blog.enpitsulin.xyz/)
 
+<details>
+<summary>Lighthouse</summary>
+
+![lighthouse](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220902164655.png)
+
+</details>
+
 ## Features
 
 - Static website with modern web technologies
@@ -32,6 +39,10 @@ Currently it is built with [Nextjs](https://nextjs.org/).
 - [framer-motion](https://framer.com/motion/): An animation library that makes creating animations easier
 - [windicss](https://windicss.org/): A utility-first CSS framework for styled websites and apps
 - [next-translate](https://github.com/vinissimus/next-translate): I18n library for nextjs
+
+## Credits
+
+- [Tailwind nextjs starter blog template](https://github.com/timlrx/tailwind-nextjs-starter-blog) © [Timothy](https://www.timlrx.com/)
 
 # License
 
