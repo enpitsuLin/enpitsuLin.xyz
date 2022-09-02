@@ -85,7 +85,7 @@ export async function getFileBySlug<T>(type: 'blog', slug: string) {
         rehypeKatex,
         [rehypeCitation, { path: path.join(root, 'data') }],
         [rehypePrismPlus, { ignoreMissing: true }],
-        rehypePrismDiff,
+        [rehypePrismDiff, {}],
         rehypePresetMinify,
       ]
       return options
