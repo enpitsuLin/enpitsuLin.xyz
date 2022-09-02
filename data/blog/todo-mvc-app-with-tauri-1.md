@@ -21,11 +21,11 @@ pnpm create tauri-app
 
 我们选择使用从`create-vite` 然后使用 react-ts 模板
 
-![](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/Snipaste_2022-05-02_17-35-03.png)
+![创建项目|1481x785](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/Snipaste_2022-05-02_17-35-03.png)
 
 然后等待 cli 安装完依赖，用 VSCode 打开项目，这里建议你安装`rust-analyzer`不过我估计学习 rust 应该早都推荐安装了,然后我们的项目目录就如下
 
-![目录](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502174606.png)
+![目录|311x225](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502174606.png)
 
 存放前端项目内容的 src 和 rust 后端的 src-tauri，对于 web 界面的开发就很正常开发 react 一样，但是对于和编写 rust 后端就不同于 electron 了毕竟 rust 和 nodejs 完全不一样
 
@@ -134,7 +134,7 @@ export default App
 pnpm tauri dev
 ```
 
-![效果](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502180609.png)
+![效果|1002x789](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502180609.png)
 
 不过这部分仅仅只是显示简单的 html 结构以及相应的 css 样式没有任何功能
 
@@ -350,7 +350,7 @@ fn get_todos() -> Vec<Todo> {
 
 写好 command 之后发现注解这里报错了。
 
-![Error](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220831103356.png)
+![Error|658x358](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220831103356.png)
 
 这里是因为我们返回的`Vec<Todo>`不是可以序列化的类型不能通过指令返回到前端，回到 todo.rs，我们增加注解给结构体增加序列化的功能。
 
@@ -368,7 +368,7 @@ pub struct Todo {
 
 然后我们在界面上右键检查打开控制台然后输入`await __TAURI__.invoke("get_todos")`应该就能看到返回的空数组了
 
-![](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502222623.png)
+![get_todos|789x797](https://images-enpitsulin.oss-cn-beijing.aliyuncs.com/images/20220502222623.png)
 
 **invoke 参数反序列化**
 
