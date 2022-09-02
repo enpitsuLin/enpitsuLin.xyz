@@ -37,7 +37,28 @@ export default function remarkImgToJsx() {
           // Change node type from p to div to avoid nesting error
           node.type = 'div'
           node.children = [imageNode]
+        } else {
+          // for oss image
+          if (imageNode.alt.includes('|')) {
+            const [imgAlt, attrStr] = imageNode.alt.split('|')
+            imageNode.alt = imgAlt
+
+            const [, height, width] = attrStr.match(/height=(\d+),width=(\d+)/)
+
+            imageNode.type = 'mdxJsxFlowElement'
+            imageNode.name = 'Image'
+            imageNode.attributes = [
+              { type: 'mdxJsxAttribute', name: 'alt', value: imageNode.alt },
+              { type: 'mdxJsxAttribute', name: 'src', value: imageNode.url },
+              { type: 'mdxJsxAttribute', name: 'width', value: width },
+              { type: 'mdxJsxAttribute', name: 'height', value: height },
+            ]
+
+            node.type = 'div'
+            node.children = [imageNode]
+          }
         }
+        console.log(imageNode)
       }
     )
   }
