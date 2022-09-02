@@ -15,20 +15,30 @@ const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) =
   return <Layout {...rest} />
 }
 
+const MarkdownImg = ({ src, alt, height = 0, width = 0 }) => (
+  <PhotoView src={src}>
+    <span className="flex flex-col items-center justify-center relative">
+      <Image
+        loading="lazy"
+        src={src}
+        alt={alt}
+        objectFit="cover"
+        height={height}
+        width={width}
+        className="cursor-zoom-in"
+      />
+      {alt && <span className="p-0 !m-0 text-sm opacity-60">{alt}</span>}
+    </span>
+  </PhotoView>
+)
+
 export const MDXComponents: ComponentMap = {
-  Image,
+  Image: MarkdownImg,
   //@ts-ignore
   TOCInline,
   a: CustomLink,
   pre: Pre,
-  img: ({ alt, src, ...rest }) => (
-    <PhotoView src={src}>
-      <span className="flex flex-col items-center justify-center">
-        <img src={src} alt={alt} {...rest} className="cursor-zoom-in" />
-        {alt && <span className="p-0 !m-0 text-sm opacity-60">{alt}</span>}
-      </span>
-    </PhotoView>
-  ),
+  img: MarkdownImg,
   del: (props) => (
     <del title="你知道的太多了" className="heimu">
       {props.children}
