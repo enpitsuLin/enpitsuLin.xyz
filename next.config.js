@@ -8,8 +8,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
  * @type {import('next').NextConfig}
  **/
 const config = {
-  image: {
-    loader: 'static',
+  images: {
     domains: ['images-enpitsulin.oss-cn-beijing.aliyuncs.com'],
   },
   reactStrictMode: true,
