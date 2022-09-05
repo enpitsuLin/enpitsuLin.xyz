@@ -9,7 +9,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
  **/
 const config = {
   images: {
-    domains: ['images-enpitsulin.oss-cn-beijing.aliyuncs.com'],
+    domains: ['images-enpitsulin.oss-cn-beijing.aliyuncs.com', 's3.bmp.ovh'],
   },
   reactStrictMode: true,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
