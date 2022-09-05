@@ -43,7 +43,7 @@ export default function remarkImgToJsx() {
             const [imgAlt, attrStr] = imageNode.alt.split('|')
             imageNode.alt = imgAlt
 
-            const [height, width] = attrStr.split('x')
+            const [width, height] = attrStr.split('x')
 
             imageNode.type = 'mdxJsxFlowElement'
             imageNode.name = 'Image'
@@ -58,7 +58,6 @@ export default function remarkImgToJsx() {
             node.children = [imageNode]
           }
         }
-        console.log(imageNode)
       }
     )
   }

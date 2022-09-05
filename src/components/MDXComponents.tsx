@@ -38,7 +38,6 @@ export const MDXComponents: ComponentMap = {
   TOCInline,
   a: CustomLink,
   pre: Pre,
-  img: MarkdownImg,
   del: (props) => (
     <del title="你知道的太多了" className="heimu">
       {props.children}
