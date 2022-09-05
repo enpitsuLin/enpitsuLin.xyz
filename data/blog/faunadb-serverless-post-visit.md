@@ -26,15 +26,15 @@ Faunadb 只是提供了一个简单的无服务器应用框架，可以提供 Gr
 
 创建一个新的数据库，按照你喜欢的方式命名一下，然后新建一个 collection，命名为`visit`，过期时间和 TTL 可以就保持默认。
 
-![new-collection](https://s3.bmp.ovh/imgs/2022/04/12/fde4c3413d92fdac.png)
+![new-collection|518x319](https://s3.bmp.ovh/imgs/2022/04/12/fde4c3413d92fdac.png)
 
 接着我们创建一个新的索引，索引是 Faunadb 重要的一个属性，你只能查询索引。新建立的索引命名为`visit_by_slug`，terms 字段增加一个`data.slug`使用 data 中的 slug 字段作为索引
 
-![new-index](https://s3.bmp.ovh/imgs/2022/04/12/41604ba62ee4d4fa.png)
+![new-index|497x637](https://s3.bmp.ovh/imgs/2022/04/12/41604ba62ee4d4fa.png)
 
 我们可以在 collection 里面新增一个 document 来测试一下
 
-![new-document](https://s3.bmp.ovh/imgs/2022/04/12/22f9b4feccfd86b3.png)
+![new-document|449x494](https://s3.bmp.ovh/imgs/2022/04/12/22f9b4feccfd86b3.png)
 
 新增 document 很简单直接把 js 对象字面量表示出来就好，这里我的数据类型就是
 
@@ -57,7 +57,7 @@ interface Visit {
 
 本地调试可以放在`.env.local`中并排除在版本控制中防止泄露
 
-![new-key](https://s3.bmp.ovh/imgs/2022/04/12/178476aad0e0b964.png)
+![new-key|489x391](https://s3.bmp.ovh/imgs/2022/04/12/178476aad0e0b964.png)
 
 # 项目中增加获取数据的逻辑
 

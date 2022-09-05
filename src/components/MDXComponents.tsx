@@ -23,6 +23,7 @@ const MarkdownImg = ({ src, alt, height = 0, width = 0 }) => (
         src={src}
         alt={alt}
         objectFit="cover"
+        layout="intrinsic"
         height={height}
         width={width}
         className="cursor-zoom-in"

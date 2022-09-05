@@ -40,7 +40,7 @@ ColorTool 使用非常简单。我们可以利用下面这个命令进行查看�
 colortool -s
 ```
 
-![几个自带配色主题](https://s3.bmp.ovh/imgs/2022/03/44162fc690dd00d7.png)
+![几个自带配色主题|975x325](https://s3.bmp.ovh/imgs/2022/03/44162fc690dd00d7.png)
 
 前面的几个 .ini 和 .itermcolors 就是主题配置文件，我们可以直接通过下面这个命令设置主题：
 
@@ -88,7 +88,7 @@ PowerShell 等 Shell 的一个基本的命令单元大致如下：
 - 前面的部分就是 Prompt，能够展示包括用户、系统、开发环境、版本控制等等有用的信息
 - 后面的部分是具体的命令，也就是我们每次执行操作时输入命令的位置
 
-![Shell命令结构](https://s3.bmp.ovh/imgs/2022/03/792d11db8b741a5d.png)
+![Shell命令结构|1114x130](https://s3.bmp.ovh/imgs/2022/03/792d11db8b741a5d.png)
 
 ### 安装 oh-my-posh
 
