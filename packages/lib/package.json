@@ -1,5 +1,5 @@
 {
-  "name": "@packages/ui",
+  "name": "@packages/lib",
   "version": "0.0.0",
   "private": true,
   "main": "./dist/index.js",
@@ -11,18 +11,15 @@
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
-    "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",
+    "build": "tsup src/index.ts --format esm,cjs --dts",
+    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
     "lint": "TIMING=1 eslint \"src/**/*.ts*\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
     "@packages/tsconfig": "workspace:*",
     "@packages/eslint-config": "workspace:*",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.9",
-    "eslint": "^8.15.0",
-    "react": "^18.2.0",
+    "eslint": "^8.15.0", 
     "tsup": "^5.10.1",
     "typescript": "^4.9.3"
   },

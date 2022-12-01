@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fontsource/inter": "4.5.7",
+    "@packages/lib": "workspace:^0.0.0",
+    "@packages/ui": "workspace:^0.0.0",
     "disqusjs": "3.0.0",
     "esbuild": "^0.14.31",
     "faunadb": "^4.5.4",

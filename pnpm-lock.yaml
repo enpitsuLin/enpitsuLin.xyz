@@ -21,7 +21,9 @@ importers:
       '@fontsource/inter': 4.5.7
       '@next/bundle-analyzer': 12.1.2
       '@packages/eslint-config': workspace:^1.0.0
+      '@packages/lib': workspace:^0.0.0
       '@packages/tsconfig': workspace:^0.0.0
+      '@packages/ui': workspace:^0.0.0
       '@svgr/webpack': ^6.2.1
       '@types/js-yaml': ^4.0.5
       '@types/mdast': ^3.0.10
@@ -67,6 +69,8 @@ importers:
       windicss-webpack-plugin: ^1.7.2
     dependencies:
       '@fontsource/inter': 4.5.7
+      '@packages/lib': link:../packages/lib
+      '@packages/ui': link:../packages/ui
       disqusjs: 3.0.0_react@18.2.0
       esbuild: 0.14.31
       faunadb: 4.5.4
@@ -126,6 +130,20 @@ importers:
       eslint-config-prettier: 8.5.0
       eslint-plugin-prettier: 4.0.0_ttcikbw5yztdadzhevg6ml5cuy
       eslint-plugin-react: 7.31.11
+
+  packages/lib:
+    specifiers:
+      '@packages/eslint-config': workspace:*
+      '@packages/tsconfig': workspace:*
+      eslint: ^8.15.0
+      tsup: ^5.10.1
+      typescript: ^4.9.3
+    devDependencies:
+      '@packages/eslint-config': link:../eslint-config
+      '@packages/tsconfig': link:../tsconfig
+      eslint: 8.28.0
+      tsup: 5.12.9_typescript@4.9.3
+      typescript: 4.9.3
 
   packages/tsconfig:
     specifiers: {}
