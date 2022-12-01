@@ -1,14 +1,14 @@
 /* eslint-disable react/display-name */
-import React, { useMemo } from 'react'
-import Pre from './Pre'
-import { PhotoProvider, PhotoView } from 'react-photo-view'
 import { ComponentMap, getMDXComponent } from 'mdx-bundler/client'
+import dynamic from 'next/dynamic'
+import React, { useMemo } from 'react'
+import { FiRotateCcw, FiRotateCw, FiZoomIn, FiZoomOut } from 'react-icons/fi'
+import { PhotoProvider, PhotoView } from 'react-photo-view'
+import 'react-photo-view/dist/react-photo-view.css'
 import Image from './Image'
 import CustomLink from './Link'
+import Pre from './Pre'
 import TOCInline from './TOCInline'
-import { FiZoomIn, FiZoomOut, FiRotateCcw, FiRotateCw } from 'react-icons/fi'
-import 'react-photo-view/dist/react-photo-view.css'
-import dynamic from 'next/dynamic'
 
 const Wrapper: React.ComponentType<{ layout: string }> = ({ layout, ...rest }) => {
   const Layout = dynamic(() => import(`../layouts/${layout}`), { ssr: false })
@@ -37,7 +37,7 @@ export const MDXComponents: ComponentMap = {
   Image: MarkdownImg,
   //@ts-ignore
   TOCInline,
-  a: CustomLink,
+  a: ({ href }) => <CustomLink href={href} />,
   pre: Pre,
   del: (props) => (
     <del title="你知道的太多了" className="heimu">
