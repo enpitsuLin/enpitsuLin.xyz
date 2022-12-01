@@ -44,7 +44,7 @@ importers:
       mdx-bundler: ^9.0.1
       next: 13.0.5
       next-themes: ^0.1.1
-      next-translate: ^1.4.0
+      next-translate: ^1.6.0
       react: ^18.2.0
       react-dom: ^18.2.0
       react-icons: ^4.4.0
@@ -82,7 +82,7 @@ importers:
       mdx-bundler: 9.0.1_esbuild@0.14.31
       next: 13.0.5_biqbaboplfbrettd7655fr4n2y
       next-themes: 0.1.1_7iuvftg57tblwyxclfkwku5xo4
-      next-translate: 1.4.0_next@13.0.5+react@18.2.0
+      next-translate: 1.6.0_next@13.0.5+react@18.2.0
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       react-icons: 4.4.0_react@18.2.0
@@ -5661,8 +5661,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /next-translate/1.4.0_next@13.0.5+react@18.2.0:
-    resolution: {integrity: sha512-FWheoN83fWTTfZ2g+a77GBcXRDVfSDP45iA0+G5wRZYE3xPYMy/6X+1I5j+ouczoJ2JI54vH59W/veZ1tZDRGQ==}
+  /next-translate/1.6.0_next@13.0.5+react@18.2.0:
+    resolution: {integrity: sha512-rmRBYOwPHvokN+5uH3O/SZqfRUVORLkgt/097mSaq3+CWcEtXEjkVrfBZpYwZ8W3og4QVd+uphYX//qegnIbRg==}
     peerDependencies:
       next: '>= 10.0.0'
       react: '>= 16.8.0'
