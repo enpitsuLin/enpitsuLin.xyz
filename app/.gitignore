@@ -1,0 +1,7 @@
+# next.js
+.next/
+/out/
+public/sitemap.xml
+.vercel
+# rss feed
+/public/feed.xml 
