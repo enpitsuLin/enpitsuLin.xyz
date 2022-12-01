@@ -1,10 +1,11 @@
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
-import formatDate from '@/lib/utils/formatDate'
+import Tag from '@/components/Tag'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { formatDate } from '@packages/lib/locale'
+import siteMetadata from 'data/siteMetadata'
 import useTranslation from 'next-translate/useTranslation'
+import { ComponentProps, useState } from 'react'
 
 interface Props {
   posts: PostFrontMatter[]
@@ -66,7 +67,7 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
                   <dl>
                     <dt className="sr-only">{t('post.published-on')}</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{formatDate(date)}</time>
+                      <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                     </dd>
                     <dt className="sr-only">{t('post.reads')}</dt>
                     <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">

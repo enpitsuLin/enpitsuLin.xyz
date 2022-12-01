@@ -1,13 +1,13 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import useTranslation from 'next-translate/useTranslation'
+import Hero from '@/components/Hero'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
-import siteMetadata from 'data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
-import Hero from '@/components/Hero'
+import { formatDate } from '@packages/lib/locale'
+import siteMetadata from 'data/siteMetadata'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import useTranslation from 'next-translate/useTranslation'
 
 const MAX_DISPLAY = 3
 
@@ -43,7 +43,7 @@ export default function Home({ posts }: InferGetServerSidePropsType<typeof getSe
                     <dl>
                       <dt className="sr-only">{t('post.published-on')}</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{formatDate(date)}</time>
+                        <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
                       </dd>
                       <dt className="sr-only">{t('post.reads')}</dt>
                       <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
