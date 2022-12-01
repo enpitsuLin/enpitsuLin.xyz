@@ -1,11 +1,11 @@
-import useTranslation from 'next-translate/useTranslation'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-import siteMetadata from 'data/siteMetadata'
-import { getAllTags } from '@/lib/tags'
 import Tag from '@/components/Tag'
-import kebabCase from '@/lib/utils/kebabCase'
+import { getAllTags } from '@/lib/tags'
+import { kebabCase } from '@packages/lib/kebab-case'
+import siteMetadata from 'data/siteMetadata'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import useTranslation from 'next-translate/useTranslation'
 
 export const getStaticProps: GetStaticProps<{ tags: Record<string, number> }> = async () => {
   const tags = await getAllTags()

@@ -1,13 +1,10 @@
 import { TagSEO } from '@/components/SEO'
-import siteMetadata from 'data/siteMetadata'
 import ListLayout from '@/layouts/ListLayout'
-import generateRss from '@/lib/generate-rss'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import kebabCase from '@/lib/utils/kebabCase'
-import fs from 'fs'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import path from 'path'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { kebabCase } from '@packages/lib/kebab-case'
+import siteMetadata from 'data/siteMetadata'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 
 const root = process.cwd()
 

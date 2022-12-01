@@ -1,11 +1,11 @@
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import { Toc } from '@/types/Toc'
+import { getAllFilesRecursively } from '@packages/lib/files'
 import fs from 'fs'
 import matter from 'gray-matter'
 import { bundleMDX } from 'mdx-bundler'
 import path from 'path'
 import readingTime from 'reading-time'
-import getAllFilesRecursively from './utils/files'
 // Remark packages
 import remarkFootnotes from 'remark-footnotes'
 import remarkGfm from 'remark-gfm'

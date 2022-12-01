@@ -1,5 +1,5 @@
+import { kebabCase } from '@packages/lib/kebab-case'
 import { getAllFilesFrontMatter } from './mdx'
-import kebabCase from './utils/kebabCase'
 import { flattenArray } from './utils/files'
 
 export async function getAllTags() {

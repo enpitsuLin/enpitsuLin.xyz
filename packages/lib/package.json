@@ -2,28 +2,36 @@
   "name": "@packages/lib",
   "version": "0.0.0",
   "private": true,
-  "main": "./dist/index.js",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
+  "exports": {
+    "./*": {
+      "require": "./dist/*.js",
+      "import": "./dist/*.mjs",
+      "types": "./dist/*.d.ts"
+    }
+  },
   "sideEffects": false,
   "license": "MIT",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsup src/index.ts --format esm,cjs --dts",
-    "dev": "tsup src/index.ts --format esm,cjs --watch --dts",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "TIMING=1 eslint \"src/**/*.ts*\"",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
   "devDependencies": {
-    "@packages/tsconfig": "workspace:*",
     "@packages/eslint-config": "workspace:*",
-    "eslint": "^8.15.0", 
+    "@packages/tsconfig": "workspace:*",
+    "@types/node": "^18.11.10",
+    "eslint": "^8.15.0",
     "tsup": "^5.10.1",
     "typescript": "^4.9.3"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "github-slugger": "^1.4.0"
   }
 }

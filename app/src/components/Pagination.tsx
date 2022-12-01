@@ -1,8 +1,8 @@
 import Link from '@/components/Link'
+import { classes } from '@packages/lib/classes'
+import useTranslation from 'next-translate/useTranslation'
 import { ReactNode } from 'react'
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-import useTranslation from 'next-translate/useTranslation'
-import { classes } from '@/lib/utils/classes'
 
 interface Props {
   totalPages: number

@@ -1,6 +1,6 @@
 import generateRss from '@/lib/generate-rss'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import kebabCase from '@/lib/utils/kebabCase'
+import { kebabCase } from '@packages/lib/kebab-case'
 import { GetServerSideProps } from 'next'
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {

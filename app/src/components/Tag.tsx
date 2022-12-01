@@ -1,5 +1,5 @@
+import { kebabCase } from '@packages/lib/kebab-case'
 import Link from 'next/link'
-import kebabCase from '@/lib/utils/kebabCase'
 
 interface Props {
   text: string

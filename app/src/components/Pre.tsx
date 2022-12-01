@@ -1,4 +1,4 @@
-import { classes } from '@/lib/utils/classes'
+import { classes } from '@packages/lib/classes'
 import { useState, useRef, ReactNode } from 'react'
 
 interface Props {
