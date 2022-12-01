@@ -7,7 +7,7 @@
     "build": "next build",
     "serve": "next start",
     "analyze": "cross-env ANALYZE=true next build",
-    "lint": "next lint --fix --dir pages --dir components --dir lib --dir layouts --dir scripts"
+    "lint": "next lint"
   },
   "dependencies": {
     "@fontsource/inter": "4.5.7",
@@ -43,8 +43,9 @@
     "unist-util-visit": "^4.1.0"
   },
   "devDependencies": {
-    "@blog/eslint-config": "workspace:^1.0.0",
     "@next/bundle-analyzer": "12.1.2",
+    "@packages/eslint-config": "workspace:^1.0.0",
+    "@packages/tsconfig": "workspace:^0.0.0",
     "@svgr/webpack": "^6.2.1",
     "@types/js-yaml": "^4.0.5",
     "@types/mdast": "^3.0.10",
@@ -53,14 +54,8 @@
     "@typescript-eslint/eslint-plugin": "^5.20.0",
     "@typescript-eslint/parser": "^5.20.0",
     "cross-env": "^7.0.3",
-    "eslint": "^8.13.0",
     "file-loader": "^6.2.0",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.4.0",
-    "prettier": "^2.6.2",
-    "socket.io": "^4.4.1",
-    "socket.io-client": "^4.4.1",
-    "typescript": "^4.6.3",
+    "typescript": "^4.9.3",
     "vfile": "^5.3.2",
     "windicss": "^3.5.1",
     "windicss-webpack-plugin": "^1.7.2"

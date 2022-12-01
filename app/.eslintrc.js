@@ -6,7 +6,7 @@ module.exports = {
     node: true,
     es6: true,
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended', 'next', 'next/core-web-vitals'],
+  extends: ['@packages'],
   rules: {
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',

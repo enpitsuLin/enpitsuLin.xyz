@@ -1,15 +1,13 @@
-import prettier from 'prettier'
-import siteMetadata from 'data/siteMetadata'
-import { GetStaticProps } from 'next'
-import { getAllTags } from '@/lib/tags'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-import { POSTS_PER_PAGE } from './blog'
+import { getAllTags } from '@/lib/tags'
+import siteMetadata from 'data/siteMetadata'
 import fs from 'fs'
+import { GetStaticProps } from 'next'
+import { POSTS_PER_PAGE } from './blog'
 
 async function generateSiteMap() {
   const allPosts = await getAllFilesFrontMatter()
   const tags = Object.keys(await getAllTags())
-  const prettierConfig = await prettier.resolveConfig('/prettier.config.js')
 
   const rootPage = ['', '/blog', '/tags']
   const blogPages = Array.from(
@@ -58,11 +56,7 @@ async function generateSiteMap() {
         </urlset>
     `
 
-  const formatted = prettier.format(sitemap, {
-    ...prettierConfig,
-    parser: 'html',
-  })
-  return formatted
+  return sitemap
 }
 
 export const getStaticProps: GetStaticProps = async () => {
