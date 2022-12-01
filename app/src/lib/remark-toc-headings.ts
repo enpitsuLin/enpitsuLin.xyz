@@ -1,6 +1,6 @@
 import type { Parent } from 'unist'
 import { visit } from 'unist-util-visit'
-import { slug } from 'github-slugger'
+import { kebabCase } from '@packages/lib/kebab-case'
 import { toString } from 'mdast-util-to-string'
 import type { Heading } from 'mdast'
 
@@ -10,7 +10,7 @@ export default function remarkTocHeadings(options) {
       const textContent = toString(node)
       options.exportRef.push({
         value: textContent,
-        url: '#' + slug(textContent),
+        url: '#' + kebabCase(textContent),
         depth: node.depth,
       })
     })
