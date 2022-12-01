@@ -30,7 +30,6 @@ specifiers:
   next: 13.0.5
   next-themes: ^0.1.1
   next-translate: ^1.4.0
-  preact: ^10.7.0
   prettier: ^2.6.2
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -59,7 +58,7 @@ specifiers:
 
 dependencies:
   '@fontsource/inter': 4.5.7
-  disqusjs: 3.0.0_preact@10.7.0+react@18.2.0
+  disqusjs: 3.0.0_react@18.2.0
   esbuild: registry.npmmirror.com/esbuild/0.14.31
   faunadb: 4.5.4
   framer-motion: 6.3.0_biqbaboplfbrettd7655fr4n2y
@@ -71,7 +70,6 @@ dependencies:
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-themes: 0.1.1_7iuvftg57tblwyxclfkwku5xo4
   next-translate: 1.4.0_next@13.0.5+react@18.2.0
-  preact: registry.npmmirror.com/preact/10.7.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-icons: 4.4.0_react@18.2.0
@@ -2975,7 +2973,7 @@ packages:
     hasBin: true
     dev: false
 
-  /disqusjs/3.0.0_preact@10.7.0+react@18.2.0:
+  /disqusjs/3.0.0_react@18.2.0:
     resolution: {integrity: sha512-SwxQLe5r+hd6CvZCYvgFIKTVhJ0Ok004pIVHfFtGpB/bt8N0PIGIAlTkzUZrpZbe5qGUSY25mR7G9671FNHInA==}
     peerDependencies:
       preact: ^10.7.1
@@ -2986,7 +2984,6 @@ packages:
       react:
         optional: true
     dependencies:
-      preact: registry.npmmirror.com/preact/10.7.0
       react: 18.2.0
       zustand: 4.1.1_react@18.2.0
     transitivePeerDependencies:
@@ -7729,12 +7726,6 @@ packages:
     resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/parse5/-/parse5-6.0.1.tgz}
     name: parse5
     version: 6.0.1
-    dev: false
-
-  registry.npmmirror.com/preact/10.7.0:
-    resolution: {integrity: sha512-9MEURwzNMKpAil/t6+wabDIJI6oG6GnwypYxiJDvQnW+fHDTt51PYuLZ1QUM31hFr7sDaj9qTaShAF9VIxuxGQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/preact/-/preact-10.7.0.tgz}
-    name: preact
-    version: 10.7.0
     dev: false
 
   registry.npmmirror.com/prettier/2.6.2:
