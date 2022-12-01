@@ -1,20 +1,13 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-import Link from 'next/link'
-import { AnchorHTMLAttributes, DetailedHTMLProps } from 'react'
+import _Link from 'next/link'
 
-const CustomLink = ({
-  href,
-  ...rest
-}: DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>) => {
+const Link = ({ href, ...rest }: typeof _Link.defaultProps) => {
+  href = typeof href === 'object' ? href.toString() : href
+
   const isInternalLink = href && href.startsWith('/')
   const isAnchorLink = href && href.startsWith('#')
 
   if (isInternalLink) {
-    return (
-      <Link href={href}>
-        <a {...rest} />
-      </Link>
-    )
+    return <_Link href={href} {...rest} />
   }
 
   if (isAnchorLink) {
@@ -24,4 +17,4 @@ const CustomLink = ({
   return <a target="_blank" rel="noopener noreferrer" href={href} {...rest} />
 }
 
-export default CustomLink
+export default Link
