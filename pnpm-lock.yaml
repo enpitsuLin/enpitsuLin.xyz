@@ -18,8 +18,8 @@ importers:
 
   app:
     specifiers:
-      '@fontsource/inter': 4.5.7
       '@next/bundle-analyzer': 12.1.2
+      '@next/font': ^13.0.5
       '@packages/eslint-config': workspace:^1.0.0
       '@packages/lib': workspace:^0.0.0
       '@packages/tsconfig': workspace:^0.0.0
@@ -68,7 +68,7 @@ importers:
       windicss: ^3.5.1
       windicss-webpack-plugin: ^1.7.2
     dependencies:
-      '@fontsource/inter': 4.5.7
+      '@next/font': 13.0.5
       '@packages/lib': link:../packages/lib
       '@packages/ui': link:../packages/ui
       disqusjs: 3.0.0_react@18.2.0
@@ -1559,10 +1559,6 @@ packages:
     resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
     dev: false
 
-  /@fontsource/inter/4.5.7:
-    resolution: {integrity: sha512-25k3thupaOEBexuU+jAkGqieKPbuhSuA+sinDwp1iBNhqQPiJ9QHDvsXgoCgCbZ4sGlE8aCwZmSlDJrPdJHNkw==}
-    dev: false
-
   /@humanwhocodes/config-array/0.11.7:
     resolution: {integrity: sha512-kBbPWzN8oVMLb0hOUYXhmxggL/1cJE6ydvjDIGi9EnAGUyA7cLVKQg+d/Dsm+KZwx2czGHrCmMVLiyg8s5JPKw==}
     engines: {node: '>=10.10.0'}
@@ -1664,6 +1660,10 @@ packages:
     resolution: {integrity: sha512-XqYRh6d98dpv2ynoOEC3VeNv99hxRGBuanRDKASfntdAZD9Zp4n+AugmNF0qwOQEHYgG1uvZW3A4Fi6Y/+kCQw==}
     dependencies:
       glob: 7.1.7
+    dev: false
+
+  /@next/font/13.0.5:
+    resolution: {integrity: sha512-NrP4B8pxwerrkkuG/m7MQv0ks89Kk4Lc0kzbiRaYX+Xb0coDaw+I9T+g42aOHf8j8ta1vtKqb5XE1+troZ4CoQ==}
     dev: false
 
   /@next/swc-android-arm-eabi/13.0.5:

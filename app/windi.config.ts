@@ -23,9 +23,6 @@ export default defineConfig({
         13: '3.25rem',
         14: '3.5rem',
       },
-      fontFamily: {
-        sans: ['InterVariable', ...fontFamily.sans],
-      },
       colors: {
         primary: colors.teal,
         gray: colors.neutral,
