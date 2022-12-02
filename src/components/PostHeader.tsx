@@ -1,16 +1,15 @@
 import formatDate from '@/lib/utils/formatDate'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { Post } from '@/types'
 import useTranslation from 'next-translate/useTranslation'
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
 import PageTitle from './PageTitle'
-import Tag from './Tag'
 
 interface Props {
-  frontMatter: PostFrontMatter
+  post: Post
 }
 
-const PostHeader: React.FC<Props> = ({ frontMatter }) => {
-  const { title, date, readingTime, reads, slug } = frontMatter
+const PostHeader: React.FC<Props> = ({ post }) => {
+  const { title, date, readingTime, slug, wordCount } = post
   const { t } = useTranslation('common')
 
   useEffect(() => {
@@ -31,19 +30,19 @@ const PostHeader: React.FC<Props> = ({ frontMatter }) => {
             <div>
               <dt className="sr-only">{t('post.reading-time')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.reading-time-var', { time: Math.round(readingTime.minutes) })}
+                {t('post.reading-time-var', { time: readingTime })}
               </dd>
             </div>
             <div>
               <dt className="sr-only">{t('post.words-count')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.words-count-var', { words: readingTime.words })}
+                {t('post.words-count-var', { words: wordCount })}
               </dd>
             </div>
             <div>
               <dt className="sr-only">{t('post.reads')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.reads-var', { reads })}
+                {t('post.reads-var', { reads: 0 })}
               </dd>
             </div>
           </dl>

@@ -1,37 +1,35 @@
+import Comments from '@/components/Comments'
 import Link from '@/components/Link'
+import PostHeader from '@/components/PostHeader'
+import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
-import siteMetadata from 'data/siteMetadata'
-import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import { ReactNode } from 'react'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
-import Comments from '@/components/Comments'
-import { Toc } from '@/types/Toc'
-import PostHeader from '@/components/PostHeader'
-import Tag from '@/components/Tag'
-import useTranslation from 'next-translate/useTranslation'
 import TableOfContent from '@/components/TableOfContent'
+import Tag from '@/components/Tag'
+import { Post } from '@/types'
+import siteMetadata from 'data/siteMetadata'
+import useTranslation from 'next-translate/useTranslation'
+import { ReactNode } from 'react'
 import { FaArrowLeft } from 'react-icons/fa'
 
 interface Props {
-  frontMatter: PostFrontMatter
+  post: Post
   children: ReactNode
   next?: { slug: string; title: string }
   prev?: { slug: string; title: string }
-  toc: Toc
 }
 
-const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc }) => {
+const PostLayout: React.FC<Props> = ({ post, next, prev, children }) => {
   const { t } = useTranslation('common')
-  const { slug, tags, readingTime } = frontMatter
+  const { slug, tags, readingTime } = post
 
   return (
     <SectionContainer>
-      <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...frontMatter} />
+      <BlogSEO url={`${siteMetadata.siteUrl}/blog/${slug}`} {...post} />
       <ScrollTopAndComment />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <PostHeader frontMatter={frontMatter} />
+          <PostHeader post={post} />
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
@@ -61,7 +59,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
                   </div>
                 </div>
               )}
-              <TableOfContent toc={toc} />
+              <TableOfContent toc={post.toc} />
             </div>
           </div>
           <footer>
@@ -88,7 +86,7 @@ const PostLayout: React.FC<Props> = ({ frontMatter, next, prev, children, toc })
               )}
             </div>
           </footer>
-          <Comments frontMatter={frontMatter} />
+          <Comments post={post} />
         </div>
       </article>
     </SectionContainer>

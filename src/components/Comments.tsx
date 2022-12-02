@@ -1,16 +1,14 @@
-import React, { useEffect, useRef } from 'react'
+import { Post } from '@/types'
 import DisqusJS from 'disqusjs'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
+import React, { useEffect, useRef } from 'react'
 
-const Comments: React.FC<{ frontMatter: PostFrontMatter }> = ({ frontMatter }) => {
+const Comments: React.FC<{ post: Post }> = ({ post }) => {
   const comments = useRef<HTMLDivElement>()
-
-  const COMMENTS_ID = 'disqus_thread'
 
   function initDisqus() {
     const disqus = new DisqusJS({
       url: document.location.origin + document.location.pathname + document.location.search,
-      identifier: frontMatter.slug,
+      identifier: post.slug,
       shortname: 'enpitsulin',
       siteName: `enpitsulin's blog`,
       api: 'https://disqusjs.enpitsulin.xyz/',

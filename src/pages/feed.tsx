@@ -1,5 +1,6 @@
+import { Post } from '@/types'
 import generateRss from '@/lib/generate-rss'
-import { getClient, indexQuery, Post } from '@/lib/sanity'
+import { getClient, indexQuery } from '@/lib/sanity'
 import kebabCase from '@/lib/utils/kebabCase'
 import { GetServerSideProps } from 'next'
 

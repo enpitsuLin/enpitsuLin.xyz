@@ -1,6 +1,7 @@
+import { Post } from '@/types'
 import { PageSEO } from '@/components/SEO'
 import ListLayout from '@/layouts/ListLayout'
-import { getClient, indexQuery, Post } from '@/lib/sanity'
+import { getClient, indexQuery } from '@/lib/sanity'
 import siteMetadata from 'data/siteMetadata'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { POSTS_PER_PAGE } from '../../blog'

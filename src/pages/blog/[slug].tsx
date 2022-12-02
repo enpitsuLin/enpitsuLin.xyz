@@ -1,42 +1,42 @@
-import { MDXRemote, MDXRemoteProps, MDXRemoteSerializeResult } from 'next-mdx-remote'
+import Image from '@/components/Image'
+import CustomLink from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
+import Pre from '@/components/Pre'
+import TOCInline from '@/components/TOCInline'
+import PostLayout from '@/layouts/PostLayout'
 import { mdxToHtml } from '@/lib/mdx'
-import { getClient, Post, postQuery } from '@/lib/sanity'
+import { getPost } from '@/lib/sanity'
+import { Post, Toc } from '@/types'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote'
 import { FiRotateCcw, FiRotateCw, FiZoomIn, FiZoomOut } from 'react-icons/fi'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import 'react-photo-view/dist/react-photo-view.css'
-import Image from '../../components/Image'
-import CustomLink from '../../components/Link'
-import Pre from '../../components/Pre'
-import TOCInline from '../../components/TOCInline'
-import PostLayout from '@/layouts/PostLayout'
-import { Toc } from '@/types/Toc'
 
 interface Props {
   post: Post
-  content: MDXRemoteSerializeResult<Record<string, unknown>, Record<string, string>>
-  readingTime: string
-  wordCount: number
+  content: Awaited<ReturnType<typeof mdxToHtml>>['html']
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
-  toc: Toc
 }
 
 // @ts-ignore
 export const getServerSideProps: GetServerSideProps<Props> = async ({ params, res }) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
-  const { post } = await getClient().fetch<{ post: Post }>(postQuery, {
-    slug: params.slug,
-  })
-  const { html, readingTime, wordCount, toc } = await mdxToHtml(post.content)
+
+  const originPost = await getPost(params.slug as string)
+  const { html, readingTime, wordCount, toc } = await mdxToHtml(originPost.content)
+
+  const post: Post = {
+    ...originPost,
+    readingTime,
+    wordCount,
+    toc,
+  }
   return {
     props: {
       post,
       content: html,
-      readingTime,
-      wordCount,
-      toc,
     },
   }
 }
@@ -61,9 +61,6 @@ const MarkdownImg = ({ src, alt, height = 0, width = 0 }) => (
 const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = ({
   post,
   content,
-  readingTime,
-  wordCount,
-  toc,
 }) => {
   const components: MDXRemoteProps['components'] = {
     Image: MarkdownImg,
@@ -109,20 +106,7 @@ const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (
             )
           }}
         >
-          <PostLayout
-            frontMatter={{
-              title: post.title,
-              date: post.date,
-              readingTime: {
-                //@ts-ignore
-                minutes: readingTime,
-                words: wordCount,
-              },
-              slug: post.slug,
-              tags: post.tags,
-            }}
-            toc={toc}
-          >
+          <PostLayout post={post}>
             <MDXRemote {...content} components={components} />
           </PostLayout>
         </PhotoProvider>

@@ -1,5 +1,6 @@
 import { createClient } from 'next-sanity'
 import createImageUrlBuilder from '@sanity/image-url'
+import { Post } from '@/types'
 
 const config = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
@@ -37,11 +38,9 @@ export const indexQuery = `
 }`
 
 export const postQuery = `
-{
-  "post": *[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
-    content,
-    ${postFields}
-  }
+*[_type == "post" && slug.current == $slug] | order(_updatedAt desc) [0] {
+  content,
+  ${postFields}
 }`
 
 export const postSlugsQuery = `
@@ -56,11 +55,8 @@ export const postBySlugQuery = `
 
 export const postUpdatedQuery = `*[_type == "post" && _id == $id].slug.current`
 
-export interface Post {
-  date: string
-  slug: string
-  summary: string
-  tags: string[]
-  title: string
-  content?: string
+export function getPost(slug: string, preview = false) {
+  return getClient(preview).fetch<Omit<Post, 'wordCount' | 'toc' | 'readingTime'>>(postQuery, {
+    slug,
+  })
 }

@@ -1,4 +1,4 @@
-import { Post } from '@/lib/sanity'
+import { Post } from '@/types'
 import { escape } from '@/lib/utils/htmlEscaper'
 
 import siteMetadata from 'data/siteMetadata'

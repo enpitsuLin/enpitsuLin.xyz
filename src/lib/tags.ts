@@ -1,4 +1,5 @@
-import { getClient, indexQuery, Post } from './sanity'
+import { Post } from '@/types'
+import { getClient, indexQuery } from './sanity'
 import kebabCase from './utils/kebabCase'
 
 export async function getAllTags() {

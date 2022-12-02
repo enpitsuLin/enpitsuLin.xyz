@@ -1,11 +1,10 @@
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import { ComponentProps, useState } from 'react'
 import Pagination from '@/components/Pagination'
+import Tag from '@/components/Tag'
 import formatDate from '@/lib/utils/formatDate'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { Post } from '@/types'
 import useTranslation from 'next-translate/useTranslation'
-import { Post } from '@/lib/sanity'
+import { ComponentProps, useState } from 'react'
 
 interface Props {
   posts: Post[]

@@ -13,9 +13,9 @@ import rehypePrismDiff from 'rehype-prism-diff'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
 import remarkTocHeadings from './remark-toc-headings'
-import { Toc } from '@/types/Toc'
+import { Toc } from '@/types'
 
-export async function mdxToHtml(source) {
+export async function mdxToHtml(source: string) {
   const toc: Toc = []
   const mdxSource = await serialize(source, {
     mdxOptions: {

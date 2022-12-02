@@ -1,4 +1,5 @@
-import { getClient, indexQuery, Post } from '@/lib/sanity'
+import { Post } from '@/types'
+import { getClient, indexQuery } from '@/lib/sanity'
 import { getAllTags } from '@/lib/tags'
 import siteMetadata from 'data/siteMetadata'
 import fs from 'fs'

@@ -1,7 +1,5 @@
-import { Toc } from '@/types/Toc'
 import { useEffect, useState } from 'react'
-import { FaArrowUp, FaComment, FaList } from 'react-icons/fa'
-import TOCInline from './TOCInline'
+import { FaArrowUp, FaComment } from 'react-icons/fa'
 
 const Button: React.FC<JSX.IntrinsicElements['button']> = ({ children, ...rest }) => {
   const classes = [
