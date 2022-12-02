@@ -1,8 +1,6 @@
 import { AnimatePresence, motion, SVGMotionProps, useCycle } from 'framer-motion'
-import { MdClose, MdMenu } from 'react-icons/md'
 import useTranslation from 'next-translate/useTranslation'
 import Link from './Link'
-import headerNavLinks from 'data/headerNavLinks'
 
 interface IconProps extends SVGMotionProps<SVGSVGElement> {
   width?: number
@@ -92,7 +90,7 @@ const MobileNavMenuIcon: React.FC<IconProps> = ({
   )
 }
 
-const MobileNav = () => {
+const MobileNav = ({ nav }: { nav: { href: string; title: string }[] }) => {
   const [open, cycleOpen] = useCycle(false, true)
   const { t } = useTranslation('common')
   const onClick = () => {
@@ -124,7 +122,7 @@ const MobileNav = () => {
             }`}
           >
             <nav className="fixed mt-8 h-full w-full">
-              {headerNavLinks.map((link) => (
+              {nav.map((link) => (
                 <Link
                   key={t(link.title)}
                   href={link.href}

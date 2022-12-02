@@ -3,7 +3,6 @@ import readingTime from 'reading-time'
 import remarkFootnotes from 'remark-footnotes'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
-import remarkExtractFrontmatter from './remark-extract-frontmatter'
 import remarkImgToJsx from './remark-img-to-jsx'
 //
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
@@ -21,8 +20,6 @@ export async function mdxToHtml(source) {
   const mdxSource = await serialize(source, {
     mdxOptions: {
       remarkPlugins: [
-        remarkGfm,
-        remarkExtractFrontmatter,
         remarkGfm,
         [remarkTocHeadings, { exportRef: toc }],
         [remarkFootnotes, { inlineNotes: true }],
