@@ -1,18 +1,17 @@
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import useTranslation from 'next-translate/useTranslation'
+import Hero from '@/components/Hero'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import Tag from '@/components/Tag'
-import siteMetadata from 'data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
+import { getClient, indexQuery, Post } from '@/lib/sanity'
 import formatDate from '@/lib/utils/formatDate'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
-import Hero from '@/components/Hero'
+import siteMetadata from 'data/siteMetadata'
+import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
+import useTranslation from 'next-translate/useTranslation'
 
 const MAX_DISPLAY = 3
 
-export const getServerSideProps: GetServerSideProps<{ posts: PostFrontMatter[] }> = async () => {
-  const posts = await getAllFilesFrontMatter()
+export const getServerSideProps: GetServerSideProps<{ posts: Post[] }> = async () => {
+  const posts = await getClient().fetch<Post[]>(indexQuery)
 
   return { props: { posts } }
 }
@@ -35,7 +34,7 @@ export default function Home({ posts }: InferGetServerSidePropsType<typeof getSe
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && t('no-posts-found')}
           {posts.slice(0, MAX_DISPLAY).map((frontMatter) => {
-            const { slug, date, title, summary, tags, reads } = frontMatter
+            const { slug, date, title, summary, tags } = frontMatter
             return (
               <li key={slug} className="py-8">
                 <article>
@@ -47,7 +46,7 @@ export default function Home({ posts }: InferGetServerSidePropsType<typeof getSe
                       </dd>
                       <dt className="sr-only">{t('post.reads')}</dt>
                       <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
-                        <time dateTime={date}>{t('post.reads-var', { reads })}</time>
+                        <time dateTime={date}>{t('post.reads-var', { reads: 0 })}</time>
                       </dd>
                     </dl>
                     <div className="space-y-4 xl:col-span-3">

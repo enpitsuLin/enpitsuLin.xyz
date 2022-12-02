@@ -5,19 +5,20 @@ import Pagination from '@/components/Pagination'
 import formatDate from '@/lib/utils/formatDate'
 import { PostFrontMatter } from '@/types/PostFrontMatter'
 import useTranslation from 'next-translate/useTranslation'
+import { Post } from '@/lib/sanity'
 
 interface Props {
-  posts: PostFrontMatter[]
+  posts: Post[]
   title: string
-  initialDisplayPosts?: PostFrontMatter[]
+  initialDisplayPosts?: Post[]
   pagination?: ComponentProps<typeof Pagination>
 }
 
 const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
   const { t } = useTranslation('common')
   const [searchValue, setSearchValue] = useState('')
-  const filteredBlogPosts = posts.filter((frontMatter) => {
-    const searchContent = frontMatter.title + frontMatter.summary + frontMatter.tags.join(' ')
+  const filteredBlogPosts = posts.filter((post) => {
+    const searchContent = post.title + post.summary + post.tags.join(' ')
     return searchContent.toLowerCase().includes(searchValue.toLowerCase())
   })
 
@@ -59,7 +60,7 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
         <ul>
           {!filteredBlogPosts.length && t('post.no-post')}
           {displayPosts.map((frontMatter) => {
-            const { slug, date, title, summary, tags, reads } = frontMatter
+            const { slug, date, title, summary, tags } = frontMatter
             return (
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
@@ -70,7 +71,7 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
                     </dd>
                     <dt className="sr-only">{t('post.reads')}</dt>
                     <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{t('post.reads-var', { reads })}</time>
+                      <time dateTime={date}>{t('post.reads-var', { reads: 0 })}</time>
                     </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">

@@ -1,23 +1,20 @@
 import { PageSEO } from '@/components/SEO'
-import siteMetadata from 'data/siteMetadata'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
 import ListLayout from '@/layouts/ListLayout'
-import { POSTS_PER_PAGE } from '../../blog'
+import { getClient, indexQuery, Post } from '@/lib/sanity'
+import siteMetadata from 'data/siteMetadata'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { PostFrontMatter } from '@/types/PostFrontMatter'
+import { POSTS_PER_PAGE } from '../../blog'
 
 export const getServerSideProps: GetServerSideProps<{
-  posts: PostFrontMatter[]
-  initialDisplayPosts: PostFrontMatter[]
+  posts: Post[]
+  initialDisplayPosts: Post[]
   pagination: { currentPage: number; totalPages: number }
 }> = async (context) => {
   const {
     params: { page },
   } = context
 
-  const totalPosts = await getAllFilesFrontMatter()
-
-  const posts = totalPosts
+  const posts = await getClient().fetch<Post[]>(indexQuery)
   const pageNumber = parseInt(page as string)
   const initialDisplayPosts = posts.slice(
     POSTS_PER_PAGE * (pageNumber - 1),

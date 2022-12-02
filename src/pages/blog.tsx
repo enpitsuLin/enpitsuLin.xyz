@@ -1,7 +1,7 @@
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-import siteMetadata from 'data/siteMetadata'
-import ListLayout from '@/layouts/ListLayout'
 import { PageSEO } from '@/components/SEO'
+import ListLayout from '@/layouts/ListLayout'
+import { getClient, indexQuery, Post } from '@/lib/sanity'
+import siteMetadata from 'data/siteMetadata'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
 import { ComponentProps } from 'react'
 
@@ -12,7 +12,8 @@ export const getServerSideProps: GetServerSideProps<{
   initialDisplayPosts: ComponentProps<typeof ListLayout>['initialDisplayPosts']
   pagination: ComponentProps<typeof ListLayout>['pagination']
 }> = async (ctx) => {
-  const posts = await getAllFilesFrontMatter()
+  const posts = await getClient().fetch<Post[]>(indexQuery)
+
   const initialDisplayPosts = posts.slice(0, POSTS_PER_PAGE)
   const pagination = {
     currentPage: 1,
