@@ -34,6 +34,14 @@ const config = {
       ],
     })
 
+    config.plugins.push(
+      require('unplugin-icons/webpack')({
+        compiler: 'jsx',
+        jsx: 'react',
+        autoInstall: true,
+      })
+    )
+
     config.module.rules.push({
       test: /\.svg$/,
       use: ['@svgr/webpack'],

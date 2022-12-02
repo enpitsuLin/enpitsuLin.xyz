@@ -1,6 +1,9 @@
-import { IconType } from 'react-icons'
-import { FaQq, FaEnvelope, FaGithub, FaSteam, FaZhihu } from 'react-icons/fa'
-import FaBilibili from './FaBilibili'
+import FaEnvelope from '~icons/fa-solid/envelope'
+import FaBilibili from '~icons/fa6-brands/bilibili'
+import FaGithub from '~icons/fa6-brands/github'
+import FaQq from '~icons/fa6-brands/qq'
+import FaSteam from '~icons/fa6-brands/steam'
+import FaZhihu from '~icons/fa6-brands/zhihu'
 
 type SocialKind = 'mail' | 'github' | 'zhihu' | 'bilibili' | 'steam' | 'qq'
 
@@ -10,7 +13,7 @@ interface SocialIconProps {
   size?: 'small' | 'medium' | 'large'
 }
 
-const components: Record<SocialKind, IconType> = {
+const components: Record<SocialKind, typeof FaQq> = {
   mail: FaEnvelope,
   github: FaGithub,
   zhihu: FaZhihu,
