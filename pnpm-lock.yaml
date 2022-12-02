@@ -28,7 +28,6 @@ specifiers:
   image-size: 1.0.1
   lint-staged: ^12.4.0
   mdast-util-to-string: ^3.1.0
-  mdx-bundler: ^9.0.1
   next: 13.0.5
   next-mdx-remote: ^4.2.0
   next-sanity: ^3.1.2
@@ -41,7 +40,6 @@ specifiers:
   react-photo-view: ^1.0.0
   reading-time: 1.5.0
   rehype-autolink-headings: ^6.1.1
-  rehype-citation: ^0.2.5
   rehype-code-titles: ^1.1.0
   rehype-katex: ^6.0.2
   rehype-preset-minify: 6.0.0
@@ -73,7 +71,6 @@ dependencies:
   gray-matter: 4.0.3
   image-size: 1.0.1
   mdast-util-to-string: 3.1.0
-  mdx-bundler: 9.0.1_esbuild@0.14.31
   next: 13.0.5_biqbaboplfbrettd7655fr4n2y
   next-mdx-remote: 4.2.0_biqbaboplfbrettd7655fr4n2y
   next-sanity: 3.1.2_ke2hair6lekqpuf4lai2kq4o3q
@@ -85,7 +82,6 @@ dependencies:
   react-photo-view: 1.0.0_biqbaboplfbrettd7655fr4n2y
   reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
-  rehype-citation: 0.2.5
   rehype-code-titles: 1.1.0
   rehype-katex: 6.0.2
   rehype-preset-minify: 6.0.0
@@ -1669,62 +1665,6 @@ packages:
       to-fast-properties: 2.0.0
     dev: false
 
-  /@citation-js/core/0.5.4:
-    resolution: {integrity: sha512-84as1w5v24DDTlzaRUtEBWIcj5wNw9A2ELqQs2ngrbFsc1psg1FbmwJplZQDSsiJHt+MfO23+DRmtOXyn7qXsg==}
-    engines: {node: '>=10'}
-    dependencies:
-      '@citation-js/date': 0.5.1
-      '@citation-js/name': 0.4.2
-      isomorphic-fetch: 3.0.0
-      sync-fetch: 0.3.1
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  /@citation-js/date/0.5.1:
-    resolution: {integrity: sha512-1iDKAZ4ie48PVhovsOXQ+C6o55dWJloXqtznnnKy6CltJBQLIuLLuUqa8zlIvma0ZigjVjgDUhnVaNU1MErtZw==}
-    engines: {node: '>=10.0.0'}
-    dev: false
-
-  /@citation-js/name/0.4.2:
-    resolution: {integrity: sha512-brSPsjs2fOVzSnARLKu0qncn6suWjHVQtrqSUrnqyaRH95r/Ad4wPF5EsoWr+Dx8HzkCGb/ogmoAzfCsqlTwTQ==}
-    engines: {node: '>=6'}
-    dev: false
-
-  /@citation-js/plugin-bibjson/0.5.4_@citation-js+core@0.5.4:
-    resolution: {integrity: sha512-5KT7c8NOU7X2/JUgL8GmtOZFJtMFyCsLgoRBwpgDZ1pGdhE4H0/2292iPQ6SDyf2KxWAKXEy3DV5oMCqX9nzzA==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
-    dependencies:
-      '@citation-js/core': 0.5.4
-      '@citation-js/date': 0.5.1
-      '@citation-js/name': 0.4.2
-    dev: false
-
-  /@citation-js/plugin-bibtex/0.5.6_@citation-js+core@0.5.4:
-    resolution: {integrity: sha512-VxKH1hgTwpiZ6A1NIq/wtovPqMspu1WQTt0x/09PulMM5qLecfv0tv/SIO1kd/azjmWVp2pOMoolKUMsRjEZSg==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
-    dependencies:
-      '@citation-js/core': 0.5.4
-      '@citation-js/date': 0.5.1
-      '@citation-js/name': 0.4.2
-      moo: 0.5.1
-    dev: false
-
-  /@citation-js/plugin-csl/0.5.5_@citation-js+core@0.5.4:
-    resolution: {integrity: sha512-ytid/o/wpOU9OZ1gecibcfIP3YfFHhi0zamkVEbFp9Zwlud1Imyj96Mw8xTCgibVRhoQ4N7QJ/BToXIq+ON4DQ==}
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
-    dependencies:
-      '@citation-js/core': 0.5.4
-      '@citation-js/date': 0.5.1
-      citeproc: 2.4.62
-    dev: false
-
   /@emotion/is-prop-valid/0.8.8:
     resolution: {integrity: sha512-u5WtneEAr5IDG2Wv65yhunPSMLIpuKsbuOktRojfrEiEvRyC85LgPMZI63cr7NUqT8ZIGdSVg8ZKGxIug4lXcA==}
     requiresBuild: true
@@ -1754,20 +1694,6 @@ packages:
 
   /@emotion/unitless/0.7.5:
     resolution: {integrity: sha512-OWORNpfjMsSSUBVrRBVGECkhWcULOAJz9ZW8uK9qgxD+87M7jHRcvh/A96XXNhXTLmKcoYSQtBEX7lHMO7YRwg==}
-    dev: false
-
-  /@esbuild-plugins/node-resolve/0.1.4_esbuild@0.14.31:
-    resolution: {integrity: sha512-haFQ0qhxEpqtWWY0kx1Y5oE3sMyO1PcoSiWEPrAw6tm/ZOOLXjSs6Q+v1v9eyuVF0nNt50YEvrcrvENmyoMv5g==}
-    peerDependencies:
-      esbuild: '*'
-    dependencies:
-      '@types/resolve': 1.20.2
-      debug: 4.3.4
-      esbuild: registry.npmmirror.com/esbuild/0.14.31
-      escape-string-regexp: 4.0.0
-      resolve: 1.22.1
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /@esbuild/android-arm/0.15.16:
@@ -1813,10 +1739,6 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
-
-  /@fal-works/esbuild-plugin-global-externals/2.1.2:
-    resolution: {integrity: sha512-cEee/Z+I12mZcFJshKcCqC8tuX5hG3s+d+9nZ3LabqKF1vKdF41B92pJVCBggjAGORAeOzyyDDKrZwIkLffeOQ==}
-    dev: false
 
   /@floating-ui/core/1.0.2:
     resolution: {integrity: sha512-Skfy0YS3NJ5nV9us0uuPN0HDk1Q4edljaOhRBJGDWs9EBa7ZVMYBHRFlhLvvmwEoaIM9BlH6QJFn9/uZg0bACg==}
@@ -1899,19 +1821,6 @@ packages:
 
   /@juggle/resize-observer/3.4.0:
     resolution: {integrity: sha512-dfLbk+PwWvFzSxwk3n5ySL0hfBog779o8h68wK/7/APo/7cgyWp5jcXockbxdk5kFRkbeXWm4Fbi9FrdN381sA==}
-    dev: false
-
-  /@mdx-js/esbuild/2.1.3_esbuild@0.14.31:
-    resolution: {integrity: sha512-6L17JsMOeAe7OeaA55xDCupiw8BpVD3iceWwkbHJN1ieoOYsm3nA7TMthMMEXZQES/n8HmR/s2riKpSxPUbOCQ==}
-    peerDependencies:
-      esbuild: '>=0.11.0'
-    dependencies:
-      '@mdx-js/mdx': 2.1.3
-      esbuild: registry.npmmirror.com/esbuild/0.14.31
-      node-fetch: 3.2.10
-      vfile: 5.3.4
-    transitivePeerDependencies:
-      - supports-color
     dev: false
 
   /@mdx-js/mdx/2.1.3:
@@ -2936,10 +2845,6 @@ packages:
       csstype: 3.1.1
     dev: false
 
-  /@types/resolve/1.20.2:
-    resolution: {integrity: sha512-60BCwRFOZCQhDncwQdxxeOEEkbc5dIMccYLwbxsS4TUNeVECQ/pBJ0j09mrHOl/JJvpRPGwO9SvE4nR2Nb/a4Q==}
-    dev: false
-
   /@types/scheduler/0.16.2:
     resolution: {integrity: sha512-hppQEBDmlwhFAXKJX2KnWLYu5yMfi91yazPb2l+lbJiwW+wdo1gNeRA+3RgNSO39WYX2euey41KEwnqesU2Jew==}
 
@@ -3779,10 +3684,6 @@ packages:
     resolution: {integrity: sha512-jJ0bqzaylmJtVnNgzTeSOs8DPavpbYgEr/b0YL8/2GO3xJEhInFmhKMUnEJQjZumK7KXGFhUy89PrsJWlakBVg==}
     dev: false
 
-  /citeproc/2.4.62:
-    resolution: {integrity: sha512-l3uFfSEwNZp/jlz/TpgyBs85kOww6VlQHbAth0cpbgOn6iulZd+QlFY43LrRelzcYt3FZHTZ3soDyd8lNmkqdw==}
-    dev: false
-
   /classnames/2.3.2:
     resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
     dev: false
@@ -4141,11 +4042,6 @@ packages:
 
   /data-uri-to-buffer/1.2.0:
     resolution: {integrity: sha512-vKQ9DTQPN1FLYiiEEOQ6IBGFqvjCa5rSK3cWMy/Nespm5d/x3dGFT9UBZnkLxCwua/IXBi2TYnwTEpsOvhC4UQ==}
-    dev: false
-
-  /data-uri-to-buffer/4.0.0:
-    resolution: {integrity: sha512-Vr3mLBA8qWmcuschSLAOogKgQ/Jwxulv3RNE4FXnYWRGujzrRWQI4m12fQqRkwX06C0KanhLr4hK+GydchZsaA==}
-    engines: {node: '>= 12'}
     dev: false
 
   /data-urls/3.0.2:
@@ -5148,6 +5044,7 @@ packages:
   /escape-string-regexp/4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
+    dev: true
 
   /escape-string-regexp/5.0.0:
     resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
@@ -5499,10 +5396,6 @@ packages:
       estree-walker: 3.0.1
     dev: false
 
-  /estree-util-is-identifier-name/1.1.0:
-    resolution: {integrity: sha512-OVJZ3fGGt9By77Ix9NhaRbzfbDV/2rx9EP7YIDJTmsZSEc5kYn2vWcNccYyahJL2uAQZK2a5Or2i0wtIKTPoRQ==}
-    dev: false
-
   /estree-util-is-identifier-name/2.0.1:
     resolution: {integrity: sha512-rxZj1GkQhY4x1j/CSnybK9cGuMFQYFPLq0iNyopqf14aOVLFtMv7Esika+ObJWPWiOHuMOAHz3YkWoLYYRnzWQ==}
     dev: false
@@ -5513,13 +5406,6 @@ packages:
       '@types/estree-jsx': 1.0.0
       astring: 1.8.3
       source-map: 0.7.4
-    dev: false
-
-  /estree-util-value-to-estree/1.3.0:
-    resolution: {integrity: sha512-Y+ughcF9jSUJvncXwqRageavjrNPAI+1M/L3BI3PyLp1nmgYTGUXU6t5z1Y7OWuThoDdhPME07bQU+d5LxdJqw==}
-    engines: {node: '>=12.0.0'}
-    dependencies:
-      is-plain-obj: 3.0.0
     dev: false
 
   /estree-util-visit/1.2.0:
@@ -5634,12 +5520,6 @@ packages:
     dependencies:
       reusify: 1.0.4
 
-  /fault/2.0.1:
-    resolution: {integrity: sha512-WtySTkS4OKev5JtpHXnib4Gxiurzh5NCGvWrFaZ34m6JehfTUhKZvn9njTfw48t6JumVQOmrKqpmGcdwxnhqBQ==}
-    dependencies:
-      format: 0.2.2
-    dev: false
-
   /faunadb/4.5.4:
     resolution: {integrity: sha512-v0e1aXPhitIGMtuC7NFtp//hyr0d2NtHFcGqsEJgWx49rRJoonZQl6hLQ3lBjhA/LPg26U4R/BAlmDFE2pzsUA==}
     requiresBuild: true
@@ -5656,14 +5536,6 @@ packages:
       util-deprecate: 1.0.2
     transitivePeerDependencies:
       - encoding
-    dev: false
-
-  /fetch-blob/3.2.0:
-    resolution: {integrity: sha512-7yAQpD2UMJzLi1Dqv7qFYnPbaPx7ZfFK6PiIxQ4PfkGPyNyl2Ugx+a/umUonmKqjhM4DnfbMvdX6otXq83soQQ==}
-    engines: {node: ^12.20 || >= 14.13}
-    dependencies:
-      node-domexception: 1.0.0
-      web-streams-polyfill: 3.2.1
     dev: false
 
   /file-entry-cache/6.0.1:
@@ -5775,18 +5647,6 @@ packages:
 
   /form-urlencoded/2.0.9:
     resolution: {integrity: sha512-fWUzNiOnYa126vFAT6TFXd1mhJrvD8IqmQ9ilZPjkLYQfaRreBr5fIUoOpPlWtqaAG64nzoE7u5zSetifab9IA==}
-    dev: false
-
-  /format/0.2.2:
-    resolution: {integrity: sha512-wzsgA6WOq+09wrU1tsJ09udeR/YZRaeArL9e1wPbFg3GG2yDnC2ldKpxs4xunpFF9DgqCqOIra3bc1HWrJ37Ww==}
-    engines: {node: '>=0.4.x'}
-    dev: false
-
-  /formdata-polyfill/4.0.10:
-    resolution: {integrity: sha512-buewHzMvYL29jdeQTVILecSaZKnt/RJWjoZCF5OW60Z67/GmSLBkOFM7qh1PI3zFNtJbaZL5eQu1vLfazOwj4g==}
-    engines: {node: '>=12.20.0'}
-    dependencies:
-      fetch-blob: 3.2.0
     dev: false
 
   /framer-motion/6.3.0_biqbaboplfbrettd7655fr4n2y:
@@ -6197,13 +6057,6 @@ packages:
     resolution: {integrity: sha512-vEr54rDu2CheBM4nLkWbW8Rycf8HhkA/KsrDnlyKnvBTyhyO+vAG6twHnfUbiRGo56YeUBNCI4HFfHg3Wu+tig==}
     dependencies:
       hast-util-is-element: 2.1.2
-    dev: false
-
-  /hast-util-from-dom/4.1.0:
-    resolution: {integrity: sha512-0EMIYQVIhRfiC1LVdTsvM4yTY0rM/v63wwoYmOYV02mIOASYeQrfQekG4Jhge2kOAMaNFbvppUma47rbeWWE5Q==}
-    dependencies:
-      hastscript: 7.0.2
-      web-namespaces: 2.0.1
     dev: false
 
   /hast-util-from-parse5/7.1.0:
@@ -6740,11 +6593,6 @@ packages:
     engines: {node: '>=8'}
     dev: false
 
-  /is-plain-obj/3.0.0:
-    resolution: {integrity: sha512-gwsOE28k+23GP1B6vFl1oVh/WOzmawBrKwo5Ev6wMKzPkaXaCDIQKzLnvsA42DRlbVTWorkgTKIviAKCWkfUwA==}
-    engines: {node: '>=10'}
-    dev: false
-
   /is-plain-obj/4.0.0:
     resolution: {integrity: sha512-NXRbBtUdBioI73y/HmOhogw/U5msYPC9DAtGkJXeFcFWSFZw0mCUsPxk/snTuJHzNKA8kLBK4rH97RMB1BfCXw==}
     engines: {node: '>=12'}
@@ -6848,15 +6696,6 @@ packages:
   /isobject/3.0.1:
     resolution: {integrity: sha512-WhB9zCku7EGTj/HQQRz5aUQEUeoQZH2bWcltRErOpymJ4boYE6wL9Tbr23krRPSZ+C5zqNSrSw+Cc7sZZ4b7vg==}
     engines: {node: '>=0.10.0'}
-    dev: false
-
-  /isomorphic-fetch/3.0.0:
-    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==}
-    dependencies:
-      node-fetch: 2.6.7
-      whatwg-fetch: 3.6.2
-    transitivePeerDependencies:
-      - encoding
     dev: false
 
   /jiti/1.13.0:
@@ -7271,12 +7110,6 @@ packages:
       - supports-color
     dev: false
 
-  /mdast-util-frontmatter/1.0.0:
-    resolution: {integrity: sha512-7itKvp0arEVNpCktOET/eLFAYaZ+0cNjVtFtIPxgQ5tV+3i+D4SDDTjTzPWl44LT59PC+xdx+glNTawBdF98Mw==}
-    dependencies:
-      micromark-extension-frontmatter: 1.0.0
-    dev: false
-
   /mdast-util-gfm-autolink-literal/1.0.2:
     resolution: {integrity: sha512-FzopkOd4xTTBeGXhXSBU0OCDDh5lUj2rd+HQqG92Ld+jL4lpUfgX2AT2OHAVP9aEeDKp7G92fuooSZcYJA3cRg==}
     dependencies:
@@ -7429,25 +7262,6 @@ packages:
     resolution: {integrity: sha512-/sKlQJCBYVY9Ers9hqzKou4H6V5UWc/M59TH2dvkt+84itfnq7uFOMLpOiOS4ujvHP4etln18fmIxA5R5fll0g==}
     dev: false
 
-  /mdx-bundler/9.0.1_esbuild@0.14.31:
-    resolution: {integrity: sha512-/ktO4WTwrZszPOISh9qU0Ud/WXlTZHqA9grErUZGc7WGd7mooJiCCxejkkzHy7TQf1PS83jGECLrTeSVUkqEkQ==}
-    engines: {node: '>=12', npm: '>=6'}
-    peerDependencies:
-      esbuild: 0.11.x || 0.12.x || 0.13.x || 0.14.x
-    dependencies:
-      '@babel/runtime': 7.18.9
-      '@esbuild-plugins/node-resolve': 0.1.4_esbuild@0.14.31
-      '@fal-works/esbuild-plugin-global-externals': 2.1.2
-      '@mdx-js/esbuild': 2.1.3_esbuild@0.14.31
-      esbuild: registry.npmmirror.com/esbuild/0.14.31
-      gray-matter: 4.0.3
-      remark-frontmatter: 4.0.1
-      remark-mdx-frontmatter: 1.1.1
-      uuid: 8.3.2
-    transitivePeerDependencies:
-      - supports-color
-    dev: false
-
   /memoize-resolver/1.0.0:
     resolution: {integrity: sha512-mXfNXte0RSWl0rEIsQhXutfM2R2Oa7UyKDD7XoZMEbKeucTRms04y5y41U8gLqPzRx7ViN/QyYnTR2TX/5tawA==}
     dev: false
@@ -7496,14 +7310,6 @@ packages:
       micromark-util-resolve-all: 1.0.0
       micromark-util-symbol: 1.0.1
       uvu: 0.5.3
-    dev: false
-
-  /micromark-extension-frontmatter/1.0.0:
-    resolution: {integrity: sha512-EXjmRnupoX6yYuUJSQhrQ9ggK0iQtQlpi6xeJzVD5xscyAI+giqco5fdymayZhJMbIFecjnE2yz85S9NzIgQpg==}
-    dependencies:
-      fault: 2.0.1
-      micromark-util-character: 1.1.0
-      micromark-util-symbol: 1.0.1
     dev: false
 
   /micromark-extension-gfm-autolink-literal/1.0.3:
@@ -7911,10 +7717,6 @@ packages:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
 
-  /moo/0.5.1:
-    resolution: {integrity: sha512-I1mnb5xn4fO80BH9BLcF0yLypy2UKl+Cb01Fu0hJRkJjlCRtxZMWkTdAtDd5ZqCOxtCkhmRwyI57vWT+1iZ67w==}
-    dev: false
-
   /mri/1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -8087,11 +7889,6 @@ packages:
     resolution: {integrity: sha512-73sE9+3UaLYYFmDsFZnqCInzPyh3MqIwZO9cw58yIqAZhONrrabrYyYe3TuIqtIiOuTXVhsGau8hcrhhwSsDIQ==}
     dev: false
 
-  /node-domexception/1.0.0:
-    resolution: {integrity: sha512-/jKZoMpw0F8GRwl4/eLROPA3cfcXtLApP0QzLmUT/HuPCZWyB7IY9ZrMeKw2O/nFIqPQB3PVM9aYm0F312AXDQ==}
-    engines: {node: '>=10.5.0'}
-    dev: false
-
   /node-fetch/2.6.7:
     resolution: {integrity: sha512-ZjMPFEfVx5j+y2yF35Kzx5sF7kDzxuDj6ziH4FFbOp87zKDZNx8yExJIb05OGF4Nlt9IHFIMBkRl41VdvcNdbQ==}
     engines: {node: 4.x || >=6.0.0}
@@ -8102,15 +7899,6 @@ packages:
         optional: true
     dependencies:
       whatwg-url: 5.0.0
-    dev: false
-
-  /node-fetch/3.2.10:
-    resolution: {integrity: sha512-MhuzNwdURnZ1Cp4XTazr69K0BTizsBroX7Zx3UgDSVcZYKF/6p0CBe4EUb/hLqmzVhl0UpYfgRljQ4yxE+iCxA==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
-    dependencies:
-      data-uri-to-buffer: 4.0.0
-      fetch-blob: 3.2.0
-      formdata-polyfill: 4.0.10
     dev: false
 
   /node-releases/2.0.2:
@@ -9028,27 +8816,6 @@ packages:
       unist-util-visit: 4.1.0
     dev: false
 
-  /rehype-citation/0.2.5:
-    resolution: {integrity: sha512-d4s4JPjjCqB7xqeIz7qf4oemhuTcFhYDvP57ciOwymLsaDiQhfOq6iJsnCBXmBP8a4O2EHDsQg5mwUTMIKBfRA==}
-    dependencies:
-      '@citation-js/core': 0.5.4
-      '@citation-js/date': 0.5.1
-      '@citation-js/name': 0.4.2
-      '@citation-js/plugin-bibjson': 0.5.4_@citation-js+core@0.5.4
-      '@citation-js/plugin-bibtex': 0.5.6_@citation-js+core@0.5.4
-      '@citation-js/plugin-csl': 0.5.5_@citation-js+core@0.5.4
-      citeproc: 2.4.62
-      cross-fetch: 3.1.5
-      hast-util-from-dom: 4.1.0
-      hast-util-from-parse5: 7.1.0
-      parse5: 6.0.1
-      rehype-citation: registry.npmmirror.com/rehype-citation/0.2.5
-      unified: 10.1.2
-      unist-util-visit: 4.1.0
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
   /rehype-code-titles/1.1.0:
     resolution: {integrity: sha512-muit6KQWNafowXA0HTUeQtUT+UuP0ra34xty1tuF8WsdjcSm++HswgRAFGXH8CAGe8axuGUxg13+I4yFHFnmfQ==}
     engines: {node: '>=16'}
@@ -9459,15 +9226,6 @@ packages:
       unified: 10.1.2
     dev: false
 
-  /remark-frontmatter/4.0.1:
-    resolution: {integrity: sha512-38fJrB0KnmD3E33a5jZC/5+gGAC2WKNiPw1/fdXJvijBlhA7RCsvJklrYJakS0HedninvaCYW8lQGf9C918GfA==}
-    dependencies:
-      '@types/mdast': 3.0.10
-      mdast-util-frontmatter: 1.0.0
-      micromark-extension-frontmatter: 1.0.0
-      unified: 10.1.2
-    dev: false
-
   /remark-gfm/3.0.1:
     resolution: {integrity: sha512-lEFDoi2PICJyNrACFOfDD3JlLkuSbOa5Wd8EPt06HUdptv8Gn0bxYTdbU/XXQ3swAPkEaGxxPN9cbnMHvVu1Ig==}
     dependencies:
@@ -9486,16 +9244,6 @@ packages:
       mdast-util-math: 2.0.1
       micromark-extension-math: 2.0.2
       unified: 10.1.2
-    dev: false
-
-  /remark-mdx-frontmatter/1.1.1:
-    resolution: {integrity: sha512-7teX9DW4tI2WZkXS4DBxneYSY7NHiXl4AKdWDO9LXVweULlCT8OPWsOjLEnMIXViN1j+QcY8mfbq3k0EK6x3uA==}
-    engines: {node: '>=12.2.0'}
-    dependencies:
-      estree-util-is-identifier-name: 1.1.0
-      estree-util-value-to-estree: 1.3.0
-      js-yaml: 4.1.0
-      toml: 3.0.0
     dev: false
 
   /remark-mdx/2.1.3:
@@ -10321,16 +10069,6 @@ packages:
     resolution: {integrity: sha512-9QNk5KwDF+Bvz+PyObkmSYjI5ksVUYtjW7AU22r2NKcfLJcXp96hkDWU3+XndOsUb+AQ9QhfzfCT2O+CNWT5Tw==}
     dev: false
 
-  /sync-fetch/0.3.1:
-    resolution: {integrity: sha512-xj5qiCDap/03kpci5a+qc5wSJjc8ZSixgG2EUmH1B8Ea2sfWclQA7eH40hiHPCtkCn6MCk4Wb+dqcXdCy2PP3g==}
-    engines: {node: '>=8'}
-    dependencies:
-      buffer: 5.7.1
-      node-fetch: 2.6.7
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
   /tar-fs/2.1.1:
     resolution: {integrity: sha512-V0r2Y9scmbDRLCNex/+hYzvp/zyYjvFbHPNgVTKfQvVrb6guiE/fxP+XblDNR011utopbkex2nM4dHNV6GDsng==}
     dependencies:
@@ -10402,10 +10140,6 @@ packages:
 
   /toggle-selection/1.0.6:
     resolution: {integrity: sha512-BiZS+C1OS8g/q2RRbJmy59xpyghNBqrr6k5L/uKBGRsTfxmu3ffiRnd8mlGPUVayg8pvfi5urfnu8TU7DVOkLQ==}
-    dev: false
-
-  /toml/3.0.0:
-    resolution: {integrity: sha512-y/mWCZinnvxjTKYhJ+pYxwD0mRLVvOtdS2Awbgxln6iEnt4rk0yBxeSBHkGJcPucRiG0e55mwWp+g/05rsrd6w==}
     dev: false
 
   /totalist/1.1.0:
@@ -10909,11 +10643,6 @@ packages:
     resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==}
     dev: false
 
-  /web-streams-polyfill/3.2.1:
-    resolution: {integrity: sha512-e0MO3wdXWKrLbL0DgGnUV7WHVuw9OUvL4hjgnPkIeEvESk74gAITi5G606JtZPp39cd8HA9VQzCIvA49LpPN5Q==}
-    engines: {node: '>= 8'}
-    dev: false
-
   /webidl-conversions/3.0.1:
     resolution: {integrity: sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=}
     dev: false
@@ -10951,10 +10680,6 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       iconv-lite: 0.6.3
-    dev: false
-
-  /whatwg-fetch/3.6.2:
-    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==}
     dev: false
 
   /whatwg-mimetype/3.0.0:
@@ -11175,110 +10900,6 @@ packages:
     resolution: {integrity: sha512-JZxotl7SxAJH0j7dN4pxsTV6ZLXoLdGME+PsjkL/DaBrVryK9kTGq06GfKrwcSOqypP+fdXGoCHE36b99fWVoA==}
     dev: false
 
-  registry.npmmirror.com/@citation-js/core/0.5.4:
-    resolution: {integrity: sha512-84as1w5v24DDTlzaRUtEBWIcj5wNw9A2ELqQs2ngrbFsc1psg1FbmwJplZQDSsiJHt+MfO23+DRmtOXyn7qXsg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@citation-js/core/-/core-0.5.4.tgz}
-    name: '@citation-js/core'
-    version: 0.5.4
-    engines: {node: '>=10'}
-    dependencies:
-      '@citation-js/date': registry.npmmirror.com/@citation-js/date/0.5.1
-      '@citation-js/name': registry.npmmirror.com/@citation-js/name/0.4.2
-      isomorphic-fetch: registry.npmmirror.com/isomorphic-fetch/3.0.0
-      sync-fetch: registry.npmmirror.com/sync-fetch/0.3.1
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  registry.npmmirror.com/@citation-js/date/0.5.1:
-    resolution: {integrity: sha512-1iDKAZ4ie48PVhovsOXQ+C6o55dWJloXqtznnnKy6CltJBQLIuLLuUqa8zlIvma0ZigjVjgDUhnVaNU1MErtZw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@citation-js/date/-/date-0.5.1.tgz}
-    name: '@citation-js/date'
-    version: 0.5.1
-    engines: {node: '>=10.0.0'}
-    dev: false
-
-  registry.npmmirror.com/@citation-js/name/0.4.2:
-    resolution: {integrity: sha512-brSPsjs2fOVzSnARLKu0qncn6suWjHVQtrqSUrnqyaRH95r/Ad4wPF5EsoWr+Dx8HzkCGb/ogmoAzfCsqlTwTQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@citation-js/name/-/name-0.4.2.tgz}
-    name: '@citation-js/name'
-    version: 0.4.2
-    engines: {node: '>=6'}
-    dev: false
-
-  registry.npmmirror.com/@citation-js/plugin-bibjson/0.5.4_@citation-js+core@0.5.4:
-    resolution: {integrity: sha512-5KT7c8NOU7X2/JUgL8GmtOZFJtMFyCsLgoRBwpgDZ1pGdhE4H0/2292iPQ6SDyf2KxWAKXEy3DV5oMCqX9nzzA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@citation-js/plugin-bibjson/-/plugin-bibjson-0.5.4.tgz}
-    id: registry.npmmirror.com/@citation-js/plugin-bibjson/0.5.4
-    name: '@citation-js/plugin-bibjson'
-    version: 0.5.4
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
-    dependencies:
-      '@citation-js/core': registry.npmmirror.com/@citation-js/core/0.5.4
-      '@citation-js/date': registry.npmmirror.com/@citation-js/date/0.5.1
-      '@citation-js/name': registry.npmmirror.com/@citation-js/name/0.4.2
-    dev: false
-
-  registry.npmmirror.com/@citation-js/plugin-bibtex/0.5.6_@citation-js+core@0.5.4:
-    resolution: {integrity: sha512-VxKH1hgTwpiZ6A1NIq/wtovPqMspu1WQTt0x/09PulMM5qLecfv0tv/SIO1kd/azjmWVp2pOMoolKUMsRjEZSg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@citation-js/plugin-bibtex/-/plugin-bibtex-0.5.6.tgz}
-    id: registry.npmmirror.com/@citation-js/plugin-bibtex/0.5.6
-    name: '@citation-js/plugin-bibtex'
-    version: 0.5.6
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
-    dependencies:
-      '@citation-js/core': registry.npmmirror.com/@citation-js/core/0.5.4
-      '@citation-js/date': registry.npmmirror.com/@citation-js/date/0.5.1
-      '@citation-js/name': registry.npmmirror.com/@citation-js/name/0.4.2
-      moo: registry.npmmirror.com/moo/0.5.1
-    dev: false
-
-  registry.npmmirror.com/@citation-js/plugin-csl/0.5.5_@citation-js+core@0.5.4:
-    resolution: {integrity: sha512-ytid/o/wpOU9OZ1gecibcfIP3YfFHhi0zamkVEbFp9Zwlud1Imyj96Mw8xTCgibVRhoQ4N7QJ/BToXIq+ON4DQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@citation-js/plugin-csl/-/plugin-csl-0.5.5.tgz}
-    id: registry.npmmirror.com/@citation-js/plugin-csl/0.5.5
-    name: '@citation-js/plugin-csl'
-    version: 0.5.5
-    engines: {node: '>=10'}
-    peerDependencies:
-      '@citation-js/core': ^0.5.0-alpha.0
-    dependencies:
-      '@citation-js/core': registry.npmmirror.com/@citation-js/core/0.5.4
-      '@citation-js/date': registry.npmmirror.com/@citation-js/date/0.5.1
-      citeproc: registry.npmmirror.com/citeproc/2.4.62
-    dev: false
-
-  registry.npmmirror.com/@types/parse5/6.0.3:
-    resolution: {integrity: sha512-SuT16Q1K51EAVPz1K29DJ/sXjhSQ0zjvsypYJ6tlwVsRV9jwW5Adq2ch8Dq8kDBCkYnELS7N7VNCSB5nC56t/g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@types/parse5/-/parse5-6.0.3.tgz}
-    name: '@types/parse5'
-    version: 6.0.3
-    dev: false
-
-  registry.npmmirror.com/bail/2.0.2:
-    resolution: {integrity: sha512-0xO6mYd7JB2YesxDKplafRpsiOzPt9V02ddPCLbY1xYGPOX24NTyN50qnUxgCPcSoYMhKpAuBTjQoRZCAkUDRw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/bail/-/bail-2.0.2.tgz}
-    name: bail
-    version: 2.0.2
-    dev: false
-
-  registry.npmmirror.com/buffer/5.7.1:
-    resolution: {integrity: sha512-EHcyIPBQ4BSGlvjB16k5KgAJ27CIsHY/2JBmCRReo48y9rQ3MaUzWX3KVlBa4U7MyX02HdVj0K7C3WaB3ju7FQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/buffer/-/buffer-5.7.1.tgz}
-    name: buffer
-    version: 5.7.1
-    dependencies:
-      base64-js: 1.5.1
-      ieee754: registry.npmmirror.com/ieee754/1.2.1
-    dev: false
-
-  registry.npmmirror.com/citeproc/2.4.62:
-    resolution: {integrity: sha512-l3uFfSEwNZp/jlz/TpgyBs85kOww6VlQHbAth0cpbgOn6iulZd+QlFY43LrRelzcYt3FZHTZ3soDyd8lNmkqdw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/citeproc/-/citeproc-2.4.62.tgz}
-    name: citeproc
-    version: 2.4.62
-    dev: false
-
-  registry.npmmirror.com/comma-separated-tokens/2.0.2:
-    resolution: {integrity: sha512-G5yTt3KQN4Yn7Yk4ed73hlZ1evrFKXeUW3086p3PRFNp7m2vIjI6Pg+Kgb+oyzhd9F2qdcoj67+y3SdxL5XWsg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/comma-separated-tokens/-/comma-separated-tokens-2.0.2.tgz}
-    name: comma-separated-tokens
-    version: 2.0.2
-    dev: false
-
   registry.npmmirror.com/esbuild/0.14.31:
     resolution: {integrity: sha512-QA0fUM13+JZzcvg1bdrhi7wo8Lr5IRHA9ypNn2znqxGqb66dSK6pAh01TjyBOhzZGazPQJZ1K26VrCAQJ715qA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/esbuild/-/esbuild-0.14.31.tgz}
     name: esbuild
@@ -11309,99 +10930,6 @@ packages:
       esbuild-windows-arm64: 0.14.31
     dev: false
 
-  registry.npmmirror.com/extend/3.0.2:
-    resolution: {integrity: sha512-fjquC59cD7CyW6urNXK0FBufkZcoiGG80wTuPujX590cB5Ttln20E2UB4S/WARVqhXffZl2LNgS+gQdPIIim/g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/extend/-/extend-3.0.2.tgz}
-    name: extend
-    version: 3.0.2
-    dev: false
-
-  registry.npmmirror.com/hast-util-from-dom/4.1.0:
-    resolution: {integrity: sha512-0EMIYQVIhRfiC1LVdTsvM4yTY0rM/v63wwoYmOYV02mIOASYeQrfQekG4Jhge2kOAMaNFbvppUma47rbeWWE5Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hast-util-from-dom/-/hast-util-from-dom-4.1.0.tgz}
-    name: hast-util-from-dom
-    version: 4.1.0
-    dependencies:
-      hastscript: registry.npmmirror.com/hastscript/7.0.2
-      web-namespaces: registry.npmmirror.com/web-namespaces/2.0.1
-    dev: false
-
-  registry.npmmirror.com/hast-util-from-parse5/7.1.0:
-    resolution: {integrity: sha512-m8yhANIAccpU4K6+121KpPP55sSl9/samzQSQGpb0mTExcNh2WlvjtMwSWFhg6uqD4Rr6Nfa8N6TMypQM51rzQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hast-util-from-parse5/-/hast-util-from-parse5-7.1.0.tgz}
-    name: hast-util-from-parse5
-    version: 7.1.0
-    dependencies:
-      '@types/hast': 2.3.4
-      '@types/parse5': registry.npmmirror.com/@types/parse5/6.0.3
-      '@types/unist': 2.0.6
-      hastscript: registry.npmmirror.com/hastscript/7.0.2
-      property-information: registry.npmmirror.com/property-information/6.1.1
-      vfile: registry.npmmirror.com/vfile/5.3.2
-      vfile-location: registry.npmmirror.com/vfile-location/4.0.1
-      web-namespaces: registry.npmmirror.com/web-namespaces/2.0.1
-    dev: false
-
-  registry.npmmirror.com/hast-util-parse-selector/3.1.0:
-    resolution: {integrity: sha512-AyjlI2pTAZEOeu7GeBPZhROx0RHBnydkQIXlhnFzDi0qfXTmGUWoCYZtomHbrdrheV4VFUlPcfJ6LMF5T6sQzg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hast-util-parse-selector/-/hast-util-parse-selector-3.1.0.tgz}
-    name: hast-util-parse-selector
-    version: 3.1.0
-    dependencies:
-      '@types/hast': 2.3.4
-    dev: false
-
-  registry.npmmirror.com/hastscript/7.0.2:
-    resolution: {integrity: sha512-uA8ooUY4ipaBvKcMuPehTAB/YfFLSSzCwFSwT6ltJbocFUKH/GDHLN+tflq7lSRf9H86uOuxOFkh1KgIy3Gg2g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/hastscript/-/hastscript-7.0.2.tgz}
-    name: hastscript
-    version: 7.0.2
-    dependencies:
-      '@types/hast': 2.3.4
-      comma-separated-tokens: registry.npmmirror.com/comma-separated-tokens/2.0.2
-      hast-util-parse-selector: registry.npmmirror.com/hast-util-parse-selector/3.1.0
-      property-information: registry.npmmirror.com/property-information/6.1.1
-      space-separated-tokens: registry.npmmirror.com/space-separated-tokens/2.0.1
-    dev: false
-
-  registry.npmmirror.com/ieee754/1.2.1:
-    resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/ieee754/-/ieee754-1.2.1.tgz}
-    name: ieee754
-    version: 1.2.1
-    dev: false
-
-  registry.npmmirror.com/is-buffer/2.0.5:
-    resolution: {integrity: sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-buffer/-/is-buffer-2.0.5.tgz}
-    name: is-buffer
-    version: 2.0.5
-    engines: {node: '>=4'}
-    dev: false
-
-  registry.npmmirror.com/is-plain-obj/4.0.0:
-    resolution: {integrity: sha512-NXRbBtUdBioI73y/HmOhogw/U5msYPC9DAtGkJXeFcFWSFZw0mCUsPxk/snTuJHzNKA8kLBK4rH97RMB1BfCXw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/is-plain-obj/-/is-plain-obj-4.0.0.tgz}
-    name: is-plain-obj
-    version: 4.0.0
-    engines: {node: '>=12'}
-    dev: false
-
-  registry.npmmirror.com/isomorphic-fetch/3.0.0:
-    resolution: {integrity: sha512-qvUtwJ3j6qwsF3jLxkZ72qCgjMysPzDfeV240JHiGZsANBYd+EEuu35v7dfrJ9Up0Ak07D7GGSkGhCHTqg/5wA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/isomorphic-fetch/-/isomorphic-fetch-3.0.0.tgz}
-    name: isomorphic-fetch
-    version: 3.0.0
-    dependencies:
-      node-fetch: 2.6.7
-      whatwg-fetch: registry.npmmirror.com/whatwg-fetch/3.6.2
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  registry.npmmirror.com/moo/0.5.1:
-    resolution: {integrity: sha512-I1mnb5xn4fO80BH9BLcF0yLypy2UKl+Cb01Fu0hJRkJjlCRtxZMWkTdAtDd5ZqCOxtCkhmRwyI57vWT+1iZ67w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/moo/-/moo-0.5.1.tgz}
-    name: moo
-    version: 0.5.1
-    dev: false
-
-  registry.npmmirror.com/parse5/6.0.1:
-    resolution: {integrity: sha512-Ofn/CTFzRGTTxwpNEs9PP93gXShHcTq255nzRYSKe8AkVpZY7e1fpmTfOyoIvjP5HG7Z2ZM7VS9PPhQGW2pOpw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/parse5/-/parse5-6.0.1.tgz}
-    name: parse5
-    version: 6.0.1
-    dev: false
-
   registry.npmmirror.com/prettier/2.6.2:
     resolution: {integrity: sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/prettier/-/prettier-2.6.2.tgz}
     name: prettier
@@ -11410,124 +10938,8 @@ packages:
     hasBin: true
     dev: true
 
-  registry.npmmirror.com/property-information/6.1.1:
-    resolution: {integrity: sha512-hrzC564QIl0r0vy4l6MvRLhafmUowhO/O3KgVSoXIbbA2Sz4j8HGpJc6T2cubRVwMwpdiG/vKGfhT4IixmKN9w==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/property-information/-/property-information-6.1.1.tgz}
-    name: property-information
-    version: 6.1.1
-    dev: false
-
-  registry.npmmirror.com/rehype-citation/0.2.5:
-    resolution: {integrity: sha512-d4s4JPjjCqB7xqeIz7qf4oemhuTcFhYDvP57ciOwymLsaDiQhfOq6iJsnCBXmBP8a4O2EHDsQg5mwUTMIKBfRA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/rehype-citation/-/rehype-citation-0.2.5.tgz}
-    name: rehype-citation
-    version: 0.2.5
-    dependencies:
-      '@citation-js/core': registry.npmmirror.com/@citation-js/core/0.5.4
-      '@citation-js/date': registry.npmmirror.com/@citation-js/date/0.5.1
-      '@citation-js/name': registry.npmmirror.com/@citation-js/name/0.4.2
-      '@citation-js/plugin-bibjson': registry.npmmirror.com/@citation-js/plugin-bibjson/0.5.4_@citation-js+core@0.5.4
-      '@citation-js/plugin-bibtex': registry.npmmirror.com/@citation-js/plugin-bibtex/0.5.6_@citation-js+core@0.5.4
-      '@citation-js/plugin-csl': registry.npmmirror.com/@citation-js/plugin-csl/0.5.5_@citation-js+core@0.5.4
-      citeproc: registry.npmmirror.com/citeproc/2.4.62
-      cross-fetch: 3.1.5
-      hast-util-from-dom: registry.npmmirror.com/hast-util-from-dom/4.1.0
-      hast-util-from-parse5: registry.npmmirror.com/hast-util-from-parse5/7.1.0
-      parse5: registry.npmmirror.com/parse5/6.0.1
-      rehype-citation: 0.2.5
-      unified: registry.npmmirror.com/unified/10.1.2
-      unist-util-visit: 4.1.0
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  registry.npmmirror.com/space-separated-tokens/2.0.1:
-    resolution: {integrity: sha512-ekwEbFp5aqSPKaqeY1PGrlGQxPNaq+Cnx4+bE2D8sciBQrHpbwoBbawqTN2+6jPs9IdWxxiUcN0K2pkczD3zmw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/space-separated-tokens/-/space-separated-tokens-2.0.1.tgz}
-    name: space-separated-tokens
-    version: 2.0.1
-    dev: false
-
-  registry.npmmirror.com/sync-fetch/0.3.1:
-    resolution: {integrity: sha512-xj5qiCDap/03kpci5a+qc5wSJjc8ZSixgG2EUmH1B8Ea2sfWclQA7eH40hiHPCtkCn6MCk4Wb+dqcXdCy2PP3g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/sync-fetch/-/sync-fetch-0.3.1.tgz}
-    name: sync-fetch
-    version: 0.3.1
-    engines: {node: '>=8'}
-    dependencies:
-      buffer: registry.npmmirror.com/buffer/5.7.1
-      node-fetch: 2.6.7
-    transitivePeerDependencies:
-      - encoding
-    dev: false
-
-  registry.npmmirror.com/trough/2.1.0:
-    resolution: {integrity: sha512-AqTiAOLcj85xS7vQ8QkAV41hPDIJ71XJB4RCUrzo/1GM2CQwhkJGaf9Hgr7BOugMRpgGUrqRg/DrBDl4H40+8g==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/trough/-/trough-2.1.0.tgz}
-    name: trough
-    version: 2.1.0
-    dev: false
-
-  registry.npmmirror.com/unified/10.1.2:
-    resolution: {integrity: sha512-pUSWAi/RAnVy1Pif2kAoeWNBa3JVrx0MId2LASj8G+7AiHWoKZNTomq6LG326T68U7/e263X6fTdcXIy7XnF7Q==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unified/-/unified-10.1.2.tgz}
-    name: unified
-    version: 10.1.2
-    dependencies:
-      '@types/unist': 2.0.6
-      bail: registry.npmmirror.com/bail/2.0.2
-      extend: registry.npmmirror.com/extend/3.0.2
-      is-buffer: registry.npmmirror.com/is-buffer/2.0.5
-      is-plain-obj: registry.npmmirror.com/is-plain-obj/4.0.0
-      trough: registry.npmmirror.com/trough/2.1.0
-      vfile: registry.npmmirror.com/vfile/5.3.2
-    dev: false
-
   registry.npmmirror.com/unist-util-is/5.1.1:
     resolution: {integrity: sha512-F5CZ68eYzuSvJjGhCLPL3cYx45IxkqXSetCcRgUXtbcm50X2L9oOWQlfUfDdAf+6Pd27YDblBfdtmsThXmwpbQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unist-util-is/-/unist-util-is-5.1.1.tgz}
     name: unist-util-is
     version: 5.1.1
-    dev: false
-
-  registry.npmmirror.com/unist-util-stringify-position/3.0.2:
-    resolution: {integrity: sha512-7A6eiDCs9UtjcwZOcCpM4aPII3bAAGv13E96IkawkOAW0OhH+yRxtY0lzo8KiHpzEMfH7Q+FizUmwp8Iqy5EWg==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/unist-util-stringify-position/-/unist-util-stringify-position-3.0.2.tgz}
-    name: unist-util-stringify-position
-    version: 3.0.2
-    dependencies:
-      '@types/unist': 2.0.6
-    dev: false
-
-  registry.npmmirror.com/vfile-location/4.0.1:
-    resolution: {integrity: sha512-JDxPlTbZrZCQXogGheBHjbRWjESSPEak770XwWPfw5mTc1v1nWGLB/apzZxsx8a0SJVfF8HK8ql8RD308vXRUw==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vfile-location/-/vfile-location-4.0.1.tgz}
-    name: vfile-location
-    version: 4.0.1
-    dependencies:
-      '@types/unist': 2.0.6
-      vfile: 5.3.4
-    dev: false
-
-  registry.npmmirror.com/vfile-message/3.1.2:
-    resolution: {integrity: sha512-QjSNP6Yxzyycd4SVOtmKKyTsSvClqBPJcd00Z0zuPj3hOIjg0rUPG6DbFGPvUKRgYyaIWLPKpuEclcuvb3H8qA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vfile-message/-/vfile-message-3.1.2.tgz}
-    name: vfile-message
-    version: 3.1.2
-    dependencies:
-      '@types/unist': 2.0.6
-      unist-util-stringify-position: registry.npmmirror.com/unist-util-stringify-position/3.0.2
-    dev: false
-
-  registry.npmmirror.com/vfile/5.3.2:
-    resolution: {integrity: sha512-w0PLIugRY3Crkgw89TeMvHCzqCs/zpreR31hl4D92y6SOE07+bfJe+dK5Q2akwS+i/c801kzjoOr9gMcTe6IAA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/vfile/-/vfile-5.3.2.tgz}
-    name: vfile
-    version: 5.3.2
-    dependencies:
-      '@types/unist': 2.0.6
-      is-buffer: registry.npmmirror.com/is-buffer/2.0.5
-      unist-util-stringify-position: registry.npmmirror.com/unist-util-stringify-position/3.0.2
-      vfile-message: registry.npmmirror.com/vfile-message/3.1.2
-    dev: false
-
-  registry.npmmirror.com/web-namespaces/2.0.1:
-    resolution: {integrity: sha512-bKr1DkiNa2krS7qxNtdrtHAmzuYGFQLiQ13TsorsdT6ULTkPLKuu5+GsFpDlg6JFjUTwX2DyhMPG2be8uPrqsQ==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/web-namespaces/-/web-namespaces-2.0.1.tgz}
-    name: web-namespaces
-    version: 2.0.1
-    dev: false
-
-  registry.npmmirror.com/whatwg-fetch/3.6.2:
-    resolution: {integrity: sha512-bJlen0FcuU/0EMLrdbJ7zOnW6ITZLrZMIarMUVmdKtsGvZna8vxKYaexICWPfZ8qwf9fzNq+UEIZrnSaApt6RA==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/whatwg-fetch/-/whatwg-fetch-3.6.2.tgz}
-    name: whatwg-fetch
-    version: 3.6.2
     dev: false
