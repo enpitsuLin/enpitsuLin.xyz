@@ -10,10 +10,15 @@ import ThemeSwitch from './ThemeSwitch'
 const Header = () => {
   const { t } = useTranslation('common')
 
+  const nav = [
+    { href: '/', title: 'header.home' },
+    { href: '/blog', title: 'header.blog' },
+    { href: '/tags', title: 'header.tags' },
+  ]
+
   const [stuck, setStuck] = useState(false)
   const ref = useRef<HTMLHeadElement>()
 
-  const a = <div className="bg-[#fff1] backdrop-filter backdrop-blur-md"></div>
   const stuckClasses =
     'py-2 md:py-3 sticky -top-1 z-50 transition-all backdrop-filter backdrop-blur-md mx-auto border-b border-slate-900/10 dark:border-slate-300/10 w-full'
   const unstuckClasses =
@@ -50,7 +55,7 @@ const Header = () => {
 
         <div className="flex text-base leading-5 items-center">
           <div className="hidden sm:block">
-            {headerNavLinks.map((link) => (
+            {nav.map((link) => (
               <Link
                 key={link.title}
                 href={link.href}
@@ -62,7 +67,7 @@ const Header = () => {
           </div>
           <ThemeSwitch />
           <I18nSwitch />
-          <MobileNav />
+          <MobileNav nav={nav} />
         </div>
       </div>
     </header>
