@@ -68,10 +68,6 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{formatDate(date)}</time>
                     </dd>
-                    <dt className="sr-only">{t('post.reads')}</dt>
-                    <dd className="text-sm font-medium leading-6 text-gray-500 dark:text-gray-400">
-                      <time dateTime={date}>{t('post.reads-var', { reads: 0 })}</time>
-                    </dd>
                   </dl>
                   <div className="space-y-3 xl:col-span-3">
                     <div>

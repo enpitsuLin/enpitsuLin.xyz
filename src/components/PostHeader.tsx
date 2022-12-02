@@ -1,7 +1,6 @@
 import formatDate from '@/lib/utils/formatDate'
 import { Post } from '@/types'
 import useTranslation from 'next-translate/useTranslation'
-import { useEffect } from 'react'
 import PageTitle from './PageTitle'
 
 interface Props {
@@ -12,9 +11,6 @@ const PostHeader: React.FC<Props> = ({ post }) => {
   const { title, date, readingTime, slug, wordCount } = post
   const { t } = useTranslation('common')
 
-  useEffect(() => {
-    fetch(`/api/get-visit?slug=${slug}`)
-  }, [])
   return (
     <header className="pt-6 xl:pb-6">
       <div className="space-y-12 text-center">
@@ -37,12 +33,6 @@ const PostHeader: React.FC<Props> = ({ post }) => {
               <dt className="sr-only">{t('post.words-count')}</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                 {t('post.words-count-var', { words: wordCount })}
-              </dd>
-            </div>
-            <div>
-              <dt className="sr-only">{t('post.reads')}</dt>
-              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.reads-var', { reads: 0 })}
               </dd>
             </div>
           </dl>
