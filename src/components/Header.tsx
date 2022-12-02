@@ -1,9 +1,8 @@
-import { useState, useRef, useEffect } from 'react'
-import useTranslation from 'next-translate/useTranslation'
-import headerNavLinks from 'data/headerNavLinks'
 import siteMetadata from 'data/siteMetadata'
-import Link from './Link'
+import useTranslation from 'next-translate/useTranslation'
+import { useEffect, useRef, useState } from 'react'
 import I18nSwitch from './I18nSwitch'
+import Link from './Link'
 import MobileNav from './MobileNav'
 import ThemeSwitch from './ThemeSwitch'
 
