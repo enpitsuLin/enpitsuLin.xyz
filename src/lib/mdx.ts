@@ -50,6 +50,6 @@ export async function mdxToHtml(source: string) {
     toc,
     html: mdxSource,
     wordCount: source.split(/\s+/gu).length,
-    readingTime: readingTime(source).text,
+    readingTime: Math.round(readingTime(source).minutes).toString(),
   }
 }
