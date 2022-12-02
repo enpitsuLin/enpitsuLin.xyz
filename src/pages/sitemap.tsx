@@ -1,13 +1,13 @@
-import prettier from 'prettier'
-import siteMetadata from 'data/siteMetadata'
-import { GetStaticProps } from 'next'
+import { getClient, indexQuery, Post } from '@/lib/sanity'
 import { getAllTags } from '@/lib/tags'
-import { getAllFilesFrontMatter } from '@/lib/mdx'
-import { POSTS_PER_PAGE } from './blog'
+import siteMetadata from 'data/siteMetadata'
 import fs from 'fs'
+import { GetStaticProps } from 'next'
+import prettier from 'prettier'
+import { POSTS_PER_PAGE } from './blog'
 
 async function generateSiteMap() {
-  const allPosts = await getAllFilesFrontMatter()
+  const allPosts = await getClient().fetch<Post[]>(indexQuery)
   const tags = Object.keys(await getAllTags())
   const prettierConfig = await prettier.resolveConfig('/prettier.config.js')
 
@@ -41,12 +41,7 @@ async function generateSiteMap() {
             .join('')}
           ${allPosts
             .map((post) => {
-              let lastmod = new Date().toJSON()
-              if (post.lastmod) {
-                lastmod = new Date(post.lastmod).toJSON()
-              } else {
-                lastmod = fs.statSync(post.fileName).mtime.toJSON()
-              }
+              let lastmod = new Date(post.date).toJSON()
               return `
                       <url>
                           <loc>${siteMetadata.siteUrl}/blog/${post.slug}</loc>

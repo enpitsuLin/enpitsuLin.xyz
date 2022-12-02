@@ -1,11 +1,11 @@
-import useTranslation from 'next-translate/useTranslation'
 import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
-import siteMetadata from 'data/siteMetadata'
-import { getAllTags } from '@/lib/tags'
 import Tag from '@/components/Tag'
+import { getAllTags } from '@/lib/tags'
 import kebabCase from '@/lib/utils/kebabCase'
+import siteMetadata from 'data/siteMetadata'
 import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import useTranslation from 'next-translate/useTranslation'
 
 export const getStaticProps: GetStaticProps<{ tags: Record<string, number> }> = async () => {
   const tags = await getAllTags()
@@ -38,7 +38,9 @@ export default function Tags({ tags }: InferGetStaticPropsType<typeof getStaticP
                   href={`/tags/${kebabCase(t)}`}
                   className="px-2 py-1 text-sm font-medium hover:text-primary-600 dark:hover:text-primary-400"
                 >
-                  <Tag text={t} />
+                  <span className="mr-3 text-sm font-medium lowercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                    &#x23;{t.split(' ').join('-')}
+                  </span>
                   <span>({tags[t]})</span>
                 </Link>
               </div>

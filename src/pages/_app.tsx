@@ -13,7 +13,7 @@ import Analytics from '@/components/analytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 
 import { Inter } from '@next/font/google'
-const inter = Inter({})
+const inter = Inter({ subsets: ['latin'] })
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
@@ -28,7 +28,10 @@ const App = ({ Component, pageProps }: AppProps) => {
         }
       `}</style>
       <LayoutWrapper>
-        <Component {...pageProps} />
+        {
+          //@ts-ignore
+          <Component {...pageProps} />
+        }
       </LayoutWrapper>
     </ThemeProvider>
   )
