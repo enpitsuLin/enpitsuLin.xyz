@@ -1,4 +1,4 @@
-import FaEnvelope from '~icons/fa-solid/envelope'
+import FaEnvelope from '~icons/fa6-solid/envelope'
 import FaBilibili from '~icons/fa6-brands/bilibili'
 import FaGithub from '~icons/fa6-brands/github'
 import FaQq from '~icons/fa6-brands/qq'

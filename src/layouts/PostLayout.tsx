@@ -10,7 +10,7 @@ import { Post } from '@/types'
 import siteMetadata from 'data/siteMetadata'
 import useTranslation from 'next-translate/useTranslation'
 import { ReactNode } from 'react'
-import FaArrowLeft from '~icons/fa-solid/arrow-left'
+import FaArrowLeft from '~icons/fa6-solid/arrow-left'
 
 interface Props {
   post: Post
