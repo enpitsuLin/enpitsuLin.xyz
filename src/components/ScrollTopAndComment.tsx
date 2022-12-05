@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { FaArrowUp, FaComment } from 'react-icons/fa'
+import FaArrowUp from '~icons/fa6-solid/arrow-up'
+import FaComment from '~icons/fa6-solid/comment'
 
 const Button: React.FC<JSX.IntrinsicElements['button']> = ({ children, ...rest }) => {
   const classes = [
