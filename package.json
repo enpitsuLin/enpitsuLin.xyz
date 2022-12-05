@@ -41,6 +41,7 @@
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.11",
     "@iconify-json/fa6-brands": "^1.1.8",
+    "@iconify-json/fa6-solid": "^1.1.9",
     "@next/bundle-analyzer": "12.1.2",
     "@svgr/webpack": "^6.2.1",
     "@types/mdast": "^3.0.10",
