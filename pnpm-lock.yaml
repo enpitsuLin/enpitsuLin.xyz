@@ -6,6 +6,7 @@ importers:
     specifiers:
       '@iconify-json/carbon': ^1.1.11
       '@iconify-json/fa6-brands': ^1.1.8
+      '@iconify-json/fa6-solid': ^1.1.9
       '@next/bundle-analyzer': 12.1.2
       '@next/font': ^13.0.5
       '@portabletext/react': ^2.0.0
@@ -81,6 +82,7 @@ importers:
     devDependencies:
       '@iconify-json/carbon': 1.1.11
       '@iconify-json/fa6-brands': 1.1.8
+      '@iconify-json/fa6-solid': 1.1.9
       '@next/bundle-analyzer': 12.1.2
       '@svgr/webpack': 6.2.1
       '@types/mdast': 3.0.10
@@ -1737,6 +1739,12 @@ packages:
 
   /@iconify-json/fa6-brands/1.1.8:
     resolution: {integrity: sha512-ndwmH8/fITnc2t8EsKpHjxiDSviyORLz91urwZju1MtTrheamJvTUp8wui7+WSzzzJ2Dva4jn26J37vKD3eolg==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
+
+  /@iconify-json/fa6-solid/1.1.9:
+    resolution: {integrity: sha512-jBX86UGcK9qCRqI0ZT8BfuNiEC7yYPRH9M1bW5MXmuaQ2BW3Sttr+j/245VZO45SokI7ng1Xfu2OMJxLbQuqhA==}
     dependencies:
       '@iconify/types': 2.0.0
     dev: true
