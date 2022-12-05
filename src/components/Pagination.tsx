@@ -1,6 +1,7 @@
 import Link from '@/components/Link'
 import { ReactNode } from 'react'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
+import FaArrowLeft from '~icons/fa-solid/arrow-left'
+import FaArrowRight from '~icons/fa-solid/arrow-right'
 import useTranslation from 'next-translate/useTranslation'
 import { classes } from '@/lib/utils/classes'
 
