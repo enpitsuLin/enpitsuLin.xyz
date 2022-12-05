@@ -8,23 +8,26 @@ import { mdxToHtml } from '@/lib/mdx'
 import { getPost } from '@/lib/sanity'
 import { Post, Toc } from '@/types'
 import { GetServerSideProps, InferGetServerSidePropsType } from 'next'
-import { MDXRemote, MDXRemoteProps } from 'next-mdx-remote'
-import { FiRotateCcw, FiRotateCw, FiZoomIn, FiZoomOut } from 'react-icons/fi'
+import { MDXRemote, MDXRemoteProps, MDXRemoteSerializeResult } from 'mdx-to-html'
+import CarbonRotateClockwise from '~icons/carbon/rotate-clockwise'
+import CarbonRotateCounterclockwise from '~icons/carbon/rotate-counterclockwise'
+import CarbonZoomIn from '~icons/carbon/zoom-in'
+import CarbonZoomOut from '~icons/carbon/zoom-out'
 import { PhotoProvider, PhotoView } from 'react-photo-view'
 import 'react-photo-view/dist/react-photo-view.css'
 
 interface Props {
   post: Post
-  content: Awaited<ReturnType<typeof mdxToHtml>>['html']
+  content: MDXRemoteSerializeResult
   prev?: { slug: string; title: string }
   next?: { slug: string; title: string }
 }
 
-// @ts-ignore
 export const getServerSideProps: GetServerSideProps<Props> = async ({ params, res }) => {
   res.setHeader('Cache-Control', 'public, s-maxage=10, stale-while-revalidate=59')
 
   const originPost = await getPost(params.slug as string)
+  //@ts-ignore
   const { html, readingTime, wordCount, toc } = await mdxToHtml(originPost.content)
 
   const post: Post = {
@@ -82,24 +85,20 @@ const Blog: React.FC<InferGetServerSidePropsType<typeof getServerSideProps>> = (
           toolbarRender={({ onScale, scale, onRotate, rotate }) => {
             return (
               <>
-                <FiZoomIn
-                  size={44}
-                  className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+                <CarbonZoomIn
+                  className="h-[44px] w-[44px] p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
                   onClick={() => onScale(scale + 1)}
                 />
-                <FiZoomOut
-                  size={44}
-                  className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+                <CarbonZoomOut
+                  className="h-[44px] w-[44px] p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
                   onClick={() => onScale(scale - 1)}
                 />
-                <FiRotateCcw
-                  size={44}
-                  className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+                <CarbonRotateCounterclockwise
+                  className="h-[44px] w-[44px] p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
                   onClick={() => onRotate(rotate - 90)}
                 />
-                <FiRotateCw
-                  size={44}
-                  className="p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
+                <CarbonRotateClockwise
+                  className="h-[44px] w-[44px] p-[12px] transition-opacity opacity-75 hover:opacity-100 cursor-pointer"
                   onClick={() => onRotate(rotate + 90)}
                 />
               </>
