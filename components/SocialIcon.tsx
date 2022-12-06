@@ -1,4 +1,3 @@
-import React from 'react';
 import FaEnvelope from '~icons/fa6-solid/envelope';
 import FaBilibili from '~icons/fa6-brands/bilibili';
 import FaGithub from '~icons/fa6-brands/github';

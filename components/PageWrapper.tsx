@@ -1,9 +1,9 @@
-import React from 'react';
 import type { PageContext } from '../renderer/types';
 import { PageContextProvider } from '../hooks/usePageContext';
 import { Header } from './Header';
 import { Link } from './Link';
 import { SocialIcon } from './SocialIcon';
+import { StrictMode } from 'react';
 
 export { PageWrapper };
 
@@ -41,7 +41,7 @@ const SectionContainer: React.FC<React.PropsWithChildren> = ({ children }) => {
 
 function PageWrapper({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
   return (
-    <React.StrictMode>
+    <StrictMode>
       <PageContextProvider pageContext={pageContext}>
         <Header />
         <SectionContainer>
@@ -51,6 +51,6 @@ function PageWrapper({ children, pageContext }: { children: React.ReactNode; pag
           </div>
         </SectionContainer>
       </PageContextProvider>
-    </React.StrictMode>
+    </StrictMode>
   );
 }

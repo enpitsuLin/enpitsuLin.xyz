@@ -1,5 +1,5 @@
 import { createDomMotionComponent } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import FaMoon from '~icons/fa6-solid/moon';
 import FaSun from '~icons/fa6-solid/sun';
 import useTheme from '../hooks/useTheme';

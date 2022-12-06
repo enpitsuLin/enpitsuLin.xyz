@@ -1,4 +1,3 @@
-import React from 'react';
 import { AnimatePresence, motion, SVGMotionProps, useCycle } from 'framer-motion';
 import { Link } from './Link';
 

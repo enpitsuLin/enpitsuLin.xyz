@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link } from './Link';
 import { MobileNav } from './MobileNav';
 import { ThemeSwitch } from './ThemeSwitch';
