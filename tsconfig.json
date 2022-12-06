@@ -1,17 +1,25 @@
 {
     "compilerOptions": {
-        "strict": true,
         "module": "ESNext",
-        "moduleResolution": "Node",
         "target": "ES2020",
         "lib": [
             "ESNext",
             "DOM",
             "DOM.Iterable"
         ],
-        "jsx": "react",
-        "esModuleInterop": true,
+        "jsx": "react-jsx",
+        "noEmit": true,
+        "isolatedModules": true,
         "skipLibCheck": true,
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "forceConsistentCasingInFileNames": true,
+        "esModuleInterop": false,
+        "strict": true,
+        "noUnusedLocals": true,
+        "noUnusedParameters": true,
+        "noFallthroughCasesInSwitch": true,
+        "useUnknownInCatchVariables": true,
         "types": [
             "unplugin-icons/types/react",
             "vite/client"
