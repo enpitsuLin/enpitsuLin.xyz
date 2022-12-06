@@ -1,3 +1,11 @@
+.remark-code-title {
+  @apply rounded-t bg-gray-300 dark:bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-600 dark:text-gray-200;
+}
+
+.remark-code-title + div > pre {
+  @apply mt-0 rounded-t-none;
+}
+
 .task-list-item::before {
   @apply hidden;
 }

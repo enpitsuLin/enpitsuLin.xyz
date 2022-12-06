@@ -23,11 +23,11 @@
     "@types/react-dom": "^18.0.9",
     "@vercel/build-utils": "^5.7.0",
     "@vercel/node": "^2.7.1",
-    "@vitejs/plugin-react": "^2.2.0",
     "@vitejs/plugin-react-swc": "3.0.0-beta.0",
     "sanity": "dev-preview",
     "sanity-plugin-markdown": "^3.0.1",
     "typescript": "^4.9.3",
+    "unified": "^10.1.2",
     "unplugin-icons": "^0.14.14",
     "vite": "^3.2.5",
     "vite-plugin-ssr": "^0.4.54",
@@ -36,10 +36,23 @@
     "windicss": "^3.5.6"
   },
   "dependencies": {
+    "@types/mdast": "^3.0.10",
+    "@types/unist": "^2.0.6",
     "clsx": "^1.2.1",
     "framer-motion": "^7.6.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "styled-components": "^5.2"
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-code-titles": "^1.1.0",
+    "rehype-raw": "^6.1.1",
+    "rehype-stringify": "^9.0.3",
+    "remark": "^14.0.2",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "remark-shiki-twoslash": "^3.1.0",
+    "remark-stringify": "^10.0.2",
+    "styled-components": "^5.2",
+    "unist-util-visit": "^4.1.1"
   }
 }

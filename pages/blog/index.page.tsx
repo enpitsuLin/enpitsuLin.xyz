@@ -1,8 +1,7 @@
-export const Page: React.FC = (props) => {
+export const Page: React.FC<any> = (props) => {
   return (
-    <>
-      <h1>Welcome</h1>
-      <pre className="break-words whitespace-pre-line">{JSON.stringify(props, null, 2)}</pre>
-    </>
+    <div>
+      <div dangerouslySetInnerHTML={{ __html: props.html }}></div>
+    </div>
   );
 };
