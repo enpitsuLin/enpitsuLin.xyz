@@ -1,5 +1,5 @@
 import { PageContextBuiltIn } from 'vite-plugin-ssr/types';
-import { getClient, postQuery } from '../../lib/sanity';
+import { getClient, indexQuery, postQuery } from '../../lib/sanity';
 
 export interface PageProps {}
 
@@ -17,5 +17,6 @@ export async function onBeforeRender(pageContext: PageContextBuiltIn) {
 }
 
 export async function prerender() {
-  return ['/'];
+  const data = await getClient().fetch(indexQuery);
+  return data.map((item: any) => item.slug);
 }
