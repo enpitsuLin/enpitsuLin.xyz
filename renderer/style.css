@@ -1,0 +1,58 @@
+.task-list-item::before {
+  @apply hidden;
+}
+
+.task-list-item {
+  @apply list-none;
+}
+
+.footnotes {
+  @apply pt-8 mt-12 border-t border-gray-200 dark:border-gray-700;
+}
+
+.csl-entry {
+  @apply my-5;
+}
+@layer utilities {
+  .transition-in > span {
+    opacity: 1;
+  }
+  .cursor-zoom-in {
+    cursor: -webkit-zoom-in;
+    cursor: zoom-in;
+  }
+  .cursor-zoom-in {
+    cursor: -webkit-zoom-out;
+    cursor: zoom-out;
+  }
+  .heimu {
+    padding: 0.125rem 0.25rem;
+    @apply bg-dark-600 text-dark-600 no-underline;
+  }
+  .heimu:hover {
+    @apply text-white;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply rounded-xl bg-gray-200 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply transition-all duration-300 rounded-xl bg-gray-600 dark:bg-gray-400;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* https://stackoverflow.com/questions/61083813/how-to-avoid-internal-autofill-selected-style-to-be-applied */
+input:-webkit-autofill,
+input:-webkit-autofill:focus {
+  transition: background-color 600000s 0s, color 600000s 0s;
+}

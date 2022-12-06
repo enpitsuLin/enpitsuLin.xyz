@@ -1,13 +1,14 @@
 import 'virtual:windi.css';
+import './style.css';
 import React from 'react';
 import { createRoot, hydrateRoot, Root } from 'react-dom/client';
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client/router';
-import { PageWrapper } from './PageWrapper';
+import { PageWrapper } from '../components/PageWrapper';
 import type { PageContext } from './types';
 
 export const clientRouting = true;
 
-export const hydrationCanBeAborted = true
+export const hydrationCanBeAborted = true;
 
 let root: Root;
 export async function render(pageContext: PageContextBuiltInClient & PageContext) {

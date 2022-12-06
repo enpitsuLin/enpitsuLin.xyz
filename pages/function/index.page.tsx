@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from '../../renderer/Link';
+import { Link } from '../../components/Link';
 
 export { Page };
 

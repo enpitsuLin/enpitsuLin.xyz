@@ -1,10 +1,10 @@
-import ReactDOMServer from 'react-dom/server';
 import React from 'react';
-import { PageWrapper } from './PageWrapper';
-import { escapeInject, dangerouslySkipEscape } from 'vite-plugin-ssr';
+import ReactDOMServer from 'react-dom/server';
+import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr';
+import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
+import { PageWrapper } from '../components/PageWrapper';
 import logoUrl from './logo.svg';
 import type { PageContext } from './types';
-import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
 
 export { render };
 
@@ -33,7 +33,7 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
         <meta name="description" content="${desc}" />
         <title>${title}</title>
       </head>
-      <body>
+      <body class="bg-white text-black antialiased dark:bg-gray-900 dark:text-white transition-all duration-300">
         <div id="page-view">${dangerouslySkipEscape(pageHtml)}</div>
       </body>
     </html>`;

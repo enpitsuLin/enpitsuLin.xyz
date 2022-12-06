@@ -1,10 +1,10 @@
 import React from 'react';
-import { usePageContext } from './usePageContext';
+import { usePageContext } from '../hooks/usePageContext';
 
-export { Link };
+interface LinkProp extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {}
 
-function Link(props: { href?: string; className?: string; children: React.ReactNode }) {
+export const Link: React.FC<LinkProp> = (props) => {
   const pageContext = usePageContext();
   const className = [props.className, pageContext.urlPathname === props.href && 'is-active'].filter(Boolean).join(' ');
   return <a {...props} className={className} />;
-}
+};
