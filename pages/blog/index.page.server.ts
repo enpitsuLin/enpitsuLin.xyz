@@ -18,5 +18,5 @@ export async function onBeforeRender(pageContext: PageContextBuiltIn) {
 
 export async function prerender() {
   const data = await getClient().fetch(indexQuery);
-  return data.map((item: any) => item.slug);
+  return data.map((item: any) => '/blog/' + item.slug);
 }
