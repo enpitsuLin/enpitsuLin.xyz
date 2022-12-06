@@ -27,7 +27,11 @@ export async function onBeforeRender(pageContext: PageContextBuiltIn) {
     .use([
       [remarkCodeTitle],
       [remarkGfm],
-      [remarkShikiTwoslash, { themes: ['dark-plus', 'light-plus'] }]
+      [
+        //@ts-ignore
+        import.meta.env.PROD ? remarkShikiTwoslash.default : remarkShikiTwoslash,
+        { themes: ['dark-plus', 'light-plus'] }
+      ]
       // ...
     ])
     .use(remarkRehype, { allowDangerousHtml: true })
