@@ -9,7 +9,7 @@ const fontFamily = defaultTheme.fontFamily;
 export default defineConfig({
   extract: {
     include: ['**/*.{jsx,tsx,css}'],
-    exclude: ['node_modules', '.git', '.next']
+    exclude: ['node_modules', '.git', '.vercel', 'dist']
   },
   darkMode: 'class',
   theme: {
@@ -60,7 +60,10 @@ export default defineConfig({
             },
             pre: {
               backgroundColor: theme('colors.neutral.200'),
-              color: theme('colors.gray.800') //'hsl(230, 8%, 24%)',
+              color: theme('colors.gray.800'),
+              marginTop: '0',
+              borderTopLeftRadius: 0,
+              borderTopRightRadius: 0
             },
             code: {
               color: theme('colors.pink.500'),
@@ -68,8 +71,7 @@ export default defineConfig({
               paddingLeft: '4px',
               paddingRight: '4px',
               paddingTop: '2px',
-              paddingBottom: '2px',
-              borderRadius: '0.25rem'
+              paddingBottom: '2px'
             },
             'code::before': {
               content: 'none'

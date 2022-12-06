@@ -1,7 +1,9 @@
+import { PostWrapper } from './PostWrapper';
+
 export const Page: React.FC<any> = (props) => {
   return (
-    <div>
+    <PostWrapper>
       <div dangerouslySetInnerHTML={{ __html: props.html }}></div>
-    </div>
+    </PostWrapper>
   );
 };
