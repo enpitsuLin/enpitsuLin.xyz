@@ -3,7 +3,7 @@ import sanityClient from '@sanity/client';
 const config = {
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
   dataset: import.meta.env.VITE_SANITY_DATASET,
-  useCdn: import.meta.env.NODE_ENV !== 'production',
+  useCdn: import.meta.env.DEV,
   apiVersion: '2021-03-25'
 };
 

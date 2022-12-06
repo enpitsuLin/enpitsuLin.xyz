@@ -1,12 +1,13 @@
 {
   "name": "enpitsulin.xyz",
-  "version": "n/a",
+  "version": "1.0.0",
   "type": "module",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "sanity:dev": "sanity dev"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +24,8 @@
     "@vercel/build-utils": "^5.7.0",
     "@vercel/node": "^2.7.1",
     "@vitejs/plugin-react": "^2.2.0",
+    "sanity": "dev-preview",
+    "sanity-plugin-markdown": "^3.0.1",
     "typescript": "^4.9.3",
     "unplugin-icons": "^0.14.14",
     "vite": "^3.2.5",
@@ -35,6 +38,7 @@
     "clsx": "^1.2.1",
     "framer-motion": "^7.6.19",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.2"
   }
 }
