@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "target": "ES2020",
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "jsx": "react",
+        "esModuleInterop": true
+    }
+}
