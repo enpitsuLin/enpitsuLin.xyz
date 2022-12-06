@@ -1,3 +1,4 @@
+import 'virtual:windi.css';
 import React from 'react';
 import { createRoot, hydrateRoot, Root } from 'react-dom/client';
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client/router';
