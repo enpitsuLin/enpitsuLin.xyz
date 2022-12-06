@@ -34,9 +34,6 @@ function PageWrapper({ children, pageContext }: { children: React.ReactNode; pag
             <Link className="py-1 px-2" href="/function/a">
               Function
             </Link>
-            <Link className="py-1 px-2" href="/edge">
-              Edge Function endpoint
-            </Link>
           </Sidebar>
           <Content>{children}</Content>
         </Layout>
