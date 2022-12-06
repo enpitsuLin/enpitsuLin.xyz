@@ -7,6 +7,8 @@ import type { PageContext } from './types';
 
 export const clientRouting = true;
 
+export const hydrationCanBeAborted = true
+
 let root: Root;
 export async function render(pageContext: PageContextBuiltInClient & PageContext) {
   const { Page, pageProps } = pageContext;
