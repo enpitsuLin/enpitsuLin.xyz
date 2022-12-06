@@ -2,7 +2,6 @@ import 'windi.css'
 import '@/css/windi.css'
 import '@/css/prism.css'
 import '@/css/disqusjs.css'
-import 'katex/dist/katex.css'
 
 import { ThemeProvider } from 'next-themes'
 import type { AppProps } from 'next/app'

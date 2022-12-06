@@ -30,7 +30,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-photo-view": "^1.0.0",
-    "reading-time": "1.5.0",
     "sanity": "dev-preview",
     "sanity-plugin-markdown": "^3.0.1",
     "sharp": "^0.30.4",
