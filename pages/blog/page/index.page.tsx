@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const Page: React.FC = (props) => {
   return (
     <div>

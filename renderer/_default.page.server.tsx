@@ -1,5 +1,4 @@
-import React from 'react';
-import ReactDOMServer from 'react-dom/server';
+import { renderToString } from 'react-dom/server';
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
 import { PageWrapper } from '../components/PageWrapper';
@@ -13,7 +12,7 @@ export const passToClient = ['pageProps', 'documentProps'];
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
   const { Page, pageProps } = pageContext;
-  const pageHtml = ReactDOMServer.renderToString(
+  const pageHtml = renderToString(
     <PageWrapper pageContext={pageContext}>
       <Page {...pageProps} />
     </PageWrapper>
