@@ -1,7 +1,6 @@
 import React from 'react';
 import logo from './logo.svg';
 import { PageContextProvider } from './usePageContext';
-import './PageWrapper.css';
 import { Link } from './Link';
 import type { PageContext } from './types';
 
@@ -14,28 +13,28 @@ function PageWrapper({ children, pageContext }: { children: React.ReactNode; pag
         <Layout>
           <Sidebar>
             <Logo />
-            <Link className="navitem" href="/">
+            <Link className="py-1 px-2" href="/">
               Home
             </Link>
-            <Link className="navitem" href="/dynamic">
+            <Link className="py-1 px-2" href="/dynamic">
               Dynamic
             </Link>
-            <Link className="navitem" href="/static">
+            <Link className="py-1 px-2" href="/static">
               Static
             </Link>
-            <Link className="navitem" href="/isr">
+            <Link className="py-1 px-2" href="/isr">
               ISR
             </Link>
-            <Link className="navitem" href="/named/id-1">
+            <Link className="py-1 px-2" href="/named/id-1">
               Named
             </Link>
-            <Link className="navitem" href="/catch-all/a/b/c">
+            <Link className="py-1 px-2" href="/catch-all/a/b/c">
               Catch-all
             </Link>
-            <Link className="navitem" href="/function/a">
+            <Link className="py-1 px-2" href="/function/a">
               Function
             </Link>
-            <Link className="navitem" href="/edge">
+            <Link className="py-1 px-2" href="/edge">
               Edge Function endpoint
             </Link>
           </Sidebar>
