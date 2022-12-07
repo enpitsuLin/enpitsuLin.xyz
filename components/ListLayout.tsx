@@ -8,7 +8,7 @@ interface Props {
   posts: Omit<Post, 'content'>[];
   title: string;
   initialDisplayPosts?: Omit<Post, 'content'>[];
-  pagination: ComponentProps<typeof Pagination>;
+  pagination?: ComponentProps<typeof Pagination>;
 }
 
 const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
