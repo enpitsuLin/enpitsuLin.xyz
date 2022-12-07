@@ -13,13 +13,13 @@ import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-import { getClient, indexQuery, postQuery } from '../../lib/sanity';
+import { getPost, getPosts } from '../../lib/sanity';
 
 export interface PageProps {}
 
 export async function onBeforeRender(pageContext: PageContextBuiltIn) {
   const slug = pageContext.routeParams.slug;
-  const data = await getClient().fetch(postQuery, { slug });
+  const data = await getPost(slug);
   const content = data.content;
   const file = await remark()
     .use(remarkParse)
@@ -52,6 +52,6 @@ export async function onBeforeRender(pageContext: PageContextBuiltIn) {
 }
 
 export async function prerender() {
-  const data = await getClient().fetch(indexQuery);
+  const data = await getPosts();
   return data.map((item: any) => '/blog/' + item.slug);
 }

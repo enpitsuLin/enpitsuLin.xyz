@@ -1,7 +1,10 @@
-export const Page: React.FC = (props) => {
+import { ListLayout } from '../../../components/ListLayout';
+import { Props } from '../../blog.page.server';
+
+export const Page: React.FC<Props> = (props) => {
   return (
-    <div>
-      <pre>{JSON.stringify(props)}</pre>
-    </div>
+    <>
+      <ListLayout title="title" {...props} />
+    </>
   );
 };

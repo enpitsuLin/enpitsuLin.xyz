@@ -15,6 +15,7 @@ specifiers:
   '@vercel/node': ^2.7.1
   '@vitejs/plugin-react-swc': 3.0.0-beta.0
   clsx: ^1.2.1
+  date-fns: ^2.29.3
   framer-motion: ^7.6.19
   react: ^18.2.0
   react-dom: ^18.2.0
@@ -45,6 +46,7 @@ dependencies:
   '@types/mdast': 3.0.10
   '@types/unist': 2.0.6
   clsx: 1.2.1
+  date-fns: 2.29.3
   framer-motion: 7.6.19_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -2135,7 +2137,6 @@ packages:
   /date-fns/2.29.3:
     resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
     engines: {node: '>=0.11'}
-    dev: true
 
   /date-now/1.0.1:
     resolution: {integrity: sha512-yiizelQCqYLUEVT4zqYihOW6Ird7Qyc6fD3Pv5xGxk4+Jz0rsB1dMN2KyNV6jgOHYh5K+sPGCSOknQN4Upa3pg==}

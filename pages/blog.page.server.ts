@@ -1,17 +1,24 @@
-import { PageContextBuiltIn } from 'vite-plugin-ssr/types';
-import { getClient, indexQuery } from '../lib/sanity';
+import { getPosts } from '../lib/sanity';
+import { Post } from '../lib/types';
+import { OnBeforeRenderServer } from '../renderer/types';
 
-export interface PageProps {}
+export interface Props {
+  posts: Omit<Post, 'content'>[];
+  pagination: {
+    currentPage: number;
+    totalPages: number;
+  };
+}
 
-export async function onBeforeRender(pageContext: PageContextBuiltIn) {
-  const slug = pageContext.routeParams.slug;
-  const data = await getClient().fetch(indexQuery);
+export const onBeforeRender: OnBeforeRenderServer<Props> = async () => {
+  let posts = await getPosts();
+
   return {
     pageContext: {
       pageProps: {
-        slug,
-        data
+        posts,
+        pagination: { currentPage: 1, totalPages: Math.ceil(posts.length / 5) }
       }
     }
   };
-}
+};

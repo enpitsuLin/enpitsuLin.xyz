@@ -1,8 +1,15 @@
-export const Page: React.FC = (props) => {
+import { ListLayout } from '../components/ListLayout';
+import { Props } from './blog.page.server';
+
+export const Page: React.FC<Props> = (props) => {
   return (
-    <div>
-      Blog
-      <pre>{JSON.stringify(props, null, 2)}</pre>
-    </div>
+    <>
+      <ListLayout
+        title="title"
+        posts={props.posts}
+        initialDisplayPosts={props.posts.filter((_, i) => i < 5)}
+        pagination={props.pagination}
+      />
+    </>
   );
 };

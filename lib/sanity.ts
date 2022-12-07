@@ -1,4 +1,6 @@
 import sanityClient from '@sanity/client';
+import { format } from 'date-fns';
+import { Post } from './types';
 
 const config = {
   projectId: import.meta.env.VITE_SANITY_PROJECT_ID,
@@ -49,8 +51,25 @@ export const postBySlugQuery = `
 
 export const postUpdatedQuery = `*[_type == "post" && _id == $id].slug.current`;
 
-export function getPost(slug: string, preview = false) {
-  return getClient(preview).fetch(postQuery, {
+export async function getPost(slug: string, preview = false) {
+  const post = await getClient(preview).fetch<Post>(postQuery, {
     slug
   });
+  return { ...post, date: format(new Date(post.date), 'yyyy/MM/dd HH:mm') };
+}
+
+export async function getPosts(preview = false) {
+  const posts = await getClient(preview).fetch<Omit<Post, 'content'>[]>(indexQuery);
+  return posts.map((post) => ({ ...post, date: format(new Date(post.date), 'yyyy/MM/dd HH:mm') }));
+}
+
+/**
+ * get all tags count map
+ */
+export async function getTags(preview = false) {
+  const posts = await getPosts(preview);
+  return posts
+    .map((item) => item.tags)
+    .flat()
+    .reduce((map, tag) => ({ ...map, [tag]: tag in map ? map[tag] + 1 : 1 }), {} as Record<string, number>);
 }
