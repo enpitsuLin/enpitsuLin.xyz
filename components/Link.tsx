@@ -9,7 +9,7 @@ export const Link: React.FC<LinkProp> = (props) => {
   return <a {...props} className={className} />;
 };
 
-export const Tag: React.FC<LinkProp & { text: string }> = ({ text, className, ...rest }) => {
+export const Tag: React.FC<LinkProp & { text: string }> = ({ text, className, children, ...rest }) => {
   return (
     <Link
       className={clsx(
@@ -19,6 +19,7 @@ export const Tag: React.FC<LinkProp & { text: string }> = ({ text, className, ..
       {...rest}
     >
       # {text}
+      {children}
     </Link>
   );
 };
