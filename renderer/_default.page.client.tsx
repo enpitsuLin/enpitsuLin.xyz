@@ -2,7 +2,7 @@ import 'virtual:windi.css';
 import './style.css';
 import { createRoot, hydrateRoot, Root } from 'react-dom/client';
 import type { PageContextBuiltInClient } from 'vite-plugin-ssr/client/router';
-import { PageWrapper } from '../components/PageWrapper';
+import { PageWrapper } from '~/components/PageWrapper';
 import type { PageContext } from './types';
 
 export const clientRouting = true;

@@ -1,6 +1,6 @@
 import { ComponentProps, useState } from 'react';
-import { kebabCase } from '../lib/kebab-case';
-import { Post } from '../lib/types';
+import { kebabCase } from '~/lib/kebab-case';
+import { Post } from '~/lib/types';
 import { Link, Tag } from './Link';
 import { Pagination } from './Pagination';
 

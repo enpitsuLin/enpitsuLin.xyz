@@ -5,9 +5,15 @@ import vercel from 'vite-plugin-vercel';
 import vercelSsr from '@magne4000/vite-plugin-vercel-ssr';
 import WindiCSS from 'vite-plugin-windicss';
 import Icon from 'unplugin-icons/vite';
+import * as path from 'path';
 
 export default defineConfig(async () => {
   return {
+    resolve: {
+      alias: {
+        '~': path.resolve(__dirname, '.')
+      }
+    },
     plugins: [
       react(),
       WindiCSS(),

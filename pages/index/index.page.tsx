@@ -1,4 +1,4 @@
-import { Link, Tag } from '../../components/Link';
+import { Link, Tag } from '~/components/Link';
 import { Hero } from './Hero';
 import { Props } from './index.page.server';
 

@@ -13,7 +13,7 @@ import rehypeSlug from 'rehype-slug';
 import rehypeStringify from 'rehype-stringify';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 
-import { getPost, getPosts } from '../../lib/sanity';
+import { getPost, getPosts } from '~/lib/sanity';
 
 export interface PageProps {}
 

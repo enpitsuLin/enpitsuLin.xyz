@@ -23,6 +23,11 @@
         "types": [
             "unplugin-icons/types/react",
             "vite/client"
-        ]
+        ],
+        "paths": {
+            "~/*": [
+                "./*"
+            ]
+        }
     }
 }

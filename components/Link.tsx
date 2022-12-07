@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { usePageContext } from '../hooks/usePageContext';
+import { usePageContext } from '~/hooks/usePageContext';
 
 interface LinkProp extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {}
 

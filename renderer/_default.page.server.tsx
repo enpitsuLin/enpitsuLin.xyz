@@ -1,7 +1,7 @@
 import { renderToString } from 'react-dom/server';
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
-import { PageWrapper } from '../components/PageWrapper';
+import { PageWrapper } from '~/components/PageWrapper';
 import logoUrl from './logo.svg';
 import type { PageContext } from './types';
 

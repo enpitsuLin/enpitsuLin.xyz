@@ -1,6 +1,6 @@
-import { getPosts } from '../../../lib/sanity';
-import { Post } from '../../../lib/types';
-import { OnBeforeRenderServer } from '../../../renderer/types';
+import { getPosts } from '~/lib/sanity';
+import { Post } from '~/lib/types';
+import { OnBeforeRenderServer } from '~/renderer/types';
 
 export interface Props {
   posts: Omit<Post, 'content'>[];

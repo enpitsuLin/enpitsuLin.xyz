@@ -1,5 +1,5 @@
-import type { PageContext } from '../renderer/types';
-import { PageContextProvider } from '../hooks/usePageContext';
+import type { PageContext } from '~/renderer/types';
+import { PageContextProvider } from '~/hooks/usePageContext';
 import { Header } from './Header';
 import { Link } from './Link';
 import { SocialIcon } from './SocialIcon';

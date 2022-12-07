@@ -1,5 +1,5 @@
 import FaArrowLeft from '~icons/fa6-solid/arrow-left';
-import { Link } from '../../components/Link';
+import { Link } from '~/components/Link';
 
 export const PostWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
   return (
