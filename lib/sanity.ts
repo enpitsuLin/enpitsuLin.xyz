@@ -52,10 +52,9 @@ export const postBySlugQuery = `
 export const postUpdatedQuery = `*[_type == "post" && _id == $id].slug.current`;
 
 export async function getPost(slug: string, preview = false) {
-  const post = await getClient(preview).fetch<Post>(postQuery, {
-    slug
-  });
-  return { ...post, date: format(new Date(post.date), 'yyyy/MM/dd HH:mm') };
+  const post = await getClient(preview).fetch<Post | null>(postQuery, { slug });
+  if (post) return { ...post, date: format(new Date(post.date), 'yyyy/MM/dd HH:mm') };
+  return null;
 }
 
 export async function getPosts(preview = false) {
