@@ -1,5 +1,5 @@
-import { defineConfig } from 'vite';
 import * as path from 'path';
+import { defineConfig } from 'vite';
 
 import vercelSsr from '@magne4000/vite-plugin-vercel-ssr';
 import react from '@vitejs/plugin-react-swc';
@@ -24,7 +24,8 @@ export default defineConfig(async ({ command }) => {
   return {
     resolve: {
       alias: {
-        '~': path.resolve(__dirname, '.')
+        '~': path.resolve(__dirname, '.'),
+        'mdx-bundler/client': require.resolve('mdx-bundler/client')
       }
     },
     plugins: plugins,
