@@ -58,7 +58,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
         ...(options.rehypePlugins ?? []),
         rehypeShikiClear,
         rehypeSlug,
-        rehypeAutolinkHeadings
+        [rehypeAutolinkHeadings, { content: { type: 'mdxJsxFlowElement' } }]
       ];
       return options;
     }

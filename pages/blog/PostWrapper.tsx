@@ -16,6 +16,7 @@ export const PostWrapper: React.FC<React.PropsWithChildren<Props>> = ({ post, to
       <ScrollTopAndComment />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
+          <PostHeader post={post} />
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
@@ -114,5 +115,41 @@ const ScrollTopAndComment: React.FC = () => {
         <FaArrowUp className="h-4 w-4" />
       </Button>
     </div>
+  );
+};
+
+const PostHeader: React.FC<{ post: Post }> = ({ post }) => {
+  const { title, date } = post;
+
+  return (
+    <header className="pt-6 xl:pb-6">
+      <div className="space-y-12 text-center">
+        <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
+          {title}
+        </h1>
+        <div className="pb-6">
+          <dl className="flex justify-center flex-wrap space-x-4">
+            <div>
+              <dt className="sr-only">Published on</dt>
+              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                <time dateTime={date}>{date}</time>
+              </dd>
+            </div>
+            {/* <div>
+              <dt className="sr-only">{t('post.reading-time')}</dt>
+              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                {t('post.reading-time-var', { time: readingTime })}
+              </dd>
+            </div>
+            <div>
+              <dt className="sr-only">{t('post.words-count')}</dt>
+              <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+                {t('post.words-count-var', { words: wordCount })}
+              </dd>
+            </div> */}
+          </dl>
+        </div>
+      </div>
+    </header>
   );
 };
