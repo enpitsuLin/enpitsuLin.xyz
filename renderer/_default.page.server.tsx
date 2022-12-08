@@ -1,8 +1,8 @@
 import { renderToString } from 'react-dom/server';
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
-import { PageWrapper } from '~/components/PageWrapper';
 import type { PageContext } from './types';
+import { Document } from './_document';
 
 export { render };
 
@@ -10,12 +10,7 @@ export { render };
 export const passToClient = ['pageProps', 'documentProps'];
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
-  const { Page, pageProps } = pageContext;
-  const pageHtml = renderToString(
-    <PageWrapper pageContext={pageContext}>
-      <Page {...pageProps} />
-    </PageWrapper>
-  );
+  const pageHtml = renderToString(<Document pageContext={pageContext} />);
 
   // See https://vite-plugin-ssr.com/html-head
   const { documentProps } = pageContext;

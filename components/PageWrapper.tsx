@@ -5,9 +5,9 @@ import { Link } from './Link';
 import { SocialIcon } from './SocialIcon';
 import { StrictMode } from 'react';
 
-export { PageWrapper };
+export { PageWrapper, Footer };
 
-export default function Footer() {
+function Footer() {
   return (
     <footer>
       <div className="mt-16 mb-6 flex flex-col items-center">

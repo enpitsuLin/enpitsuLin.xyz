@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 import { usePageContext } from '~/hooks/usePageContext';
 import { Post } from '~/lib/types';
 import { siteMeta } from '~/package.json';
