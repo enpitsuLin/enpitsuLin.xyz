@@ -59,7 +59,7 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
 let count = 0;
 
 export const onBeforePrerender = async (params: { prerenderPageContexts: PageContext[] }) => {
-  if (count++ > 1) return;
+  if (++count > 1) return;
   const urls = params.prerenderPageContexts.map((item) => item.urlOriginal);
-  await buildSitemap([...urls, `/count/${count}`]);
+  await buildSitemap(urls);
 };
