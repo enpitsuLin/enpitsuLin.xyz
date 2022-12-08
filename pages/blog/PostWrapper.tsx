@@ -1,13 +1,16 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
-import { Link } from '~/components/Link';
-import { Post } from '~/lib/types';
+import { Link, Tag } from '~/components/Link';
+import { Heading, Post } from '~/lib/types';
 import FaArrowLeft from '~icons/fa6-solid/arrow-left';
 import FaArrowUp from '~icons/fa6-solid/arrow-up';
 import FaComment from '~icons/fa6-solid/comment';
 import Comments from './Comment';
+import { Toc } from './Toc';
 
-export const PostWrapper: React.FC<React.PropsWithChildren<{ post: Post }>> = ({ post, children }) => {
+type Props = { post: Post; toc: Heading[] };
+
+export const PostWrapper: React.FC<React.PropsWithChildren<Props>> = ({ post, toc, children }) => {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-6xl xl:px-0">
       <ScrollTopAndComment />
@@ -27,6 +30,17 @@ export const PostWrapper: React.FC<React.PropsWithChildren<{ post: Post }>> = ({
                   Back to the blog
                 </Link>
               </div>
+              {post.tags && (
+                <div className="py-4 xl:py-8">
+                  <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">Tags</h2>
+                  <div className="pt-2 flex flex-wrap">
+                    {post.tags.map((tag) => (
+                      <Tag key={tag} text={tag} />
+                    ))}
+                  </div>
+                </div>
+              )}
+              <Toc toc={toc} />
             </div>
           </div>
           <footer>

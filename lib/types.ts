@@ -7,6 +7,12 @@ export interface Post {
   content: string;
 }
 
+export type Heading = {
+  value: string;
+  depth: number;
+  url: string;
+};
+
 export interface SiteMetaData {
   title: string;
   author: string;

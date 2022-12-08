@@ -14,10 +14,12 @@ import { getPost, getPosts } from '~/lib/sanity';
 import { OnBeforeRenderServer } from '~/renderer/types';
 
 import { bundleMDX } from 'mdx-bundler';
-import { Post } from '~/lib/types';
+import remarkHeadingsRef from '~/lib/remark-heading-ref';
+import { Post, Heading } from '~/lib/types';
 
 export interface Props {
   post: Post;
+  toc: Heading[];
   code: string;
 }
 
@@ -27,6 +29,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
   if (!data) throw RenderErrorPage({ pageContext: { is404: true } });
 
   const content = data.content;
+  const toc: Heading[] = [];
 
   const result = await bundleMDX({
     source: content,
@@ -40,6 +43,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
           import.meta.env.PROD ? remarkShikiTwoslash.default : remarkShikiTwoslash,
           { themes: ['dark-plus', 'light-plus'] }
         ],
+        [remarkHeadingsRef, { exportRef: toc }],
         remarkImgToJsx
       ];
       options.rehypePlugins = [
@@ -56,6 +60,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
     pageContext: {
       pageProps: {
         post: data,
+        toc,
         code: result.code
       }
     }

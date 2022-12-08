@@ -30,7 +30,7 @@ export const MDXComponents: MDXContentProps['components'] = {
   )
 };
 
-export const Page: React.FC<Props> = ({ post, code }) => {
+export const Page: React.FC<Props> = ({ post, code, toc }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <>
@@ -60,7 +60,7 @@ export const Page: React.FC<Props> = ({ post, code }) => {
           );
         }}
       >
-        <PostWrapper post={post}>
+        <PostWrapper post={post} toc={toc}>
           <Component components={MDXComponents} />
         </PostWrapper>
       </PhotoProvider>
