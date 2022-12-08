@@ -1,18 +1,17 @@
 {
   "name": "enpitsulin.xyz",
   "version": "1.0.0",
+  "private": true,
   "type": "module",
-  "description": "",
-  "main": "index.js",
+  "main": "n/a",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "analyze": "ANALYZE='true' npm run build",
     "sanity:dev": "sanity dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "enpitsulin <enpitsulin@gmail.com>",
+  "license": "MIT",
   "devDependencies": {
     "@iconify-json/carbon": "^1.1.11",
     "@iconify-json/fa6-brands": "^1.1.8",
