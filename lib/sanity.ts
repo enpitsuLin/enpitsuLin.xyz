@@ -51,7 +51,7 @@ export const postBySlugQuery = `
 
 export const postUpdatedQuery = `*[_type == "post" && _id == $id].slug.current`;
 
-export async function getPostSlug(preview = false) {
+export async function getPostSlugs(preview = false) {
   return getClient(preview).fetch<Pick<Post, 'title' | 'slug'>[]>(postSlugsQuery);
 }
 
