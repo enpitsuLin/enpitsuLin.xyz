@@ -1,10 +1,12 @@
 import { Link, Tag } from '~/components/Link';
+import { PageSEO } from '~/components/SEO';
 import { Hero } from './Hero';
 import { Props } from './index.page.server';
 
 export const Page: React.FC<Props> = ({ posts, showMore }) => {
   return (
     <>
+      <PageSEO title="enpitsulin's blog" />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <Hero welcome="welcome" />
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">

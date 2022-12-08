@@ -14,9 +14,10 @@ import { getPost, getPosts } from '~/lib/sanity';
 import { OnBeforeRenderServer } from '~/renderer/types';
 
 import { bundleMDX } from 'mdx-bundler';
+import { Post } from '~/lib/types';
 
 export interface Props {
-  slug: string;
+  post: Post;
   code: string;
 }
 
@@ -54,7 +55,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
   return {
     pageContext: {
       pageProps: {
-        slug,
+        post: data,
         code: result.code
       }
     }

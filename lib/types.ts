@@ -6,3 +6,12 @@ export interface Post {
   title: string;
   content: string;
 }
+
+export interface SiteMetaData {
+  title: string;
+  author: string;
+  siteUrl: string;
+  description: string;
+  language: string;
+  social: Record<'email' | 'github' | 'qq' | 'zhihu' | 'bilibili' | 'steam', string>;
+}

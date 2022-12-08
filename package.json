@@ -22,6 +22,7 @@
     "@types/node": "^18.11.11",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
+    "@types/react-helmet": "^6.1.6",
     "@vercel/build-utils": "^5.7.0",
     "@vercel/node": "^2.7.1",
     "@vitejs/plugin-react-swc": "3.0.0-beta.0",
@@ -46,6 +47,7 @@
     "mdx-bundler": "^9.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
     "react-photo-view": "^1.2.3",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-raw": "^6.1.1",
@@ -55,5 +57,20 @@
     "remark-shiki-twoslash": "^3.1.0",
     "styled-components": "^5.2",
     "unist-util-visit": "^4.1.1"
+  },
+  "siteMeta": {
+    "title": "enpitsulin's blog",
+    "author": "enpitsulin",
+    "siteUrl": "https://enpitsulin.xyz",
+    "description": "Make things happy",
+    "language": "zh-CN",
+    "social": {
+      "email": "enpitsulin@gmail.com",
+      "github": "https://github.com/enpitsulin",
+      "qq": "http://wpa.qq.com/msgrd?v=3&uin=1092199651&site=qq&menu=yes",
+      "zhihu": "https://zhihu.com/people/enpitsulin",
+      "bilibili": "https://space.bilibili.com/423632",
+      "steam": "https://steamcommunity.com/profiles/76561198338250608/"
+    }
   }
 }
