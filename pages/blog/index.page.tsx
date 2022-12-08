@@ -16,7 +16,7 @@ const MDXComponents: MDXContentProps['components'] = {
   Image: ({ src, alt, height, width }) => (
     <PhotoView src={src}>
       <span className="flex flex-col items-center justify-center relative">
-        <img loading="lazy" src={src} alt={alt} height={height} width={width} className="cursor-zoom-in" />
+        <img loading="lazy" src={src} alt={alt} height={height} width={width} className="cursor-zoom-out" />
         {alt && <span className="p-0 !m-0 text-sm opacity-60">{alt}</span>}
       </span>
     </PhotoView>
