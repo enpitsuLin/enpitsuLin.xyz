@@ -38,6 +38,7 @@
     "windicss": "^3.5.6"
   },
   "dependencies": {
+    "@types/hast": "^2.3.4",
     "@types/mdast": "^3.0.10",
     "@types/unist": "^2.0.6",
     "clsx": "^1.2.1",

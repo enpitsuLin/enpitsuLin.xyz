@@ -45,7 +45,7 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
         <meta name="description" content="${desc}" />
         <title>${title}</title>
       </head>
-      <body class="bg-white text-black antialiased dark:bg-gray-900 dark:text-white transition-all duration-300">
+      <body class="bg-gray-100 text-black antialiased dark:bg-gray-900 dark:text-white transition-all duration-300">
         <div id="page-view">${dangerouslySkipEscape(pageHtml)}</div>
       </body>
     </html>`;

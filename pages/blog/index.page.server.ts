@@ -16,6 +16,7 @@ import { OnBeforeRenderServer } from '~/renderer/types';
 import { bundleMDX } from 'mdx-bundler';
 import remarkHeadingsRef from '~/lib/remark-heading-ref';
 import { Post, Heading } from '~/lib/types';
+import { rehypeShikiClear } from '~/lib/unified-shiki-plugins';
 
 export interface Props {
   post: Post;
@@ -55,6 +56,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
       options.rehypePlugins = [
         [rehypeRaw, { passThrough: [`mdxJsxFlowElement`, `mdxJsxTextElement`] }],
         ...(options.rehypePlugins ?? []),
+        rehypeShikiClear,
         rehypeSlug,
         rehypeAutolinkHeadings
       ];

@@ -59,7 +59,7 @@ export default defineConfig({
               color: theme('colors.gray.900')
             },
             pre: {
-              backgroundColor: theme('colors.neutral.200'),
+              backgroundColor: theme('colors.neutral.100'),
               color: theme('colors.gray.800'),
               marginTop: '0',
               borderTopLeftRadius: 0,
