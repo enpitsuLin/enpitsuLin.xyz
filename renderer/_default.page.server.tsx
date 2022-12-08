@@ -41,6 +41,7 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
         <meta name="theme-color" content="#000000" />
         <link rel="alternate" type="application/rss+xml" href="/feed" />
         <link rel="sitemap" title="Sitemap" href="/sitemap.xml"/>
+        <meta content="width=device-width, initial-scale=1" name="viewport" />
         <meta name="description" content="${desc}" />
         <title>${title}</title>
       </head>
