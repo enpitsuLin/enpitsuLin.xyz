@@ -12,7 +12,7 @@ import CarbonZoomOut from '~icons/carbon/zoom-out';
 import { Props } from './index.page.server';
 import { PostWrapper } from './PostWrapper';
 
-export const MDXComponents: MDXContentProps['components'] = {
+const MDXComponents: MDXContentProps['components'] = {
   Image: ({ src, alt, height, width }) => (
     <PhotoView src={src}>
       <span className="flex flex-col items-center justify-center relative">
@@ -30,7 +30,7 @@ export const MDXComponents: MDXContentProps['components'] = {
   )
 };
 
-export const Page: React.FC<Props> = ({ post, code, toc }) => {
+export const Page: React.FC<Props> = ({ post, code, toc, prev, next }) => {
   const Component = useMemo(() => getMDXComponent(code), [code]);
   return (
     <>
@@ -60,7 +60,7 @@ export const Page: React.FC<Props> = ({ post, code, toc }) => {
           );
         }}
       >
-        <PostWrapper post={post} toc={toc}>
+        <PostWrapper post={post} toc={toc} prev={prev} next={next}>
           <Component components={MDXComponents} />
         </PostWrapper>
       </PhotoProvider>

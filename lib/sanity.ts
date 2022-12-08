@@ -40,7 +40,7 @@ export const postQuery = `
 }`;
 
 export const postSlugsQuery = `
-*[_type == "post" && defined(slug.current)][].slug.current
+*[_type == "post" && defined(slug.current)] | order(dateTime(date) desc) []{"slug":slug.current,title}
 `;
 
 export const postBySlugQuery = `
@@ -51,9 +51,18 @@ export const postBySlugQuery = `
 
 export const postUpdatedQuery = `*[_type == "post" && _id == $id].slug.current`;
 
+export async function getPostSlug(preview = false) {
+  return getClient(preview).fetch<Pick<Post, 'title' | 'slug'>[]>(postSlugsQuery);
+}
+
 export async function getPost(slug: string, preview = false) {
   const post = await getClient(preview).fetch<Post | null>(postQuery, { slug });
-  if (post) return { ...post, date: format(new Date(post.date), 'yyyy/MM/dd HH:mm') };
+
+  if (post)
+    return {
+      ...post,
+      date: format(new Date(post.date), 'yyyy/MM/dd HH:mm')
+    } as Post;
   return null;
 }
 

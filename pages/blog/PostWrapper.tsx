@@ -8,9 +8,9 @@ import FaComment from '~icons/fa6-solid/comment';
 import Comments from './Comment';
 import { Toc } from './Toc';
 
-type Props = { post: Post; toc: Heading[] };
+type Props = { post: Post; toc: Heading[]; next?: Pick<Post, 'slug' | 'title'>; prev?: Pick<Post, 'slug' | 'title'> };
 
-export const PostWrapper: React.FC<React.PropsWithChildren<Props>> = ({ post, toc, children }) => {
+export const PostWrapper: React.FC<React.PropsWithChildren<Props>> = ({ post, toc, children, next, prev }) => {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-6xl xl:px-0">
       <ScrollTopAndComment />
@@ -44,7 +44,28 @@ export const PostWrapper: React.FC<React.PropsWithChildren<Props>> = ({ post, to
             </div>
           </div>
           <footer>
-            <div className="divide-gray-200 text-sm font-medium leading-5 flex-col lg:flex-row dark:divide-gray-700 flex justify-between"></div>
+            <div className="divide-gray-200 text-sm font-medium leading-5 flex-col lg:flex-row dark:divide-gray-700 flex justify-between">
+              {prev && (
+                <div className="py-4 xl:pt-8">
+                  <Link
+                    href={`/blog/${prev.slug}`}
+                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  >
+                    &larr; {prev.title}
+                  </Link>
+                </div>
+              )}
+              {next && (
+                <div className="py-4 sm:text-right xl:pt-8">
+                  <Link
+                    href={`/blog/${next.slug}`}
+                    className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
+                  >
+                    {next.title} &rarr;
+                  </Link>
+                </div>
+              )}
+            </div>
           </footer>
           <Comments post={post} />
         </div>

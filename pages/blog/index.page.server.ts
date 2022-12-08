@@ -10,7 +10,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 
 import { RenderErrorPage } from 'vite-plugin-ssr';
-import { getPost, getPosts } from '~/lib/sanity';
+import { getPost, getPosts, getPostSlug } from '~/lib/sanity';
 import { OnBeforeRenderServer } from '~/renderer/types';
 
 import { bundleMDX } from 'mdx-bundler';
@@ -21,12 +21,18 @@ export interface Props {
   post: Post;
   toc: Heading[];
   code: string;
+  prev?: Pick<Post, 'slug' | 'title'>;
+  next?: Pick<Post, 'slug' | 'title'>;
 }
 
 export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: PageContextBuiltIn) => {
   const slug = pageContext.routeParams.slug;
   const data = await getPost(slug);
   if (!data) throw RenderErrorPage({ pageContext: { is404: true } });
+  const slugs = await getPostSlug();
+  const postIndex = slugs.findIndex((item) => item.slug === slug);
+  const prev = slugs[postIndex + 1] ?? undefined;
+  const next = slugs[postIndex - 1] ?? undefined;
 
   const content = data.content;
   const toc: Heading[] = [];
@@ -61,7 +67,9 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
       pageProps: {
         post: data,
         toc,
-        code: result.code
+        code: result.code,
+        prev,
+        next
       }
     }
   };
