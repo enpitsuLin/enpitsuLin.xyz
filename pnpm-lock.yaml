@@ -18,6 +18,7 @@ specifiers:
   '@vitejs/plugin-react-swc': 3.0.0-beta.0
   clsx: ^1.2.1
   date-fns: ^2.29.3
+  disqusjs: ^3.0.2
   framer-motion: ^7.6.19
   mdx-bundler: ^9.0.1
   react: ^18.2.0
@@ -49,6 +50,7 @@ dependencies:
   '@types/unist': 2.0.6
   clsx: 1.2.1
   date-fns: 2.29.3
+  disqusjs: 3.0.2_react@18.2.0
   framer-motion: 7.6.19_biqbaboplfbrettd7655fr4n2y
   mdx-bundler: 9.0.1
   react: 18.2.0
@@ -2385,6 +2387,23 @@ packages:
     resolution: {integrity: sha512-9S6m9Sukh1cZNknO1CWAr2QAWsbKLafQiyM5gZ7VgXHeuaoUwffKN4q6NC4A/Mf9iiPlOXQEKW/Mv/mh9/3YFA==}
     hasBin: true
     dev: true
+
+  /disqusjs/3.0.2_react@18.2.0:
+    resolution: {integrity: sha512-jCuXt1Gz+rr/91ILk+YV3m6lXeGvdBQradLNkK3Ha9/GlJVyY0AFHBWbTkW4kBln7mDuSngA3zKAxxm+vntLBw==}
+    peerDependencies:
+      preact: ^10.7.1
+      react: ^16.11.0 || ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      preact:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      zustand: 4.1.5_react@18.2.0
+    transitivePeerDependencies:
+      - immer
+    dev: false
 
   /dom-walk/0.1.2:
     resolution: {integrity: sha512-6QvTW9mrGeIegrFXdtQi9pk7O/nSK6lSdXW2eqUspN5LWD7UTji2Fqw5V2YLjBpHEoU9Xl/eUWNpDeZvoyOv2w==}
@@ -6932,7 +6951,6 @@ packages:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
-    dev: true
 
   /util-deprecate/1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -7300,6 +7318,22 @@ packages:
   /zod/3.19.1:
     resolution: {integrity: sha512-LYjZsEDhCdYET9ikFu6dVPGp2YH9DegXjdJToSzD9rO6fy4qiRYFoyEYwps88OseJlPyl2NOe2iJuhEhL7IpEA==}
     dev: true
+
+  /zustand/4.1.5_react@18.2.0:
+    resolution: {integrity: sha512-PsdRT8Bvq22Yyh1tvpgdHNE7OAeFKqJXUxtJvj1Ixw2B9O2YZ1M34ImQ+xyZah4wZrR4lENMoDUutKPpyXCQ/Q==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
 
   /zwitch/2.0.4:
     resolution: {integrity: sha512-bXE4cR/kVZhKZX/RjPEflHaKVhUVl85noU3v6b8apfQEc1x4A+zBxjZ4lN8LqGd6WZ3dl98pY4o717VFmoPp+A==}

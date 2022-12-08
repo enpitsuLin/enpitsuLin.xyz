@@ -25,7 +25,8 @@ export default defineConfig(async ({ command }) => {
     resolve: {
       alias: {
         '~': path.resolve(__dirname, '.'),
-        'mdx-bundler/client': require.resolve('mdx-bundler/client')
+        'mdx-bundler/client': require.resolve('mdx-bundler/client'),
+        disqusjs: require.resolve('disqusjs/es2022')
       }
     },
     plugins: plugins,

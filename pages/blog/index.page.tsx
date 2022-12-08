@@ -58,7 +58,7 @@ export const Page: React.FC<Props> = ({ post, code }) => {
           );
         }}
       >
-        <PostWrapper>
+        <PostWrapper post={post}>
           <Component components={MDXComponents} />
         </PostWrapper>
       </PhotoProvider>

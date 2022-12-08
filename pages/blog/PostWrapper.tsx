@@ -1,11 +1,13 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { Link } from '~/components/Link';
+import { Post } from '~/lib/types';
 import FaArrowLeft from '~icons/fa6-solid/arrow-left';
 import FaArrowUp from '~icons/fa6-solid/arrow-up';
 import FaComment from '~icons/fa6-solid/comment';
+import Comments from './Comment';
 
-export const PostWrapper: React.FC<React.PropsWithChildren> = ({ children }) => {
+export const PostWrapper: React.FC<React.PropsWithChildren<{ post: Post }>> = ({ post, children }) => {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-6xl xl:px-0">
       <ScrollTopAndComment />
@@ -30,6 +32,7 @@ export const PostWrapper: React.FC<React.PropsWithChildren> = ({ children }) => 
           <footer>
             <div className="divide-gray-200 text-sm font-medium leading-5 flex-col lg:flex-row dark:divide-gray-700 flex justify-between"></div>
           </footer>
+          <Comments post={post} />
         </div>
       </article>
     </div>
