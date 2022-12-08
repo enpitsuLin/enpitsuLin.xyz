@@ -2,7 +2,7 @@ import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
 
 import remarkGfm from 'remark-gfm';
 import remarkShikiTwoslash from 'remark-shiki-twoslash';
-import remarkImageSize from '~/lib/remark-image-size';
+import remarkImgToJsx from '~/lib/remark-img-to-jsx';
 import remarkCodeTitle from '../../lib/remark-code-title';
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -40,7 +40,7 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
           import.meta.env.PROD ? remarkShikiTwoslash.default : remarkShikiTwoslash,
           { themes: ['dark-plus', 'light-plus'] }
         ],
-        remarkImageSize
+        remarkImgToJsx
       ];
       options.rehypePlugins = [
         [rehypeRaw, { passThrough: [`mdxJsxFlowElement`, `mdxJsxTextElement`] }],

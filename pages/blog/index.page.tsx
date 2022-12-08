@@ -1,18 +1,19 @@
-import { PostWrapper } from './PostWrapper';
+import { getMDXComponent, MDXContentProps } from 'mdx-bundler/client';
+import { useMemo } from 'react';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from '~/components/Link';
+import { Pre } from '~/components/Pre';
+import { PostSEO } from '~/components/SEO';
 import CarbonRotateClockwise from '~icons/carbon/rotate-clockwise';
 import CarbonRotateCounterclockwise from '~icons/carbon/rotate-counterclockwise';
 import CarbonZoomIn from '~icons/carbon/zoom-in';
 import CarbonZoomOut from '~icons/carbon/zoom-out';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
-import 'react-photo-view/dist/react-photo-view.css';
-import { getMDXComponent, MDXContentProps } from 'mdx-bundler/client';
 import { Props } from './index.page.server';
-import { useMemo } from 'react';
-import { Link } from '~/components/Link';
-import { PostSEO } from '~/components/SEO';
+import { PostWrapper } from './PostWrapper';
 
 export const MDXComponents: MDXContentProps['components'] = {
-  img: ({ src, alt, height, width }) => (
+  Image: ({ src, alt, height, width }) => (
     <PhotoView src={src}>
       <span className="flex flex-col items-center justify-center relative">
         <img loading="lazy" src={src} alt={alt} height={height} width={width} className="cursor-zoom-in" />
@@ -21,6 +22,7 @@ export const MDXComponents: MDXContentProps['components'] = {
     </PhotoView>
   ),
   a: Link,
+  pre: Pre,
   del: (props) => (
     <del title="你知道的太多了" className="heimu">
       {props.children}
