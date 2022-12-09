@@ -6,6 +6,7 @@ import { ThemeSwitch } from './ThemeSwitch';
 
 export const Header = () => {
   const { t } = useTranslation();
+
   const nav = [
     { href: '/', title: t('common.home') },
     { href: '/blog', title: t('common.blog') },

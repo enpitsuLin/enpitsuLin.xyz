@@ -26,19 +26,24 @@ function I18nContextProvider({ locale: lang, children }: PropsWithChildren<{ loc
 
 function useTranslation() {
   const locale = useContext(Context);
-  const translationDict = resources[locale as Locales] as LocaleDict;
+  // why locale undefined ??
+  const translationDict = resources[(locale || localeDefault) as Locales] as LocaleDict;
 
   const t = useCallback(
     function t<Id extends LangIdsOf<LocaleDict>>(id: Id, arg?: Record<string, string | number>) {
       if (arg) return replacePlaceholders(getDefinition(translationDict, id), arg);
       return getDefinition(translationDict, id);
     },
-    [locale]
+    [locale, resources]
   );
-  return { t };
+  return { t, locale, translationDict };
 }
 
 const getDefinition = (definitions: Definitions, id: string): string => {
+  if (typeof definitions === 'undefined') {
+    // debugger
+    throw Error(`definitions resources is not valid`);
+  }
   let content = definitions;
   for (const key of id.split('.')) {
     if (typeof content === 'undefined') {
