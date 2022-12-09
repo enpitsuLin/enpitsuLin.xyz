@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from '~/hooks/useTranslation';
 import { Link } from './Link';
 import { MobileNav } from './MobileNav';
 import { ThemeSwitch } from './ThemeSwitch';
 
 export const Header = () => {
+  const { t } = useTranslation();
   const nav = [
-    { href: '/', title: 'Home' },
-    { href: '/blog', title: 'Blog' },
-    { href: '/tags', title: 'Tags' }
+    { href: '/', title: t('common.home') },
+    { href: '/blog', title: t('common.blog') },
+    { href: '/tags', title: t('post.tags') }
   ];
 
   const [stuck, setStuck] = useState(false);

@@ -28,8 +28,7 @@ function Footer() {
           <Link href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</Link>
         </div>
         <div className="mb-8 text-sm text-gray-500 dark:text-gray-400">
-          Powered by <Link href="https://vite-plugin-ssr.com/">vite-ssr</Link> Theme with{' '}
-          <Link href="https://windicss.org/">Windicss</Link>
+          Made with love ❤ Theme with <Link href="https://windicss.org/">windicss</Link>
         </div>
       </div>
     </footer>

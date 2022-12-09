@@ -4,6 +4,7 @@ import FaGithub from '~icons/fa6-brands/github';
 import FaQq from '~icons/fa6-brands/qq';
 import FaSteam from '~icons/fa6-brands/steam';
 import FaZhihu from '~icons/fa6-brands/zhihu';
+import clsx from 'clsx';
 
 type SocialKind = 'mail' | 'github' | 'zhihu' | 'bilibili' | 'steam' | 'qq';
 
@@ -42,10 +43,10 @@ export const SocialIcon: React.FC<SocialIconProps> = ({ kind, href, size = 'medi
     >
       <span className="sr-only">{kind}</span>
       <SocialSvg
-        className={[
+        className={clsx([
           `fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400`,
           sizeClass
-        ].join(' ')}
+        ])}
       />
     </a>
   );
