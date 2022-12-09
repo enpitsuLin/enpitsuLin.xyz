@@ -25,6 +25,7 @@ specifiers:
   react-dom: ^18.2.0
   react-helmet-async: ^1.3.0
   react-photo-view: ^1.2.3
+  reading-time: ^1.5.0
   rehype-autolink-headings: ^6.1.1
   rehype-raw: ^6.1.1
   rehype-slug: ^5.1.0
@@ -58,6 +59,7 @@ dependencies:
   react-dom: 18.2.0_react@18.2.0
   react-helmet-async: 1.3.0_biqbaboplfbrettd7655fr4n2y
   react-photo-view: 1.2.3_biqbaboplfbrettd7655fr4n2y
+  reading-time: 1.5.0
   rehype-autolink-headings: 6.1.1
   rehype-raw: 6.1.1
   rehype-slug: 5.1.0
@@ -5739,6 +5741,10 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /reading-time/1.5.0:
+    resolution: {integrity: sha512-onYyVhBNr4CmAxFsKS7bz+uTLRakypIe4R+5A824vBSkQy/hB3fZepoVEf8OVAxzLvK+H/jm9TzpI3ETSm64Kg==}
+    dev: false
 
   /refractor/3.6.0:
     resolution: {integrity: sha512-MY9W41IOWxxk31o+YvFCNyNzdkc9M20NoZK5vq6jkv4I/uh2zkWcfudj0Q1fovjUQJrNewS9NMzeTtqPf+n5EA==}

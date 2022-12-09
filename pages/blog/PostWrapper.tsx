@@ -1,22 +1,28 @@
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { Link, Tag } from '~/components/Link';
-import { Heading, Post } from '~/lib/types';
 import FaArrowLeft from '~icons/fa6-solid/arrow-left';
 import FaArrowUp from '~icons/fa6-solid/arrow-up';
 import FaComment from '~icons/fa6-solid/comment';
 import Comments from './Comment';
 import { Toc } from './Toc';
 
-type Props = { post: Post; toc: Heading[]; next?: Pick<Post, 'slug' | 'title'>; prev?: Pick<Post, 'slug' | 'title'> };
+import { Props } from './index.page.server';
 
-export const PostWrapper: React.FC<React.PropsWithChildren<Props>> = ({ post, toc, children, next, prev }) => {
+export const PostWrapper: React.FC<React.PropsWithChildren<Omit<Props, 'code'>>> = ({
+  post,
+  toc,
+  children,
+  next,
+  prev,
+  readTime
+}) => {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-6 xl:max-w-6xl xl:px-0">
       <ScrollTopAndComment />
       <article>
         <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <PostHeader post={post} />
+          <PostHeader post={post} readTime={readTime} />
           <div
             className="divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0"
             style={{ gridTemplateRows: 'auto 1fr' }}
@@ -118,7 +124,7 @@ const ScrollTopAndComment: React.FC = () => {
   );
 };
 
-const PostHeader: React.FC<{ post: Post }> = ({ post }) => {
+const PostHeader: React.FC<Pick<Props, 'post' | 'readTime'>> = ({ post, readTime }) => {
   const { title, date } = post;
 
   return (
@@ -135,18 +141,18 @@ const PostHeader: React.FC<{ post: Post }> = ({ post }) => {
                 <time dateTime={date}>{date}</time>
               </dd>
             </div>
-            {/* <div>
-              <dt className="sr-only">{t('post.reading-time')}</dt>
+            <div>
+              <dt className="sr-only">Reading time</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.reading-time-var', { time: readingTime })}
+                About {readTime.minutes} minutes to read
               </dd>
             </div>
             <div>
-              <dt className="sr-only">{t('post.words-count')}</dt>
+              <dt className="sr-only">Words count</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.words-count-var', { words: wordCount })}
+                About {readTime.words} words
               </dd>
-            </div> */}
+            </div>
           </dl>
         </div>
       </div>

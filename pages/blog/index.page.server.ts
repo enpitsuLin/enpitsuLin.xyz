@@ -1,22 +1,23 @@
 import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
+import { RenderErrorPage } from 'vite-plugin-ssr';
+import { getPost, getPosts, getPostSlugs } from '~/lib/sanity';
+import { OnBeforeRenderServer } from '~/renderer/types';
 
 import remarkGfm from 'remark-gfm';
 import remarkShikiTwoslash from 'remark-shiki-twoslash';
 import remarkImgToJsx from '~/lib/remark-img-to-jsx';
 import remarkCodeTitle from '../../lib/remark-code-title';
+import remarkHeadingsRef from '~/lib/remark-heading-ref';
 
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeRaw from 'rehype-raw';
 import rehypeSlug from 'rehype-slug';
 
-import { RenderErrorPage } from 'vite-plugin-ssr';
-import { getPost, getPosts, getPostSlugs } from '~/lib/sanity';
-import { OnBeforeRenderServer } from '~/renderer/types';
+import { rehypeShikiClear } from '~/lib/unified-shiki-plugins';
 
 import { bundleMDX } from 'mdx-bundler';
-import remarkHeadingsRef from '~/lib/remark-heading-ref';
 import { Post, Heading } from '~/lib/types';
-import { rehypeShikiClear } from '~/lib/unified-shiki-plugins';
+import { default as readingTime, type ReadTimeResults } from 'reading-time';
 
 export interface Props {
   post: Post;
@@ -24,6 +25,7 @@ export interface Props {
   code: string;
   prev?: Pick<Post, 'slug' | 'title'>;
   next?: Pick<Post, 'slug' | 'title'>;
+  readTime: ReadTimeResults;
 }
 
 export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: PageContextBuiltIn) => {
@@ -64,12 +66,15 @@ export const onBeforeRender: OnBeforeRenderServer<Props> = async (pageContext: P
     }
   });
 
+  const readTime = readingTime(data.content);
+
   return {
     pageContext: {
       pageProps: {
         post: data,
         toc,
         code: result.code,
+        readTime,
         prev,
         next
       }
