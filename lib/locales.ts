@@ -11,11 +11,10 @@ const zh = {
     tags: '标签'
   },
   exception: {
-    'not-found': {
-      back: '返回首页',
-      desc: '不过不用着急，你可以返回首页找到很多其他更精彩的东西。',
-      title: '糟糕!这个页面好像消失了.'
-    }
+    back: '返回首页',
+    desc: '不过不用着急，你可以返回首页找到很多其他更精彩的东西。',
+    'not-found': '糟糕!这个页面好像消失了.',
+    'internal-except': "我去! 怎么又有个bug."
   },
   post: {
     all: '全部文章',
@@ -46,11 +45,10 @@ const en: typeof zh = {
     tags: 'Tags'
   },
   exception: {
-    'not-found': {
-      back: 'Back to homepage',
-      desc: 'But dont worry, you can find plenty of other things on our homepage.',
-      title: "Oops! That page can't be found."
-    }
+    back: 'Back to homepage',
+    desc: 'But dont worry, you can find plenty of other things on our homepage.',
+    'not-found': "Oops! That page can't be found.",
+    'internal-except': "Dam* it! Another problem."
   },
   post: {
     all: 'all posts',
