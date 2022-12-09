@@ -2,7 +2,7 @@ import * as path from 'path';
 import { defineConfig } from 'vite';
 
 import vercelSsr from '@magne4000/vite-plugin-vercel-ssr';
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import ssr from 'vite-plugin-ssr/plugin';
 import vercel from 'vite-plugin-vercel';
 import WindiCSS from 'vite-plugin-windicss';
