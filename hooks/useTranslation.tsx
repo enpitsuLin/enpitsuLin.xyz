@@ -1,4 +1,4 @@
-import { createContext, useContext, PropsWithChildren } from 'react';
+import { createContext, useContext, PropsWithChildren, useCallback } from 'react';
 import { localeDefault, resources } from '~/lib/locales';
 
 export { I18nContextProvider };
@@ -28,9 +28,13 @@ function useTranslation() {
   const locale = useContext(Context);
   const translationDict = resources[locale as Locales] as LocaleDict;
 
-  function t<Id extends LangIdsOf<LocaleDict>>(id: Id) {
-    return getDefinition(translationDict, id);
-  }
+  const t = useCallback(
+    function t<Id extends LangIdsOf<LocaleDict>>(id: Id, arg?: Record<string, string | number>) {
+      if (arg) return replacePlaceholders(getDefinition(translationDict, id), arg);
+      return getDefinition(translationDict, id);
+    },
+    [locale]
+  );
   return { t };
 }
 
@@ -47,4 +51,12 @@ const getDefinition = (definitions: Definitions, id: string): string => {
     throw Error(`Id ${id} is not valid`);
   }
   return content;
+};
+
+const replacePlaceholders = (definition: string, args: Record<string, string | number>): string => {
+  Object.entries(args).forEach(([key, val]) => {
+    const searcher = new RegExp(`\{\{${key}\}\}`);
+    definition = definition.replace(searcher, val.toString());
+  });
+  return definition;
 };
