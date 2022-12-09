@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useTranslation } from '~/hooks/useTranslation';
 import { Link } from './Link';
+import { LocaleSwitch } from './LocaleSwitch';
 import { MobileNav } from './MobileNav';
 import { ThemeSwitch } from './ThemeSwitch';
 
@@ -60,6 +61,7 @@ export const Header = () => {
             ))}
           </div>
           <ThemeSwitch />
+          <LocaleSwitch />
           <MobileNav nav={nav} />
         </div>
       </div>
