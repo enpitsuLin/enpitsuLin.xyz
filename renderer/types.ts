@@ -1,7 +1,7 @@
 export type { PageContextServer };
 export type { PageContextClient };
 export type { PageContext };
-export type { OnBeforeRenderServer, OnBeforeRenderClient };
+export type { OnBeforeRenderServer, OnBeforeRenderClient, OnBeforePrerender };
 
 import type { ComponentType, PropsWithChildren } from 'react';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr';
@@ -24,6 +24,7 @@ export type PageContextCustom<PageProps = Record<string, unknown>> = {
     title: string;
     description: string;
   };
+  locale: string;
 };
 
 type PageContextServer<P = any> = PageContextBuiltIn<Page> & PageContextCustom<P>;
@@ -38,3 +39,7 @@ type OnBeforeRenderServer<P = any> = (content: PageContextBuiltIn) => BeforeRend
 type BeforeRenderClientReturn<P = any> = MaybePromise<{ pageContext: Partial<PageContextClient<P>> }>;
 
 type OnBeforeRenderClient<P = any> = (content: PageContextBuiltIn) => BeforeRenderClientReturn<P>;
+
+type OnBeforePrerender = (params: {
+  prerenderPageContexts: PageContext<any>[];
+}) => MaybePromise<Partial<{ prerenderContext: { pageContexts: PageContext[] } }> | void>;

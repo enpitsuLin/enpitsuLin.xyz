@@ -1,14 +1,15 @@
 import { renderToString } from 'react-dom/server';
 import { dangerouslySkipEscape, escapeInject } from 'vite-plugin-ssr';
 import type { PageContextBuiltIn } from 'vite-plugin-ssr/types';
-import type { PageContext } from './types';
-import { Document } from './_document';
+import { localeDefault, locales } from '~/lib/locales';
 import { buildSitemap } from './sitemap';
+import type { OnBeforePrerender, PageContext } from './types';
+import { Document } from './_document';
 
 export { render };
 
 // See https://vite-plugin-ssr.com/data-fetching
-export const passToClient = ['pageProps', 'documentProps'];
+export const passToClient = ['locale', 'pageProps', 'documentProps'];
 
 async function render(pageContext: PageContextBuiltIn & PageContext) {
   const pageHtml = renderToString(<Document pageContext={pageContext} />);
@@ -56,6 +57,18 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
   };
 }
 
-export const onBeforePrerender = async (params: { prerenderPageContexts: PageContext[] }) => {
-  await buildSitemap(params.prerenderPageContexts);
+export const onBeforePrerender: OnBeforePrerender = async ({ prerenderPageContexts }) => {
+  await buildSitemap(prerenderPageContexts);
+  prerenderPageContexts.forEach((context) => {
+    context.locale = localeDefault;
+    locales
+      .filter((locale) => locale !== localeDefault)
+      .forEach((locale) => {
+        prerenderPageContexts.push({
+          ...context,
+          urlOriginal: `/${locale}${context.urlOriginal}`,
+          locale
+        });
+      });
+  });
 };

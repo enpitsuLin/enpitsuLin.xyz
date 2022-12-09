@@ -1,17 +1,19 @@
 import { Link, Tag } from '~/components/Link';
 import { PageSEO } from '~/components/SEO';
+import { useTranslation } from '~/hooks/useTranslation';
 import { Hero } from './Hero';
 import { Props } from './index.page.server';
 
 export const Page: React.FC<Props> = ({ posts, showMore }) => {
+  const { t } = useTranslation();
   return (
     <>
       <PageSEO title="enpitsulin's blog" />
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <Hero welcome="welcome" />
+        <Hero welcome={t('welcome')} />
         <div className="space-y-2 pt-6 pb-8 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Latest
+            {t('latest')}
           </h1>
           <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">Make Things happy</p>
         </div>
@@ -24,7 +26,7 @@ export const Page: React.FC<Props> = ({ posts, showMore }) => {
                 <article>
                   <div className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                     <dl>
-                      <dt className="sr-only">Published on</dt>
+                      <dt className="sr-only">{t('post.published-on')}</dt>
                       <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                         <time dateTime={date}>{date}</time>
                       </dd>
@@ -67,9 +69,9 @@ export const Page: React.FC<Props> = ({ posts, showMore }) => {
           <Link
             href="/blog"
             className="text-primary-500 capitalize hover:text-primary-600 dark:hover:text-primary-400"
-            aria-label="All Posts"
+            aria-label={t('all-posts')}
           >
-            All Posts
+            {t('all-posts')}
           </Link>
         </div>
       )}
