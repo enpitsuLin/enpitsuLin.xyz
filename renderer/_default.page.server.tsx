@@ -56,11 +56,6 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
   };
 }
 
-// prevent build twice
-let count = 0;
-
 export const onBeforePrerender = async (params: { prerenderPageContexts: PageContext[] }) => {
-  if (++count > 1) return;
-  const urls = params.prerenderPageContexts.map((item) => item.urlOriginal);
-  await buildSitemap(urls);
+  await buildSitemap(params.prerenderPageContexts);
 };

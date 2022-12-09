@@ -1,5 +1,6 @@
 import { writeFile } from 'fs/promises';
 import { siteMeta } from '~/package.json';
+import { PageContext } from './types';
 
 export { buildSitemap };
 
@@ -11,7 +12,10 @@ const createSitemap = (urls: string[]) => {
 `;
 };
 
-async function buildSitemap(urls: string[]) {
-  const sitemap = createSitemap(urls);
+// prevent build twice
+let count = 0;
+async function buildSitemap(pageContexts: PageContext[]) {
+  if (++count > 1) return;
+  const sitemap = createSitemap(pageContexts.map((item) => item.urlOriginal));
   await writeFile('./dist/client/sitemap.xml', sitemap);
 }
