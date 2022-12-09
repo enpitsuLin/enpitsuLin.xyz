@@ -6,6 +6,7 @@ import { localeDefault, locales } from '~/lib/locales';
 const LocaleSwitch = () => {
   const pageContext = usePageContext();
   const [open, setOpen] = useState(false);
+  const locale = pageContext.locale || localeDefault;
 
   const inactiveClasses =
     'group flex rounded-md items-center w-full px-2 py-2 text-sm justify-center text-gray-900 hover:bg-gray-100 ';
@@ -26,7 +27,7 @@ const LocaleSwitch = () => {
             setOpen((open) => !open);
           }}
         >
-          {pageContext.locale.toUpperCase()}
+          {locale.toUpperCase()}
         </button>
       </div>
       {open && (
