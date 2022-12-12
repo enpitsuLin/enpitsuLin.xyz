@@ -1,6 +1,7 @@
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { PageWrapper } from '~/components/PageWrapper';
 import { PageContext } from './types';
+import { siteMeta } from '~/package.json';
 
 export interface DocumentProps {
   pageContext: PageContext;
@@ -22,6 +23,14 @@ export const Document: React.FC<DocumentProps> = ({ pageContext }) => {
           <meta name="theme-color" content="#000000" />
           <link rel="alternate" type="application/rss+xml" href="/feed" />
           <meta name="description" content="${desc}" />
+          {import.meta.env.PROD && (
+            <script
+              async
+              defer
+              data-website-id={siteMeta.umami}
+              src="https://umami.enpitsulin.xyz/umami-analytics.js"
+            />
+          )}
         </Helmet>
         <Page {...pageProps} />
       </PageWrapper>
