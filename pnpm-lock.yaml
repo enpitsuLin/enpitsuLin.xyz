@@ -5,7 +5,7 @@ specifiers:
   '@iconify-json/fa6-brands': ^1.1.8
   '@iconify-json/fa6-solid': ^1.1.10
   '@magne4000/vite-plugin-vercel-ssr': ^0.1.3
-  '@sanity/client': ^3.4.1
+  '@sanity/client': ^4.0.0
   '@svgr/core': ^6.5.1
   '@types/hast': ^2.3.4
   '@types/mdast': ^3.0.10
@@ -75,7 +75,7 @@ devDependencies:
   '@iconify-json/fa6-brands': 1.1.8
   '@iconify-json/fa6-solid': 1.1.10
   '@magne4000/vite-plugin-vercel-ssr': 0.1.3
-  '@sanity/client': 3.4.1
+  '@sanity/client': 4.0.0
   '@svgr/core': 6.5.1
   '@types/node': 18.11.18
   '@types/react': 18.0.26
@@ -874,6 +874,18 @@ packages:
       get-it: 6.1.1
       make-error: 1.3.6
       object-assign: 4.1.1
+      rxjs: 6.6.7
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /@sanity/client/4.0.0:
+    resolution: {integrity: sha512-UcAlDTuDAzCM+6p66QvjIZvJiDzmZRoE3aSRaZTgMyVtPC1RyPG4ybLubAlnRcTWC4+1o2u2UtskNyyvhL9GQQ==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@sanity/eventsource': 4.0.0
+      get-it: 7.0.2
+      make-error: 1.3.6
       rxjs: 6.6.7
     transitivePeerDependencies:
       - supports-color
@@ -3516,6 +3528,31 @@ packages:
       is-stream: 1.1.0
       nano-pubsub: 1.0.2
       object-assign: 4.1.1
+      parse-headers: 2.0.5
+      progress-stream: 2.0.0
+      same-origin: 0.1.1
+      simple-concat: 1.0.1
+      tunnel-agent: 0.6.0
+      url-parse: 1.5.10
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
+  /get-it/7.0.2:
+    resolution: {integrity: sha512-q4d+ssYtpWzC4/qJ4aJDZ5yWl94BIGmRER7PEvYpiKCBoCoDnl1YygEvNHQ2tHbD3GVZaq3QonKGi6Puh1Hzkw==}
+    engines: {node: '>=12.0.0'}
+    dependencies:
+      '@sanity/timed-out': 4.0.2
+      create-error-class: 3.0.2
+      debug: 4.3.4
+      decompress-response: 6.0.0
+      follow-redirects: 1.15.2_debug@2.6.9
+      form-urlencoded: 2.0.9
+      into-stream: 3.1.0
+      is-plain-object: 5.0.0
+      is-retry-allowed: 1.2.0
+      is-stream: 1.1.0
+      nano-pubsub: 2.0.1
       parse-headers: 2.0.5
       progress-stream: 2.0.0
       same-origin: 0.1.1
