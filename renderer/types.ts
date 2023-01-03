@@ -41,5 +41,5 @@ type BeforeRenderClientReturn<P = any> = MaybePromise<{ pageContext: Partial<Pag
 type OnBeforeRenderClient<P = any> = (content: PageContextBuiltIn) => BeforeRenderClientReturn<P>;
 
 type OnBeforePrerender = (params: {
-  prerenderPageContexts: PageContext<any>[];
+  pageContexts: PageContext<any>[];
 }) => MaybePromise<Partial<{ prerenderContext: { pageContexts: PageContext[] } }> | void>;

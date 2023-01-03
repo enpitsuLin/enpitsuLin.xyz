@@ -57,14 +57,14 @@ async function render(pageContext: PageContextBuiltIn & PageContext) {
   };
 }
 
-export const onBeforePrerender: OnBeforePrerender = async ({ prerenderPageContexts }) => {
-  await buildSitemap(prerenderPageContexts);
-  prerenderPageContexts.forEach((context) => {
+export const onBeforePrerender: OnBeforePrerender = async ({ pageContexts }) => {
+  await buildSitemap(pageContexts);
+  pageContexts.forEach((context) => {
     context.locale = localeDefault;
     locales
       .filter((locale) => locale !== localeDefault)
       .forEach((locale) => {
-        prerenderPageContexts.push({
+        pageContexts.push({
           ...context,
           urlOriginal: `/${locale}${context.urlOriginal}`,
           locale
