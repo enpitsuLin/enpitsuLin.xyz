@@ -1,5 +1,4 @@
 import { ComponentProps, useState } from 'react';
-import { useTranslation } from '~/hooks/useTranslation';
 import { kebabCase } from '~/lib/kebab-case';
 import { Post } from '~/lib/types';
 import { Link, Tag } from './Link';
@@ -13,7 +12,6 @@ interface Props {
 }
 
 const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], pagination }) => {
-  const { t } = useTranslation();
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts.filter((post) => {
     const searchContent = post.title + post.summary + post.tags.join(' ');
@@ -32,10 +30,10 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
           </h1>
           <div className="relative max-w-lg">
             <input
-              aria-label={t('search.placeholder')}
+              aria-label="Search articles"
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
-              placeholder={t('search.placeholder')}
+              placeholder="Search articles"
               className="block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
             />
             <svg
@@ -62,7 +60,7 @@ const ListLayout: React.FC<Props> = ({ posts, title, initialDisplayPosts = [], p
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
                   <dl>
-                    <dt className="sr-only">{t('post.published-on')}</dt>
+                    <dt className="sr-only">发布于</dt>
                     <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                       <time dateTime={date}>{date}</time>
                     </dd>

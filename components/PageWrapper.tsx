@@ -4,7 +4,6 @@ import { Header } from './Header';
 import { Link } from './Link';
 import { SocialIcon } from './SocialIcon';
 import { StrictMode } from 'react';
-import { I18nContextProvider } from '~/hooks/useTranslation';
 
 export { PageWrapper, Footer };
 
@@ -42,17 +41,15 @@ const SectionContainer: React.FC<React.PropsWithChildren> = ({ children }) => {
 function PageWrapper({ children, pageContext }: { children: React.ReactNode; pageContext: PageContext }) {
   return (
     <StrictMode>
-      <I18nContextProvider locale={pageContext.locale}>
-        <PageContextProvider pageContext={pageContext}>
-          <Header />
-          <SectionContainer>
-            <div className="flex min-h-screen flex-col justify-between pt-24">
-              <main className="mb-auto">{children}</main>
-              <Footer />
-            </div>
-          </SectionContainer>
-        </PageContextProvider>
-      </I18nContextProvider>
+      <PageContextProvider pageContext={pageContext}>
+        <Header />
+        <SectionContainer>
+          <div className="flex min-h-screen flex-col justify-between pt-24">
+            <main className="mb-auto">{children}</main>
+            <Footer />
+          </div>
+        </SectionContainer>
+      </PageContextProvider>
     </StrictMode>
   );
 }

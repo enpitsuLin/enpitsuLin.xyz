@@ -1,23 +1,13 @@
 import clsx from 'clsx';
 import { navigate } from 'vite-plugin-ssr/client/router';
-import { usePageContext } from '~/hooks/usePageContext';
-import { localeDefault } from '~/lib/locales';
 
-interface LinkProp extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {
-  locale?: string;
-}
+interface LinkProp extends React.DetailedHTMLProps<React.AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {}
 
 export const Link: React.FC<LinkProp> = (props) => {
-  let { href, locale, ...anchorProps } = props;
+  let { href, ...anchorProps } = props;
   const isInternalLink = href && href.startsWith('/');
   const isAnchorLink = href && href.startsWith('#');
   const className = clsx([props.className, 'cursor-pointer']);
-
-  const pageContext = usePageContext();
-  locale = props.locale || pageContext.locale;
-  if (locale !== localeDefault) {
-    href = '/' + locale + href;
-  }
 
   if (isInternalLink) {
     return <a {...anchorProps} className={className} onClick={() => navigate(href!)} />;

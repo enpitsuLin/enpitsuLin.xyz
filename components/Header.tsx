@@ -1,17 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { useTranslation } from '~/hooks/useTranslation';
 import { Link } from './Link';
-import { LocaleSwitch } from './LocaleSwitch';
 import { MobileNav } from './MobileNav';
 import { ThemeSwitch } from './ThemeSwitch';
 
 export const Header = () => {
-  const { t } = useTranslation();
-
   const nav = [
-    { href: '/', title: t('common.home') },
-    { href: '/blog', title: t('common.blog') },
-    { href: '/tags', title: t('post.tags') }
+    { href: '/', title: 'Home' },
+    { href: '/blog', title: 'Blog' },
+    { href: '/tags', title: 'Tags' }
   ];
 
   const [stuck, setStuck] = useState(false);
@@ -61,7 +57,6 @@ export const Header = () => {
             ))}
           </div>
           <ThemeSwitch />
-          <LocaleSwitch />
           <MobileNav nav={nav} />
         </div>
       </div>

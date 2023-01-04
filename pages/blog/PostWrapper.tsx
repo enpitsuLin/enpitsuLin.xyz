@@ -6,9 +6,7 @@ import FaArrowUp from '~icons/fa6-solid/arrow-up';
 import FaComment from '~icons/fa6-solid/comment';
 import Comments from './Comment';
 import { Toc } from './Toc';
-
 import { Props } from './index.page.server';
-import { useTranslation } from '~/hooks/useTranslation';
 
 export const PostWrapper: React.FC<React.PropsWithChildren<Omit<Props, 'code'>>> = ({
   post,
@@ -128,7 +126,6 @@ const ScrollTopAndComment: React.FC = () => {
 const PostHeader: React.FC<Pick<Props, 'post' | 'readTime'>> = ({ post, readTime }) => {
   const { title, date } = post;
 
-  const { t } = useTranslation();
   return (
     <header className="pt-6 xl:pb-6">
       <div className="space-y-12 text-center">
@@ -138,21 +135,21 @@ const PostHeader: React.FC<Pick<Props, 'post' | 'readTime'>> = ({ post, readTime
         <div className="pb-6">
           <dl className="flex justify-center flex-wrap space-x-4">
             <div>
-              <dt className="sr-only">{t('post.published-on')}</dt>
+              <dt className="sr-only">发布于</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
                 <time dateTime={date}>{date}</time>
               </dd>
             </div>
             <div>
-              <dt className="sr-only">{t('post.reading-time')}</dt>
+              <dt className="sr-only">阅读时间</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.reading-time-var', { time: Math.round(readTime.minutes) })}
+                约 {Math.round(readTime.minutes)} 分钟
               </dd>
             </div>
             <div>
-              <dt className="sr-only">{t('post.words-count')}</dt>
+              <dt className="sr-only">字数统计</dt>
               <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                {t('post.words-count-var', { words: readTime.words })}
+                约 {readTime.words} 字
               </dd>
             </div>
           </dl>

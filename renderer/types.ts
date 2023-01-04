@@ -24,7 +24,6 @@ export type PageContextCustom<PageProps = Record<string, unknown>> = {
     title: string;
     description: string;
   };
-  locale: string;
 };
 
 type PageContextServer<P = any> = PageContextBuiltIn<Page> & PageContextCustom<P>;
