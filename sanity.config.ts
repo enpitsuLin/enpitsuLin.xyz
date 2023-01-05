@@ -1,6 +1,6 @@
-import { defineConfig } from 'sanity'
-import { deskTool } from 'sanity/desk'
-import { markdownSchema } from 'sanity-plugin-markdown'
+import { defineConfig } from 'sanity';
+import { deskTool } from 'sanity/desk';
+import { markdownSchema } from 'sanity-plugin-milkdown';
 
 export default defineConfig({
   name: 'default',
@@ -18,25 +18,25 @@ export default defineConfig({
           {
             name: 'title',
             title: 'Title',
-            type: 'string',
+            type: 'string'
           },
           {
             name: 'slug',
             title: 'Slug',
             type: 'slug',
             options: {
-              source: 'title',
-            },
+              source: 'title'
+            }
           },
           {
             name: 'summary',
             title: 'Summary',
-            type: 'string',
+            type: 'string'
           },
           {
             name: 'content',
             title: 'Content',
-            type: 'markdown',
+            type: 'markdown'
           },
           {
             name: 'tags',
@@ -44,16 +44,16 @@ export default defineConfig({
             type: 'array',
             of: [{ type: 'string' }],
             options: {
-              layout: 'tags',
-            },
+              layout: 'tags'
+            }
           },
           {
             name: 'date',
             title: 'Date',
-            type: 'datetime',
-          },
-        ],
-      },
-    ],
-  },
-})
+            type: 'datetime'
+          }
+        ]
+      }
+    ]
+  }
+});
