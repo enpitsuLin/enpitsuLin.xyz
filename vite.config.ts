@@ -9,6 +9,9 @@ import WindiCSS from 'vite-plugin-windicss';
 
 import { visualizer } from 'rollup-plugin-visualizer';
 import Icon from 'unplugin-icons/vite';
+import { createRequire } from 'module';
+
+const require = createRequire(import.meta.url);
 
 export default defineConfig(async ({ command }) => {
   const plugins = [
