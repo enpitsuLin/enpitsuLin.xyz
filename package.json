@@ -10,9 +10,15 @@
 		"astro": "astro"
 	},
 	"dependencies": {
-		"astro": "^2.0.14",
 		"@astrojs/mdx": "^0.17.0",
 		"@astrojs/rss": "^2.1.1",
-		"@astrojs/sitemap": "^1.0.1"
+		"@astrojs/sitemap": "^1.0.1",
+		"@astrojs/vue": "^2.0.1",
+		"@unocss/reset": "^0.49.7",
+		"astro": "^2.0.14",
+		"vue": "^3.2.30"
+	},
+	"devDependencies": {
+		"unocss": "^0.49.7"
 	}
 }
