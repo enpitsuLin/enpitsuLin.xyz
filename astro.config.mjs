@@ -6,7 +6,7 @@ import sanity from 'astro-sanity';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://example.com',
+  site: 'https://enpitsulin.xyz',
   integrations: [
     mdx(),
     sitemap(),
