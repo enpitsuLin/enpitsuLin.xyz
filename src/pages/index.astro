@@ -1,5 +1,6 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
@@ -11,5 +12,6 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <body
     class="scroll-smooth font-sans bg-[var(--e-bg)] text-black dark:text-white motion-safe:(transition-all duration-200 ease-in)"
   >
+    <Header />
   </body>
 </html>
