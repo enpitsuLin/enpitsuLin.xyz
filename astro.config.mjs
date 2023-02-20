@@ -2,9 +2,20 @@ import { defineConfig } from 'astro/config';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import Unocss from 'unocss/astro';
-import vue from '@astrojs/vue';
+import sanity from 'astro-sanity';
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://example.com',
-  integrations: [mdx(), sitemap(), vue(), Unocss()]
+  integrations: [
+    mdx(),
+    sitemap(),
+    Unocss(),
+    sanity({
+      projectId: 'r9a6ysjd',
+      dataset: 'production',
+      useCdn: true,
+      apiVersion: '2022-01-12'
+    })
+  ]
 });
