@@ -17,7 +17,7 @@
 		"@sanity/client": "^5.2.1",
 		"@unocss/reset": "^0.49.7",
 		"astro": "^2.0.14",
-		"astro-sanity": "^1.1.3",
+		"groqd": "^0.8.0",
 		"vue": "^3.2.30"
 	},
 	"devDependencies": {
