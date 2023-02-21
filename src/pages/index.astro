@@ -1,8 +1,66 @@
 ---
+import FormattedDate from '~/components/FormattedDate.astro';
+import { usePosts } from '~/lib/sanity';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
+const posts = await usePosts({ limit: 5 });
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-  <div></div>
+  <div
+    class="text-38px leading-none tracking-.6px font-sans text-opacity-85 select-none font-900 my-8"
+  >
+    <span
+      class="mx-1 my-2 inline-block relative after:-bottom-2 after:left-1/10 after:w-6/10 after:h-7 after:content-empty after:absolute after:inline-block after:rounded-[6px_12px_20px_14px] after:bg-opacity-30 after:bg-opacity-30 after:bg-black after:mix-blend-multiply after:-skew-x-20 after:-skew-y-2deg"
+    >
+      Latest
+    </span>
+  </div>
+  <ul>
+    {
+      posts.map((item) => (
+        <li class="group">
+          <article
+            itemscope
+            itemtype="http://schema.org/BlogPosting"
+            class="flex border-t border-black dark:border-white border-opacity-8 flex-col py-7.5 relative"
+          >
+            <h2 itemprop="headline" class="mb-3.5">
+              <a
+                class="font-sans font-bold text-24px"
+                href={`/blog/${item.slug}`}
+              >
+                {item.title}
+              </a>
+              <span class="align-mid group-hover:opacity-100 opacity-0 transition-all duration-200 ease">
+                →
+              </span>
+            </h2>
+            <div class="space-x-1">
+              {item.tags.map((tag) => {
+                return (
+                  <div class="inline-block px-4 h-7 leading-7  motion-safe:(transition-colors duration-200 ease-in) bg-black text-white dark:text-black dark:bg-white rounded-2xl">
+                    {tag}
+                  </div>
+                );
+              })}
+            </div>
+            <div itemprop="articleBody" class="my-4 text-opacity-82">
+              <a href={`/blog/${item.slug}`}>{item.summary}</a>
+            </div>
+            <div class="lg:order-first text-right lg:absolute top-35px -left-120px">
+              <FormattedDate
+                date={new Date(item.date)}
+                itemprop="datePublished"
+                class="text-base font-500 text-base text-opacity-50"
+              />
+            </div>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+  <nav>
+    <a href="/blog" class="hover:underline">MORE →</a>
+  </nav>
 </BasicLayout>

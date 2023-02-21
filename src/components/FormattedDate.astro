@@ -1,11 +1,11 @@
 ---
-interface Props {
+interface Props extends astroHTML.JSX.TimeHTMLAttributes {
   date: Date;
 }
-const { date } = Astro.props;
+const { date, ...timeProps } = Astro.props;
 ---
 
-<time datetime={date.toISOString()}>
+<time datetime={date.toISOString()} {...timeProps}>
   {
     date.toLocaleDateString('en-us', {
       year: 'numeric',
