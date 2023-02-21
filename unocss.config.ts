@@ -1,4 +1,10 @@
-import { defineConfig, presetUno, presetTypography, transformerDirectives, transformerVariantGroup } from 'unocss';
+import {
+  defineConfig,
+  presetUno,
+  presetTypography,
+  transformerDirectives,
+  transformerVariantGroup
+} from 'unocss';
 
 export default defineConfig({
   presets: [presetUno(), presetTypography()],
@@ -7,7 +13,6 @@ export default defineConfig({
     {
       getCSS: () =>
         [
-          `:root{--e-font-sys-sans:-apple-system,"Segoe UI",Oxygen,Ubnztu,"Droid Sans","Helvetica Neue";--e-font-cjk:"PingFang SC","Hiragino Sans GB","Droid Sans Fallback","Microsoft YaHei"}`,
           `:root{--e-bg:#fff;--e-scrollbar:#eee;--e-scrollbar-hover:#bbb}`,
           `.dark{--e-bg:#2a2b2d;--e-scrollbar:#3b3c40;--e-scrollbar-hover:#74777b}`,
           `*{scrollbar-color:var(--e-scrollbar) var(--e-bg)}`,

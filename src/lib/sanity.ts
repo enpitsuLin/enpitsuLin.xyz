@@ -4,7 +4,6 @@ export const createQueryRunner = () => {
   const client = createClient({
     projectId: 'r9a6ysjd',
     dataset: 'production',
-    token: import.meta.env.VITE_SANITY_TOKEN,
     useCdn: true,
     apiVersion: '2022-01-12'
   });
