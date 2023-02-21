@@ -8,6 +8,7 @@ specifiers:
   '@sanity/client': ^5.2.1
   '@unocss/reset': ^0.49.7
   astro: ^2.0.14
+  date-fns: ^2.29.3
   groqd: ^0.8.0
   unocss: ^0.49.7
   vue: ^3.2.30
@@ -20,6 +21,7 @@ dependencies:
   '@sanity/client': 5.2.1
   '@unocss/reset': 0.49.7
   astro: 2.0.14
+  date-fns: 2.29.3
   groqd: 0.8.0
   vue: 3.2.47
 
@@ -1675,6 +1677,11 @@ packages:
 
   /csstype/2.6.21:
     resolution: {integrity: sha512-Z1PhmomIfypOpoMjRQB70jfvy/wxT50qW08YXO5lMIJkrdq4yOTR+AW7FqutScmB9NkLwxo+jU+kZLbofZZq/w==}
+    dev: false
+
+  /date-fns/2.29.3:
+    resolution: {integrity: sha512-dDCnyH2WnnKusqvZZ6+jA1O51Ibt8ZMRNkDZdyAyK4YfbDwa/cEmuztzG5pk6hqlp9aSBPYcjOlktquahGwGeA==}
+    engines: {node: '>=0.11'}
     dev: false
 
   /debug/4.3.4:

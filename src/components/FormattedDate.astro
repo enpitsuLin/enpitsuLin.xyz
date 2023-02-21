@@ -1,4 +1,5 @@
 ---
+import { format } from 'date-fns';
 interface Props extends astroHTML.JSX.TimeHTMLAttributes {
   date: Date;
 }
@@ -6,11 +7,5 @@ const { date, ...timeProps } = Astro.props;
 ---
 
 <time datetime={date.toISOString()} {...timeProps}>
-  {
-    date.toLocaleDateString('en-us', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    })
-  }
+  {format(date, 'yyyy-MM-dd')}
 </time>

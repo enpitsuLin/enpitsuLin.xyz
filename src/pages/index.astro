@@ -8,7 +8,7 @@ const posts = await usePosts({ limit: 5 });
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <div
-    class="text-38px leading-none tracking-.6px font-sans text-opacity-85 select-none font-900 my-8"
+    class="text-9.5 leading-none tracking-.6px font-sans text-opacity-85 select-none font-900 my-8"
   >
     <span
       class="mx-1 my-2 inline-block relative after:-bottom-2 after:left-1/10 after:w-6/10 after:h-7 after:content-empty after:absolute after:inline-block after:rounded-[6px_12px_20px_14px] after:bg-opacity-30 after:bg-opacity-30 after:bg-black after:mix-blend-multiply after:-skew-x-20 after:-skew-y-2deg"
@@ -27,7 +27,7 @@ const posts = await usePosts({ limit: 5 });
           >
             <h2 itemprop="headline" class="mb-3.5">
               <a
-                class="font-sans font-bold text-24px"
+                class="font-sans font-bold text-6"
                 href={`/blog/${item.slug}`}
               >
                 {item.title}
@@ -48,7 +48,7 @@ const posts = await usePosts({ limit: 5 });
             <div itemprop="articleBody" class="my-4 text-opacity-82">
               <a href={`/blog/${item.slug}`}>{item.summary}</a>
             </div>
-            <div class="lg:order-first text-right lg:absolute top-35px -left-120px">
+            <div class="lg:order-first text-right lg:absolute top-9 -left-26">
               <FormattedDate
                 date={new Date(item.date)}
                 itemprop="datePublished"
