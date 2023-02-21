@@ -1,21 +1,23 @@
 ---
-import { CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import BasicLayout from '~/layouts/BasicLayout.astro';
+import { usePostsSlug, usePost } from '~/lib/sanity';
+import Markdown from '@astrojs/markdown-component';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.slug },
-		props: post,
-	}));
+  return usePostsSlug().then((slugs) =>
+    slugs.map((slug) => ({
+      params: slug
+    }))
+  );
 }
-type Props = CollectionEntry<'blog'>;
-
-const post = Astro.props;
-const { Content } = await post.render();
+const { slug } = Astro.params;
+if (!slug) return Astro.redirect('/404');
+const post = await usePost(slug);
+if (!post) return Astro.redirect('/404');
 ---
 
-<BlogPost {...post.data}>
-	<h1>{post.data.title}</h1>
-	<Content />
-</BlogPost>
+<BasicLayout title={post.title} description={post.summary}>
+  <div class="prose">
+    <Markdown>{post.content}</Markdown>
+  </div>
+</BasicLayout>

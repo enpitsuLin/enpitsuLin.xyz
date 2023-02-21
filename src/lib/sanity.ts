@@ -54,6 +54,19 @@ export const usePosts = (opt?: { limit?: number; skip?: number }) => {
   return runQuery(query);
 };
 
+export const usePostsSlug = () => {
+  let basisQuery = q('*')
+    .filter("_type == 'post' && !(_id in path('drafts.**'))")
+    .order('date desc');
+
+  const runQuery = createQueryRunner();
+  return runQuery(
+    basisQuery.grab({
+      slug: ['slug.current', q.string()]
+    })
+  );
+};
+
 export const usePostsCount = async () => {
   const query = q('*')
     .filter("_type == 'post' && !(_id in path('drafts.**'))")

@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@astrojs/markdown-component': ^1.0.2
   '@astrojs/mdx': ^0.17.0
   '@astrojs/rss': ^2.1.1
   '@astrojs/sitemap': ^1.0.1
@@ -14,6 +15,7 @@ specifiers:
   vue: ^3.2.30
 
 dependencies:
+  '@astrojs/markdown-component': 1.0.2
   '@astrojs/mdx': 0.17.0_astro@2.0.14
   '@astrojs/rss': 2.1.1
   '@astrojs/sitemap': 1.0.1
@@ -76,6 +78,10 @@ packages:
       vscode-languageserver-textdocument: 1.0.8
       vscode-languageserver-types: 3.17.3
       vscode-uri: 3.0.7
+    dev: false
+
+  /@astrojs/markdown-component/1.0.2:
+    resolution: {integrity: sha512-A1YTh/+2LAImN6E716/th29EYopfBuLUWwslrxP3cfD+avlRjRnfFaKo4ygWS+OwPuyafx7GfxD6Rh5QB70thw==}
     dev: false
 
   /@astrojs/markdown-remark/2.0.1_astro@2.0.14:
