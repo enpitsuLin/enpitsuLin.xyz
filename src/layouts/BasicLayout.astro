@@ -14,8 +14,9 @@ const { title, description } = Astro.props;
   <head>
     <BaseHead title={title} description={description} />
   </head>
+
   <body
-    class="scroll-smooth font-sans bg-[var(--e-bg)] text-black dark:text-white motion-safe:(transition-all duration-200 ease-in)"
+    class="scroll-smooth bg-[var(--e-bg)] font-sans text-black dark:text-white motion-safe:(transition-all duration-200 ease-in)"
   >
     <Header />
     <main class="pt-16 pb-8">
