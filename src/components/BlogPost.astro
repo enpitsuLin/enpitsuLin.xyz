@@ -33,9 +33,13 @@ const { title, date, summary, tags, slug } = Astro.props;
       {
         tags.map((tag) => {
           return (
-            <div class="inline-block px-4 h-7 leading-7  motion-safe:(transition-colors duration-200 ease-in) bg-black text-white dark:text-black dark:bg-white rounded-2xl">
+            <a
+              title={tag}
+              href={`/tags/${tag}/1`}
+              class="inline-block px-4 h-7 leading-7  motion-safe:(transition-colors duration-200 ease-in) bg-black text-white dark:text-black dark:bg-white rounded-2xl"
+            >
               {tag}
-            </div>
+            </a>
           );
         })
       }

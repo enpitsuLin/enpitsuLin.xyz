@@ -74,3 +74,36 @@ export const usePostsCount = async () => {
   const runQuery = createQueryRunner();
   return runQuery(query).then((res) => res.length);
 };
+
+export const useAllTags = async () => {
+  const query = q('*')
+    .filter("_type == 'post' && !(_id in path('drafts.**'))")
+    .grab({ tags: q.array(q.string()) });
+  const runQuery = createQueryRunner();
+  return Array.from(
+    new Set(
+      await runQuery(query).then((posts) =>
+        posts.map((post) => post.tags).flat()
+      )
+    )
+  );
+};
+
+export const usePostsByTag = async (tag: string) => {
+  const query = q('*')
+    .filter(
+      "_type == 'post' && length(tags[lower(@) == lower($tag)]) > 0 && !(_id in path('drafts.**'))"
+    )
+    .grab({
+      id: ['_id', q.string()],
+      title: q.string(),
+      date: q.string(),
+      summary: q.string(),
+      tags: q.array(q.string()),
+      slug: ['slug.current', q.string()],
+      content: q.string()
+    });
+
+  const runQuery = createQueryRunner();
+  return runQuery(query, { tag });
+};

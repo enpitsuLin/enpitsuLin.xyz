@@ -1,21 +1,32 @@
 ---
+import type { GetStaticPathsOptions, Page } from 'astro';
 import BlogPost from '~/components/BlogPost.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
-import { usePosts } from '~/lib/sanity';
-import type { GetStaticPathsOptions, Page } from 'astro';
+import { useAllTags, usePostsByTag } from '~/lib/sanity';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const astronautPages = await usePosts();
-  return paginate(astronautPages, { pageSize: 5 });
+  const allTags = await useAllTags();
+  return Promise.all(
+    allTags.map(async (tag) => {
+      const posts = await usePostsByTag(tag);
+      return paginate(posts, {
+        params: { tag },
+        pageSize: 5
+      });
+    })
+  );
 }
-
 // reference https://stackoverflow.com/a/51399781/21266032
 type ArrayElement<ArrayType extends readonly unknown[]> =
   ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
 
-type Props = { page: Page<ArrayElement<Awaited<ReturnType<typeof usePosts>>>> };
+type Props = {
+  page: Page<ArrayElement<Awaited<ReturnType<typeof usePostsByTag>>>>;
+};
+
 const { page } = Astro.props;
+const params = Astro.params;
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -25,7 +36,7 @@ const { page } = Astro.props;
     <span
       class="mx-1 my-2 inline-block relative after:-bottom-2 after:left-1/10 after:w-6/10 after:h-7 after:content-empty after:absolute after:inline-block after:rounded-[6px_12px_20px_14px] after:bg-opacity-30 after:bg-opacity-30 after:bg-black after:mix-blend-multiply after:-skew-x-20 after:-skew-y-2deg"
     >
-      All Posts
+      {params.tag}
     </span>
   </div>
   <ul>
@@ -39,23 +50,11 @@ const { page } = Astro.props;
   </ul>
   <div class="pt-6 pb-8">
     <nav class="flex justify-between">
-      <a
-        aria-label="Prev page"
-        href={page.url.prev}
-        data-disabled={!page.url.prev}
-      >
-        ←
-      </a>
+      <a href={page.url.prev} data-disabled={!page.url.prev}>←</a>
       <span>
         {page.currentPage}/{page.lastPage}
       </span>
-      <a
-        aria-label="Next page"
-        href={page.url.next}
-        data-disabled={!page.url.next}
-      >
-        →
-      </a>
+      <a href={page.url.next} data-disabled={!page.url.next}>→</a>
     </nav>
   </div>
 </BasicLayout>
