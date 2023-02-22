@@ -1,0 +1,44 @@
+---
+import { toHtml } from 'hast-util-to-html';
+import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeCodeTitles from 'rehype-code-titles';
+import rehypePrismDiff from 'rehype-prism-diff';
+import rehypePrismPlus from 'rehype-prism-plus';
+import rehypeSlug from 'rehype-slug';
+import remarkGfm from 'remark-gfm';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import { unified } from 'unified';
+import { VFile } from 'vfile';
+interface Props {
+  content: string;
+}
+const { content } = Astro.props;
+function mdToHtml(markdown: string) {
+  const processor = unified()
+    .use(remarkParse)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
+    .use(rehypeSlug)
+    .use(rehypeCodeTitles)
+    .use([rehypePrismPlus, { ignoreMissing: true }])
+    .use(rehypePrismDiff)
+    .use([rehypeAutolinkHeadings, { properties: { className: ['anchor'] } }]);
+
+  const file = new VFile();
+
+  file.value = markdown;
+
+  const hastNode = processor.runSync(processor.parse(file), file);
+  if (hastNode.type !== 'root') {
+    throw new TypeError('Expected a `root` node');
+  }
+
+  return toHtml(hastNode);
+}
+const html = mdToHtml(content);
+---
+
+<>
+  {html ? <Fragment set:html={html} /> : <slot />}
+</>

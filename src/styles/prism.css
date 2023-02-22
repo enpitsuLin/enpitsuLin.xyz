@@ -1,0 +1,210 @@
+/**
+ * CSS Styles for code highlighting.
+ * Feel free to customize token styles 
+ * by copying from a prismjs compatible theme:
+ * https://github.com/PrismJS/prism-themes
+ */
+
+/* Code title styles */
+.rehype-code-title {
+  @apply rounded-t bg-gray-300 dark:bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-600 dark:text-gray-200;
+}
+
+.rehype-code-title + div > pre {
+  @apply mt-0 rounded-t-none;
+}
+
+/* Code block styles */
+.code-highlight {
+  @apply float-left min-w-full;
+}
+
+.code-line {
+  @apply -mx-4 block border-l-4 border-transparent pl-4 pr-4;
+}
+
+.code-line.inserted {
+  @apply bg-green-500 bg-opacity-20;
+}
+
+.code-line.deleted {
+  @apply bg-red-500 bg-opacity-20;
+}
+
+.highlight-line {
+  @apply border-primary-500 bg-white dark:bg-gray-700 bg-opacity-50;
+}
+
+.code-line.diff-deleted {
+  @apply border-red-700 bg-red-700 bg-opacity-30 relative;
+}
+
+.code-line.diff-inserted {
+  @apply border-green-700 bg-green-700 bg-opacity-30 relative;
+}
+
+.code-line.diff-warn {
+  @apply border-orange-700 bg-orange-700 bg-opacity-30 relative;
+}
+
+.code-line.diff-comment {
+  @apply opacity-50 border-gray-700 bg-gray-700 bg-opacity-30 relative italic;
+}
+
+.line-number::before {
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-gray-400;
+  content: attr(line);
+}
+
+/* Token styles */
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.table {
+  display: inline;
+}
+
+.token {
+  @apply text-$text-color;
+}
+/* Dark Styles */
+.dark .token.comment,
+.dark .token.prolog,
+.dark .token.cdata {
+  --text-color: rgb(99, 119, 119);
+  font-style: italic;
+}
+
+.dark .token.punctuation {
+  --text-color: rgb(199, 146, 234);
+}
+
+.dark .namespace {
+  --text-color: rgb(178, 204, 214);
+}
+
+.dark .token.deleted {
+  --text-color: rgba(239, 83, 80, 0.56);
+  font-style: italic;
+}
+
+.dark .token.symbol,
+.dark .token.property {
+  --text-color: rgb(128, 203, 196);
+}
+
+.dark .token.tag,
+.dark .token.operator,
+.dark .token.keyword {
+  --text-color: rgb(127, 219, 202);
+}
+
+.dark .token.boolean {
+  --text-color: rgb(255, 88, 116);
+}
+
+.dark .token.number {
+  --text-color: rgb(247, 140, 108);
+}
+
+.dark .token.constant,
+.dark .token.function,
+.dark .token.builtin,
+.dark .token.char {
+  --text-color: rgb(130, 170, 255);
+}
+
+.dark .token.selector,
+.dark .token.doctype {
+  --text-color: rgb(199, 146, 234);
+  font-style: italic;
+}
+
+.dark .token.attr-name,
+.dark .token.inserted {
+  --text-color: rgb(173, 219, 103);
+  font-style: italic;
+}
+
+.dark .token.string,
+.dark .token.url,
+.dark .token.entity,
+.dark .language-css .token.string,
+.dark .style .token.string {
+  --text-color: rgb(173, 219, 103);
+}
+
+.dark .token.class-name,
+.dark .token.atrule,
+.dark .token.attr-value {
+  --text-color: rgb(255, 203, 139);
+}
+
+.dark .token.regex,
+.dark .token.important,
+.dark .token.variable {
+  --text-color: rgb(214, 222, 235);
+}
+
+/* Light Styles */
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  --text-color: hsl(230, 4%, 64%);
+}
+
+.token.doctype,
+.token.punctuation,
+.token.entity {
+  --text-color: hsl(230, 8%, 24%);
+}
+
+.token.attr-name,
+.token.class-name,
+.token.boolean,
+.token.constant,
+.token.number,
+.token.atrule {
+  --text-color: hsl(35, 99%, 36%);
+}
+
+.token.keyword {
+  --text-color: hsl(301, 63%, 40%);
+}
+
+.token.property,
+.token.tag,
+.token.symbol,
+.token.deleted,
+.token.important {
+  --text-color: hsl(5, 74%, 59%);
+}
+
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted,
+.token.regex,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+  --text-color: hsl(119, 34%, 47%);
+}
+
+.token.variable,
+.token.operator,
+.token.function {
+  --text-color: hsl(221, 87%, 60%);
+}
+
+.token.url {
+  --text-color: hsl(198, 99%, 37%);
+}
