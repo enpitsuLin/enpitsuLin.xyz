@@ -27,9 +27,9 @@ function mdToHtml(markdown: string) {
     })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
-    .use([rehypePrismPlus, { ignoreMissing: true }])
+    .use(rehypePrismPlus, { ignoreMissing: true })
     .use(rehypePrismDiff)
-    .use([rehypeAutolinkHeadings, { properties: { className: ['anchor'] } }]);
+    .use(rehypeAutolinkHeadings, { properties: { className: ['anchor'] } });
 
   const file = new VFile();
 

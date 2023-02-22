@@ -3,7 +3,7 @@ import BlogPost from '~/components/BlogPost.astro';
 import { usePosts } from '~/lib/sanity';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
-const posts = await usePosts({ limit: 5 });
+const posts = await usePosts({ limit: 3 });
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
