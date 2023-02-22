@@ -28,3 +28,6 @@
 ::-webkit-scrollbar-thumb:hover {
   background: var(--e-scrollbar-hover);
 }
+a[data-disabled] {
+  cursor: not-allowed;
+}

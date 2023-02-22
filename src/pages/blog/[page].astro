@@ -37,4 +37,13 @@ const { page } = Astro.props;
       ))
     }
   </ul>
+  <div class="pt-6 pb-8">
+    <nav class="flex justify-between">
+      <a href={page.url.prev} data-disabled={!page.url.prev}>←</a>
+      <span>
+        {page.currentPage}/{page.lastPage}
+      </span>
+      <a href={page.url.next} data-disabled={!page.url.next}>→</a>
+    </nav>
+  </div>
 </BasicLayout>
