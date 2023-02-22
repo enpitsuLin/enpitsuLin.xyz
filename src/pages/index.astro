@@ -1,6 +1,6 @@
 ---
 import BlogPost from '~/components/BlogPost.astro';
-import { usePosts } from '~/lib/sanity';
+import { usePosts, usePostsCount } from '~/lib/sanity';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
 const posts = await usePosts({ limit: 3 });
@@ -26,6 +26,6 @@ const posts = await usePosts({ limit: 3 });
     }
   </ul>
   <nav>
-    <a href="/blog" class="hover:underline">更多 →</a>
+    <a href="/blog/1" class="hover:underline">更多 →</a>
   </nav>
 </BasicLayout>

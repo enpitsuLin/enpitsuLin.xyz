@@ -1,0 +1,40 @@
+---
+import BlogPost from '~/components/BlogPost.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import BasicLayout from '~/layouts/BasicLayout.astro';
+import { usePosts } from '~/lib/sanity';
+import type { GetStaticPathsOptions, Page } from 'astro';
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const astronautPages = await usePosts();
+  return paginate(astronautPages, { pageSize: 5 });
+}
+
+// reference https://stackoverflow.com/a/51399781/21266032
+type ArrayElement<ArrayType extends readonly unknown[]> =
+  ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
+
+type Props = { page: Page<ArrayElement<Awaited<ReturnType<typeof usePosts>>>> };
+const { page } = Astro.props;
+---
+
+<BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div
+    class="text-9.5 leading-none tracking-.6px text-opacity-85 select-none font-900 my-8"
+  >
+    <span
+      class="mx-1 my-2 inline-block relative after:-bottom-2 after:left-1/10 after:w-6/10 after:h-7 after:content-empty after:absolute after:inline-block after:rounded-[6px_12px_20px_14px] after:bg-opacity-30 after:bg-opacity-30 after:bg-black after:mix-blend-multiply after:-skew-x-20 after:-skew-y-2deg"
+    >
+      All Posts
+    </span>
+  </div>
+  <ul>
+    {
+      page.data.map((item) => (
+        <li class="group">
+          <BlogPost {...item} />
+        </li>
+      ))
+    }
+  </ul>
+</BasicLayout>
