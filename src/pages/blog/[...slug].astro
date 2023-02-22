@@ -22,3 +22,30 @@ if (!post) return Astro.redirect('/404');
     <Markdown content={post.content} />
   </div>
 </BasicLayout>
+
+<script>
+  const observer = new IntersectionObserver(
+    ([e]) => {
+      if (e.isIntersecting) {
+        const preEl = e.target as HTMLPreElement;
+        const copyButton = document.createElement('button');
+        copyButton.classList.add('code-copy-button');
+        copyButton.setAttribute('type', 'button');
+        copyButton.setAttribute('aria-label', 'Copy code');
+        copyButton.innerText = 'copy';
+        copyButton.onclick = () => {
+          navigator.clipboard.writeText(preEl.innerText);
+        };
+        if (!preEl.parentNode) return;
+        preEl.parentNode.insertBefore(copyButton, preEl);
+        observer.unobserve(e.target);
+      }
+    },
+    { threshold: [0] }
+  );
+  const proseEl = document.querySelector('div.prose') as HTMLDivElement;
+  const preElList = proseEl.querySelectorAll('pre');
+  preElList.forEach((el) => {
+    observer.observe(el);
+  });
+</script>
