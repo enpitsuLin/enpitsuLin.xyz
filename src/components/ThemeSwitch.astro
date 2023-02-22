@@ -1,10 +1,28 @@
-<button class="theme-toggle" id="theme-toggle" title="Toggles light & dark" aria-label="system" aria-live="polite">
-  <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+<button
+  class="theme-toggle"
+  id="theme-toggle"
+  title="Toggles light & dark"
+  aria-label="system"
+  aria-live="polite"
+>
+  <svg
+    class="sun-and-moon"
+    aria-hidden="true"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+  >
     <mask class="moon" id="moon-mask">
       <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
       <circle cx="24" cy="10" r="6" fill="black"></circle>
     </mask>
-    <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor"></circle>
+    <circle
+      class="sun"
+      cx="12"
+      cy="12"
+      r="6"
+      mask="url(#moon-mask)"
+      fill="currentColor"></circle>
     <g class="sun-beams" stroke="currentColor">
       <line x1="12" y1="1" x2="12" y2="3"></line>
       <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -21,12 +39,14 @@
 <script>
   type Theme = 'light' | 'dark';
   function initialTheme(): Theme | 'system' {
-    if (typeof localStorage !== 'undefined') return localStorage.getItem('theme') as 'light' | 'dark' | 'system';
+    if (typeof localStorage !== 'undefined')
+      return localStorage.getItem('theme') as 'light' | 'dark' | 'system';
     return 'system';
   }
 
   function getResolvedTheme(): Theme {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches) return 'dark';
+    if (window.matchMedia('(prefers-color-scheme: dark)').matches)
+      return 'dark';
     return 'light';
   }
 
@@ -37,8 +57,11 @@
     if (toTheme === 'system') resolvedTheme = getResolvedTheme();
     else theme = resolvedTheme = toTheme;
     toggle.setAttribute('aria-label', resolvedTheme);
-    if (resolvedTheme === 'dark') document.documentElement.classList.add('dark');
+    if (resolvedTheme === 'dark')
+      document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
+
+    localStorage.setItem('theme', resolvedTheme);
   };
 
   const toggle = document.querySelector('#theme-toggle') as HTMLButtonElement;
@@ -98,7 +121,8 @@
       transition: transform 0.5s var(--ease-elastic-3);
     }
     .sun-and-moon > .sun-beams {
-      transition: transform 0.5s var(--ease-elastic-4), opacity 0.5s var(--ease-3);
+      transition: transform 0.5s var(--ease-elastic-4),
+        opacity 0.5s var(--ease-3);
     }
     .sun-and-moon .moon > circle {
       transition: transform 0.25s var(--ease-out-5);

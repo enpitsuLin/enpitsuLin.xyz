@@ -6,12 +6,17 @@
  */
 
 /* Code title styles */
-.rehype-code-title {
-  @apply rounded-t bg-gray-300 dark:bg-gray-700 px-5 py-3 font-mono text-sm font-bold text-gray-600 dark:text-gray-200;
+.remark-code-container {
+  box-shadow: 0px -6px 12px -5px #333;
+  @apply relative mt-2 pt-0.5 bg-neutral-200 dark:bg-neutral-600 rounded translate;
 }
-
-.rehype-code-title + div > pre {
-  @apply mt-0 rounded-t-none;
+.remark-code-container::before {
+  content: attr(data-language);
+  @apply absolute left-2 -top-0.5 rounded-b dark:bg-neutral-300 bg-neutral-700 px-2 py-0.5 font-mono text-sm font-bold dark:text-neutral-600 text-neutral-200;
+}
+.remark-code-container::after {
+  content: attr(data-title);
+  @apply absolute left-2 -top-0.5 rounded-b dark:bg-neutral-300 bg-neutral-700 px-2 py-0.5 font-mono text-sm font-bold dark:text-neutral-600 text-neutral-200;
 }
 
 /* Code block styles */
@@ -32,7 +37,7 @@
 }
 
 .highlight-line {
-  @apply border-primary-500 bg-white dark:bg-gray-700 bg-opacity-50;
+  @apply border-primary-500 bg-white dark:bg-neutral-700 bg-opacity-50;
 }
 
 .code-line.diff-deleted {
@@ -48,11 +53,11 @@
 }
 
 .code-line.diff-comment {
-  @apply opacity-50 border-gray-700 bg-gray-700 bg-opacity-30 relative italic;
+  @apply opacity-50 border-neutral-700 bg-neutral-700 bg-opacity-30 relative italic;
 }
 
 .line-number::before {
-  @apply mr-4 -ml-2 inline-block w-4 text-right text-gray-400;
+  @apply mr-4 -ml-2 inline-block w-4 text-right text-neutral-400;
   content: attr(line);
 }
 

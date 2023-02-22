@@ -1,7 +1,7 @@
 ---
 import { toHtml } from 'hast-util-to-html';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypeCodeTitles from 'rehype-code-titles';
+import remarkCodeTitles from 'remark-flexible-code-titles';
 import rehypePrismDiff from 'rehype-prism-diff';
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
@@ -18,9 +18,15 @@ function mdToHtml(markdown: string) {
   const processor = unified()
     .use(remarkParse)
     .use(remarkGfm)
+    .use(remarkCodeTitles, {
+      title: false,
+      containerProperties: (lang, title) => ({
+        ['data-language']: lang,
+        ['data-title']: title
+      })
+    })
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
-    .use(rehypeCodeTitles)
     .use([rehypePrismPlus, { ignoreMissing: true }])
     .use(rehypePrismDiff)
     .use([rehypeAutolinkHeadings, { properties: { className: ['anchor'] } }]);

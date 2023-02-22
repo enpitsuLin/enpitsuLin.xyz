@@ -12,10 +12,10 @@ specifiers:
   groqd: ^0.8.0
   hast-util-to-html: ^8.0.4
   rehype-autolink-headings: ^6.1.1
-  rehype-code-titles: ^1.2.0
   rehype-prism-diff: ^1.1.2
   rehype-prism-plus: ^1.5.1
   rehype-slug: ^5.1.0
+  remark-flexible-code-titles: ^1.1.1
   remark-gfm: ^3.0.1
   remark-parse: ^10.0.1
   remark-rehype: ^10.1.0
@@ -36,10 +36,10 @@ dependencies:
   groqd: 0.8.0
   hast-util-to-html: 8.0.4
   rehype-autolink-headings: 6.1.1
-  rehype-code-titles: 1.2.0
   rehype-prism-diff: 1.1.2
   rehype-prism-plus: 1.5.1
   rehype-slug: 5.1.0
+  remark-flexible-code-titles: 1.1.1
   remark-gfm: 3.0.1
   remark-parse: 10.0.1
   remark-rehype: 10.1.0
@@ -2276,11 +2276,6 @@ packages:
     resolution: {integrity: sha512-nAxA0v8+vXSBDt3AnRUNjyRIQ0rD+ntpbAp4LnPkumc5M9yUbSMa4XDU9Q6etY4f1Wp4bNgvc1yjiZtsTTrSng==}
     dev: false
 
-  /hast/1.0.0:
-    resolution: {integrity: sha512-vFUqlRV5C+xqP76Wwq2SrM0kipnmpxJm7OfvVXpB35Fp+Fn4MV+ozr+JZr5qFvyR1q/U+Foim2x+3P+x9S1PLA==}
-    deprecated: Renamed to rehype
-    dev: false
-
   /hastscript/7.2.0:
     resolution: {integrity: sha512-TtYPq24IldU8iKoJQqvZOuhi5CyCQRAbvDOX0x1eW6rsHSxa/1i2CCiptNTotGHJ3VoHRGmqiv6/D3q113ikkw==}
     dependencies:
@@ -3512,15 +3507,6 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
-  /rehype-code-titles/1.2.0:
-    resolution: {integrity: sha512-bSr2YJ0GHbHFarUNDZ3VpcGi9HqjLNrA9Lj3nuyox2aGGLhN53dFP2WJtPRnnRqU/vpbCatIgOYxEvWP1YYKrw==}
-    engines: {node: '>=16'}
-    requiresBuild: true
-    dependencies:
-      hast: 1.0.0
-      unist-util-visit: 4.1.2
-    dev: false
-
   /rehype-parse/8.0.4:
     resolution: {integrity: sha512-MJJKONunHjoTh4kc3dsM1v3C9kGrrxvA3U8PxZlP2SjH8RNUSrb+lF7Y0KVaUDnGH2QZ5vAn7ulkiajM9ifuqg==}
     dependencies:
@@ -3584,6 +3570,13 @@ packages:
       rehype-parse: 8.0.4
       rehype-stringify: 9.0.3
       unified: 10.1.2
+    dev: false
+
+  /remark-flexible-code-titles/1.1.1:
+    resolution: {integrity: sha512-fT2m1DYvVHfH/6POZ0/fjBJfbOnqVC98MJGJtTlXomgp2oYtPp+d3qh5UKZU6ZWVGFQgCoaN0M3HcFetFHAHVg==}
+    dependencies:
+      '@types/mdast': 3.0.10
+      unist-util-visit: 4.1.2
     dev: false
 
   /remark-frontmatter/4.0.1:
