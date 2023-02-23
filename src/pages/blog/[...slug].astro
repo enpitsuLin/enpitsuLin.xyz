@@ -24,41 +24,42 @@ if (!post) return Astro.redirect('/404');
 </BasicLayout>
 
 <script>
-  const observer = new IntersectionObserver(
-    ([e]) => {
-      if (e.isIntersecting) {
-        const preEl = e.target as HTMLPreElement;
-        const copyButton = document.createElement('button');
-        copyButton.classList.add('code-copy-button');
-        copyButton.setAttribute('type', 'button');
-        copyButton.setAttribute('aria-label', 'Copy code');
-        copyButton.innerText = 'copy';
-        copyButton.onclick = () => {
-          navigator.clipboard.writeText(preEl.innerText);
-        };
-        if (!preEl.parentNode) return;
-        preEl.parentNode.insertBefore(copyButton, preEl);
-        observer.unobserve(e.target);
-      }
-    },
-    { threshold: [0] }
-  );
-  const proseEl = document.querySelector('div.prose') as HTMLDivElement;
-  const preElList = proseEl.querySelectorAll('pre');
-  preElList.forEach((el) => {
-    observer.observe(el);
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          const preEl = e.target as HTMLPreElement;
+          const copyButton = document.createElement('button');
+          copyButton.classList.add('code-copy-button');
+          copyButton.setAttribute('type', 'button');
+          copyButton.setAttribute('aria-label', 'Copy code');
+          copyButton.innerText = 'copy';
+          copyButton.onclick = () => {
+            navigator.clipboard.writeText(preEl.innerText);
+          };
+          if (!preEl.parentNode) return;
+          preEl.parentNode.insertBefore(copyButton, preEl);
+          observer.unobserve(e.target);
+        }
+      },
+      { threshold: [0] }
+    );
+    const proseEl = document.querySelector('div.prose') as HTMLDivElement;
+    const preElList = proseEl.querySelectorAll('pre');
+    preElList.forEach((el) => {
+      observer.observe(el);
+    });
+
+    const mediumZoomScript = document.createElement('script');
+    mediumZoomScript.setAttribute(
+      'src',
+      'https://unpkg.com/medium-zoom@1.0.8/dist/medium-zoom.min.js'
+    );
+    mediumZoomScript.onload = () => {
+      mediumZoom('[data-zoomable]', { background: 'var(--e-bg)' });
+    };
+    document.querySelector('head')!.appendChild(mediumZoomScript);
   });
-
-  const mediumZoomScript = document.createElement('script');
-  mediumZoomScript.setAttribute(
-    'src',
-    'https://unpkg.com/medium-zoom@1.0.8/dist/medium-zoom.min.js'
-  );
-  mediumZoomScript.onload = () => {
-    mediumZoom('[data-zoomable]', { background: 'var(--e-bg)' });
-  };
-  document.querySelector('head')!.appendChild(mediumZoomScript);
-
   declare global {
     // global definition for medium-zoom
     const mediumZoom: any;
