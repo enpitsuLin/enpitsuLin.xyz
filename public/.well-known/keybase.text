@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/enpitsulin
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://enpitsulin.xyz
+  * I am enpitsulin (https://keybase.io/enpitsulin) on keybase.
+  * I have a public key ASD8vxnY4KIh0JA0PV9Q7pJLIlopWQlfbDwgik66r7yChgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01016a54814a3868c51672b4952bbe44fec2c067774f1ea6fbcb26c6b561765c0e5b0a",
+      "host": "keybase.io",
+      "kid": "0120fcbf19d8e0a221d090343d5f50ee924b225a2959095f6c3c208a4ebaafbc82860a",
+      "uid": "a5b2ed45865852965d928646cc5f0219",
+      "username": "enpitsulin"
+    },
+    "merkle_root": {
+      "ctime": 1650190158,
+      "hash": "74e2bacc2c764faf45805a8a48d7a0ee8a605c6ec214acd0a570ee31123fe5b040760d18efc777059880d88e59b3ffaf7fc884ed7facd59f042b88cd14ce733a",
+      "hash_meta": "9e6fd897032ea184ef310cfc1466d1314a7a2b3bd0a98d1c0d07c37ebaf2840d",
+      "seqno": 22310727
+    },
+    "service": {
+      "entropy": "Clq7jQLE+h5TaAq1+ypf1KE0",
+      "hostname": "enpitsulin.xyz",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.9.0"
+  },
+  "ctime": 1650190177,
+  "expire_in": 504576000,
+  "prev": "6619807bd498649a1dbf79346626c95605c3ea95c2b2c477799ceeeed04065d7",
+  "seqno": 10,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEg/L8Z2OCiIdCQND1fUO6SSyJaKVkJX2w8IIpOuq+8goYKp3BheWxvYWTESpcCCsQgZhmAe9SYZJodv3k0ZibJVgXD6pXCssR3eZzu7tBAZdfEIADeS9Vedq/AADDUympu0Cx9HxH5JghSrmkxTnYeTGgBAgHCo3NpZ8RApuhYtsR/jT346aBWeMBV5x4hodoRDt6f6aj/q+QGlyI6HEZ+L09N+ScKKMh8UMulHJIKuvbtzvOoW5X8aB0JBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIHoNsVsBtiT6sokzg2IjLIVZ+0xGQ+0M6+I1nZL1ikOCo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/enpitsulin
+
+==================================================================
