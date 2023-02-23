@@ -40,7 +40,9 @@ function mdToHtml(markdown: string) {
     })
     .use(rehypePrismPlus, { ignoreMissing: true })
     .use(rehypePrismDiff)
-    .use(rehypeAutolinkHeadings, { properties: { className: ['anchor'] } });
+    .use(rehypeAutolinkHeadings, {
+      properties: { className: ['anchor'], ariaHidden: 'true', tabIndex: -1 }
+    });
 
   const file = new VFile();
 
