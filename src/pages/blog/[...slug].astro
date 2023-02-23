@@ -3,6 +3,7 @@ import '~/styles/prism.css';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { usePostsSlug, usePost } from '~/lib/sanity';
 import Markdown from '~/components/Markdown.astro';
+import FormattedDate from '~/components/FormattedDate.astro';
 
 export async function getStaticPaths() {
   return usePostsSlug().then((slugs) =>
@@ -18,8 +19,18 @@ if (!post) return Astro.redirect('/404');
 ---
 
 <BasicLayout title={post.title} description={post.summary}>
-  <div class="prose">
-    <Markdown content={post.content} />
+  <div class="flex items-center flex-col">
+    <div class="py-6 flex flex-col items-center text-base">
+      <FormattedDate
+        date={new Date(post.date)}
+        itemprop="datePublished"
+        class="text-sm text-neutral-700"
+      />
+      <h1 class="text-4xl font-bold text-center">{post.title}</h1>
+    </div>
+    <div class="prose">
+      <Markdown content={post.content} />
+    </div>
   </div>
 </BasicLayout>
 
