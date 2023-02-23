@@ -20,15 +20,15 @@ if (!post) return Astro.redirect('/404');
 
 <BasicLayout title={post.title} description={post.summary}>
   <div class="flex items-center flex-col">
-    <div class="py-6 flex flex-col items-center text-base">
+    <div class="pt-14 pb-6 flex flex-col items-center text-base border-b">
       <FormattedDate
         date={new Date(post.date)}
         itemprop="datePublished"
-        class="text-sm text-neutral-700"
+        class="text-sm text-neutral-700 dark:text-neutral-200"
       />
       <h1 class="text-4xl font-bold text-center">{post.title}</h1>
     </div>
-    <div class="prose">
+    <div class="prose pt-4">
       <Markdown content={post.content} />
     </div>
   </div>
