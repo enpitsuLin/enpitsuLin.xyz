@@ -38,11 +38,14 @@ const { title, description, image = '/placeholder-social.jpg' } = Astro.props;
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<script
-  async
-  defer
-  data-website-id="43380447-39ed-42d7-8524-4618e3dd6a68"
-  src="https://umami.enpitsulin.xyz/umami-analytics.js"
-></script>
-
+{
+  import.meta.env.PROD && (
+    <script
+      async
+      defer
+      data-website-id="43380447-39ed-42d7-8524-4618e3dd6a68"
+      src="https://umami.enpitsulin.xyz/umami-analytics.js"
+    />
+  )
+}
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
