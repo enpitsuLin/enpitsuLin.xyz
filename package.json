@@ -23,6 +23,7 @@
 		"rehype-autolink-headings": "^6.1.1",
 		"rehype-prism-diff": "^1.1.2",
 		"rehype-prism-plus": "^1.5.1",
+		"rehype-rewrite": "^3.0.6",
 		"rehype-slug": "^5.1.0",
 		"remark-flexible-code-titles": "^1.1.1",
 		"remark-gfm": "^3.0.1",
