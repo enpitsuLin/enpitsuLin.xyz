@@ -1,40 +1,42 @@
 {
-	"name": "blog",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@astrojs/mdx": "^0.17.0",
-		"@astrojs/rss": "^2.1.1",
-		"@astrojs/sitemap": "^1.0.1",
-		"@astrojs/vue": "^2.0.1",
-		"@sanity/client": "^5.2.1",
-		"@unocss/reset": "^0.49.7",
-		"astro": "^2.0.14",
-		"date-fns": "^2.29.3",
-		"groqd": "^0.8.0",
-		"hast-util-to-html": "^8.0.4",
-		"medium-zoom": "^1.0.8",
-		"rehype-autolink-headings": "^6.1.1",
-		"rehype-prism-diff": "^1.1.2",
-		"rehype-prism-plus": "^1.5.1",
-		"rehype-rewrite": "^3.0.6",
-		"rehype-slug": "^5.1.0",
-		"remark-flexible-code-titles": "^1.1.1",
-		"remark-gfm": "^3.0.1",
-		"remark-parse": "^10.0.1",
-		"remark-rehype": "^10.1.0",
-		"unified": "^10.1.2",
-		"vfile": "^5.3.7",
-		"vue": "^3.2.30"
-	},
-	"devDependencies": {
-		"unocss": "^0.49.7"
-	}
+  "name": "blog",
+  "private": true,
+  "type": "module",
+  "version": "0.0.1",
+  "license": "MIT",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^0.17.0",
+    "@astrojs/rss": "^2.1.1",
+    "@astrojs/sitemap": "^1.0.1",
+    "@astrojs/vue": "^2.0.1",
+    "@sanity/client": "^5.2.1",
+    "@unocss/reset": "^0.49.7",
+    "astro": "^2.0.14",
+    "date-fns": "^2.29.3",
+    "groqd": "^0.8.0",
+    "hast-util-to-html": "^8.0.4",
+    "medium-zoom": "^1.0.8",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-prism-diff": "^1.1.2",
+    "rehype-prism-plus": "^1.5.1",
+    "rehype-rewrite": "^3.0.6",
+    "rehype-slug": "^5.1.0",
+    "remark-flexible-code-titles": "^1.1.1",
+    "remark-gfm": "^3.0.1",
+    "remark-parse": "^10.0.1",
+    "remark-rehype": "^10.1.0",
+    "unified": "^10.1.2",
+    "vfile": "^5.3.7",
+    "vue": "^3.2.30"
+  },
+  "devDependencies": {
+    "unocss": "^0.49.7"
+  }
 }

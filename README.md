@@ -1,68 +1,28 @@
-# Astro Starter Kit: Blog
+# enpitsulin.xyz
 
-```
-npm create astro@latest -- --template blog
-```
+enpitsulin.xyz is personal blog for [enpitsulin](https://github.com/enpitsuLin)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/blog)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/blog)
+Currently it is built with [Astro](https://astro.build/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[Check it out now!](https://enpitsulin.xyz/)
 
+## Features
 
-![blog](https://user-images.githubusercontent.com/4677417/186189140-4ef17aac-c3c9-4918-a8c2-ce86ba1bb394.png)
+- 🤖 Static website with modern web technologies
+- ⚡️ 100/100 Lighthouse performance
+- 🔍 SEO-friendly with canonical URLs and OpenGraph data
+- 🗺 Sitemap support
+- 📢 RSS Feed support
+- 📃 Write post by markdown and host content in [sanity](https://www.sanity.io/)
+- 🌔 Light and Dark theme
 
-Features:
+## Tools and Framework Used
 
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and OpenGraph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
+- [Astro](https://astro.build/): An all-in-one web framework for building fast, content-focused websites.
+- [Umami](https://umami.is/): A self-hold website analytics by own your, alternative to Google Analytics.
+- [unocss](https://github.com/unocss/unocss): A utility-first CSS framework for styled websites and apps.
+- [Vercel](https://vercel.com/): cloud platform for hosting website
 
-## 🚀 Project Structure
+# License
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-├── public/
-├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
-├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                | Action                                           |
-| :--------------------- | :----------------------------------------------- |
-| `npm install`          | Installs dependencies                            |
-| `npm run dev`          | Starts local dev server at `localhost:3000`      |
-| `npm run build`        | Build your production site to `./dist/`          |
-| `npm run preview`      | Preview your build locally, before deploying     |
-| `npm run astro ...`    | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+MIT
