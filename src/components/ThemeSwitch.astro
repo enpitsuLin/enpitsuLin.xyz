@@ -67,10 +67,7 @@
 
   const toggle = document.querySelector('#theme-toggle') as HTMLButtonElement;
 
-  document.addEventListener('DOMContentLoaded', () => {
-    toggle.setAttribute('aria-label', theme);
-    onThemeChange(initialTheme());
-  });
+  onThemeChange(initialTheme());
   toggle.addEventListener('click', () => {
     if (resolvedTheme === 'dark') {
       onThemeChange('light');
