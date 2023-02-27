@@ -35,6 +35,7 @@ if (!post) return Astro.redirect('/404');
 </BasicLayout>
 
 <script>
+  import type { Zoom, ZoomSelector, ZoomOptions } from 'medium-zoom';
   document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(
       ([e]) => {
@@ -71,8 +72,8 @@ if (!post) return Astro.redirect('/404');
     };
     document.querySelector('head')!.appendChild(mediumZoomScript);
   });
-  declare global {
-    // global definition for medium-zoom
-    const mediumZoom: any;
-  }
+  declare const mediumZoom: (
+    selector?: ZoomSelector,
+    options?: ZoomOptions
+  ) => Zoom;
 </script>
