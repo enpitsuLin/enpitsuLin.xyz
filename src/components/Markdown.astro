@@ -48,6 +48,7 @@ function mdToHtml(markdown: string) {
     .use(rehypePrismPlus, { ignoreMissing: true })
     .use(rehypePrismDiff)
     .use(rehypeAutolinkHeadings, {
+      behavior: 'append',
       properties: {
         ariaHidden: 'true',
         tabIndex: -1
@@ -56,7 +57,7 @@ function mdToHtml(markdown: string) {
         type: 'element',
         tagName: 'span',
         properties: {
-          className: ['-ml-1em', 'absolute', 'op-0', 'group-hover:op-100']
+          className: ['op-0', 'group-hover:op-100']
         },
         children: [
           {
