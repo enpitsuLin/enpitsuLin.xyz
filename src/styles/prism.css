@@ -61,7 +61,7 @@
 }
 
 .code-line.diff-comment {
-  @apply opacity-50 border-neutral-700 bg-neutral-700 bg-opacity-30 relative italic;
+  @apply border-neutral-700 bg-neutral-700 bg-opacity-30 relative italic;
 }
 
 .line-number::before {

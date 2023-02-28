@@ -18,6 +18,10 @@ export default defineConfig<Theme>({
         },
         'p,ul,ol,pre': {
           'font-size': '0.9375rem'
+        },
+        'p:has(> img)': {
+          display: 'flex',
+          'justify-content': 'center'
         }
       }
     })
