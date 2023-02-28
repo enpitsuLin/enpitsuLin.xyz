@@ -4,6 +4,7 @@ import BasicLayout from '~/layouts/BasicLayout.astro';
 import { usePostsSlug, usePost } from '~/lib/sanity';
 import Markdown from '~/components/Markdown.astro';
 import FormattedDate from '~/components/FormattedDate.astro';
+import ScrollToTop from '~/components/ScrollToTop.astro';
 
 export async function getStaticPaths() {
   return usePostsSlug().then((slugs) =>
@@ -32,6 +33,7 @@ if (!post) return Astro.redirect('/404');
       <Markdown content={post.content} />
     </div>
   </div>
+  <ScrollToTop />
 </BasicLayout>
 
 <script>
