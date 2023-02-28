@@ -3,3 +3,4 @@
 
 export const SITE_TITLE = 'enpitsulin';
 export const SITE_DESCRIPTION = 'Welcome to my website!';
+export const GITHUB_PROFILE = 'https://www.github.com/enpitsulin';
