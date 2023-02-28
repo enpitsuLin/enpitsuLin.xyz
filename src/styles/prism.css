@@ -19,7 +19,7 @@
   @apply absolute left-2 -top-0.5 rounded-b dark:bg-neutral-300 bg-neutral-700 px-2 py-0.5 font-mono text-sm font-bold dark:text-neutral-600 text-neutral-200;
 }
 .remark-code-container .code-copy-button {
-  @apply absolute right-2 -top-0.5 dark:bg-neutral-300 bg-neutral-700 dark:text-neutral-600 text-neutral-200 rounded-b px-2 py-0.5 font-mono text-sm font-bold select-none;
+  @apply min-w-16 absolute right-2 -top-0.5 dark:bg-neutral-300 bg-neutral-700 dark:text-neutral-600 text-neutral-200 rounded-b px-2 py-0.5 font-mono text-sm font-bold select-none;
 }
 
 /* Code block styles */

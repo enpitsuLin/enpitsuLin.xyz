@@ -50,6 +50,10 @@ if (!post) return Astro.redirect('/404');
           copyButton.innerText = 'copy';
           copyButton.onclick = () => {
             navigator.clipboard.writeText(preEl.innerText);
+            copyButton.innerText = 'copied';
+            setTimeout(() => {
+              copyButton.innerText = 'copy';
+            }, 1000);
           };
           if (!preEl.parentNode) return;
           preEl.parentNode.insertBefore(copyButton, preEl);
