@@ -16,37 +16,40 @@ const { title, date, summary, tags, slug } = Astro.props;
 <article
   itemscope
   itemtype="http://schema.org/BlogPosting"
-  class="flex border-t border-black dark:border-white border-opacity-8 flex-col py-7.5 relative"
+  class="flex border-t border-black dark:border-white border-opacity-8 flex-col py-4 relative"
 >
-  <h2 itemprop="headline" class="mb-3.5">
-    <a class="font-bold text-6" href={`/blog/${slug}`}>
+  <h2 itemprop="headline" class="text-6">
+    <a href={`/blog/${slug}`}>
       {title}
     </a>
   </h2>
-  <div class="flex justify-between">
-    <FormattedDate
-      date={new Date(date)}
-      itemprop="datePublished"
-      class="text-sm text-neutral-700 dark:text-neutral-200"
-    />
-    <div class="space-x-1">
+
+  <div
+    itemprop="articleBody"
+    class="my-4 text-opacity-82 text-sm text-neutral-600 dark:text-neutral-300"
+  >
+    <a href={`/blog/${slug}`}>{summary}</a>
+  </div>
+
+  <div class="flex items-center">
+    <span class="text-xs text-neutral-400 dark:text-neutral-500">
+      发布于&nbsp;
+      <FormattedDate date={new Date(date)} itemprop="datePublished" />
+    </span>
+    <div class="space-x-2 flex items-center ml-4">
       {
         tags.map((tag) => {
           return (
             <a
               title={tag}
               href={`/tags/${tag}/1`}
-              class="inline-block px-4 h-7 leading-7  motion-safe:(transition-colors duration-200 ease-in) bg-black text-white dark:text-black dark:bg-white rounded-2xl"
+              class="inline-block text-xs motion-safe:(transition-colors duration-200 ease-in) text-neutral-400 dark:text-neutral-500 hover:underline"
             >
-              {tag}
+              #{tag}
             </a>
           );
         })
       }
     </div>
-  </div>
-
-  <div itemprop="articleBody" class="my-4 text-opacity-82">
-    <a href={`/blog/${slug}`}>{summary}</a>
   </div>
 </article>

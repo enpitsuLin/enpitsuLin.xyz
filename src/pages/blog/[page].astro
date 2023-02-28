@@ -37,12 +37,15 @@ const { page } = Astro.props;
       ))
     }
   </ul>
-  <div class="pt-6 pb-8">
+  <div class="pt-6 pb-8 text-sm">
     <nav class="flex justify-between">
       <a
         aria-label="Prev page"
         href={page.url.prev}
         data-disabled={!page.url.prev}
+        class={[!!page.url.prev && 'hover:underline']
+          .filter((i) => !!i)
+          .join(' ')}
       >
         ←
       </a>
@@ -53,6 +56,9 @@ const { page } = Astro.props;
         aria-label="Next page"
         href={page.url.next}
         data-disabled={!page.url.next}
+        class={[!!page.url.next && 'hover:underline']
+          .filter((i) => !!i)
+          .join(' ')}
       >
         →
       </a>
