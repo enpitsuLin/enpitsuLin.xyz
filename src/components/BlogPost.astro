@@ -16,7 +16,7 @@ const { title, date, summary, tags, slug } = Astro.props;
 <article
   itemscope
   itemtype="http://schema.org/BlogPosting"
-  class="flex border-t border-black dark:border-white border-opacity-8 flex-col py-4 relative"
+  class="flex border-t border-black dark:border-white border-opacity-8 dark:border-opacity-8 flex-col py-4 relative"
 >
   <h2 itemprop="headline" class="text-6">
     <a href={`/blog/${slug}`}>

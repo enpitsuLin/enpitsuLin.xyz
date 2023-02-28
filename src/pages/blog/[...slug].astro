@@ -22,7 +22,9 @@ if (!post) return Astro.redirect('/404');
 
 <BasicLayout title={post.title} description={post.summary}>
   <div class="flex items-center flex-col">
-    <div class="pt-14 pb-6 flex flex-col items-center text-base border-b">
+    <div
+      class="pt-14 pb-6 flex flex-col items-center text-base border-b border-black dark:border-white border-opacity-8 dark:border-opacity-8"
+    >
       <FormattedDate
         date={new Date(post.date)}
         itemprop="datePublished"
