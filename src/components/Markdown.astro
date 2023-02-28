@@ -29,11 +29,18 @@ function mdToHtml(markdown: string) {
     .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypeSlug)
     .use(rehypeRewrite, {
-      selector: 'img',
       rewrite: (node) => {
         if (node.type === 'element' && node.tagName === 'img') {
           node.properties = Object.assign(node.properties ?? {}, {
             'data-zoomable': true
+          });
+        }
+        if (
+          node.type === 'element' &&
+          ['h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)
+        ) {
+          node.properties = Object.assign(node.properties ?? {}, {
+            className: 'group'
           });
         }
       }
@@ -41,7 +48,23 @@ function mdToHtml(markdown: string) {
     .use(rehypePrismPlus, { ignoreMissing: true })
     .use(rehypePrismDiff)
     .use(rehypeAutolinkHeadings, {
-      properties: { className: ['anchor'], ariaHidden: 'true', tabIndex: -1 }
+      properties: {
+        ariaHidden: 'true',
+        tabIndex: -1
+      },
+      content: {
+        type: 'element',
+        tagName: 'span',
+        properties: {
+          className: ['-ml-1em', 'absolute', 'op-0', 'group-hover:op-100']
+        },
+        children: [
+          {
+            type: 'text',
+            value: '#'
+          }
+        ]
+      }
     });
 
   const file = new VFile();
