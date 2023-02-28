@@ -5,6 +5,7 @@ import { usePostsSlug, usePost } from '~/lib/sanity';
 import Markdown from '~/components/Markdown.astro';
 import FormattedDate from '~/components/FormattedDate.astro';
 import ScrollToTop from '~/components/ScrollToTop.astro';
+import ArticleLicense from '~/components/ArticleLicense.astro';
 
 export async function getStaticPaths() {
   return usePostsSlug().then((slugs) =>
@@ -32,6 +33,10 @@ if (!post) return Astro.redirect('/404');
     <div class="prose pt-4">
       <Markdown content={post.content} />
     </div>
+    <ArticleLicense
+      url={new URL(`/blog/${post.slug}`, Astro.url)}
+      title={post.title}
+    />
   </div>
   <ScrollToTop />
 </BasicLayout>
