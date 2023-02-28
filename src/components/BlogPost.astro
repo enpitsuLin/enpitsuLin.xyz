@@ -32,11 +32,14 @@ const { title, date, summary, tags, slug } = Astro.props;
   </div>
 
   <div class="flex items-center">
-    <span class="text-xs text-neutral-400 dark:text-neutral-500">
-      发布于&nbsp;
+    <span
+      class="text-xs text-neutral-400 dark:text-neutral-500"
+      aria-disabled="true"
+    >
+      <span>发布于&nbsp;</span>
       <FormattedDate date={new Date(date)} itemprop="datePublished" />
     </span>
-    <div class="space-x-2 flex items-center ml-4">
+    <div class="space-x-2 flex items-center ml-4" aria-disabled="true">
       {
         tags.map((tag) => {
           return (
