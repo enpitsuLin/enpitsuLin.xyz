@@ -51,17 +51,17 @@ const { title, description, image = '/placeholder-social.png' } = Astro.props;
 <link rel="alternate" type="application/rss+xml" href="/rss.xml" />
 
 <link
-  rel="stylesheet"
+  rel="preload"
   href="//s1.hdslb.com/bfs/static/jinkela/long/font/regular.css"
-  media="all"
-  onload="this.media='all'"
+  as="style"
+  onload="this.rel='stylesheet'"
 />
 
 <link
-  rel="stylesheet"
+  rel="preload"
   href="//s1.hdslb.com/bfs/static/jinkela/long/font/medium.css"
-  media="all"
-  onload="this.media='all'"
+  as="style"
+  onload="this.rel='stylesheet'"
 />
 <style>
   html {
