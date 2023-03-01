@@ -6,6 +6,7 @@ import Markdown from '~/components/Markdown.astro';
 import FormattedDate from '~/components/FormattedDate.astro';
 import ScrollToTop from '~/components/ScrollToTop.astro';
 import ArticleLicense from '~/components/ArticleLicense.astro';
+import Comments from '~/components/Comments';
 
 export async function getStaticPaths() {
   return usePostsSlug().then((slugs) =>
@@ -41,6 +42,7 @@ if (!post) return Astro.redirect('/404');
       date={post.date}
       updateDate={post.updateDate}
     />
+    <Comments base={Astro.url.toString()} slug={post.slug} client:visible />
   </div>
   <ScrollToTop />
 </BasicLayout>

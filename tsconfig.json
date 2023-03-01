@@ -5,7 +5,10 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
-    }
+      "~/*": [
+        "src/*"
+      ]
+    },
+    "jsxImportSource": "solid-js"
   }
 }

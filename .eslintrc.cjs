@@ -1,4 +1,8 @@
 module.exports = {
+  parserOptions: {
+    sourceType: 'module',
+    ecmaVersion: 2015
+  },
   overrides: [
     {
       files: ['*.astro'],
@@ -20,7 +24,7 @@ module.exports = {
       }
     },
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       extends: ['plugin:@typescript-eslint/recommended'],
       rules: {
@@ -38,9 +42,6 @@ module.exports = {
         es2020: true
       },
       extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
-      parserOptions: {
-        sourceType: 'module'
-      },
       parser: '@typescript-eslint/parser',
       rules: {
         'no-unused-vars': 'off',
