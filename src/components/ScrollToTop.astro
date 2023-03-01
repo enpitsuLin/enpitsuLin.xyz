@@ -34,7 +34,7 @@
     } else scrollToTop.classList.add('hidden');
   };
 
-  window.addEventListener('scroll', onScroll);
+  window.addEventListener('scroll', onScroll, { passive: true });
   scrollToTop.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
