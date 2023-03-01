@@ -38,6 +38,8 @@ if (!post) return Astro.redirect('/404');
     <ArticleLicense
       url={new URL(`/blog/${post.slug}`, Astro.url)}
       title={post.title}
+      date={post.date}
+      updateDate={post.updateDate}
     />
   </div>
   <ScrollToTop />

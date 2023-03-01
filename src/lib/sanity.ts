@@ -23,7 +23,8 @@ export const usePost = (slug: string) => {
       tags: q.array(q.string()),
       slug: ['slug.current', q.string()],
       content: q.string(),
-      draft: ["_id in path('drafts.**')", q.boolean()]
+      draft: ["_id in path('drafts.**')", q.boolean()],
+      updateDate: ['_updatedAt', q.string()]
     })
     .slice(0)
     .nullable();
