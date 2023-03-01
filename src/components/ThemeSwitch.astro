@@ -51,13 +51,11 @@
     return 'light';
   }
 
-  let theme: 'dark' | 'light' | 'system';
   let resolvedTheme: Theme;
 
   const onThemeChange = (toTheme: Theme | 'system') => {
     if (toTheme === 'system') resolvedTheme = getResolvedTheme();
-    else theme = resolvedTheme = toTheme;
-    toggle.setAttribute('aria-label', resolvedTheme);
+    else    toggle.setAttribute('aria-label', resolvedTheme);
     if (resolvedTheme === 'dark')
       document.documentElement.classList.add('dark');
     else document.documentElement.classList.remove('dark');
