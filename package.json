@@ -42,7 +42,6 @@
     "astro-eslint-parser": "^0.11.0",
     "eslint": "^8.35.0",
     "eslint-plugin-astro": "^0.23.0",
-    "eslint-plugin-jsx-a11y": "^6.7.1",
     "typescript": "^4.9.5",
     "unocss": "^0.49.7"
   },
