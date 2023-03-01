@@ -36,14 +36,14 @@ if (!post) return Astro.redirect('/404');
     <Markdown content={post.content} />
   </div>
   <ArticleLicense
-    url={new URL(`/blog/${post.slug}`, Astro.url)}
+    url={Astro.url}
     title={post.title}
     date={post.date}
     updateDate={post.updateDate}
   />
   {
     import.meta.env.PROD && (
-      <Comments base={Astro.url.toString()} slug={post.slug} client:visible />
+      <Comments url={Astro.url.toString()} slug={post.slug} client:visible />
     )
   }
   <ScrollToTop />
