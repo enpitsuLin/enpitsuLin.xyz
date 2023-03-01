@@ -47,7 +47,7 @@ const { page } = Astro.props;
           .filter((i) => !!i)
           .join(' ')}
       >
-        ←
+        « prev
       </a>
       <span>
         {page.currentPage}/{page.lastPage}
@@ -60,7 +60,7 @@ const { page } = Astro.props;
           .filter((i) => !!i)
           .join(' ')}
       >
-        →
+        next »
       </a>
     </nav>
   </div>
