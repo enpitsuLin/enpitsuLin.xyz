@@ -73,6 +73,9 @@
     } else {
       onThemeChange('dark');
     }
+    if (window.DISQUS) {
+      window.DISQUS.reset({ reload: true });
+    }
   });
 </script>
 <style is:global>

@@ -42,7 +42,11 @@ if (!post) return Astro.redirect('/404');
       date={post.date}
       updateDate={post.updateDate}
     />
-    <Comments base={Astro.url.toString()} slug={post.slug} client:visible />
+    {
+      import.meta.env.PROD && (
+        <Comments base={Astro.url.toString()} slug={post.slug} client:visible />
+      )
+    }
   </div>
   <ScrollToTop />
 </BasicLayout>
