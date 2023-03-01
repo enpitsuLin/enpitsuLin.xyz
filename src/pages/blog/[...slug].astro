@@ -22,32 +22,30 @@ if (!post) return Astro.redirect('/404');
 ---
 
 <BasicLayout title={post.title} description={post.summary}>
-  <div class="flex items-center flex-col">
-    <div
-      class="pt-14 pb-6 flex flex-col items-center text-base border-b border-black dark:border-white border-opacity-8 dark:border-opacity-8"
-    >
-      <FormattedDate
-        date={new Date(post.date)}
-        itemprop="datePublished"
-        class="text-sm text-neutral-700 dark:text-neutral-200"
-      />
-      <h1 class="text-4xl font-bold text-center">{post.title}</h1>
-    </div>
-    <div class="prose pt-4">
-      <Markdown content={post.content} />
-    </div>
-    <ArticleLicense
-      url={new URL(`/blog/${post.slug}`, Astro.url)}
-      title={post.title}
-      date={post.date}
-      updateDate={post.updateDate}
+  <div
+    class="pt-14 pb-6 flex flex-col items-center text-base border-b border-black dark:border-white border-opacity-8 dark:border-opacity-8"
+  >
+    <FormattedDate
+      date={new Date(post.date)}
+      itemprop="datePublished"
+      class="text-sm text-neutral-700 dark:text-neutral-200"
     />
-    {
-      import.meta.env.PROD && (
-        <Comments base={Astro.url.toString()} slug={post.slug} client:visible />
-      )
-    }
+    <h1 class="text-4xl font-bold text-center">{post.title}</h1>
   </div>
+  <div class="prose pt-4">
+    <Markdown content={post.content} />
+  </div>
+  <ArticleLicense
+    url={new URL(`/blog/${post.slug}`, Astro.url)}
+    title={post.title}
+    date={post.date}
+    updateDate={post.updateDate}
+  />
+  {
+    import.meta.env.PROD && (
+      <Comments base={Astro.url.toString()} slug={post.slug} client:visible />
+    )
+  }
   <ScrollToTop />
 </BasicLayout>
 
