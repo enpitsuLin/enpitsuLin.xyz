@@ -15,7 +15,7 @@ export default function Comments(props: Props) {
       shortname: 'enpitsulin',
       siteName: `enpitsulin's blog`,
       api: 'https://disqusjs.enpitsulin.xyz/',
-      apikey: import.meta.env.VITE_DISQUS_APIKEY
+      apikey: import.meta.env.PUBLIC_DISQUS_APIKEY
     });
     return disqus;
   }
