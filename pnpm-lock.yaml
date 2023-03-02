@@ -9,7 +9,7 @@ specifiers:
   '@sanity/client': ^5.2.1
   '@typescript-eslint/eslint-plugin': ^5.54.0
   '@typescript-eslint/parser': ^5.54.0
-  '@unocss/reset': ^0.49.7
+  '@unocss/reset': ^0.50.0
   astro: ^2.0.14
   astro-eslint-parser: ^0.11.0
   date-fns: ^2.29.3
@@ -42,7 +42,7 @@ dependencies:
   '@astrojs/solid-js': 2.0.2_solid-js@1.6.11
   '@astrojs/vue': 2.0.1_astro@2.0.14+vue@3.2.47
   '@sanity/client': 5.2.1
-  '@unocss/reset': 0.49.7
+  '@unocss/reset': 0.50.3
   astro: 2.0.14
   date-fns: 2.29.3
   disqusjs: 3.0.2
@@ -1344,13 +1344,8 @@ packages:
       '@unocss/preset-mini': 0.50.3
     dev: true
 
-  /@unocss/reset/0.49.7:
-    resolution: {integrity: sha512-dodJ+4LLyBJVLNZZyZNGRnEF/Sepb2n4q+JC+TZ1SjxGpiYGxeDvPFw9kE1M7DZ0XshWE+j31HhojQXc1GDsBA==}
-    dev: false
-
   /@unocss/reset/0.50.3:
     resolution: {integrity: sha512-bHzHMPHtwSFKnQOEgJDcm/TNyH7L7Mx7xIznDDp2YPTHfb+s98DpVhXxMSjopNSggB7+X8s8UskL08iSI8pjRQ==}
-    dev: true
 
   /@unocss/scope/0.50.3:
     resolution: {integrity: sha512-qwxU8h+uwWcwcDv20LwX5y0yT1RbbGWw0VmTjkV3YjeJDjMwiDkva3bUnWW92aot8nG/iQUY3+mtjt9TRw1Pig==}

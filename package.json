@@ -19,7 +19,7 @@
     "@astrojs/solid-js": "^2.0.2",
     "@astrojs/vue": "^2.0.1",
     "@sanity/client": "^5.2.1",
-    "@unocss/reset": "^0.49.7",
+    "@unocss/reset": "^0.50.0",
     "astro": "^2.0.14",
     "date-fns": "^2.29.3",
     "disqusjs": "^3.0.2",
