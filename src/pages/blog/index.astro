@@ -9,7 +9,7 @@ const total = await usePostsCount();
 <ListLayout
   posts={post}
   page={{
-    total: total,
+    total: Math.ceil(total / 5),
     current: 1
   }}
 />
