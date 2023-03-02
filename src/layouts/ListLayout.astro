@@ -1,0 +1,69 @@
+---
+import BasicLayout from './BasicLayout.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import BlogPost from '~/components/BlogPost.astro';
+type Props = {
+  posts: any[];
+  page: {
+    prev?: string;
+    next?: string;
+    total: number;
+    current: number;
+  };
+};
+
+const { posts, page } = Astro.props;
+
+const createPagerUrl = (current: number, total: number) => {
+  const prev =
+    current === 1 ? undefined : `/blog/${current === 2 ? '' : current - 1}`;
+  const next = current === total ? undefined : `/blog/${current + 1}`;
+  return { prev, next };
+};
+
+const { prev, next } = createPagerUrl(page.current, page.total);
+---
+
+<BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <div
+    class="text-9.5 leading-none tracking-.6px text-opacity-85 select-none font-900 my-8"
+  >
+    <span
+      class="mx-1 my-2 inline-block relative after:-bottom-2 after:left-1/10 after:w-6/10 after:h-7 after:content-empty after:absolute after:inline-block after:rounded-[6px_12px_20px_14px] after:bg-opacity-30 after:bg-opacity-30 after:bg-black after:mix-blend-multiply after:-skew-x-20 after:-skew-y-2deg"
+    >
+      All Posts
+    </span>
+  </div>
+  <ul>
+    {
+      posts.map((item) => (
+        <li class="group">
+          <BlogPost {...item} />
+        </li>
+      ))
+    }
+  </ul>
+  <div class="pt-6 pb-8 text-sm">
+    <nav class="flex justify-between">
+      <a
+        aria-label="Prev page"
+        href={prev}
+        data-disabled={!prev}
+        class={[!!prev && 'hover:underline'].filter((i) => !!i).join(' ')}
+      >
+        « prev
+      </a>
+      <span>
+        {page.current}/{page.total}
+      </span>
+      <a
+        aria-label="Next page"
+        href={next}
+        data-disabled={!next}
+        class={[!!next && 'hover:underline'].filter((i) => !!i).join(' ')}
+      >
+        next »
+      </a>
+    </nav>
+  </div>
+</BasicLayout>

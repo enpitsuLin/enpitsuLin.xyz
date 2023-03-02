@@ -1,0 +1,15 @@
+---
+import ListLayout from '~/layouts/ListLayout.astro';
+import { usePosts, usePostsCount } from '~/lib/sanity';
+
+const post = await usePosts({ limit: 5 });
+const total = await usePostsCount();
+---
+
+<ListLayout
+  posts={post}
+  page={{
+    total: total,
+    current: 1
+  }}
+/>
