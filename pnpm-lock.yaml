@@ -16,7 +16,7 @@ specifiers:
   disqusjs: ^3.0.2
   eslint: ^8.35.0
   eslint-plugin-astro: ^0.23.0
-  groqd: ^0.8.0
+  groqd: ^0.9.0
   hast-util-to-html: ^8.0.4
   medium-zoom: ^1.0.8
   rehype-autolink-headings: ^6.1.1
@@ -46,7 +46,7 @@ dependencies:
   astro: 2.0.14
   date-fns: 2.29.3
   disqusjs: 3.0.2
-  groqd: 0.8.0
+  groqd: 0.9.1
   hast-util-to-html: 8.0.4
   medium-zoom: 1.0.8
   rehype-autolink-headings: 6.1.1
@@ -2714,8 +2714,8 @@ packages:
       strip-bom-string: 1.0.0
     dev: false
 
-  /groqd/0.8.0:
-    resolution: {integrity: sha512-OEWNKsFFbmQCjMcM0fJzk0NtfTVlcyDQtDnDUYcF00flx23pm7amMQ2+ChgF77TLKWhlgnheAJntuKNaOdJPUg==}
+  /groqd/0.9.1:
+    resolution: {integrity: sha512-v7nqUO6T27R0oI8MK0EGmqMyDhrwGmnxWtBsIzlA+C3Oajj8saQGkfd1pcuOf3VWCr8kwpQu+u8OE/LXr8h6qg==}
     engines: {node: '>= 14'}
     dependencies:
       zod: 3.20.6
