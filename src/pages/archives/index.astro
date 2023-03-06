@@ -1,6 +1,7 @@
 ---
 import { format, parseISO } from 'date-fns';
 import FormattedDate from '~/components/FormattedDate.astro';
+import PageTitle from '~/components/PageTitle.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { useArchives } from '~/lib/sanity';
 
@@ -29,32 +30,35 @@ const archivedPosts = posts.reduce(
 ---
 
 <BasicLayout title="归档" description="">
-  {
-    Array.from(archivedPosts.entries()).map(([year, posts]) => {
-      return (
-        <div>
-          <div class="relative inline-block py-1 mb-1">
-            <span> {year}</span>
-            <span class="absolute right-0 left-0 bottom-0 h-4px rounded bg-#eee" />
+  <PageTitle title="Archives" />
+  <div class="mb-4">
+    {
+      Array.from(archivedPosts.entries()).map(([year, posts]) => {
+        return (
+          <div>
+            <div class="relative inline-block py-1 mb-1">
+              <span> {year}</span>
+              <span class="absolute right-0 left-0 bottom-0 h-4px rounded bg-#eee" />
+            </div>
+            <div role="list" class="flex flex-col text-sm">
+              {posts.map((post) => {
+                return (
+                  <div role="listitem" class="py-1">
+                    <a href={`/blog/${post.slug}`} class="space-x-1">
+                      <FormattedDate
+                        date={parseISO(post.date)}
+                        format="MM-dd"
+                        class="op-80"
+                      />
+                      <span>{post.title}</span>
+                    </a>
+                  </div>
+                );
+              })}
+            </div>
           </div>
-          <div role="list" class="flex flex-col text-sm">
-            {posts.map((post) => {
-              return (
-                <div role="listitem" class="py-1">
-                  <a href={`/blog/${post.slug}`} class="space-x-1">
-                    <FormattedDate
-                      date={parseISO(post.date)}
-                      format="MM-dd"
-                      class="op-80"
-                    />
-                    <span>{post.title}</span>
-                  </a>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      );
-    })
-  }
+        );
+      })
+    }
+  </div>
 </BasicLayout>
