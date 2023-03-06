@@ -1,0 +1,26 @@
+---
+import BasicLayout from '~/layouts/BasicLayout.astro';
+import { useAllTags } from '~/lib/sanity';
+
+const tags = [...new Set(await useAllTags())];
+---
+
+<BasicLayout title="标签" description="标签">
+  <ul class="flex flex-wrap">
+    {
+      tags.map((tag) => {
+        return (
+          <li class="m-4px">
+            <a
+              href={`/tags/${tag}`}
+              class="text-sm px-2 py-1 rounded bg-neutral-200 dark:bg-neutral-700 hover:bg-neutral-300 dark:hover:bg-neutral-600"
+            >
+              <span class="op-50">#</span>
+              {tag}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BasicLayout>
