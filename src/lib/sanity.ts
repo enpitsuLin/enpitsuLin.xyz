@@ -107,3 +107,17 @@ export const usePostsByTag = async (tag: string) => {
   const runQuery = createQueryRunner();
   return runQuery(query, { tag });
 };
+
+export const useArchives = () => {
+  const query = q('*')
+    .filter("_type == 'post' && !(_id in path('drafts.**'))")
+    .order('date desc')
+    .grab({
+      id: ['_id', q.string()],
+      title: q.string(),
+      date: q.string(),
+      slug: ['slug.current', q.string()]
+    });
+  const runQuery = createQueryRunner();
+  return runQuery(query);
+};

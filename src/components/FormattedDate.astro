@@ -1,11 +1,12 @@
 ---
-import { format } from 'date-fns';
+import { format as formatDate } from 'date-fns';
 interface Props extends astroHTML.JSX.TimeHTMLAttributes {
   date: Date;
+  format?: string;
 }
-const { date, ...timeProps } = Astro.props;
+const { date, format = 'yyyy-MM-dd', ...timeProps } = Astro.props;
 ---
 
 <time datetime={date.toISOString()} {...timeProps}>
-  {format(date, 'yyyy-MM-dd')}
+  {formatDate(date, format)}
 </time>

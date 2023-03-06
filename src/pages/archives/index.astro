@@ -1,0 +1,58 @@
+---
+import { format, parseISO } from 'date-fns';
+import FormattedDate from '~/components/FormattedDate.astro';
+import BasicLayout from '~/layouts/BasicLayout.astro';
+import { useArchives } from '~/lib/sanity';
+
+const posts = await useArchives();
+
+const archivedPosts = posts.reduce(
+  (acc, post) => {
+    const year = format(parseISO(post.date), 'yyyy');
+    if (acc.has(year)) {
+      acc.set(year, [...acc.get(year)!, post]);
+    } else {
+      acc.set(year, [post]);
+    }
+    return acc;
+  },
+  new Map<
+    string,
+    {
+      id: string;
+      title: string;
+      date: string;
+      slug: string;
+    }[]
+  >()
+);
+---
+
+<BasicLayout title="归档" description="">
+  {
+    Array.from(archivedPosts.entries()).map(([year, posts]) => {
+      return (
+        <div>
+          <div class="relative inline-block py-1 mb-1">
+            <span> {year}</span>
+            <span class="absolute right-0 left-0 bottom-0 h-4px rounded bg-#eee" />
+          </div>
+          <div class="flex flex-col text-sm">
+            {posts.map((post) => {
+              return (
+                <a href={`/blog/${post.slug}`} class="py-1 space-x-1">
+                  <FormattedDate
+                    date={parseISO(post.date)}
+                    format="MM-dd"
+                    class="op-80"
+                  />
+                  <span>{post.title}</span>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      );
+    })
+  }
+</BasicLayout>
