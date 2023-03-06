@@ -37,17 +37,19 @@ const archivedPosts = posts.reduce(
             <span> {year}</span>
             <span class="absolute right-0 left-0 bottom-0 h-4px rounded bg-#eee" />
           </div>
-          <div class="flex flex-col text-sm">
+          <div role="list" class="flex flex-col text-sm">
             {posts.map((post) => {
               return (
-                <a href={`/blog/${post.slug}`} class="py-1 space-x-1">
-                  <FormattedDate
-                    date={parseISO(post.date)}
-                    format="MM-dd"
-                    class="op-80"
-                  />
-                  <span>{post.title}</span>
-                </a>
+                <div role="listitem" class="py-1">
+                  <a href={`/blog/${post.slug}`} class="space-x-1">
+                    <FormattedDate
+                      date={parseISO(post.date)}
+                      format="MM-dd"
+                      class="op-80"
+                    />
+                    <span>{post.title}</span>
+                  </a>
+                </div>
               );
             })}
           </div>
