@@ -24,6 +24,7 @@ export const usePost = (slug: string) => {
       slug: ['slug.current', q.string()],
       content: q.string(),
       draft: ["_id in path('drafts.**')", q.boolean()],
+      lang: ['language', q.string().nullable()],
       updateDate: ['_updatedAt', q.string()]
     })
     .slice(0)
@@ -49,7 +50,8 @@ export const usePosts = (opt?: { limit?: number; skip?: number }) => {
     date: q.string(),
     summary: q.string(),
     tags: q.array(q.string()),
-    slug: ['slug.current', q.string()]
+    slug: ['slug.current', q.string()],
+    lang: ['language', q.string().nullable()]
   });
   const runQuery = createQueryRunner();
   return runQuery(query);
@@ -101,7 +103,8 @@ export const usePostsByTag = async (tag: string) => {
       summary: q.string(),
       tags: q.array(q.string()),
       slug: ['slug.current', q.string()],
-      content: q.string()
+      content: q.string(),
+      lang: ['language', q.string().nullable()]
     });
 
   const runQuery = createQueryRunner();
@@ -116,7 +119,8 @@ export const useArchives = () => {
       id: ['_id', q.string()],
       title: q.string(),
       date: q.string(),
-      slug: ['slug.current', q.string()]
+      slug: ['slug.current', q.string()],
+      lang: ['language', q.string().nullable()]
     });
   const runQuery = createQueryRunner();
   return runQuery(query);

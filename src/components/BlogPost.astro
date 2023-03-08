@@ -8,9 +8,10 @@ interface Props {
   summary: string;
   tags: string[];
   slug: string;
+  lang: string | null;
 }
 
-const { title, date, summary, tags, slug } = Astro.props;
+const { title, date, summary, tags, slug, lang } = Astro.props;
 ---
 
 <article
@@ -22,6 +23,13 @@ const { title, date, summary, tags, slug } = Astro.props;
     <a href={`/blog/${slug}`}>
       {title}
     </a>
+    {
+      lang && (
+        <sup class="inline-block text-neutral-400 px-1 text-xs rounded border border-neutral-300">
+          {lang}
+        </sup>
+      )
+    }
   </h2>
 
   <div
