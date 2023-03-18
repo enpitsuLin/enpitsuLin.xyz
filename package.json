@@ -43,7 +43,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
-    "astro-eslint-parser": "^0.11.0",
+    "astro-eslint-parser": "^0.13.0",
     "eslint": "^8.35.0",
     "eslint-plugin-astro": "^0.23.0",
     "typescript": "^4.9.5",
