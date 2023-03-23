@@ -1,131 +1,123 @@
-<button
-  type="button"
-  class="theme-toggle"
-  id="theme-toggle"
-  title="Toggles light & dark"
-  aria-label="system"
-  aria-live="polite"
->
-  <svg
-    class="sun-and-moon"
-    aria-hidden="true"
-    width="24"
-    height="24"
-    viewBox="0 0 24 24"
+<theme-toggle>
+  <button
+    type="button"
+    class="theme-toggle"
+    id="theme-toggle"
+    title="Toggles light & dark"
+    aria-label="system"
+    aria-live="polite"
   >
-    <mask class="moon" id="moon-mask">
-      <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-      <circle cx="24" cy="10" r="6" fill="black"></circle>
-    </mask>
-    <circle
-      class="sun"
-      cx="12"
-      cy="12"
-      r="6"
-      mask="url(#moon-mask)"
-      fill="currentColor"></circle>
-    <g class="sun-beams" stroke="currentColor">
-      <line x1="12" y1="1" x2="12" y2="3"></line>
-      <line x1="12" y1="21" x2="12" y2="23"></line>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-      <line x1="1" y1="12" x2="3" y2="12"></line>
-      <line x1="21" y1="12" x2="23" y2="12"></line>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-    </g>
-  </svg>
-</button>
+    <svg
+      class="sun-and-moon"
+      aria-hidden="true"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+    >
+      <mask class="moon" id="moon-mask">
+        <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+        <circle cx="24" cy="10" r="6" fill="black"></circle>
+      </mask>
+      <circle
+        class="sun"
+        cx="12"
+        cy="12"
+        r="6"
+        mask="url(#moon-mask)"
+        fill="currentColor"></circle>
+      <g class="sun-beams" stroke="currentColor">
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </g>
+    </svg>
+  </button>
+</theme-toggle>
 
 <script>
-  type Theme = 'light' | 'dark';
-  function initialTheme(): Theme | 'system' {
-    if (typeof localStorage !== 'undefined')
-      return localStorage.getItem('theme') as 'light' | 'dark' | 'system';
-    return 'system';
-  }
+  class ThemeToggle extends HTMLElement {
+    button: HTMLButtonElement;
+    constructor() {
+      super();
 
-  function getResolvedTheme(): Theme {
-    if (window.matchMedia('(prefers-color-scheme: dark)').matches)
-      return 'dark';
-    return 'light';
-  }
-  let resolvedTheme: Theme;
+      this.button = this.querySelector('button')!;
 
-  const onThemeChange = (toTheme: Theme | 'system', event: MouseEvent) => {
-    const toggleTheme = () => {
-      if (toTheme === 'system') resolvedTheme = getResolvedTheme();
-      else resolvedTheme = toTheme;
-      toggle.setAttribute('aria-label', resolvedTheme);
+      /** Set the theme to dark/light mode. */
+      const setTheme = (event?: MouseEvent) => {
+        const dark = !this.isDark();
 
-      if (resolvedTheme === 'dark')
-        document.documentElement.classList.add('dark');
-      else document.documentElement.classList.remove('dark');
-
-      localStorage.setItem('theme', resolvedTheme);
-    };
-
-    const isReduced =
-      window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-
-    //@ts-expect-error: View Transition api not ready with ts
-    if (!document.startViewTransition || isReduced) {
-      toggleTheme();
-      return;
-    }
-    //@ts-expect-error: View Transition api not ready with ts
-    const transition = document.startViewTransition(() => {
-      toggleTheme();
-    });
-    const x = event.clientX;
-    const y = event.clientY;
-    const endRadius = Math.hypot(
-      Math.max(x, innerWidth - x),
-      Math.max(y, innerHeight - y)
-    );
-
-    transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`
-      ];
-      document.documentElement.animate(
-        {
-          clipPath:
-            resolvedTheme === 'dark' ? clipPath : [...clipPath].reverse()
-        },
-        {
-          duration: 500,
-          easing: 'ease-in',
-          pseudoElement:
-            resolvedTheme === 'dark'
-              ? '::view-transition-new(root)'
-              : '::view-transition-old(root)'
+        //@ts-expect-error: View Transition api not ready with ts
+        if (!document.startViewTransition || this.isReducedMotion()) {
+          this.toggleTheme(dark);
+          return;
         }
+        //@ts-expect-error: View Transition api not ready with ts
+        const transition = document.startViewTransition(() => {
+          this.toggleTheme(dark);
+        });
+        let x: number, y: number;
+        if (typeof event === 'undefined') {
+          x = this.button.getBoundingClientRect().x;
+          y = this.button.getBoundingClientRect().y;
+        } else {
+          x = event.clientX;
+          y = event.clientY;
+        }
+
+        const endRadius = Math.hypot(
+          Math.max(x, innerWidth - x),
+          Math.max(y, innerHeight - y)
+        );
+
+        transition.ready.then(() => {
+          const clipPath = [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${endRadius}px at ${x}px ${y}px)`
+          ];
+          document.documentElement.animate(
+            {
+              clipPath: dark ? clipPath : [...clipPath].reverse()
+            },
+            {
+              duration: 500,
+              easing: 'ease-in',
+              pseudoElement: dark
+                ? '::view-transition-new(root)'
+                : '::view-transition-old(root)'
+            }
+          );
+        });
+      };
+
+      this.button.addEventListener('click', (e) => setTheme(e));
+    }
+
+    toggleTheme(dark: boolean) {
+      document.documentElement.classList[dark ? 'add' : 'remove']('dark');
+      this.button.setAttribute('aria-label', dark ? 'dark' : 'light');
+    }
+
+    isDark() {
+      return document.documentElement.classList.contains('dark');
+    }
+    isReducedMotion() {
+      return (
+        window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
       );
-    });
-  };
-
-  const toggle = document.querySelector('#theme-toggle') as HTMLButtonElement;
-
-  //@ts-expect-error: simulate mouse event
-  onThemeChange(initialTheme(), {
-    clientX: toggle.getBoundingClientRect().x,
-    clientY: toggle.getBoundingClientRect().y
-  });
-  toggle.addEventListener('click', (e) => {
-    if (resolvedTheme === 'dark') {
-      onThemeChange('light', e);
-    } else {
-      onThemeChange('dark', e);
     }
-    if (window.DISQUS) {
-      window.DISQUS.reset({ reload: true });
-    }
-  });
+  }
+  customElements.define('theme-toggle', ThemeToggle);
 </script>
 <style is:global>
   @import 'https://unpkg.com/open-props/easings.min.css';
+  theme-toggle > button {
+    display: block;
+  }
 
   .sun-and-moon > :is(.moon, .sun, .sun-beams) {
     transform-origin: center center;
