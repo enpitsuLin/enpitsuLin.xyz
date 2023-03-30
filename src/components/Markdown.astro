@@ -77,7 +77,7 @@ function mdToHtml(markdown: string) {
     throw new TypeError('Expected a `root` node');
   }
 
-  return toHtml(hastNode);
+  return toHtml(hastNode, { allowDangerousHtml: true });
 }
 const html = mdToHtml(content);
 ---
