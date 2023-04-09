@@ -18,7 +18,7 @@
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/solid-js": "^2.1.0",
     "@sanity/client": "^5.4.0",
-    "@unocss/reset": "^0.50.6",
+    "@unocss/reset": "^0.51.0",
     "astro": "^2.1.8",
     "date-fns": "^2.29.3",
     "disqusjs": "^3.0.2",
