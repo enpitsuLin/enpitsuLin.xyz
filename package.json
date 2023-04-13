@@ -13,7 +13,7 @@
     "lint:eslint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.18.2",
+    "@astrojs/mdx": "^0.19.0",
     "@astrojs/rss": "^2.3.1",
     "@astrojs/sitemap": "^1.2.1",
     "@astrojs/solid-js": "^2.1.0",
