@@ -41,11 +41,7 @@ if (!post) return Astro.redirect('/404');
     date={post.date}
     updateDate={post.updateDate}
   />
-  {
-    import.meta.env.PROD && (
-      <Comments url={Astro.url.toString()} slug={post.slug} client:visible />
-    )
-  }
+  <Comments url={new URL(Astro.url.pathname, Astro.site)} slug={post.slug} client:visible />
   <ScrollToTop />
 </BasicLayout>
 

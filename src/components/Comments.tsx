@@ -1,8 +1,9 @@
 import { createEffect, onCleanup } from 'solid-js';
 import DisqusJS from 'disqusjs';
+import '~/styles/comment.css'
 
 type Props = {
-  url: string;
+  url: URL;
   slug: string;
 };
 
@@ -10,7 +11,7 @@ export default function Comments(props: Props) {
   let comments: HTMLDivElement | undefined;
   function initDisqus() {
     const disqus = new DisqusJS({
-      url: props.url,
+      url: props.url.toString(),
       identifier: props.slug,
       shortname: 'enpitsulin',
       siteName: `enpitsulin's blog`,
