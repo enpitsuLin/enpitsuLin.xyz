@@ -13,16 +13,16 @@
     "lint:eslint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.18.2",
-    "@astrojs/rss": "^2.3.1",
-    "@astrojs/sitemap": "^1.2.1",
+    "@astrojs/mdx": "^0.19.0",
+    "@astrojs/rss": "^2.3.2",
+    "@astrojs/sitemap": "^1.2.2",
     "@astrojs/solid-js": "^2.1.0",
-    "@sanity/client": "^5.4.0",
-    "@unocss/reset": "^0.50.6",
-    "astro": "^2.1.8",
+    "@sanity/client": "^5.4.2",
+    "@unocss/reset": "^0.51.4",
+    "astro": "^2.3.0",
     "date-fns": "^2.29.3",
     "disqusjs": "^3.0.2",
-    "groqd": "^0.13.0",
+    "groqd": "^0.14.0",
     "hast-util-to-html": "^8.0.4",
     "medium-zoom": "^1.0.8",
     "rehype-autolink-headings": "^6.1.1",
@@ -34,18 +34,18 @@
     "remark-gfm": "^3.0.1",
     "remark-parse": "^10.0.1",
     "remark-rehype": "^10.1.0",
-    "solid-js": "^1.7.0",
+    "solid-js": "^1.7.3",
     "unified": "^10.1.2",
     "vfile": "^5.3.7"
   },
   "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
-    "@typescript-eslint/parser": "^5.57.0",
-    "astro-eslint-parser": "^0.13.2",
-    "eslint": "^8.37.0",
+    "@typescript-eslint/eslint-plugin": "^5.58.0",
+    "@typescript-eslint/parser": "^5.58.0",
+    "astro-eslint-parser": "^0.13.3",
+    "eslint": "^8.38.0",
     "eslint-plugin-astro": "^0.26.1",
-    "typescript": "^5.0.2",
-    "unocss": "^0.50.6"
+    "typescript": "^5.0.4",
+    "unocss": "^0.51.4"
   },
   "pnpm": {
     "peerDependencyRules": {
