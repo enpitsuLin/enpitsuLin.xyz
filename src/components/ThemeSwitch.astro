@@ -101,9 +101,9 @@
       document.documentElement.classList[dark ? 'add' : 'remove']('dark');
       this.button.setAttribute('aria-label', dark ? 'dark' : 'light');
       if (window.DISQUS) {
-        setTimeout(()=>{
-          window.DISQUS.reset({ reload: true })
-        }, 500)
+        setTimeout(() => {
+          window.DISQUS.reset({ reload: true });
+        }, 500);
       }
     }
 

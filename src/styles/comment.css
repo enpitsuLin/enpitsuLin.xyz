@@ -103,7 +103,7 @@
   margin-bottom: 16px;
 }
 
-#dsqjs .dsqjs-post-list .dsqjs-post-content{
+#dsqjs .dsqjs-post-list .dsqjs-post-content {
   @apply text-gray-700 dark:text-light-700;
 }
 
@@ -299,6 +299,6 @@
   cursor: pointer;
 }
 
-#dsqjs #disqus_thread{
+#dsqjs #disqus_thread {
   font-size: 14px;
 }

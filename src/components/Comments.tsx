@@ -1,6 +1,6 @@
 import { createEffect, onCleanup } from 'solid-js';
 import DisqusJS from 'disqusjs';
-import '~/styles/comment.css'
+import '~/styles/comment.css';
 
 type Props = {
   url: URL;
