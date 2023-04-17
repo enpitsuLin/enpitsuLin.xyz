@@ -1,7 +1,3 @@
-#dsqjs a {
-  @apply text-primary-400;
-}
-
 #dsqjs .dsqjs-hide {
   @apply hidden;
 }
