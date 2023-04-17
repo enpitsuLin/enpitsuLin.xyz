@@ -53,7 +53,7 @@ const { title, date, summary, tags, slug, lang } = Astro.props;
           return (
             <a
               title={tag}
-              href={`/tags/${tag}/1`}
+              href={`/tags/${tag}`}
               class="inline-block text-xs motion-safe:(transition-colors duration-200 ease-in) text-neutral-400 dark:text-neutral-500 hover:underline"
             >
               #{tag}
