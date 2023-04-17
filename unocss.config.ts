@@ -13,7 +13,7 @@ export default defineConfig<Theme>({
   presets: [
     presetUno(),
     presetAttributify(),
-    presetIcons({ autoInstall: true }),
+    presetIcons(),
     presetTypography({
       cssExtend: {
         'h1,h2,h3,h4,h5,h6': {
