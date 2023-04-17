@@ -2,6 +2,7 @@ import {
   defineConfig,
   presetUno,
   presetTypography,
+  presetAttributify,
   transformerDirectives,
   transformerVariantGroup
 } from 'unocss';
@@ -10,6 +11,7 @@ import type { Theme } from 'unocss/preset-uno';
 export default defineConfig<Theme>({
   presets: [
     presetUno(),
+    presetAttributify(),
     presetTypography({
       cssExtend: {
         'h1,h2,h3,h4,h5,h6': {
