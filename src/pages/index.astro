@@ -19,9 +19,10 @@ const posts = await usePosts({ limit: 3 });
     <a
       aria-label="All posts"
       href="/blog"
-      class="op-50 ml-2 hover:op-100 transition-opacity cursor-pointer"
+      class="text-sm op-50 flex items-center hover:op-100 transition-opacity cursor-pointer"
     >
-      <div class="m-2 i-ri-arrow-right-up-line"></div>
+      <span>更多</span>
+      <div class="i-ri:arrow-right-double-fill"></div>
     </a>
   </div>
   <ul>
