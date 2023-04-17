@@ -3,10 +3,12 @@ import BlogPost from '~/components/BlogPost.astro';
 import { usePosts } from '~/lib/sanity';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
+import Hero from '~/components/Hero.astro';
 const posts = await usePosts({ limit: 5 });
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <Hero />
   <div
     class="text-9.5 leading-none tracking-.6px text-opacity-85 select-none font-900 my-8"
   >
