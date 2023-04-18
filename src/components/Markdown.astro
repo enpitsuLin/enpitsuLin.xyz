@@ -43,6 +43,12 @@ function mdToHtml(markdown: string) {
             className: 'group'
           });
         }
+        /** lazy loading */
+        if (node.type === 'element' && node.tagName === 'img') {
+          node.properties = Object.assign(node.properties ?? {}, {
+            loading: 'lazy'
+          });
+        }
       }
     })
     .use(rehypePrismPlus, { ignoreMissing: true })
