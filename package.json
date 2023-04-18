@@ -42,6 +42,7 @@
     "vfile": "^5.3.7"
   },
   "devDependencies": {
+    "@iconify-json/fa-brands": "^1.1.4",
     "@iconify-json/ri": "^1.1.8",
     "@typescript-eslint/eslint-plugin": "^5.58.0",
     "@typescript-eslint/parser": "^5.58.0",
