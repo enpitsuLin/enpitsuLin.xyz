@@ -32,7 +32,8 @@ function mdToHtml(markdown: string) {
       rewrite: (node) => {
         if (node.type === 'element' && node.tagName === 'img') {
           node.properties = Object.assign(node.properties ?? {}, {
-            'data-zoomable': true
+            'data-zoomable': true,
+            loading: 'lazy'
           });
         }
         if (
@@ -41,12 +42,6 @@ function mdToHtml(markdown: string) {
         ) {
           node.properties = Object.assign(node.properties ?? {}, {
             className: 'group'
-          });
-        }
-        /** lazy loading */
-        if (node.type === 'element' && node.tagName === 'img') {
-          node.properties = Object.assign(node.properties ?? {}, {
-            loading: 'lazy'
           });
         }
       }
