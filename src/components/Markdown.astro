@@ -1,5 +1,6 @@
 ---
-import { toHtml } from 'hast-util-to-html';
+import rehypeRaw from 'rehype-raw';
+import rehypeStringify from 'rehype-stringify';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkCodeTitles from 'remark-flexible-code-titles';
 import rehypePrismDiff from 'rehype-prism-diff';
@@ -9,77 +10,81 @@ import rehypeRewrite from 'rehype-rewrite';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
+import remarkDirective from 'remark-directive';
+import remarkDirectiveRehype from 'remark-directive-rehype';
 import { unified } from 'unified';
-import { VFile } from 'vfile';
+
 interface Props {
   content: string;
 }
 const { content } = Astro.props;
 function mdToHtml(markdown: string) {
-  const processor = unified()
-    .use(remarkParse)
-    .use(remarkGfm)
-    .use(remarkCodeTitles, {
-      title: false,
-      containerProperties: (lang, title) => ({
-        ['data-language']: lang,
-        ['data-title']: title
+  let contentHtml = '';
+  try {
+    const result = unified()
+      .use(remarkParse)
+      .use(remarkGfm)
+      .use(remarkCodeTitles, {
+        title: false,
+        containerProperties: (lang, title) => ({
+          ['data-language']: lang,
+          ['data-title']: title
+        })
       })
-    })
-    .use(remarkRehype, { allowDangerousHtml: true })
-    .use(rehypeSlug)
-    .use(rehypeRewrite, {
-      rewrite: (node) => {
-        if (node.type === 'element' && node.tagName === 'img') {
-          node.properties = Object.assign(node.properties ?? {}, {
-            'data-zoomable': true,
-            loading: 'lazy'
-          });
-        }
-        if (
-          node.type === 'element' &&
-          ['h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)
-        ) {
-          node.properties = Object.assign(node.properties ?? {}, {
-            className: 'group'
-          });
-        }
-      }
-    })
-    .use(rehypePrismPlus, { ignoreMissing: true })
-    .use(rehypePrismDiff)
-    .use(rehypeAutolinkHeadings, {
-      behavior: 'append',
-      properties: {
-        ariaHidden: 'true',
-        tabIndex: -1,
-        class: 'absolute -left-6'
-      },
-      content: {
-        type: 'element',
-        tagName: 'span',
-        properties: {
-          className: ['op-0', 'group-hover:op-100']
-        },
-        children: [
-          {
-            type: 'text',
-            value: '#'
+      .use(remarkDirective)
+      .use(remarkDirectiveRehype)
+      .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeStringify)
+      .use(rehypeRaw)
+      .use(rehypeSlug)
+      .use(rehypeRewrite, {
+        rewrite: (node) => {
+          if (node.type === 'element' && node.tagName === 'img') {
+            node.properties = Object.assign(node.properties ?? {}, {
+              'data-zoomable': true,
+              loading: 'lazy'
+            });
           }
-        ]
-      }
-    });
+          if (
+            node.type === 'element' &&
+            ['h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)
+          ) {
+            node.properties = Object.assign(node.properties ?? {}, {
+              className: 'group'
+            });
+          }
+        }
+      })
+      .use(rehypePrismPlus, { ignoreMissing: true })
+      .use(rehypePrismDiff)
+      .use(rehypeAutolinkHeadings, {
+        behavior: 'append',
+        properties: {
+          ariaHidden: 'true',
+          tabIndex: -1,
+          class: 'absolute -left-6'
+        },
+        content: {
+          type: 'element',
+          tagName: 'span',
+          properties: {
+            className: ['op-0', 'group-hover:op-100']
+          },
+          children: [
+            {
+              type: 'text',
+              value: '#'
+            }
+          ]
+        }
+      })
+      .processSync(markdown);
 
-  const file = new VFile();
-
-  file.value = markdown;
-
-  const hastNode = processor.runSync(processor.parse(file), file);
-  if (hastNode.type !== 'root') {
-    throw new TypeError('Expected a `root` node');
+    contentHtml = result.toString();
+  } catch (error) {
+    console.error(error);
   }
-
-  return toHtml(hastNode, { allowDangerousHtml: true });
+  return contentHtml;
 }
 const html = mdToHtml(content);
 ---

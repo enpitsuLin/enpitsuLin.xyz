@@ -31,9 +31,6 @@ dependencies:
   groqd:
     specifier: ^0.15.0
     version: 0.15.0
-  hast-util-to-html:
-    specifier: ^8.0.4
-    version: 8.0.4
   medium-zoom:
     specifier: ^1.0.8
     version: 1.0.8
@@ -46,12 +43,24 @@ dependencies:
   rehype-prism-plus:
     specifier: ^1.5.1
     version: 1.5.1
+  rehype-raw:
+    specifier: ^6.1.1
+    version: 6.1.1
   rehype-rewrite:
     specifier: ^3.0.6
     version: 3.0.6
   rehype-slug:
     specifier: ^5.1.0
     version: 5.1.0
+  rehype-stringify:
+    specifier: ^9.0.3
+    version: 9.0.3
+  remark-directive:
+    specifier: ^2.0.1
+    version: 2.0.1
+  remark-directive-rehype:
+    specifier: ^0.4.2
+    version: 0.4.2
   remark-flexible-code-titles:
     specifier: ^1.1.2
     version: 1.1.2
@@ -3099,6 +3108,20 @@ packages:
       unist-util-visit: 4.1.2
     dev: false
 
+  /mdast-util-directive@2.2.4:
+    resolution: {integrity: sha512-sK3ojFP+jpj1n7Zo5ZKvoxP1MvLyzVG63+gm40Z/qI00avzdPCYxt7RBMgofwAva9gBjbDBWVRB/i+UD+fUCzQ==}
+    dependencies:
+      '@types/mdast': 3.0.11
+      '@types/unist': 2.0.6
+      mdast-util-from-markdown: 1.3.0
+      mdast-util-to-markdown: 1.5.0
+      parse-entities: 4.0.1
+      stringify-entities: 4.0.3
+      unist-util-visit-parents: 5.1.3
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /mdast-util-find-and-replace@2.2.2:
     resolution: {integrity: sha512-MTtdFRz/eMDHXzeK6W3dO7mXUlF82Gom4y0oOgvHhh/HXZAGvIQDUvQ0SuUx+j2tv44b8xTHOm8K/9OoRFnXKw==}
     dependencies:
@@ -3318,6 +3341,18 @@ packages:
       micromark-util-subtokenize: 1.0.2
       micromark-util-symbol: 1.0.1
       micromark-util-types: 1.0.2
+      uvu: 0.5.6
+    dev: false
+
+  /micromark-extension-directive@2.2.0:
+    resolution: {integrity: sha512-LWc2mGlJlPEcESz4IHNJR/tpJfWJEEFHGM+6vgCZGXkKMXc/y8rCKB07x5ZNnafIFe0/sjt6DIIihk78/Egj5Q==}
+    dependencies:
+      micromark-factory-space: 1.0.0
+      micromark-factory-whitespace: 1.0.0
+      micromark-util-character: 1.1.0
+      micromark-util-symbol: 1.0.1
+      micromark-util-types: 1.0.2
+      parse-entities: 4.0.1
       uvu: 0.5.6
     dev: false
 
@@ -4169,6 +4204,25 @@ packages:
       unified: 10.1.2
     dev: false
 
+  /remark-directive-rehype@0.4.2:
+    resolution: {integrity: sha512-T6e+IG+BwqU4++MK54vFb+KDFjs3a+tHeK6E0T0ctR1FSyngolfDtAEzqxHWlRzQZqGi2sB4DFXry6oqH87D/g==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+    dependencies:
+      hastscript: 7.2.0
+      unist-util-map: 3.1.3
+    dev: false
+
+  /remark-directive@2.0.1:
+    resolution: {integrity: sha512-oosbsUAkU/qmUE78anLaJePnPis4ihsE7Agp0T/oqTzvTea8pOiaYEtfInU/+xMOVTS9PN5AhGOiaIVe4GD8gw==}
+    dependencies:
+      '@types/mdast': 3.0.11
+      mdast-util-directive: 2.2.4
+      micromark-extension-directive: 2.2.0
+      unified: 10.1.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /remark-flexible-code-titles@1.1.2:
     resolution: {integrity: sha512-RC5WSD7m27D0lrutcyvNbJEwm1QRDEOSPbikugzSPrLnbGP0zfi0LuAsHIwIY3CEHrx7rhJJZD6FHeouocXl5Q==}
     dependencies:
@@ -4755,6 +4809,12 @@ packages:
 
   /unist-util-is@5.2.1:
     resolution: {integrity: sha512-u9njyyfEh43npf1M+yGKDGVPbY/JWEemg5nH05ncKPfi+kBbKBJoTdsogMu33uhytuLlv9y0O7GH7fEdwLdLQw==}
+    dependencies:
+      '@types/unist': 2.0.6
+    dev: false
+
+  /unist-util-map@3.1.3:
+    resolution: {integrity: sha512-4/mDauoxqZ6geK97lJ6n2kDk6JK88Vh+hWMSJqyaaP/7eqN1dDhjcjnNxKNm3YU6Sw7PVJtcFMUbnmHvYzb6Vg==}
     dependencies:
       '@types/unist': 2.0.6
     dev: false
