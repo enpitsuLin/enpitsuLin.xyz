@@ -16,6 +16,9 @@ dependencies:
   '@sanity/client':
     specifier: ^5.4.2
     version: 5.4.2
+  '@types/hast':
+    specifier: ^2.3.4
+    version: 2.3.4
   '@unocss/reset':
     specifier: ^0.51.4
     version: 0.51.4
@@ -31,6 +34,9 @@ dependencies:
   groqd:
     specifier: ^0.15.0
     version: 0.15.0
+  hastscript:
+    specifier: ^7.2.0
+    version: 7.2.0
   medium-zoom:
     specifier: ^1.0.8
     version: 1.0.8
@@ -79,6 +85,9 @@ dependencies:
   unified:
     specifier: ^10.1.2
     version: 10.1.2
+  unist-util-visit:
+    specifier: ^4.1.2
+    version: 4.1.2
   vfile:
     specifier: ^5.3.7
     version: 5.3.7

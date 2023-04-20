@@ -21,11 +21,13 @@
     "@astrojs/sitemap": "^1.2.2",
     "@astrojs/solid-js": "^2.1.0",
     "@sanity/client": "^5.4.2",
+    "@types/hast": "^2.3.4",
     "@unocss/reset": "^0.51.4",
     "astro": "^2.3.0",
     "date-fns": "^2.29.3",
     "disqusjs": "^3.0.2",
     "groqd": "^0.15.0",
+    "hastscript": "^7.2.0",
     "medium-zoom": "^1.0.8",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-prism-diff": "^1.1.2",
@@ -42,6 +44,7 @@
     "remark-rehype": "^10.1.0",
     "solid-js": "^1.7.3",
     "unified": "^10.1.2",
+    "unist-util-visit": "^4.1.2",
     "vfile": "^5.3.7"
   },
   "devDependencies": {

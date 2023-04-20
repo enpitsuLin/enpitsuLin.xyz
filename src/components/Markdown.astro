@@ -7,6 +7,7 @@ import rehypePrismDiff from 'rehype-prism-diff';
 import rehypePrismPlus from 'rehype-prism-plus';
 import rehypeSlug from 'rehype-slug';
 import rehypeRewrite from 'rehype-rewrite';
+import rehypeCustomElement from '~/lib/hastscript-to-rehype-plugin';
 import remarkGfm from 'remark-gfm';
 import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
@@ -34,9 +35,9 @@ function mdToHtml(markdown: string) {
       .use(remarkDirective)
       .use(remarkDirectiveRehype)
       .use(remarkRehype, { allowDangerousHtml: true })
+      .use(rehypeCustomElement, { components: {} })
       .use(rehypeStringify)
       .use(rehypeRaw)
-      .use(rehypeSlug)
       .use(rehypeRewrite, {
         rewrite: (node) => {
           if (node.type === 'element' && node.tagName === 'img') {
@@ -55,6 +56,7 @@ function mdToHtml(markdown: string) {
           }
         }
       })
+      .use(rehypeSlug)
       .use(rehypePrismPlus, { ignoreMissing: true })
       .use(rehypePrismDiff)
       .use(rehypeAutolinkHeadings, {
