@@ -32,9 +32,7 @@ if (!post) return Astro.redirect('/404');
     />
     <h1 class="text-4xl font-bold text-center">{post.title}</h1>
   </div>
-  <div class="prose pt-4 max-w-unset">
-    <Markdown content={post.content} />
-  </div>
+  <Markdown content={post.content} />
   <ArticleLicense
     url={Astro.url}
     title={post.title}

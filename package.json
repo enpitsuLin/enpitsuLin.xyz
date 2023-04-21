@@ -28,6 +28,7 @@
     "disqusjs": "^3.0.2",
     "groqd": "^0.15.0",
     "hastscript": "^7.2.0",
+    "mdast-util-toc": "^6.1.1",
     "medium-zoom": "^1.0.8",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-prism-diff": "^1.1.2",

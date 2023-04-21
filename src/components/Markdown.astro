@@ -1,4 +1,5 @@
 ---
+import { Result as TocResult, toc } from 'mdast-util-toc';
 import rehypeRaw from 'rehype-raw';
 import rehypeStringify from 'rehype-stringify';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
@@ -15,15 +16,23 @@ import remarkDirective from 'remark-directive';
 import remarkDirectiveRehype from 'remark-directive-rehype';
 import { unified } from 'unified';
 
+import { PostToc } from './PostToc';
+
 interface Props {
   content: string;
 }
 const { content } = Astro.props;
 function mdToHtml(markdown: string) {
   let contentHtml = '';
+  const env = {
+    toc: null as TocResult | null
+  };
   try {
     const result = unified()
       .use(remarkParse)
+      .use(() => (tree) => {
+        env.toc = toc(tree, { tight: true, ordered: true });
+      })
       .use(remarkGfm)
       .use(remarkCodeTitles, {
         title: false,
@@ -86,11 +95,14 @@ function mdToHtml(markdown: string) {
   } catch (error) {
     console.error(error);
   }
-  return contentHtml;
+  return { html: contentHtml, env };
 }
-const html = mdToHtml(content);
+const { html, env } = mdToHtml(content);
 ---
 
-<>
-  {html ? <Fragment set:html={html} /> : <slot />}
-</>
+<div class="relative">
+  <div class="prose pt-4 pb-8 max-w-unset">
+    {html ? <Fragment set:html={html} /> : <slot />}
+  </div>
+  {env.toc && <PostToc client:only="solid-js" data={env.toc} />}
+</div>
