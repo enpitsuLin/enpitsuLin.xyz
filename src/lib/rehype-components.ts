@@ -17,12 +17,12 @@ interface Options {
  * ```
  * const SomeComponent: HComponent = (p) => h('div', { class: 'some-class' }, ...p.children)
  * # use it 
- * rehypeCustomElement({components:{'some-component':SomeComponent}})
+ * rehypeComponents({components:{'some-component':SomeComponent}})
  * # then in markdown file
  * "<some-component></some-component>"
  * ```
  */
-const rehypeCustomElement: Plugin<[Options], Root> =
+const rehypeComponents: Plugin<[Options], Root> =
   ({ components = {} }) => {
     return (tree, _vfile) => {
       visit(tree, (node, index, parent) => {
@@ -40,4 +40,4 @@ const rehypeCustomElement: Plugin<[Options], Root> =
     }
   }
 
-export default rehypeCustomElement
+export default rehypeComponents
