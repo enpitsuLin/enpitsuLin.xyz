@@ -63,7 +63,7 @@ function renderItems(items: TocResult["map"], activeId: string, prefix = "") {
                   <a
                     href={child.children[0].url}
                     title={content}
-                    aria-hidden={activeId === child.children[0].url.slice(1)}
+                    aria-hidden={activeId !== child.children[0].url.slice(1)}
                     class={
                       `${(activeId === child.children[0].url.slice(1)
                         ? "text-neutral"
