@@ -20,8 +20,9 @@ Currently it is built with [Astro](https://astro.build/).
 
 - [Astro](https://astro.build/): An all-in-one web framework for building fast, content-focused websites.
 - [Umami](https://umami.is/): A self-hold website analytics by own your, alternative to Google Analytics.
-- [unocss](https://github.com/unocss/unocss): A utility-first CSS framework for styled websites and apps.
-- [Vercel](https://vercel.com/): cloud platform for hosting website
+- [Unocss](https://github.com/unocss/unocss): A utility-first CSS framework for styled websites and apps.
+- [Vercel](https://vercel.com/): A cloud platform that enables developers to host websites and web services.
+- [Sanity](https://www.sanity.io/): A customizable CMS solution.
 
 # License
 
