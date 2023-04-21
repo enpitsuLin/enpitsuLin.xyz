@@ -57,13 +57,19 @@ if (!post) return Astro.redirect('/404');
           const copyButton = document.createElement('button');
           copyButton.classList.add('code-copy-button');
           copyButton.setAttribute('type', 'button');
-          copyButton.setAttribute('aria-label', 'Copy code');
-          copyButton.innerText = 'copy';
+          copyButton.setAttribute('aria-label', 'Copy code'); 
+
+          const copyButtonIcon = document.createElement('div');
+          copyButtonIcon.classList.add('i-ri:file-copy-fill');
+          copyButton.append(copyButtonIcon)
+
           copyButton.onclick = () => {
             navigator.clipboard.writeText(preEl.innerText);
-            copyButton.innerText = 'copied';
+            copyButtonIcon.classList.toggle('i-ri:file-copy-fill')
+            copyButtonIcon.classList.toggle('i-ri:check-fill')
             setTimeout(() => {
-              copyButton.innerText = 'copy';
+              copyButtonIcon.classList.toggle('i-ri:file-copy-fill')
+              copyButtonIcon.classList.toggle('i-ri:check-fill')
             }, 1000);
           };
           if (!preEl.parentNode) return;
