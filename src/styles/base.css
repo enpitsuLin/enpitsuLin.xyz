@@ -3,11 +3,15 @@
   --e-bg: #ffffff;
   --e-scrollbar: #cccccc;
   --e-scrollbar-hover: #999999;
+  /* extends unocss typography */
+  --un-prose-bg-soft: theme('colors.neutral.200');
 }
 .dark {
   --e-bg: #2a2b2d;
   --e-scrollbar: #5c5d61;
   --e-scrollbar-hover: #8e9195;
+  /* extends unocss typography */
+  --un-prose-bg-soft: theme('colors.neutral.500');
 }
 * {
   scrollbar-color: var(--e-scrollbar) var(--e-bg);

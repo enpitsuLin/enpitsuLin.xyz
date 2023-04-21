@@ -34,6 +34,9 @@ export default defineConfig<Theme>({
         'p:has(> img)': {
           display: 'flex',
           'justify-content': 'center'
+        },
+        'details': {
+          'border-radius': '0.125rem'
         }
       }
     })
