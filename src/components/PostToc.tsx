@@ -66,8 +66,8 @@ function renderItems(items: TocResult["map"], activeId: string, prefix = "") {
                     aria-hidden={activeId !== child.children[0].url.slice(1)}
                     class={
                       `${(activeId === child.children[0].url.slice(1)
-                        ? "text-neutral"
-                        : "text-neutral-700")
+                        ? "text-neutral-700 dark:text-neutral "
+                        : "text-neutral dark:text-neutral-700")
                       } truncate inline-block max-w-full align-bottom hover:text-neutral`
                     }
                   >
