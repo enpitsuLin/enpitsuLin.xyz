@@ -19,6 +19,7 @@ Currently it is built with [Astro](https://astro.build/).
 ## Tools and Framework Used
 
 - [Astro](https://astro.build/): An all-in-one web framework for building fast, content-focused websites.
+- [Solid-js](https://www.solidjs.com/): A declarative, efficient and flexible JavaScript library for building user interfaces.
 - [Umami](https://umami.is/): A self-hold website analytics by own your, alternative to Google Analytics.
 - [Unocss](https://github.com/unocss/unocss): A utility-first CSS framework for styled websites and apps.
 - [Vercel](https://vercel.com/): A cloud platform that enables developers to host websites and web services.
