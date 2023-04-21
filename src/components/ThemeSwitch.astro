@@ -117,6 +117,18 @@
     }
   }
   customElements.define('theme-toggle', ThemeToggle);
+  // if View Transition api was ready in browser remove css transitions
+  if (
+    //@ts-expect-error: View Transition api not ready with ts
+    document.startViewTransition &&
+    document.body.classList.contains('motion-safe:transition-all')
+  ) {
+    document.body.classList.remove(
+      'motion-safe:transition-all',
+      'motion-safe:duration-200',
+      'motion-safe:ease-in'
+    );
+  }
 </script>
 <style is:global>
   @import 'https://unpkg.com/open-props/easings.min.css';
