@@ -109,9 +109,9 @@ export const PostToc: Component<{ data: TocResult }> = (props) => {
     <div
       ref={containerRef}
       class="absolute left-full pl-10 h-full top-0"
+      classList={{ "hidden lg:block": maxWidth() > 40, 'hidden': maxWidth() < 40 }}
       style={{
         "max-width": maxWidth() > 40 ? maxWidth() + 'px' : 0,
-        display: maxWidth() > 40 ? "block" : "none"
       }}>
       <div class="sticky top-14 text-sm truncate leading-loose overflow-y-auto">
         {renderItems(props.data?.map, activeId())}
