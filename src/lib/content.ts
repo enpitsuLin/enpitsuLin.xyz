@@ -1,14 +1,17 @@
 import { getCollection, getEntryBySlug } from 'astro:content';
 
 const blogCollection = await getCollection('blog')
+  .then(res => res.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()))
 
 export const usePost = async (slug: string) => {
   const entry = await getEntryBySlug('blog', slug)
   return entry
 };
 
-export const usePosts = () => {
-  return blogCollection
+export const usePosts = (option?: { limit?: number, skip?: number }) => {
+  return [...blogCollection]
+    .slice(option?.skip ?? 0,
+      option?.limit ? (option?.skip ?? 0 + option?.limit) : undefined)
 };
 
 export const usePostsSlug = () => {
@@ -16,7 +19,7 @@ export const usePostsSlug = () => {
 };
 
 export const usePostsCount = () => {
-  return blogCollection.length
+  return blogCollection.length + 1
 };
 
 export const useAllTags = () => {

@@ -4,7 +4,7 @@ import { usePosts } from '~/lib/content';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
 import Hero from '~/components/Hero.astro';
-const posts = await usePosts();
+const posts = usePosts({ limit: 3 });
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
