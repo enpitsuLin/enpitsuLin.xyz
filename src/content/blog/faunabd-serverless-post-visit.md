@@ -70,7 +70,7 @@ interface Visit {
 
 按照我们的设计我们的 api 路由可以形成如下的伪代码
 
-```pseudocode
+```
 function visitPage(request) {
   connect to database;
   let slug = some parameter from the request
