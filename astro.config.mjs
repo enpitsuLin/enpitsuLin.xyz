@@ -15,6 +15,7 @@ import remarkDirective from 'remark-directive';
 import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkCodeTitles from 'remark-flexible-code-titles';
 import rehypeSlug from 'rehype-slug';
+import { toc } from 'mdast-util-toc';
 
 // https://astro.build/config
 export default defineConfig({
@@ -33,6 +34,9 @@ export default defineConfig({
           })
         }
       ],
+      () => (tree, file) => {
+        file.data.astro.frontmatter.toc = toc(tree, { tight: true, ordered: true })
+      },
       remarkDirective, remarkDirectiveRehype],
     rehypePlugins: [
       rehypePrismPlus, rehypePrismDiff, rehypeSlug,
