@@ -3,7 +3,7 @@ import FormattedDate from './FormattedDate.astro';
 import { parseISO } from 'date-fns';
 import OutdateTip from './OutdateTip';
 
-type Props = { url: URL; title: string; date: string; updateDate: string };
+type Props = { url: URL; title: string; date: Date; updateDate: Date };
 const { url, title, date, updateDate } = Astro.props;
 ---
 
@@ -24,13 +24,13 @@ const { url, title, date, updateDate } = Astro.props;
     <div class="text-sm">
       <h6 class="text-xs mb-1">Posted on</h6>
       <p>
-        <FormattedDate date={parseISO(date)} />
+        <FormattedDate date={date} />
       </p>
     </div>
     <div class="text-sm">
       <h6 class="text-xs mb-1">Updated on</h6>
       <p>
-        <FormattedDate date={parseISO(updateDate)} />
+        <FormattedDate date={updateDate} />
       </p>
     </div>
     <div class="text-sm">
@@ -69,4 +69,4 @@ const { url, title, date, updateDate } = Astro.props;
   <div class="i-ri:creative-commons-line w-8 h-8 absolute right-8 top-1/2 color-neutral op-40 z-0 scale-650 -translate-y-50%"></div>
 </div>
 
-<OutdateTip client:only="solid-js" date={parseISO(updateDate)} />
+<OutdateTip client:only="solid-js" date={updateDate} />

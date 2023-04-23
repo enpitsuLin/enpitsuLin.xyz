@@ -3,8 +3,10 @@ import BasicLayout from './BasicLayout.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BlogPost from '~/components/BlogPost.astro';
 import PageTitle from '~/components/PageTitle.astro';
+import type { CollectionEntry } from 'astro:content';
+
 type Props = {
-  posts: any[];
+  posts: CollectionEntry<'blog'>[];
   page: {
     prev?: string;
     next?: string;

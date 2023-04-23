@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro';
 import ListLayout from '~/layouts/ListLayout.astro';
-import { usePosts } from '~/lib/sanity';
+import { usePosts } from '~/lib/content';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const astronautPages = await usePosts();

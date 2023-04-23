@@ -3,30 +3,20 @@ import { format, parseISO } from 'date-fns';
 import FormattedDate from '~/components/FormattedDate.astro';
 import PageTitle from '~/components/PageTitle.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
-import { useArchives } from '~/lib/sanity';
+import { useArchives } from '~/lib/content';
+import type { CollectionEntry } from 'astro:content';
 
-const posts = await useArchives();
+const posts = useArchives();
 
-const archivedPosts = posts.reduce(
-  (acc, post) => {
-    const year = format(parseISO(post.date), 'yyyy');
-    if (acc.has(year)) {
-      acc.set(year, [...acc.get(year)!, post]);
-    } else {
-      acc.set(year, [post]);
-    }
-    return acc;
-  },
-  new Map<
-    string,
-    {
-      id: string;
-      title: string;
-      date: string;
-      slug: string;
-    }[]
-  >()
-);
+const archivedPosts = posts.reduce((acc, post) => {
+  const year = format(post.data.date, 'yyyy');
+  if (acc.has(year)) {
+    acc.set(year, [...acc.get(year)!, post]);
+  } else {
+    acc.set(year, [post]);
+  }
+  return acc;
+}, new Map<string, CollectionEntry<'blog'>[]>());
 ---
 
 <BasicLayout title="归档" description="">
@@ -46,11 +36,11 @@ const archivedPosts = posts.reduce(
                   <div role="listitem" class="py-1">
                     <a href={`/blog/${post.slug}`} class="space-x-1">
                       <FormattedDate
-                        date={parseISO(post.date)}
+                        date={post.data.date}
                         format="MM-dd"
                         class="op-80"
                       />
-                      <span>{post.title}</span>
+                      <span>{post.data.title}</span>
                     </a>
                   </div>
                 );
