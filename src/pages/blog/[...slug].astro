@@ -31,7 +31,11 @@ const { Content, headings } = await post.render();
     <h1 class="text-4xl font-bold text-center">{post.data.title}</h1>
   </div>
   <!-- <Markdown content={post.content} /> -->
-  <Content />
+  <div class="relative">
+    <div class="prose pt-4 pb-8 max-w-unset">
+      <Content />
+    </div>
+  </div>
   <ArticleLicense
     url={Astro.url}
     title={post.data.title}
