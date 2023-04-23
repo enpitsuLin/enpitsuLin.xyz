@@ -13,7 +13,7 @@ Currently it is built with [Astro](https://astro.build/).
 - 🔍 SEO-friendly with canonical URLs and OpenGraph data
 - 🗺 Sitemap support
 - 📢 RSS Feed support
-- 📃 Write post by markdown and host content in [sanity](https://www.sanity.io/)
+- 📃 Write post by markdown and host content [src/content](src/content) ~~once in [sanity](https://www.sanity.io/)~~
 - 🌔 Light and Dark theme
 
 ## Tools and Framework Used
@@ -23,7 +23,7 @@ Currently it is built with [Astro](https://astro.build/).
 - [Umami](https://umami.is/): A self-hold website analytics by own your, alternative to Google Analytics.
 - [Unocss](https://github.com/unocss/unocss): A utility-first CSS framework for styled websites and apps.
 - [Vercel](https://vercel.com/): A cloud platform that enables developers to host websites and web services.
-- [Sanity](https://www.sanity.io/): A customizable CMS solution.
+- ~~[Sanity](https://www.sanity.io/): A customizable CMS solution.~~
 
 # License
 
