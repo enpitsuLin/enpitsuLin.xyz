@@ -4,8 +4,8 @@ import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts } from '~/lib/content';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const astronautPages = await usePosts();
-  return paginate(astronautPages, { pageSize: 5 }).slice(1);
+  const astronautPages = usePosts();
+  return paginate(astronautPages, { pageSize: 5 });
 }
 
 // reference https://stackoverflow.com/a/51399781/21266032
