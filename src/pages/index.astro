@@ -1,10 +1,11 @@
 ---
 import BlogPost from '~/components/BlogPost.astro';
 import { usePosts } from '~/lib/content';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { ITEMS_DISPLAY_INDEX, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
 import Hero from '~/components/Hero.astro';
-const posts = usePosts({ limit: 3 });
+
+const posts = usePosts({ limit: ITEMS_DISPLAY_INDEX });
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>

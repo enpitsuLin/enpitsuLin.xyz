@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro';
 import BlogPost from '~/components/BlogPost.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import { ITEMS_PRE_PAGE, SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { useAllTags, usePostsByTag } from '~/lib/content';
 
@@ -12,7 +12,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
       const posts = usePostsByTag(tag);
       return paginate(posts, {
         params: { tag },
-        pageSize: 5
+        pageSize: ITEMS_PRE_PAGE
       });
     })
   );
