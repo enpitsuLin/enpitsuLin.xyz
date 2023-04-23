@@ -1,7 +1,7 @@
 ---
 import '~/styles/prism.css';
 import BasicLayout from '~/layouts/BasicLayout.astro';
-import { usePostsSlug, usePost } from '~/lib/sanity';
+import { usePostsSlug, usePost } from '~/lib/content';
 import Markdown from '~/components/Markdown.astro';
 import FormattedDate from '~/components/FormattedDate.astro';
 import ScrollToTop from '~/components/ScrollToTop.astro';
@@ -9,35 +9,34 @@ import ArticleLicense from '~/components/ArticleLicense.astro';
 import Comments from '~/components/Comments';
 
 export async function getStaticPaths() {
-  return usePostsSlug().then((slugs) =>
-    slugs.map((slug) => ({
-      params: slug
-    }))
-  );
+  const allSlug = usePostsSlug();
+  return allSlug.map((slug) => ({ params: { slug } }));
 }
 const { slug } = Astro.params;
 if (!slug) return Astro.redirect('/404');
 const post = await usePost(slug);
 if (!post) return Astro.redirect('/404');
+const { Content, headings } = await post.render();
 ---
 
-<BasicLayout title={post.title} description={post.summary}>
+<BasicLayout title={post.data.title} description={post.data.excerpt}>
   <div
     class="pt-14 pb-6 flex flex-col items-center text-base border-b border-black dark:border-white border-opacity-8 dark:border-opacity-8"
   >
     <FormattedDate
-      date={new Date(post.date)}
+      date={new Date(post.data.date)}
       itemprop="datePublished"
       class="text-sm text-neutral-700 dark:text-neutral-200"
     />
-    <h1 class="text-4xl font-bold text-center">{post.title}</h1>
+    <h1 class="text-4xl font-bold text-center">{post.data.title}</h1>
   </div>
-  <Markdown content={post.content} />
+  <!-- <Markdown content={post.content} /> -->
+  <Content />
   <ArticleLicense
     url={Astro.url}
-    title={post.title}
-    date={post.date}
-    updateDate={post.updateDate}
+    title={post.data.title}
+    date={post.data.date}
+    updateDate={post.data.updateDate ?? post.data.date}
   />
   <Comments
     url={new URL(Astro.url.pathname, Astro.site)}
@@ -57,19 +56,19 @@ if (!post) return Astro.redirect('/404');
           const copyButton = document.createElement('button');
           copyButton.classList.add('code-copy-button');
           copyButton.setAttribute('type', 'button');
-          copyButton.setAttribute('aria-label', 'Copy code'); 
+          copyButton.setAttribute('aria-label', 'Copy code');
 
           const copyButtonIcon = document.createElement('div');
           copyButtonIcon.classList.add('i-ri:file-copy-fill');
-          copyButton.append(copyButtonIcon)
+          copyButton.append(copyButtonIcon);
 
           copyButton.onclick = () => {
             navigator.clipboard.writeText(preEl.innerText);
-            copyButtonIcon.classList.toggle('i-ri:file-copy-fill')
-            copyButtonIcon.classList.toggle('i-ri:check-fill')
+            copyButtonIcon.classList.toggle('i-ri:file-copy-fill');
+            copyButtonIcon.classList.toggle('i-ri:check-fill');
             setTimeout(() => {
-              copyButtonIcon.classList.toggle('i-ri:file-copy-fill')
-              copyButtonIcon.classList.toggle('i-ri:check-fill')
+              copyButtonIcon.classList.toggle('i-ri:file-copy-fill');
+              copyButtonIcon.classList.toggle('i-ri:check-fill');
             }, 1000);
           };
           if (!preEl.parentNode) return;

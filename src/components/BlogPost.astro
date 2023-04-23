@@ -1,17 +1,10 @@
 ---
 import FormattedDate from './FormattedDate.astro';
+import type { CollectionEntry } from 'astro:content';
 
-interface Props {
-  title: string;
-  date: string;
-  id: string;
-  summary: string;
-  tags: string[];
-  slug: string;
-  lang: string | null;
-}
+interface Props extends CollectionEntry<'blog'> {}
 
-const { title, date, summary, tags, slug, lang } = Astro.props;
+const { slug, data } = Astro.props;
 ---
 
 <article
@@ -21,12 +14,12 @@ const { title, date, summary, tags, slug, lang } = Astro.props;
 >
   <h2 itemprop="headline" class="text-6">
     <a href={`/blog/${slug}`}>
-      {title}
+      {data.title}
     </a>
     {
-      lang && (
+      data.lang && (
         <sup class="inline-block text-neutral-400 px-1 text-xs rounded border border-neutral-300">
-          {lang}
+          {data.lang}
         </sup>
       )
     }
@@ -36,7 +29,7 @@ const { title, date, summary, tags, slug, lang } = Astro.props;
     itemprop="articleBody"
     class="my-4 text-opacity-82 text-sm text-neutral-600 dark:text-neutral-300"
   >
-    <a href={`/blog/${slug}`}>{summary}</a>
+    <a href={`/blog/${slug}`}>{data.excerpt}</a>
   </div>
 
   <div class="flex items-center">
@@ -45,11 +38,11 @@ const { title, date, summary, tags, slug, lang } = Astro.props;
       aria-disabled="true"
     >
       <span>发布于&nbsp;</span>
-      <FormattedDate date={new Date(date)} itemprop="datePublished" />
+      <FormattedDate date={new Date(data.date)} itemprop="datePublished" />
     </span>
     <div class="space-x-2 flex items-center ml-4" aria-disabled="true">
       {
-        tags.map((tag) => {
+        data.tags?.map((tag) => {
           return (
             <a
               title={tag}

@@ -3,13 +3,13 @@ import type { GetStaticPathsOptions, Page } from 'astro';
 import BlogPost from '~/components/BlogPost.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
-import { useAllTags, usePostsByTag } from '~/lib/sanity';
+import { useAllTags, usePostsByTag } from '~/lib/content';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const allTags = await useAllTags();
+  const allTags = useAllTags();
   return Promise.all(
     allTags.map(async (tag) => {
-      const posts = await usePostsByTag(tag);
+      const posts = usePostsByTag(tag);
       return paginate(posts, {
         params: { tag },
         pageSize: 5

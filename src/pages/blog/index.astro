@@ -1,8 +1,8 @@
 ---
 import ListLayout from '~/layouts/ListLayout.astro';
-import { usePosts, usePostsCount } from '~/lib/sanity';
+import { usePosts, usePostsCount } from '~/lib/content';
 
-const post = await usePosts({ limit: 5 });
+const post = await usePosts();
 const total = await usePostsCount();
 ---
 
