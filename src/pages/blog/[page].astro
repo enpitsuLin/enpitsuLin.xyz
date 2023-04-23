@@ -1,11 +1,12 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro';
+import { ITEMS_PRE_PAGE } from '~/consts';
 import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts } from '~/lib/content';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const astronautPages = usePosts();
-  return paginate(astronautPages, { pageSize: 5 });
+  return paginate(astronautPages, { pageSize: ITEMS_PRE_PAGE });
 }
 
 // reference https://stackoverflow.com/a/51399781/21266032
