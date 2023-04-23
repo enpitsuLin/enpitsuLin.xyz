@@ -315,7 +315,7 @@ GIST_ID=<gist id>
 
 如果你的 gist 是 private 的则需要[新建 token](https://github.com/settings/tokens/new),过期时间建议不过期,然后也在`.env`文件中添加如下内容
 
-```plian {2}
+```{2}
 GIST_ID=<gist id>
 GIT_TOKEN=<token>
 ```

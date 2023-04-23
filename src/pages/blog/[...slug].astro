@@ -7,6 +7,7 @@ import FormattedDate from '~/components/FormattedDate.astro';
 import ScrollToTop from '~/components/ScrollToTop.astro';
 import ArticleLicense from '~/components/ArticleLicense.astro';
 import Comments from '~/components/Comments';
+import { PostToc } from '~/components/PostToc';
 
 export async function getStaticPaths() {
   const allSlug = usePostsSlug();
@@ -16,7 +17,7 @@ const { slug } = Astro.params;
 if (!slug) return Astro.redirect('/404');
 const post = await usePost(slug);
 if (!post) return Astro.redirect('/404');
-const { Content, headings } = await post.render();
+const { Content, remarkPluginFrontmatter } = await post.render();
 ---
 
 <BasicLayout title={post.data.title} description={post.data.excerpt}>
@@ -35,6 +36,7 @@ const { Content, headings } = await post.render();
     <div class="prose pt-4 pb-8 max-w-unset">
       <Content />
     </div>
+    <PostToc client:only="solid-js" data={remarkPluginFrontmatter['toc']} />
   </div>
   <ArticleLicense
     url={Astro.url}
