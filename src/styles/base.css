@@ -1,38 +1,48 @@
 @import '@unocss/reset/tailwind-compat.css';
+
 :root {
   --e-bg: #ffffff;
   --e-scrollbar: #cccccc;
   --e-scrollbar-hover: #999999;
   /* extends unocss typography */
   --un-prose-bg-soft: theme('colors.neutral.200');
+  --un-prose-borders: theme('colors.neutral.200')
 }
+
 .dark {
   --e-bg: #2a2b2d;
   --e-scrollbar: #5c5d61;
   --e-scrollbar-hover: #8e9195;
   /* extends unocss typography */
   --un-prose-bg-soft: theme('colors.neutral.500');
+  --un-prose-borders: theme('colors.neutral.500')
 }
+
 * {
   scrollbar-color: var(--e-scrollbar) var(--e-bg);
 }
+
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
+
 ::-webkit-scrollbar-track,
 ::-webkit-scrollbar-corner {
   background: var(--e-bg);
   border-radius: 10px;
 }
+
 ::-webkit-scrollbar-thumb {
   transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-radius: 0.75rem;
   background: var(--e-scrollbar);
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--e-scrollbar-hover);
 }
+
 a[data-disabled] {
   cursor: not-allowed;
 }
