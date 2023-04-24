@@ -1,8 +1,9 @@
 ---
 title: 文章内容从Sanity.io中迁移——博客的心路历程
 date: 2023-04-24 13:58:00
+updateDate: 2023-04-24 15:44:00
 tags: [Blog]
-excerpt: None
+excerpt: 文章内容从Sanity.io迁移回到了文件系统，简单来聊聊个人博客的过程中所走过的路程，这个博客是怎么一步步变成这样的，我又在中间学到了什么。
 ---
 
 在大约不知道多少个版本之前~~大约还是用Next.js的版本~~我文章的内容从`local file`迁移到了`Sanity.io`这个CMS上。
