@@ -37,7 +37,10 @@ export default defineConfig<Theme>({
         },
         'details': {
           'border-radius': '0.125rem'
-        }
+        },
+        ':not(pre) > code::before,:not(pre) > code::after': {
+          content: '" "'
+        },
       }
     })
   ],
