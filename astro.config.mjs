@@ -39,7 +39,8 @@ export default defineConfig({
       },
       remarkDirective, remarkDirectiveRehype],
     rehypePlugins: [
-      rehypePrismPlus, rehypePrismDiff, rehypeSlug,
+      [rehypePrismPlus, { ignoreMissing: true }],
+      rehypePrismDiff, rehypeSlug,
       [rehypeAutolinkHeadings, {
         behavior: 'append',
         properties: {
