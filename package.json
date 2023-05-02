@@ -20,6 +20,7 @@
     "@astrojs/rss": "^2.4.0",
     "@astrojs/sitemap": "^1.2.2",
     "@astrojs/solid-js": "^2.1.0",
+    "@astrojs/vercel": "^3.2.5",
     "@types/hast": "^2.3.4",
     "@unocss/reset": "^0.51.8",
     "astro": "^2.3.3",
