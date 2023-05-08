@@ -2,7 +2,7 @@
 import FormattedDate from './FormattedDate.astro';
 import type { CollectionEntry } from 'astro:content';
 
-interface Props extends CollectionEntry<'blog'> {}
+type Props = CollectionEntry<'blog'>
 
 const { slug, data } = Astro.props;
 ---
