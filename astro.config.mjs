@@ -5,10 +5,10 @@ import Unocss from 'unocss/astro';
 
 // https://astro.build/config
 import solidJs from '@astrojs/solid-js';
-
+import { refractor } from 'refractor/lib/all'
 
 import rehypePrismDiff from 'rehype-prism-diff';
-import rehypePrismPlus from 'rehype-prism-plus';
+import rehypePrismGenerator from 'rehype-prism-plus/generator';
 import rehypeRewrite from 'rehype-rewrite';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkDirective from 'remark-directive';
@@ -16,6 +16,9 @@ import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkCodeTitles from 'remark-flexible-code-titles';
 import rehypeSlug from 'rehype-slug';
 import { toc } from 'mdast-util-toc';
+
+refractor.alias('html', ['vue', 'svelte'])
+const rehypePrismPlus = rehypePrismGenerator(refractor)
 
 // https://astro.build/config
 export default defineConfig({
