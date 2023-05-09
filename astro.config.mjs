@@ -49,20 +49,14 @@ export default defineConfig({
         properties: {
           ariaHidden: 'true',
           tabIndex: -1,
-          class: 'absolute -left-6'
+          className: ["ml-2"],
         },
         content: {
           type: 'element',
-          tagName: 'span',
+          tagName: 'div',
           properties: {
-            className: ['op-0', 'group-hover:op-100']
+            className: ['op-0', 'group-hover:op-80', 'i-ri:links-fill', 'w-4', 'h-4']
           },
-          children: [
-            {
-              type: 'text',
-              value: '#'
-            }
-          ]
         }
       }],
       [rehypeRewrite, {
@@ -78,7 +72,7 @@ export default defineConfig({
             ['h2', 'h3', 'h4', 'h5', 'h6'].includes(node.tagName)
           ) {
             node.properties = Object.assign(node.properties || {}, {
-              className: 'group'
+              className: 'group flex items-center'
             });
           }
         }
