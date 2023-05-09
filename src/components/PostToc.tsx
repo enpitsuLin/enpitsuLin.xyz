@@ -49,7 +49,7 @@ function useActiveId(itemIds: string[]) {
 
 function renderItems(items: TocResult["map"], activeId: string, prefix = "") {
   return (
-    <ol class={prefix ? "pl-5" : ""}>
+    <ol class="overflow-y-auto max-h-65vh" classList={{ "pl-5": prefix != '' }}>
       {items?.children?.map((item, index) => (
         <li>
           {item.children.map((child: any) => {
@@ -113,7 +113,7 @@ export const PostToc: Component<{ data: TocResult }> = (props) => {
       style={{
         "max-width": maxWidth() > 40 ? maxWidth() + 'px' : 0,
       }}>
-      <div class="sticky top-14 text-sm truncate leading-loose overflow-y-auto">
+      <div class="sticky top-14 text-sm truncate leading-loose">
         {renderItems(props.data?.map, activeId())}
       </div>
     </div>
