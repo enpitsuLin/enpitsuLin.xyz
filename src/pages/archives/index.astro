@@ -1,10 +1,10 @@
 ---
-import { format, parseISO } from 'date-fns';
+import type { CollectionEntry } from 'astro:content';
+import { format } from 'date-fns';
 import FormattedDate from '~/components/FormattedDate.astro';
 import PageTitle from '~/components/PageTitle.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { usePosts } from '~/lib/content';
-import type { CollectionEntry } from 'astro:content';
 
 const posts = usePosts();
 

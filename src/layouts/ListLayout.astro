@@ -1,9 +1,9 @@
 ---
-import BasicLayout from './BasicLayout.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import type { CollectionEntry } from 'astro:content';
 import BlogPost from '~/components/BlogPost.astro';
 import PageTitle from '~/components/PageTitle.astro';
-import type { CollectionEntry } from 'astro:content';
+import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import BasicLayout from './BasicLayout.astro';
 
 type Props = {
   posts: CollectionEntry<'blog'>[];

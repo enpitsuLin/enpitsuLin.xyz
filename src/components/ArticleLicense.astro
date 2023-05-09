@@ -1,6 +1,5 @@
 ---
 import FormattedDate from './FormattedDate.astro';
-import { parseISO } from 'date-fns';
 import OutdateTip from './OutdateTip';
 
 type Props = { url: URL; title: string; date: Date; updateDate: Date };
@@ -66,7 +65,10 @@ const { url, title, date, updateDate } = Astro.props;
       </div>
     </div>
   </div>
-  <div class="i-ri:creative-commons-line w-8 h-8 absolute right-8 top-1/2 color-neutral op-40 z-0 scale-650 -translate-y-50%"></div>
+  <div
+    class="i-ri:creative-commons-line w-8 h-8 absolute right-8 top-1/2 color-neutral op-40 z-0 scale-650 -translate-y-50%"
+  >
+  </div>
 </div>
 
 <OutdateTip client:only="solid-js" date={updateDate} />

@@ -1,13 +1,12 @@
 ---
-import '~/styles/prism.css';
-import BasicLayout from '~/layouts/BasicLayout.astro';
-import { usePostsSlug, usePost } from '~/lib/content';
-import Markdown from '~/components/Markdown.astro';
-import FormattedDate from '~/components/FormattedDate.astro';
-import ScrollToTop from '~/components/ScrollToTop.astro';
 import ArticleLicense from '~/components/ArticleLicense.astro';
 import Comments from '~/components/Comments';
+import FormattedDate from '~/components/FormattedDate.astro';
 import { PostToc } from '~/components/PostToc';
+import ScrollToTop from '~/components/ScrollToTop.astro';
+import BasicLayout from '~/layouts/BasicLayout.astro';
+import { usePost,usePostsSlug } from '~/lib/content';
+import '~/styles/prism.css';
 
 export async function getStaticPaths() {
   const allSlug = usePostsSlug();

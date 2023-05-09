@@ -1,9 +1,9 @@
 ---
 import BlogPost from '~/components/BlogPost.astro';
+import Hero from '~/components/Hero.astro';
 import { usePosts } from '~/lib/content';
 import { ITEMS_DISPLAY_INDEX, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
-import Hero from '~/components/Hero.astro';
 
 const posts = usePosts({ limit: ITEMS_DISPLAY_INDEX });
 ---
