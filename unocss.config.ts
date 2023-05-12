@@ -18,6 +18,7 @@ export default defineConfig<Theme>({
       ].join(' ')
     }
   ],
+  safelist: ['i-ri:file-copy-fill', 'i-ri:check-fill'],
   presets: [
     presetUno(),
     presetAttributify(),
