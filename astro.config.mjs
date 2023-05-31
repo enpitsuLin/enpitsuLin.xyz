@@ -11,10 +11,11 @@ import rehypePrismDiff from 'rehype-prism-diff';
 import rehypePrismGenerator from 'rehype-prism-plus/generator';
 import rehypeRewrite from 'rehype-rewrite';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeSlug from 'rehype-slug';
 import remarkDirective from 'remark-directive';
 import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkCodeTitles from 'remark-flexible-code-titles';
-import rehypeSlug from 'rehype-slug';
+import remarkEmoji from 'remark-emoji'
 import { toc } from 'mdast-util-toc';
 
 refractor.alias('html', ['vue', 'svelte'])
@@ -28,6 +29,7 @@ export default defineConfig({
     gfm: true,
     syntaxHighlight: false,
     remarkPlugins: [
+      remarkEmoji,
       [
         remarkCodeTitles, {
           title: false,

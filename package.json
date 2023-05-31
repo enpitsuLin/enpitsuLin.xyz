@@ -36,6 +36,7 @@
     "rehype-slug": "^5.1.0",
     "remark-directive": "^2.0.1",
     "remark-directive-rehype": "^0.4.2",
+    "remark-emoji": "^3.1.1",
     "remark-flexible-code-titles": "^1.1.2",
     "solid-js": "^1.7.5",
     "unified": "^10.1.2",
