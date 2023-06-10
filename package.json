@@ -40,7 +40,7 @@
     "remark-flexible-code-titles": "^1.1.2",
     "solid-js": "^1.7.5",
     "unified": "^10.1.2",
-    "vfile": "^5.3.7"
+    "vfile": "^6.0.0"
   },
   "devDependencies": {
     "@iconify-json/fa-brands": "^1.1.4",
