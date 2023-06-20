@@ -1,0 +1,14 @@
+---
+import { format, getISOWeek } from 'date-fns';
+import { getCollection } from 'astro:content';
+
+const weekly = await getCollection('weekly');
+
+const list = weekly.map((i) => ({
+  title: `${format(i.data.date, 'yy')}w${getISOWeek(i.data.date)}`
+}));
+---
+
+<div>
+  {JSON.stringify(list, null, 2)}
+</div>
