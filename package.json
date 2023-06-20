@@ -4,7 +4,7 @@
   "type": "module",
   "version": "0.0.1",
   "license": "MIT",
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@8.6.3",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -16,13 +16,13 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.19.4",
+    "@astrojs/mdx": "^0.19.7",
     "@astrojs/rss": "^2.4.3",
-    "@astrojs/sitemap": "^1.3.1",
+    "@astrojs/sitemap": "^1.3.3",
     "@astrojs/solid-js": "^2.2.0",
     "@types/hast": "^2.3.4",
-    "@unocss/reset": "^0.51.13",
-    "astro": "^2.5.5",
+    "@unocss/reset": "^0.53.1",
+    "astro": "^2.6.5",
     "date-fns": "^2.30.0",
     "disqusjs": "^3.0.2",
     "hastscript": "^7.2.0",
@@ -36,24 +36,24 @@
     "rehype-slug": "^5.1.0",
     "remark-directive": "^2.0.1",
     "remark-directive-rehype": "^0.4.2",
-    "remark-emoji": "^3.1.1",
-    "remark-flexible-code-titles": "^1.1.2",
-    "solid-js": "^1.7.5",
+    "remark-emoji": "^3.1.2",
+    "remark-flexible-code-titles": "^1.1.3",
+    "solid-js": "^1.7.6",
     "unified": "^10.1.2",
-    "vfile": "^5.3.7"
+    "vfile": "^6.0.0"
   },
   "devDependencies": {
     "@iconify-json/fa-brands": "^1.1.4",
     "@iconify-json/ri": "^1.1.9",
-    "@typescript-eslint/eslint-plugin": "^5.59.8",
-    "@typescript-eslint/parser": "^5.59.8",
+    "@typescript-eslint/eslint-plugin": "^5.60.0",
+    "@typescript-eslint/parser": "^5.60.0",
     "astro-eslint-parser": "^0.14.0",
-    "eslint": "^8.41.0",
+    "eslint": "^8.43.0",
     "eslint-plugin-astro": "^0.27.1",
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.8.1",
-    "typescript": "^5.0.4",
-    "unocss": "^0.51.13"
+    "prettier-plugin-astro": "^0.10.0",
+    "typescript": "^5.1.3",
+    "unocss": "^0.53.1"
   },
   "pnpm": {
     "peerDependencyRules": {
