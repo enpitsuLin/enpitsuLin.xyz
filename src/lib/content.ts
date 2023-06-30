@@ -1,7 +1,7 @@
 import { getCollection, getEntryBySlug } from 'astro:content';
 
 const blogCollection = await getCollection('blog')
-  .then(res => res.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()))
+  .then(res => res.filter(p => !p.data.draft).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()))
 
 export const usePost = async (slug: string) => {
   const entry = await getEntryBySlug('blog', slug)
