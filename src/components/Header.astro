@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import ThemeSwitch from './ThemeSwitch.astro';
+import Dropdown from './Dropdown.astro';
 
 const friends = (await getCollection('friends')).filter(
   (i) => i.id !== 'example'
@@ -17,36 +18,69 @@ const friends = (await getCollection('friends')).filter(
     </a>
 
     <span class="ml-auto" role="separator"></span>
-    <nav class="mr-4">
-      <a
-        href="/blog"
-        title="blog"
-        class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-        >文章</a
-      >
-      <a
-        href="/archives"
-        title="archives"
-        class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-        >归档</a
-      >
-      <a
-        href="/tags"
-        title="tags"
-        class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-        >标签</a
-      >
-      {
-        friends.length > 0 && (
+    <nav class="mr-1">
+      <ul class="inline-flex p-2">
+        <li>
           <a
-            href="/friends"
-            title="friends"
+            href="/blog"
+            title="blog"
             class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+            >文章</a
           >
-            友链
-          </a>
-        )
-      }
+        </li>
+        <li>
+          <a
+            href="/archives"
+            title="archives"
+            class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+            >归档</a
+          >
+        </li>
+        <li>
+          <a
+            href="/tags"
+            title="tags"
+            class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+            >标签</a
+          >
+        </li>
+        <li>
+          <Dropdown title="更多">
+            <ul class="py-2">
+              <li>
+                <a
+                  href="/friends"
+                  title="friends"
+                  class="mx-1.5 px-2 py-1 block rounded transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                >
+                  友情链接
+                </a>
+              </li>
+              <li role="separator" class="relative h-1px my-2 bg-#fff/50">
+                <span class="scale-75 absolute left-1/2 -translate-x-1/2 top-0 -translate-y-10px bg-neutral-100 dark:bg-neutral-600">WIP</span>
+              </li>
+              <li>
+                <a
+                  title="weekly"
+                  href="#"
+                  class="mx-1.5 px-2 py-1 block rounded transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                >
+                  周记
+                </a>
+              </li>
+              <li>
+                <a
+                  title="weekly"
+                  href="#"
+                  class="mx-1.5 px-2 py-1 block rounded transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                >
+                  关于
+                </a>
+              </li>
+            </ul>
+          </Dropdown>
+        </li>
+      </ul>
     </nav>
     <div class="space-x-4 flex items-center">
       <a
