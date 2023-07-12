@@ -7,11 +7,15 @@ const { title } = Astro.props;
 
 <details class="group">
   <summary
-    class="cursor-pointer select-none grid grid-auto-flow-col items-center gap-1 rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+    class:list={[
+      'cursor-pointer select-none',
+      'grid grid-auto-flow-col items-center gap-1',
+      'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
+    ]}
   >
-    {title}
+    <span>{title}</span>
     <div
-      class="i-ri:arrow-down-s-line text-lg group-open:rotate-180 transition-transform ease-in"
+      class="i-ri:arrow-down-s-line text-5 group-open:rotate-180 transition-transform ease-in"
     >
     </div>
   </summary>
