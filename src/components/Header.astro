@@ -1,6 +1,11 @@
 ---
+import { getCollection } from 'astro:content';
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import ThemeSwitch from './ThemeSwitch.astro';
+
+const friends = (await getCollection('friends')).filter(
+  (i) => i.id !== 'example'
+);
 ---
 
 <header
@@ -28,6 +33,16 @@ import ThemeSwitch from './ThemeSwitch.astro';
         class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
         >标签</a
       >
+      {
+        friends.length > 0 && (
+          <a
+            href="/friends"
+            class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
+          >
+            友链
+          </a>
+        )
+      }
     </nav>
     <div class="space-x-4 flex items-center">
       <a
