@@ -1,8 +1,7 @@
---- 
+---
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import ThemeSwitch from './ThemeSwitch.astro';
 import Dropdown from './Dropdown.astro';
-
 ---
 
 <header
@@ -12,33 +11,47 @@ import Dropdown from './Dropdown.astro';
     <a href="/" class="font-bold text-opacity-82 text-black dark:text-white">
       <span title={SITE_DESCRIPTION}>{SITE_TITLE}</span>
     </a>
-
     <span class="ml-auto" role="separator"></span>
     <nav class="mr-1">
-      <ul class="inline-flex p-2">
+      <ul class="inline-flex items-center gap-0.5 p-2">
         <li>
           <a
             href="/blog"
             title="blog"
-            class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-            >文章</a
+            class:list={[
+              'rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700',
+              '[&.active]:(bg-neutral-200 dark:bg-neutral-700)',
+              { active: Astro.url.pathname === '/blog' }
+            ]}
           >
+            文章
+          </a>
         </li>
         <li>
           <a
             href="/archives"
             title="archives"
-            class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-            >归档</a
+            class:list={[
+              'rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700',
+              '[&.active]:(bg-neutral-200 dark:bg-neutral-700)',
+              { active: Astro.url.pathname === '/archives' }
+            ]}
           >
+            归档
+          </a>
         </li>
         <li>
           <a
             href="/tags"
             title="tags"
-            class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
-            >标签</a
+            class:list={[
+              'rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700',
+              '[&.active]:(bg-neutral-200 dark:bg-neutral-700)',
+              { active: Astro.url.pathname === '/tags' }
+            ]}
           >
+            标签
+          </a>
         </li>
         <li>
           <Dropdown title="更多">
