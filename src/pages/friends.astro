@@ -1,9 +1,52 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection } from 'astro:content';
+import PageTitle from '~/components/PageTitle.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import BasicLayout from '~/layouts/BasicLayout.astro';
 
-const friends = await getCollection('friends')
+const friends = (await getCollection('friends')).filter(
+  (i) => i.id !== 'example'
+);
 ---
 
-<pre>
-  <code>{JSON.stringify(friends,null,2)}</code>
-</pre>
+<BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <PageTitle title="Friends" />
+  <div class="grid grid-cols-2 gap-2">
+    {friends.length === 0 && <h2>It seems nobody here</h2>}
+    {
+      friends.map((friend) => (
+        <div class="relative h-20 grid grid-cols-5 items-center gap-2 border p-2 rounded-md hover:bg-neutral-200 dark:hover:bg-neutral-700">
+          <picture class="justify-self-center h-8 w-8">
+            {typeof friend.data.favicon !== 'string' && (
+              <>
+                <img
+                  alt="light version favicon"
+                  src={friend.data.favicon.dark}
+                  class="hidden dark:block"
+                />
+                <img
+                  alt="dark version favicon"
+                  src={friend.data.favicon.light}
+                  class="block dark:hidden"
+                />
+              </>
+            )}
+            {typeof friend.data.favicon === 'string' && (
+              <img alt="favicon" src={friend.data.favicon} />
+            )}
+          </picture>
+          <div class="col-span-3">
+            <p>{friend.data.title}</p>
+            <p class="truncate text-sm op-60">{friend.data.description}</p>
+          </div>
+          <div class="i-ri:external-link-line justify-self-center" />
+          <a
+            title={friend.data.title}
+            href={friend.data.url}
+            class="absolute inset-0"
+          />
+        </div>
+      ))
+    }
+  </div>
+</BasicLayout>

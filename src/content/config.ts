@@ -18,7 +18,11 @@ const friends = defineCollection({
   schema: z.object({
     title: z.string(),
     url: z.string(),
-    favicon: z.string().optional(),
+    description: z.string(),
+    favicon: z.string().or(z.object({
+      light: z.string(),
+      dark: z.string()
+    })),
   })
 })
 
