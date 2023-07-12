@@ -14,46 +14,40 @@ import Dropdown from './Dropdown.astro';
     <span class="ml-auto" role="separator"></span>
     <nav class="mr-1">
       <ul class="inline-flex items-center gap-0.5 p-2">
-        <li>
+        <li class="text-sm">
           <a
             href="/blog"
             title="blog"
             class:list={[
-              'rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700',
-              '[&.active]:(bg-neutral-200 dark:bg-neutral-700)',
-              { active: Astro.url.pathname === '/blog' }
+              'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
             ]}
           >
             文章
           </a>
         </li>
-        <li>
+        <li class="text-sm">
           <a
             href="/archives"
             title="archives"
             class:list={[
-              'rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700',
-              '[&.active]:(bg-neutral-200 dark:bg-neutral-700)',
-              { active: Astro.url.pathname === '/archives' }
+              'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
             ]}
           >
             归档
           </a>
         </li>
-        <li>
+        <li class="text-sm">
           <a
             href="/tags"
             title="tags"
             class:list={[
-              'rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700',
-              '[&.active]:(bg-neutral-200 dark:bg-neutral-700)',
-              { active: Astro.url.pathname === '/tags' }
+              'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
             ]}
           >
             标签
           </a>
         </li>
-        <li>
+        <li class="text-sm">
           <Dropdown title="更多">
             <ul class="py-2">
               <li>
