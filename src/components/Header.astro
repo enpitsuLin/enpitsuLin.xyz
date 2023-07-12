@@ -20,16 +20,19 @@ const friends = (await getCollection('friends')).filter(
     <nav class="mr-4">
       <a
         href="/blog"
+        title="blog"
         class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
         >文章</a
       >
       <a
         href="/archives"
+        title="archives"
         class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
         >归档</a
       >
       <a
         href="/tags"
+        title="tags"
         class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
         >标签</a
       >
@@ -37,6 +40,7 @@ const friends = (await getCollection('friends')).filter(
         friends.length > 0 && (
           <a
             href="/friends"
+            title="friends"
             class="rounded text-sm px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700"
           >
             友链
