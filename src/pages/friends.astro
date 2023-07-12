@@ -1,0 +1,9 @@
+---
+import { getCollection } from "astro:content";
+
+const friends = await getCollection('friends')
+---
+
+<pre>
+  <code>{JSON.stringify(friends,null,2)}</code>
+</pre>
