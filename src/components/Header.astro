@@ -1,12 +1,8 @@
----
-import { getCollection } from 'astro:content';
+--- 
 import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import ThemeSwitch from './ThemeSwitch.astro';
 import Dropdown from './Dropdown.astro';
 
-const friends = (await getCollection('friends')).filter(
-  (i) => i.id !== 'example'
-);
 ---
 
 <header
