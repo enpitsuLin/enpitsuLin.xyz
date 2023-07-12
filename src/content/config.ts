@@ -13,11 +13,4 @@ const blog = defineCollection({
   }),
 });
 
-const weekly = defineCollection({
-  type: "content",
-  schema: z.object({
-    date: z.date()
-  })
-})
-
-export const collections = { blog, weekly };
+export const collections = { blog };

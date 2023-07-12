@@ -1,5 +1,4 @@
 import { getCollection, getEntryBySlug } from 'astro:content';
-import { addWeeks, isSameWeek } from 'date-fns';
 
 interface ContentOptions {
   limit?: number
@@ -41,25 +40,4 @@ export const usePostsByTag = (tag: string) => {
 export const useArchives = () => {
   return blogCollection
 };
-
-
-const weeklyCollection = await getCollection('weekly')
-  .then(res => res.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()))
-
-export const useWeekly = async (year: number, week: number) => {
-  const yearStartWeek = new Date(year, 0, 1)
-  const targetDate = addWeeks(yearStartWeek, week)
-
-  return weeklyCollection.find(c => {
-    const date = c.data.date;
-    return isSameWeek(targetDate, date, { weekStartsOn: 1 })
-  })
-}
-
-export const useWeeklies = async (option?: ContentOptions) => {
-  return [...weeklyCollection]
-    .slice(option?.skip ?? 0,
-      option?.limit ? (option?.skip ?? 0 + option?.limit) : undefined)
-}
-
-export const useWeekliesCount = () => weeklyCollection.length + 1
+ 
