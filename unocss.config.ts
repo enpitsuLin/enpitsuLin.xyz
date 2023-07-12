@@ -1,7 +1,7 @@
 import {
   defineConfig,
   presetUno,
-  presetTypography, 
+  presetTypography,
   presetIcons,
   transformerDirectives,
   transformerVariantGroup
@@ -9,6 +9,18 @@ import {
 import type { Theme } from 'unocss/preset-uno';
 
 export default defineConfig<Theme>({
+  extendTheme: [
+    (theme) => {
+      const animation: Theme['animation'] = Object.assign(theme.animation ?? {}, {
+        keyframes: {
+          'blink-text-cursor': '{from{border-right-color: currentColor;}to{border-right-color:transparent;}}'
+        },
+        'wave-hands': `{0%{transform:rotate(0.0deg)}10%{transform:rotate(14.0deg)}20%{transform:rotate(-8.0deg)}30%{transform:rotate(14.0deg)}40%{transform:rotate(-4.0deg)}50%{transform:rotate(10.0deg)}60%{transform:rotate(0.0deg)}100%{transform:rotate(0.0deg)}}`
+      })
+
+      return { ...theme, animation }
+    }
+  ],
   shortcuts: [
     {
       'lodash-effect': [
@@ -19,7 +31,7 @@ export default defineConfig<Theme>({
   ],
   safelist: ['i-ri:file-copy-fill', 'i-ri:check-fill'],
   presets: [
-    presetUno(), 
+    presetUno(),
     presetIcons(),
     presetTypography({
       cssExtend: {
