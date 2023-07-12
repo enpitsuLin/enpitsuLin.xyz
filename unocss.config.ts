@@ -1,8 +1,7 @@
 import {
   defineConfig,
   presetUno,
-  presetTypography,
-  presetAttributify,
+  presetTypography, 
   presetIcons,
   transformerDirectives,
   transformerVariantGroup
@@ -20,8 +19,7 @@ export default defineConfig<Theme>({
   ],
   safelist: ['i-ri:file-copy-fill', 'i-ri:check-fill'],
   presets: [
-    presetUno(),
-    presetAttributify(),
+    presetUno(), 
     presetIcons(),
     presetTypography({
       cssExtend: {
