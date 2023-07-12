@@ -39,7 +39,7 @@
     "hastscript": "^7.2.0",
     "mdast-util-toc": "^7.0.0",
     "prettier": "^2.8.8",
-    "prettier-plugin-astro": "^0.10.0",
+    "prettier-plugin-astro": "^0.11.0",
     "refractor": "^4.8.1",
     "rehype-autolink-headings": "^6.1.1",
     "rehype-prism-diff": "^1.1.2",
