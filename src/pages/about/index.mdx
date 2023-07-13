@@ -1,0 +1,30 @@
+import PageTitle from '~/components/PageTitle.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
+import BasicLayout from '~/layouts/BasicLayout.astro';
+
+<BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
+  <PageTitle title="About" /> 
+  <main class="prose">
+## 关于我
+
+> 经常以 enpitsulin 的 ID 出没于互联网
+
+来自~~江南皮革厂原址~~小城市浙江温州，性别男，在杭打工人一枚，业余时间喜欢写点破代码自娱自乐，很高兴我所记录的遇到的问题和学习的技术能给阅读的人们带来帮助，希望你能看的开心
+
+有时候喜欢各种影视听作品，有段时间简单记录了下[看过的](https://records.enpitsulin.xyz/) ~~日后再加个广播剧分类（挖坑~~
+
+同时也是个臭打游戏的，但近年来慢慢的电子阳痿了 ~~（雾~~，业余时间会和狐朋狗友连麦一起玩联机类型的游戏。
+
+## 关于本网站
+
+由 [Astro](https://astro.build) ~~强力~~驱动，整站静态生成托管于 [vercel](https://vercel.com)，使用自部署的 [Umami](https://cloud.umami.is/) 进行访问量统计。
+
+有[相关文章](/blog/content-migrate-from-sanity)简单梳理个人网站的成长
+
+
+#### 里程碑
+
+> TODO 需要收集下之前的 commit 数据
+
+  </main>
+</BasicLayout>
