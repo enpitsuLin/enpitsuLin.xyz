@@ -26,8 +26,8 @@ devDependencies:
     specifier: ^2.4.3
     version: 2.4.3
   '@astrojs/sitemap':
-    specifier: ^1.3.3
-    version: 1.3.3
+    specifier: ^2.0.0
+    version: 2.0.0
   '@astrojs/solid-js':
     specifier: ^2.2.0
     version: 2.2.0(solid-js@1.7.8)
@@ -237,8 +237,8 @@ packages:
       kleur: 4.1.5
     dev: true
 
-  /@astrojs/sitemap@1.3.3:
-    resolution: {integrity: sha512-TPyyb/hKxc+bHPpSoNPhsuI0QOTVzq2tueg2r0CTH1HqigYIAA2LQkCBlQzz85R+LrOZpv4kXYmhxdDcSkJCmA==}
+  /@astrojs/sitemap@2.0.0:
+    resolution: {integrity: sha512-hcemuFigv05sdXNiw0U23VO+6Duj9nq9xhINw4ZPWAQEhS/F4EiNvd9IUXb4XJ7pG93MWAnQKF9lP8EtwP6paA==}
     dependencies:
       sitemap: 7.1.1
       zod: 3.21.4
