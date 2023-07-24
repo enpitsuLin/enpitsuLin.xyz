@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "title": "Schema",
+      "description": "Pointer to the schema against which this document should be validated."
+    },
+    "description": {
+      "type": "string",
+      "description": "Your website description."
+    },
+    "favicon": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "additionalProperties": false,
+          "properties": {
+            "dark": {
+              "type": "string"
+            },
+            "light": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "light",
+            "dark"
+          ],
+          "type": "object"
+        }
+      ],
+      "description": "Your website favicon link, which can specify a different dark or light color schema."
+    },
+    "title": {
+      "type": "string",
+      "description": "Your website title."
+    },
+    "url": {
+      "type": "string",
+      "description": "Your website url"
+    }
+  },
+  "required": [
+    "title",
+    "url",
+    "description",
+    "favicon"
+  ],
+  "type": "object"
+}
