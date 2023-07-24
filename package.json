@@ -11,7 +11,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "style": "prettier -w \"src/**/*.{astro,tsx}\" --plugin-search-dir=.",
+    "style": "prettier -w \"src/**/*.{astro,tsx}\"",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix"
   },
