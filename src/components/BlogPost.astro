@@ -16,7 +16,11 @@ const { slug, data } = Astro.props;
     itemprop="headline"
     class="text-6 hover:underline focus-visible:underline focus:underline"
   >
-    <a href={`/blog/${slug}`}>
+    <a
+      href={`/blog/${slug}`}
+      data-umami-event="Article link"
+      data-umami-event-slug={slug}
+    >
       {data.title}
     </a>
     {
