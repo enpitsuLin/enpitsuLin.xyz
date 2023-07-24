@@ -5,7 +5,7 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 
 const friends = (await getCollection('friends')).filter(
-  (i) => i.id !== 'schema'
+  (i) => i.id !== 'example'
 );
 ---
 
