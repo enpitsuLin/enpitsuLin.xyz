@@ -10,7 +10,10 @@ const { slug, data } = Astro.props;
 <article
   itemscope
   itemtype="http://schema.org/BlogPosting"
-  class="flex border-t border-black dark:border-white border-opacity-8 dark:border-opacity-8 flex-col py-4 relative"
+  flex="~ col"
+  border="t black dark:white op-8 dark:op-8"
+  py-4
+  relative
 >
   <h2
     itemprop="headline"
@@ -27,7 +30,11 @@ const { slug, data } = Astro.props;
       data.lang && (
         <sup
           aria-label={`extra info: this post write in ${data.lang}`}
-          class="inline-block text-neutral-400 px-1 text-xs rounded border border-neutral-300"
+          border="~ rounded neutral-300"
+          inline-block
+          text-neutral-400
+          px-1
+          text-xs
         >
           {data.lang}
         </sup>
@@ -37,29 +44,32 @@ const { slug, data } = Astro.props;
 
   <div
     itemprop="articleBody"
-    class="my-4 text-opacity-82 text-sm text-neutral-600 dark:text-neutral-300"
+    my-4
+    text-opacity-82
+    text-sm
+    c="neutral-6 dark:neutral-3"
   >
     <a href={`/blog/${slug}`}>{data.excerpt}</a>
   </div>
 
-  <div class="flex items-center text-neutral-600 dark:text-neutral-300">
-    <span class="text-xs">
+  <div flex="~ items-center" c="neutral-6 dark:neutral-3">
+    <span text-xs>
       <span>发布于&nbsp;</span>
       <FormattedDate date={new Date(data.date)} itemprop="datePublished" />
     </span>
-    <div
-      class="space-x-2 flex items-center ml-4"
-      aria-label="Tags for this post"
-    >
+    <div flex="~ items-center" space-x-2 ml-4 aria-label="Tags for this post">
       {
         data.tags?.map((tag) => {
           return (
             <a
               title={tag}
               href={`/tags/${tag}`}
-              class="inline-block text-xs motion-safe:(transition-colors duration-200 ease-in) hover:underline"
+              motion-safe="transition-colors duration-200 ease-in"
+              hover="underline"
+              inline-block
+              text-xs
             >
-              #{tag}
+              &#x23;{tag}
             </a>
           );
         })

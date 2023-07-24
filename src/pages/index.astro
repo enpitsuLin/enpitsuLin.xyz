@@ -11,16 +11,17 @@ const posts = usePosts({ limit: ITEMS_DISPLAY_INDEX });
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Hero />
   <div
-    class:list={[
-      'flex items-center justify-between',
-      'text-3xl leading-none tracking-.6px text-opacity-85 select-none font-900 my-2'
-    ]}
+    flex="~ items-center justify-between" my2
+    text-3xl leading-none tracking-.6px text-op-85
+    select-none font-900
   >
-    <span class="flex-1">Latest</span>
+    <span flex-1>Latest</span>
     <a
       aria-label="All posts"
       href="/blog"
-      class="text-sm op-50 flex items-center hover:op-100 transition-opacity cursor-pointer"
+      flex="~ items-center" text-sm
+      cursor-pointer op="50 hover:100"
+      class="transition-opacity "
     >
       <span>更多</span>
       <div class="i-ri:arrow-right-double-fill"></div>

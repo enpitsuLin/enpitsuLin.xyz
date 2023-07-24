@@ -6,35 +6,35 @@ type Props = { url: URL; title: string; date: Date; updateDate: Date };
 const { url, title, date, updateDate } = Astro.props;
 ---
 
-<div class="relative bg-#f5f5f5 w-full text-#4a4a4a p-5 overflow-hidden">
-  <div class="grid grid-cols-4 md:grid-cols-6 grid-rows-2 relative">
-    <div class="col-span-6 space-y-1 mb-2">
-      <p class="text-sm">{title}</p>
-      <p class="text-xs op-60">
+<div relative w-full overflow-hidden p-5 class="bg-#f5f5f5 c-#4a4a4a">
+  <div grid="~ cols-4 md:cols-6 rows-2" relative>
+    <div col-span-6 space-y-1 mb-2>
+      <p text-sm>{title}</p>
+      <p text-xs op-60>
         <a href={url}>
           {url}
         </a>
       </p>
     </div>
-    <div class="text-sm">
-      <h6 class="text-xs mb-1">Author</h6>
+    <div text-sm>
+      <h6 text-xs mb-1>Author</h6>
       <p>enpitsulin</p>
     </div>
-    <div class="text-sm">
-      <h6 class="text-xs mb-1">Posted on</h6>
+    <div text-sm>
+      <h6 text-xs mb-1>Posted on</h6>
       <p>
         <FormattedDate date={date} />
       </p>
     </div>
-    <div class="text-sm">
-      <h6 class="text-xs mb-1">Updated on</h6>
+    <div text-sm>
+      <h6 text-xs mb-1>Updated on</h6>
       <p>
         <FormattedDate date={updateDate} />
       </p>
     </div>
-    <div class="text-sm">
-      <h6 class="text-xs mb-1">Licensed under</h6>
-      <div class="flex space-x-1">
+    <div text-sm>
+      <h6 text-xs mb-1>Licensed under</h6>
+      <div flex space-x-1>
         <a
           class="icons"
           rel="noopener"
@@ -42,7 +42,7 @@ const { url, title, date, updateDate } = Astro.props;
           title="Creative Commons"
           href="https://creativecommons.org/"
         >
-          <div class="i-ri:creative-commons-line w-5 h-5"></div>
+          <div i-ri:creative-commons-line w-5 h-5></div>
         </a>
         <a
           class="icons"
@@ -51,7 +51,7 @@ const { url, title, date, updateDate } = Astro.props;
           title="Attribution"
           href="https://creativecommons.org/licenses/by/4.0/"
         >
-          <div class="i-ri:creative-commons-by-line w-5 h-5"></div>
+          <div i-ri:creative-commons-by-line w-5 h-5></div>
         </a>
         <a
           class="icons"
@@ -60,13 +60,23 @@ const { url, title, date, updateDate } = Astro.props;
           title="Noncommercial"
           href="https://creativecommons.org/licenses/by-nc/4.0/"
         >
-          <div class="i-ri:creative-commons-nc-line w-5 h-5"></div>
+          <div i-ri:creative-commons-nc-line w-5 h-5></div>
         </a>
       </div>
     </div>
   </div>
   <div
-    class="i-ri:creative-commons-line w-8 h-8 absolute right-8 top-1/2 color-neutral op-40 z-0 scale-650 -translate-y-50%"
+    i-ri:creative-commons-line
+    w-8
+    h-8
+    color-neutral
+    op-40
+    z-0
+    scale-650
+    absolute
+    right-8
+    top="1/2"
+    translate-y-="-50%"
   >
   </div>
 </div>
