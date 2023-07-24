@@ -10,5 +10,8 @@
       ]
     },
     "jsxImportSource": "solid-js"
-  }
+  },
+  "exclude": [
+    "astro.config.mjs"
+  ]
 }
