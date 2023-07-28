@@ -50,8 +50,8 @@ devDependencies:
     specifier: ^6.1.0
     version: 6.1.0(eslint@8.45.0)(typescript@5.1.6)
   '@unocss/reset':
-    specifier: ^0.53.6
-    version: 0.53.6
+    specifier: ^0.54.0
+    version: 0.54.0
   astro:
     specifier: ^2.9.1
     version: 2.9.1
@@ -1340,6 +1340,10 @@ packages:
 
   /@unocss/reset@0.53.6:
     resolution: {integrity: sha512-WtZU0Q5Y9CHzitYPJ+ZGPUssVuDnRakmHETQ2EuBJgWZhgsmTECrpb78+tnJdFVowuYYQyV0CP6a07uwkFNm6g==}
+    dev: true
+
+  /@unocss/reset@0.54.0:
+    resolution: {integrity: sha512-zxvr96hVsmvJtxCLatLSCc67RBEgqvVDhEtkIFxIz5oCJzxvipJTGdKxM4F6Akyzx1A+q7zM8dimqvmC6D5Idw==}
     dev: true
 
   /@unocss/scope@0.53.6:
