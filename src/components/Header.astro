@@ -4,75 +4,99 @@ import ThemeSwitch from './ThemeSwitch.astro';
 import Dropdown from './Dropdown.astro';
 ---
 
-<header
-  class="transition-all border-b border-b-neutral-200 dark:border-neutral-700"
->
-  <div class="max-w-4xl mx-auto px-4 py-4 flex items-center">
-    <a href="/" class="font-bold text-opacity-82 text-black dark:text-white">
+<header transition-all border="b b-neutral-2 dark:b-neutral-7">
+  <div max-w-4xl mx-auto px-4 py-4 flex="~ items-center">
+    <a href="/" c="black dark:white op-82" font-bold>
       <span title={SITE_DESCRIPTION}>{SITE_TITLE}</span>
     </a>
-    <span class="ml-auto" role="separator"></span>
-    <nav class="mr-1">
-      <ul class="inline-flex items-center gap-0.5 p-2">
-        <li class="text-sm">
+    <span ml-auto role="separator"></span>
+    <nav mr-1>
+      <ul flex="inline items-center gap-0.5" p-2>
+        <li text-sm>
           <a
             href="/blog"
             title="blog"
-            class:list={[
-              'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
-            ]}
+            rounded
+            px-2
+            py-1
+            bg="hover:neutral-2 dark:hover:neutral-7"
           >
             文章
           </a>
         </li>
-        <li class="text-sm">
+        <li text-sm>
           <a
             href="/archives"
             title="archives"
-            class:list={[
-              'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
-            ]}
+            rounded
+            px-2
+            py-1
+            bg="hover:neutral-2 dark:hover:neutral-7"
           >
             归档
           </a>
         </li>
-        <li class="text-sm">
+        <li text-sm>
           <a
             href="/tags"
             title="tags"
-            class:list={[
-              'rounded px-2 py-1 hover:bg-neutral-200 dark:hover:bg-neutral-700'
-            ]}
+            rounded
+            px-2
+            py-1
+            bg="hover:neutral-2 dark:hover:neutral-7"
           >
             标签
           </a>
         </li>
-        <li class="text-sm">
+        <li text-sm>
           <Dropdown title="更多">
-            <ul class="py-2">
+            <ul py-2>
               <li>
                 <a
                   href="/friends"
                   title="friends"
-                  class="mx-1.5 px-2 py-1 block rounded transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                  mx-1.5
+                  px-2
+                  py-1
+                  block
+                  rounded
+                  transition-colors
+                  bg="hover:neutral-200 dark:hover:neutral-700"
                 >
                   友情链接
                 </a>
               </li>
               <li
                 role="separator"
-                class="relative h-1px my-2 bg-neutral-200 dark:bg-neutral-700"
+                relative
+                h-1px
+                my-2
+                bg-neutral-200
+                dark:bg-neutral-700
               >
                 <span
-                  class="scale-75 absolute left-1/2 -translate-x-1/2 top-0 -translate-y-10px bg-neutral-100 dark:bg-neutral-600"
-                  >WIP</span
+                  scale-75
+                  absolute
+                  left="1/2"
+                  translate-x="-1/2"
+                  top-0
+                  translate-y-="-10px"
+                  bg="neutral-1 dark:neutral-6"
                 >
+                  WIP
+                </span>
               </li>
               <li>
                 <a
                   title="weekly"
                   href="#"
-                  class="mx-1.5 px-2 py-1 block rounded transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                  mx-1.5
+                  px-2
+                  py-1
+                  block
+                  rounded
+                  transition-colors
+                  bg="hover:neutral-2 dark:hover:neutral-7"
                 >
                   周记
                 </a>
@@ -81,7 +105,13 @@ import Dropdown from './Dropdown.astro';
                 <a
                   title="weekly"
                   href="#"
-                  class="mx-1.5 px-2 py-1 block rounded transition-colors hover:bg-neutral-200 dark:hover:bg-neutral-700"
+                  mx-1.5
+                  px-2
+                  py-1
+                  block
+                  rounded
+                  transition-colors
+                  bg="hover:neutral-2 dark:hover:neutral-7"
                 >
                   关于
                 </a>
@@ -91,15 +121,15 @@ import Dropdown from './Dropdown.astro';
         </li>
       </ul>
     </nav>
-    <div class="space-x-4 flex items-center">
+    <div flex="~ items-center gap-x-4">
       <a
         aria-label="Rss"
         href="/rss.xml"
         rel="noopener noreferrer"
         target="_blank"
-        class="hover:text-amber-600"
+        hover="text-amber-600"
       >
-        <div class="i-ri:rss-fill w-5 h-5"></div>
+        <div i-ri:rss-fill w-5 h-5></div>
       </a>
       <ThemeSwitch />
     </div>

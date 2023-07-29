@@ -17,7 +17,8 @@ const { slug, data } = Astro.props;
 >
   <h2
     itemprop="headline"
-    class="text-6 hover:underline focus-visible:underline focus:underline"
+    text-6
+    underline="hover:~ focus-visible:~ focus:~"
   >
     <a
       href={`/blog/${slug}`}

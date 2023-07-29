@@ -12,20 +12,19 @@ interface Props {
 const { title, description } = Astro.props;
 ---
 
-<html lang="en" class="scroll-smooth">
+<html lang="zh-cmn-Hans" scroll-smooth>
   <head>
     <BaseHead title={title} description={description} />
   </head>
 
   <body
-    class:list={[
-      'bg-$e-bg text-black dark:text-white',
-      'motion-safe:(transition-all duration-200 ease-in)'
-    ]}
+    c="black dark:white"
+    bg="$e-bg"
+    motion-safe="transition-all duration-200 ease-in"
   >
     <Header />
-    <main class="pt-16 pb-8">
-      <div class="max-w-76ch mx-auto px-4">
+    <main pt-16 pb-8>
+      <div max-w-76ch mx-auto px-4>
         <slot />
       </div>
     </main>

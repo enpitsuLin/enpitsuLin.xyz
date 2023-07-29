@@ -38,15 +38,16 @@ const { prev, next } = createPagerUrl(page.current, page.total);
       ))
     }
   </ul>
-  <div class="pt-6 pb-8 text-sm">
-    <nav class="flex justify-between">
+  <div pt6 pb8 text-sm>
+    <nav flex="~ justify-between">
       <a
         aria-label="Prev page"
         href={prev}
         data-disabled={!prev}
-        class:list={[!!prev ? 'hover:underline' : 'op-30', 'flex items-center']}
+        flex="~ items-center"
+        class:list={[!!prev ? 'hover:underline' : 'op-30']}
       >
-        <div class="i-ri:arrow-left-double-line"></div>
+        <div i-ri:arrow-left-double-line></div>
         <span>Prev</span>
       </a>
       <span>
@@ -56,10 +57,11 @@ const { prev, next } = createPagerUrl(page.current, page.total);
         aria-label="Next page"
         href={next}
         data-disabled={!next}
-        class:list={[!!next ? 'hover:underline' : 'op-30', 'flex items-center']}
+        flex="~ items-center"
+        class:list={[!!next ? 'hover:underline' : 'op-30']}
       >
         <span>Next</span>
-        <div class="i-ri:arrow-right-double-line"></div>
+        <div i-ri:arrow-right-double-line></div>
       </a>
     </nav>
   </div>
