@@ -37,7 +37,7 @@
     "astro-eslint-parser": "^0.14.0",
     "eslint": "^8.46.0",
     "eslint-plugin-astro": "^0.28.0",
-    "hastscript": "^7.2.0",
+    "hastscript": "^8.0.0",
     "mdast-util-toc": "^7.0.0",
     "prettier": "^3.0.0",
     "prettier-plugin-astro": "^0.11.0",
