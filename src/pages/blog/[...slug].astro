@@ -10,6 +10,8 @@ import BasicLayout from '~/layouts/BasicLayout.astro';
 import { usePost } from '~/lib/content';
 import '~/styles/prism.css';
 
+export const prerender = false
+
 const { slug } = Astro.params;
 if (!slug) return Astro.redirect('/404');
 const post = await usePost(slug);

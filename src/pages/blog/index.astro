@@ -3,7 +3,7 @@ import { ITEMS_PRE_PAGE } from '~/consts';
 import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts, usePostsCount } from '~/lib/content';
 
-export const prerender = true;
+;
 
 const post = usePosts({ limit: ITEMS_PRE_PAGE });
 const total = usePostsCount();

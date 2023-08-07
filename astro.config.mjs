@@ -88,6 +88,6 @@ export default defineConfig({
     remarkPlugins,
     rehypePlugins
   },
-  output: "server",
+  output: "hybrid",
   adapter: vercel()
 });

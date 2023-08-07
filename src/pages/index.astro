@@ -5,7 +5,7 @@ import { usePosts } from '~/lib/content';
 import { ITEMS_DISPLAY_INDEX, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
 
-export const prerender = true;
+;
 
 const posts = usePosts({ limit: ITEMS_DISPLAY_INDEX });
 ---
