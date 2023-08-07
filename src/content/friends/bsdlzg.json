@@ -1,0 +1,7 @@
+{
+  "$schema": "../schema/friends.json",
+  "title": "白色的蓝之光博客",
+  "url": "https://bsdlzg.com/",
+  "description": "",
+  "favicon": "https://bsdlzg.com/themes/joe2.0/source/img/default_avatar.jpg"
+}

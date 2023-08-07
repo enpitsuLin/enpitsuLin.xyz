@@ -4,9 +4,9 @@ import PageTitle from '~/components/PageTitle.astro';
 import { SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 
-const friends = (await getCollection('friends')).filter(
-  (i) => i.id !== 'example'
-);
+const friends = (await getCollection('friends'))
+  .filter((i) => i.id !== 'example')
+  .sort(() => (Math.random() > 0.5 ? 1 : -1));
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
@@ -16,16 +16,6 @@ const friends = (await getCollection('friends')).filter(
     friends.length === 0 && (
       <div space-y-2>
         <h2>似乎这里没有什么活动的迹象呢。</h2>
-        <p text-sm op-60>
-          如果想要成为我的朋友的话，可以参考
-          <a
-            target="_blank"
-            href="https://github.com/enpitsuLin/enpitsuLin.xyz/issues/129"
-          >
-            这个链接
-          </a>
-          <del>来成为马猴烧酒</del>
-        </p>
       </div>
     )
   }
@@ -39,7 +29,7 @@ const friends = (await getCollection('friends')).filter(
             h-20
             p-2
             bg="neutral-2 dark:neutral-7"
-            border="~ rounded-md"
+            rounded-md
           >
             <picture justify-self-center h-8 w-8>
               {typeof friend.data.favicon !== 'string' && (
@@ -78,4 +68,14 @@ const friends = (await getCollection('friends')).filter(
       </div>
     )
   }
+  <p text-sm op-60 mt-10>
+    如果想要被展示在这里的的话，可以参考
+    <a
+      target="_blank"
+      href="https://github.com/enpitsuLin/enpitsuLin.xyz/issues/129"
+    >
+      这里
+    </a>
+    <del>来成为马猴烧酒</del>
+  </p>
 </BasicLayout>

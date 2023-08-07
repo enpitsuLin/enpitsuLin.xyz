@@ -1,0 +1,7 @@
+{
+  "$schema": "../schema/friends.json",
+  "title": "熊猫不是猫",
+  "url": "https://panda995.xyz/",
+  "description": "平平无奇小熊猫",
+  "favicon": "https://panda995.xyz/usr/themes/bearsimple/upload/images/QQ%E5%9B%BE%E7%89%8720220509113441.png"
+}
