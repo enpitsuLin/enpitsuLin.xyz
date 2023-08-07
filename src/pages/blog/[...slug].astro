@@ -8,6 +8,8 @@ import BasicLayout from '~/layouts/BasicLayout.astro';
 import { usePost, usePostsSlug } from '~/lib/content';
 import '~/styles/prism.css';
 
+export const prerender = true;
+
 export async function getStaticPaths() {
   const allSlug = usePostsSlug();
   return allSlug.map((slug) => ({ params: { slug } }));

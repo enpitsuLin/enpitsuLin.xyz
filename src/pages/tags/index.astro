@@ -3,6 +3,8 @@ import PageTitle from '~/components/PageTitle.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { useAllTags } from '~/lib/content';
 
+export const prerender = true;
+
 const tags = [...new Set(useAllTags())];
 ---
 

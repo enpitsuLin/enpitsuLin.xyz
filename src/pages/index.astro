@@ -5,23 +5,32 @@ import { usePosts } from '~/lib/content';
 import { ITEMS_DISPLAY_INDEX, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import BasicLayout from '../layouts/BasicLayout.astro';
 
+export const prerender = true;
+
 const posts = usePosts({ limit: ITEMS_DISPLAY_INDEX });
 ---
 
 <BasicLayout title={SITE_TITLE} description={SITE_DESCRIPTION}>
   <Hero />
   <div
-    flex="~ items-center justify-between" my2
-    text-3xl leading-none tracking-.6px text-op-85
-    select-none font-900
+    flex="~ items-center justify-between"
+    my2
+    text-3xl
+    leading-none
+    tracking-.6px
+    text-op-85
+    select-none
+    font-900
   >
     <span flex-1>Latest</span>
     <a
       aria-label="All posts"
       href="/blog"
-      flex="~ items-center" text-sm
-      cursor-pointer op="50 hover:100"
-      class="transition-opacity "
+      flex="~ items-center"
+      text-sm
+      cursor-pointer
+      op="50 hover:100"
+      class="transition-opacity"
     >
       <span>更多</span>
       <div class="i-ri:arrow-right-double-fill"></div>
