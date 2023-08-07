@@ -1,0 +1,18 @@
+<script>
+  import type { Zoom, ZoomSelector, ZoomOptions } from 'medium-zoom';
+  document.addEventListener('DOMContentLoaded', () => {
+    const mediumZoomScript = document.createElement('script');
+    mediumZoomScript.setAttribute(
+      'src',
+      'https://unpkg.com/medium-zoom@1.0.8/dist/medium-zoom.min.js'
+    );
+    mediumZoomScript.onload = () => {
+      mediumZoom('[data-zoomable]', { background: 'var(--e-bg)' });
+    };
+    document.querySelector('head')!.appendChild(mediumZoomScript);
+  });
+  declare const mediumZoom: (
+    selector?: ZoomSelector,
+    options?: ZoomOptions
+  ) => Zoom;
+</script>

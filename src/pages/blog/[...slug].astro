@@ -2,6 +2,7 @@
 import ArticleLicense from '~/components/ArticleLicense.astro';
 import Comments from '~/components/Comments';
 import FormattedDate from '~/components/FormattedDate.astro';
+import MediumZoomScript from '~/components/MediumZoomScript.astro';
 import { PostToc } from '~/components/PostToc';
 import ScrollToTop from '~/components/ScrollToTop.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
@@ -53,8 +54,8 @@ const { Content, remarkPluginFrontmatter } = await post.render();
   <ScrollToTop />
 </BasicLayout>
 
+<MediumZoomScript />
 <script>
-  import type { Zoom, ZoomSelector, ZoomOptions } from 'medium-zoom';
   document.addEventListener('DOMContentLoaded', () => {
     const observer = new IntersectionObserver(
       ([e]) => {
@@ -90,19 +91,5 @@ const { Content, remarkPluginFrontmatter } = await post.render();
     preElList.forEach((el) => {
       observer.observe(el);
     });
-
-    const mediumZoomScript = document.createElement('script');
-    mediumZoomScript.setAttribute(
-      'src',
-      'https://unpkg.com/medium-zoom@1.0.8/dist/medium-zoom.min.js'
-    );
-    mediumZoomScript.onload = () => {
-      mediumZoom('[data-zoomable]', { background: 'var(--e-bg)' });
-    };
-    document.querySelector('head')!.appendChild(mediumZoomScript);
   });
-  declare const mediumZoom: (
-    selector?: ZoomSelector,
-    options?: ZoomOptions
-  ) => Zoom;
 </script>
