@@ -1,4 +1,5 @@
 ---
+import type { List } from 'mdast';
 import ArticleLicense from '~/components/ArticleLicense.astro';
 import Comments from '~/components/Comments';
 import FormattedDate from '~/components/FormattedDate.astro';
@@ -6,39 +7,37 @@ import MediumZoomScript from '~/components/MediumZoomScript.astro';
 import { PostToc } from '~/components/PostToc';
 import ScrollToTop from '~/components/ScrollToTop.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
-import { usePost, usePostsSlug } from '~/lib/content';
+import { usePost } from '~/lib/content';
 import '~/styles/prism.css';
 
-export const prerender = true;
-
-export async function getStaticPaths() {
-  const allSlug = usePostsSlug();
-  return allSlug.map((slug) => ({ params: { slug } }));
-}
 const { slug } = Astro.params;
 if (!slug) return Astro.redirect('/404');
 const post = await usePost(slug);
 if (!post) return Astro.redirect('/404');
 const { Content, remarkPluginFrontmatter } = await post.render();
+const tocData = remarkPluginFrontmatter['toc'].map as List;
 ---
 
 <BasicLayout title={post.data.title} description={post.data.excerpt}>
   <div
-    class="pt-14 pb-6 flex flex-col items-center text-base border-b border-black dark:border-white border-opacity-8 dark:border-opacity-8"
+    flex="~ col items-center gap-2"
+    border="b black/8 dark:white/8"
+    pt-14
+    pb-6
+    text-base
   >
     <FormattedDate
       date={new Date(post.data.date)}
       itemprop="datePublished"
       class="text-sm text-neutral-700 dark:text-neutral-200"
     />
-    <h1 class="text-4xl font-bold text-center">{post.data.title}</h1>
-  </div>
-  <!-- <Markdown content={post.content} /> -->
-  <div class="relative">
-    <div class="prose pt-4 pb-8 max-w-unset">
+    <h1 text-4xl font-bold text-center>{post.data.title}</h1>
+  </div> 
+  <div relative>
+    <div prose pt-4 pb-8 max-w-unset>
       <Content />
     </div>
-    <PostToc client:only="solid-js" data={remarkPluginFrontmatter['toc']} />
+    <PostToc client:only="solid-js" data={tocData} />
   </div>
   <ArticleLicense
     url={Astro.url}

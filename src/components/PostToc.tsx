@@ -1,19 +1,14 @@
-import type { Result as TocResult } from 'mdast-util-toc';
+import type { Link, List, ListItem, Paragraph, Text } from 'mdast';
 import { Component, createEffect, createSignal } from 'solid-js';
 
-function getIds(items: TocResult['map']) {
-  return (
-    items?.children?.reduce((acc: string[], item) => {
-      item.children.forEach((child) => {
-        if (child.type === 'paragraph' && (child.children[0] as any).url) {
-          acc.push((child.children[0] as any).url.slice(1));
-        } else if (child.type === 'list') {
-          acc.push(...getIds(child));
-        }
-      });
-      return acc;
-    }, []) || []
-  );
+function getRecursionIds(item: List | ListItem | Paragraph | Link | Text): string[] {
+  if (item.type === 'text') return []
+  if (item.type === 'link') return [item.url.slice(1)]
+
+  return item
+    .children
+    .map((item) => getRecursionIds(item as List | ListItem | Paragraph))
+    .flat()
 }
 
 function useActiveId(itemIds: string[]) {
@@ -47,47 +42,46 @@ function useActiveId(itemIds: string[]) {
   return activeId;
 }
 
-function renderItems(items: TocResult['map'], activeId: string, prefix = '') {
+function renderItems(items: List, activeId: string, prefix = '') {
   return (
     <ol class="overflow-y-auto max-h-65vh" classList={{ 'pl-5': prefix != '' }}>
       {items?.children?.map((item, index) => (
         <li>
-          {item.children.map((child: any) => {
-            const children =
-              child.children[0].children?.[0]?.children ||
-              child.children[0].children;
-            const content = (children as { value: string }[]).reduce(
-              (acc, curr) => acc + curr.value,
-              ''
-            );
-            return (
-              <span>
-                {child.type === 'paragraph' && child.children?.[0]?.url && (
+          {item.children
+            .filter((i): i is Paragraph | List => ['paragraph', 'list'].includes(i.type))
+            .map((listOrParagraph) => {
+              if (listOrParagraph.type === 'list') return (
+                <span>
+                  {renderItems(listOrParagraph, activeId, `${index + 1}.`)}
+                </span>
+              )
+              const link = (listOrParagraph.children[0] as Link)
+              const children = link.children as Text[];
+              const content = children.reduce((acc, curr) => acc + curr.value, '');
+
+              return (
+                <span>
                   <a
-                    href={child.children[0].url}
+                    href={link.url}
                     title={content}
-                    aria-hidden={activeId !== child.children[0].url.slice(1)}
-                    class={`${
-                      activeId === child.children[0].url.slice(1)
-                        ? 'text-neutral-700 dark:text-neutral '
-                        : 'text-neutral dark:text-neutral-700'
-                    } truncate inline-block max-w-full align-bottom hover:text-neutral`}
+                    aria-hidden={activeId !== link.url.slice(1)}
+                    class={`${activeId === link.url.slice(1)
+                      ? 'text-neutral-700 dark:text-neutral '
+                      : 'text-neutral dark:text-neutral-700'
+                      } truncate inline-block max-w-full align-bottom hover:text-neutral`}
                   >
                     {`${prefix}${index + 1}. ${content}`}
                   </a>
-                )}
-                {child.type === 'list' &&
-                  renderItems(child, activeId, `${index + 1}.`)}
-              </span>
-            );
-          })}
+                </span>
+              );
+            })}
         </li>
       ))}
     </ol>
   );
 }
 
-export const PostToc: Component<{ data: TocResult }> = (props) => {
+export const PostToc: Component<{ data: List }> = (props) => {
   let containerRef: HTMLDivElement | undefined;
 
   const [maxWidth, setMaxWidth] = createSignal(0);
@@ -96,13 +90,12 @@ export const PostToc: Component<{ data: TocResult }> = (props) => {
     if (containerRef) {
       setMaxWidth(
         (window.innerWidth - (containerRef?.parentElement?.clientWidth || 0)) /
-          2 -
-          40
+        2 -
+        40
       );
     }
   });
-
-  const idList = getIds(props.data.map);
+  const idList = getRecursionIds(props.data);
   const activeId = useActiveId(idList);
 
   return (
@@ -118,7 +111,7 @@ export const PostToc: Component<{ data: TocResult }> = (props) => {
       }}
     >
       <div class="sticky top-14 text-sm truncate leading-loose">
-        {renderItems(props.data?.map, activeId())}
+        {renderItems(props.data, activeId())}
       </div>
     </div>
   );
