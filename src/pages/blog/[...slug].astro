@@ -85,7 +85,7 @@ const tocData = remarkPluginFrontmatter['toc'].map as List;
       },
       { threshold: [0] }
     );
-    const proseEl = document.querySelector('div.prose') as HTMLDivElement;
+    const proseEl = document.querySelector('[prose=""]') as HTMLDivElement;
     const preElList = proseEl.querySelectorAll('pre');
     preElList.forEach((el) => {
       observer.observe(el);

@@ -22,7 +22,7 @@ pnpm create tauri-app
 
 然后等待 cli 安装完依赖，用 VSCode 打开项目，这里建议你安装`rust-analyzer`不过我估计学习 rust 应该早都推荐安装了,然后我们的项目目录就如下
 
-![目录|311x225]https://oss.enpitsulin.com/images/20220502174606.png)
+![目录|311x225](https://oss.enpitsulin.com/images/20220502174606.png)
 
 存放前端项目内容的 src 和 rust 后端的 src-tauri，对于 web 界面的开发就很正常开发 react 一样，但是对于和编写 rust 后端就不同于 electron 了毕竟 rust 和 nodejs 完全不一样
 
