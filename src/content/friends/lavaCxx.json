@@ -1,0 +1,7 @@
+{
+  "$schema": "../schema/friends.json",
+  "title": "LavaCe",
+  "url": "https://blog.lavac.cc/",
+  "description": "Touch wood",
+  "favicon": "https://i.imgur.com/YlMEdJW.jpg"
+}
