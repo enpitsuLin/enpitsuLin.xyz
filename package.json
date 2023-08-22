@@ -35,7 +35,7 @@
     "@typescript-eslint/parser": "^6.3.0",
     "@unocss/reset": "^0.55.0",
     "astro": "^2.10.7",
-    "astro-eslint-parser": "^0.14.0",
+    "astro-eslint-parser": "^0.15.0",
     "eslint": "^8.47.0",
     "eslint-plugin-astro": "^0.28.0",
     "hastscript": "^8.0.0",
