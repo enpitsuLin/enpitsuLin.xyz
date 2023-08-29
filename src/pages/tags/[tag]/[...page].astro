@@ -5,11 +5,9 @@ import { ITEMS_PRE_PAGE, SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { useAllTags, usePostsByTag } from '~/lib/content';
 
-;
-
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const allTags = useAllTags();
-  return Promise.all(
+  const pages = await Promise.all(
     allTags.map(async (tag) => {
       const posts = usePostsByTag(tag);
       return paginate(posts, {
@@ -17,7 +15,9 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
         pageSize: ITEMS_PRE_PAGE
       });
     })
-  );
+  ); 
+
+  return pages.flat();
 }
 // reference https://stackoverflow.com/a/51399781/21266032
 type ArrayElement<ArrayType extends readonly unknown[]> =
