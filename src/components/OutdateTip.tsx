@@ -1,4 +1,4 @@
-export default function OutdateTip(props: { date: Date }) {
+export function OutdateTip(props: { date: Date }) {
   const TIME_PRE_DAY = 1000 * 60 * 60 * 24;
   const daysAgo = () => Math.ceil((+new Date() - +props.date) / TIME_PRE_DAY);
   if (daysAgo() > 80)

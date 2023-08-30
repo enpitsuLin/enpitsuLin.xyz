@@ -7,7 +7,7 @@ type Props = {
   slug: string;
 };
 
-export default function Comments(props: Props) {
+export function Comments(props: Props) {
   let comments: HTMLDivElement | undefined;
   function initDisqus() {
     const disqus = new DisqusJS({

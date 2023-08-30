@@ -1,7 +1,7 @@
 ---
 import type { List } from 'mdast';
 import ArticleLicense from '~/components/ArticleLicense.astro';
-import Comments from '~/components/Comments';
+import { Comments } from '~/components/Comments';
 import FormattedDate from '~/components/FormattedDate.astro';
 import MediumZoomScript from '~/components/MediumZoomScript.astro';
 import { PostToc } from '~/components/PostToc';
@@ -10,7 +10,7 @@ import BasicLayout from '~/layouts/BasicLayout.astro';
 import { usePost } from '~/lib/content';
 import '~/styles/prism.css';
 
-export const prerender = false
+export const prerender = false;
 
 const { slug } = Astro.params;
 if (!slug) return Astro.redirect('/404');
@@ -34,7 +34,7 @@ const tocData = remarkPluginFrontmatter['toc'].map as List;
       class="text-sm text-neutral-700 dark:text-neutral-200"
     />
     <h1 text-4xl font-bold text-center>{post.data.title}</h1>
-  </div> 
+  </div>
   <div relative>
     <div prose pt-4 pb-8 max-w-unset>
       <Content />

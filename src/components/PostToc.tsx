@@ -1,5 +1,5 @@
 import type { Link, List, ListItem, Paragraph, Text } from 'mdast';
-import { Component, createEffect, createSignal } from 'solid-js';
+import { type Component, createEffect, createSignal } from 'solid-js';
 
 function getRecursionIds(item: List | ListItem | Paragraph | Link | Text): string[] {
   if (item.type === 'text') return []

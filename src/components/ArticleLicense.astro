@@ -1,6 +1,6 @@
 ---
 import FormattedDate from './FormattedDate.astro';
-import OutdateTip from './OutdateTip';
+import { OutdateTip } from './OutdateTip';
 
 type Props = { url: URL; title: string; date: Date; updateDate: Date };
 const { url, title, date, updateDate } = Astro.props;
