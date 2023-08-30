@@ -7,10 +7,13 @@ import MediumZoomScript from '~/components/MediumZoomScript.astro';
 import { PostToc } from '~/components/PostToc';
 import ScrollToTop from '~/components/ScrollToTop.astro';
 import BasicLayout from '~/layouts/BasicLayout.astro';
-import { usePost } from '~/lib/content';
+import { usePost, usePostsSlug } from '~/lib/content';
 import '~/styles/prism.css';
 
-export const prerender = true
+export async function getStaticPaths() {
+  const allSlug = usePostsSlug();
+  return allSlug.map((slug) => ({ params: { slug } }));
+}
 
 const { slug } = Astro.params;
 if (!slug) return Astro.redirect('/404');
