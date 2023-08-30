@@ -89,5 +89,5 @@ export default defineConfig({
     rehypePlugins
   },
   output: "hybrid",
-  adapter: vercel()
+  adapter: vercel({ functionPerRoute: false })
 });
