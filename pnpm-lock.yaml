@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@astrojs/vercel':
-    specifier: ^4.0.4
-    version: 4.0.4(astro@3.0.10)
+    specifier: ^5.0.0
+    version: 5.0.0(astro@3.0.10)
   date-fns:
     specifier: ^2.30.0
     version: 2.30.0
@@ -260,10 +260,10 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /@astrojs/vercel@4.0.4(astro@3.0.10):
-    resolution: {integrity: sha512-925/mFJoVXfbFszDDFPudNXJnEMWhO7fWBhCWIlg56UcA8Fbm3/qAkocCHrgazcgzn+FfQFiCDtEI1/XhQdaZg==}
+  /@astrojs/vercel@5.0.0(astro@3.0.10):
+    resolution: {integrity: sha512-EN3g6lRL08Sthrd2HNNi5815XJlmI7ExG7O+rChG3NL+18LzHsMKUrQU70BQLrI1RB6EDuEUb5DofWXqRaWTNg==}
     peerDependencies:
-      astro: ^3.0.9
+      astro: ^3.1.0
     dependencies:
       '@astrojs/internal-helpers': 0.2.0
       '@vercel/analytics': 1.0.2
@@ -2170,6 +2170,7 @@ packages:
 
   /color-name@1.1.4:
     resolution: {integrity: sha512-dOy+3AuW3a2wNbZHIuMZpTcgjGuLU/uBL/ubcZF9OXbDo8ff4O8yVp5Bf0efS8uEoYo5q4Fx7dY9OgQGXgAsQA==}
+    requiresBuild: true
 
   /color-string@1.9.1:
     resolution: {integrity: sha512-shrVawQFojnZv6xM40anx4CkoDP+fZsw/ZerEMsW/pyzsRbElpsL/DBVW7q3ExxwusdNXI3lXpuhEZkzs8p5Eg==}

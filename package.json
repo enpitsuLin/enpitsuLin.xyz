@@ -16,7 +16,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
-    "@astrojs/vercel": "^4.0.4",
+    "@astrojs/vercel": "^5.0.0",
     "date-fns": "^2.30.0",
     "disqusjs": "^3.0.2",
     "medium-zoom": "^1.0.8",
