@@ -92,8 +92,8 @@ devDependencies:
     specifier: ^1.6.3
     version: 1.6.3
   rehype-rewrite:
-    specifier: ^3.0.6
-    version: 3.0.6
+    specifier: ^4.0.0
+    version: 4.0.0
   rehype-slug:
     specifier: ^6.0.0
     version: 6.0.0
@@ -2250,8 +2250,8 @@ packages:
       shebang-command: 2.0.0
       which: 2.0.2
 
-  /css-selector-parser@1.4.1:
-    resolution: {integrity: sha512-HYPSb7y/Z7BNDCOrakL4raGO2zltZkbeXyAd6Tg9obzix6QhzxCotdBl6VT0Dv4vZfJGVz3WL/xaEI9Ly3ul0g==}
+  /css-selector-parser@2.3.2:
+    resolution: {integrity: sha512-JjnG6/pdLJh3iqipq7kteNVtbIczsU2A1cNxb+VAiniSuNmrB/NI3us4rSCfArvlwRXYly+jZhUUfEoInSH9Qg==}
     dev: true
 
   /css-tree@2.3.1:
@@ -3025,8 +3025,10 @@ packages:
       '@types/hast': 2.3.4
     dev: true
 
-  /hast-util-has-property@2.0.1:
-    resolution: {integrity: sha512-X2+RwZIMTMKpXUzlotatPzWj8bspCymtXH3cfG3iQKV+wPF53Vgaqxi/eLqGck0wKq1kS9nvoB1wchbCPEL8sg==}
+  /hast-util-has-property@3.0.0:
+    resolution: {integrity: sha512-MNilsvEKLFpV604hwfhVStK0usFY/QmM5zX16bo7EjnAEGofr5YyI37kzopBlZJkHD4t887i+q/C8/tr5Q94cA==}
+    dependencies:
+      '@types/hast': 3.0.1
     dev: true
 
   /hast-util-heading-rank@3.0.0:
@@ -3083,23 +3085,24 @@ packages:
       web-namespaces: 2.0.1
       zwitch: 2.0.4
 
-  /hast-util-select@5.0.5:
-    resolution: {integrity: sha512-QQhWMhgTFRhCaQdgTKzZ5g31GLQ9qRb1hZtDPMqQaOhpLBziWcshUS0uCR5IJ0U1jrK/mxg35fmcq+Dp/Cy2Aw==}
+  /hast-util-select@6.0.1:
+    resolution: {integrity: sha512-KPNOtLqeJCcFRyxQm9BakO3bdIQfremXraw4mh9jxsJ+L593v/VdP3G9Dfjahacl/bw8PPvIFseaXzElKOYRpA==}
     dependencies:
-      '@types/hast': 2.3.4
-      '@types/unist': 2.0.6
+      '@types/hast': 3.0.1
+      '@types/unist': 3.0.0
       bcp-47-match: 2.0.3
       comma-separated-tokens: 2.0.3
-      css-selector-parser: 1.4.1
+      css-selector-parser: 2.3.2
+      devlop: 1.1.0
       direction: 2.0.1
-      hast-util-has-property: 2.0.1
-      hast-util-to-string: 2.0.0
-      hast-util-whitespace: 2.0.1
+      hast-util-has-property: 3.0.0
+      hast-util-to-string: 3.0.0
+      hast-util-whitespace: 3.0.0
       not: 0.1.0
       nth-check: 2.1.1
       property-information: 6.2.0
       space-separated-tokens: 2.0.2
-      unist-util-visit: 4.1.2
+      unist-util-visit: 5.0.0
       zwitch: 2.0.4
     dev: true
 
@@ -4779,13 +4782,13 @@ packages:
       hast-util-raw: 7.2.3
       unified: 10.1.2
 
-  /rehype-rewrite@3.0.6:
-    resolution: {integrity: sha512-REDTNCvsKcAazy8IQWzKp66AhSUDSOIKssSCqNqCcT9sN7JCwAAm3mWGTUdUzq80ABuy8d0D6RBwbnewu1aY1g==}
-    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
+  /rehype-rewrite@4.0.0:
+    resolution: {integrity: sha512-796T+09zkOwjb/anlieN/Vm/66B0Y8J8iGz2uH1WnkLhJZ95/Z4fsjDn7sJ2NhR2r81+hwgIe1n29jZn/1RnOg==}
+    engines: {node: '>=16.0.0'}
     dependencies:
-      hast-util-select: 5.0.5
-      unified: 10.1.2
-      unist-util-visit: 4.1.2
+      hast-util-select: 6.0.1
+      unified: 11.0.3
+      unist-util-visit: 5.0.0
     dev: true
 
   /rehype-slug@6.0.0:
