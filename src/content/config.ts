@@ -26,4 +26,14 @@ const friends = defineCollection({
   })
 })
 
-export const collections = { blog, friends };
+/**
+ * Year and week as filename and use it as Title
+ */
+const weekly = defineCollection({
+  type: 'content',
+  schema: z.object({
+    date: z.date(),
+  }),
+})
+
+export const collections = { blog, friends, weekly };
