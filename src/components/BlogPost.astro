@@ -87,5 +87,43 @@ function isBlogPost(
         </div>
       </div>
     </article>
-  ) : null
+  ) : (
+    <article
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+      flex="~ col"
+      border="t black dark:white op-8 dark:op-8"
+      py-4
+      relative
+    >
+      <h2
+        itemprop="headline"
+        text-6
+        underline="hover:~ focus-visible:~ focus:~"
+      >
+        <a
+          href={`/blog/${slug}`}
+          data-umami-event="Weekly link"
+          data-umami-event-slug={slug}
+        >
+          {slug}
+        </a>
+      </h2>
+      <div flex="~ items-center" c="neutral-6 dark:neutral-3">
+        <span text-xs>
+          <span>发布于&nbsp;</span>
+          <FormattedDate date={new Date(data.date)} itemprop="datePublished" />
+        </span>
+      </div>
+      <div
+        itemprop="articleBody"
+        my-4
+        text-opacity-82
+        text-sm
+        c="neutral-6 dark:neutral-3"
+      >
+        <a href={`/blog/${slug}`}>{data.remark}</a>
+      </div>
+    </article>
+  )
 }

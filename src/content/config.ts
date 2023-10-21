@@ -33,6 +33,7 @@ const weekly = defineCollection({
   type: 'content',
   schema: z.object({
     date: z.date(),
+    remark: z.string()
   }),
 })
 
