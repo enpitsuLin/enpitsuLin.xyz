@@ -2,79 +2,90 @@
 import type { CollectionEntry } from 'astro:content';
 import FormattedDate from './FormattedDate.astro';
 
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<'blog' | 'weekly'>;
 
 const { slug, data } = Astro.props;
+
+function isBlogPost(
+  data: CollectionEntry<'blog' | 'weekly'>['data']
+): data is CollectionEntry<'blog'>['data'] {
+  return 'title' in data;
+}
 ---
 
-<article
-  itemscope
-  itemtype="http://schema.org/BlogPosting"
-  flex="~ col"
-  border="t black dark:white op-8 dark:op-8"
-  py-4
-  relative
->
-  <h2
-    itemprop="headline"
-    text-6
-    underline="hover:~ focus-visible:~ focus:~"
-  >
-    <a
-      href={`/blog/${slug}`}
-      data-umami-event="Article link"
-      data-umami-event-slug={slug}
+{
+  isBlogPost(data) ? (
+    <article
+      itemscope
+      itemtype="http://schema.org/BlogPosting"
+      flex="~ col"
+      border="t black dark:white op-8 dark:op-8"
+      py-4
+      relative
     >
-      {data.title}
-    </a>
-    {
-      data.lang && (
-        <sup
-          aria-label={`extra info: this post write in ${data.lang}`}
-          border="~ rounded neutral-300"
-          inline-block
-          text-neutral-400
-          px-1
-          text-xs
+      <h2
+        itemprop="headline"
+        text-6
+        underline="hover:~ focus-visible:~ focus:~"
+      >
+        <a
+          href={`/blog/${slug}`}
+          data-umami-event="Article link"
+          data-umami-event-slug={slug}
         >
-          {data.lang}
-        </sup>
-      )
-    }
-  </h2>
+          {data.title}
+        </a>
+        {data.lang && (
+          <sup
+            aria-label={`extra info: this post write in ${data.lang}`}
+            border="~ rounded neutral-300"
+            inline-block
+            text-neutral-400
+            px-1
+            text-xs
+          >
+            {data.lang}
+          </sup>
+        )}
+      </h2>
 
-  <div
-    itemprop="articleBody"
-    my-4
-    text-opacity-82
-    text-sm
-    c="neutral-6 dark:neutral-3"
-  >
-    <a href={`/blog/${slug}`}>{data.excerpt}</a>
-  </div>
+      <div
+        itemprop="articleBody"
+        my-4
+        text-opacity-82
+        text-sm
+        c="neutral-6 dark:neutral-3"
+      >
+        <a href={`/blog/${slug}`}>{data.excerpt}</a>
+      </div>
 
-  <div flex="~ items-center" c="neutral-6 dark:neutral-3">
-    <span text-xs>
-      <span>发布于&nbsp;</span>
-      <FormattedDate date={new Date(data.date)} itemprop="datePublished" />
-    </span>
-    <div flex="~ items-center" space-x-2 ml-4 aria-label="Tags for this post">
-      {
-        data.tags?.map((tag) => {
-          return (
-            <a
-              title={tag}
-              href={`/tags/${tag}`}
-              motion-safe="transition-colors duration-200 ease-in"
-              hover="underline"
-              inline-block
-              text-xs
-            >
-              &#x23;{tag}
-            </a>
-          );
-        })
-      }
-    </div>
-  </div>
-</article>
+      <div flex="~ items-center" c="neutral-6 dark:neutral-3">
+        <span text-xs>
+          <span>发布于&nbsp;</span>
+          <FormattedDate date={new Date(data.date)} itemprop="datePublished" />
+        </span>
+        <div
+          flex="~ items-center"
+          space-x-2
+          ml-4
+          aria-label="Tags for this post"
+        >
+          {data.tags?.map((tag) => {
+            return (
+              <a
+                title={tag}
+                href={`/tags/${tag}`}
+                motion-safe="transition-colors duration-200 ease-in"
+                hover="underline"
+                inline-block
+                text-xs
+              >
+                &#x23;{tag}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </article>
+  ) : null
+}

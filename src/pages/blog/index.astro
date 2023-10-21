@@ -2,13 +2,16 @@
 import { ITEMS_PRE_PAGE } from '~/consts';
 import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts, usePostsCount } from '~/lib/content';
+import { blogPagination } from '~/lib/pagination';
 
 const post = usePosts({ limit: ITEMS_PRE_PAGE });
 const total = usePostsCount();
 ---
 
 <ListLayout
+  title="All Posts"
   posts={post}
+  pagination={blogPagination}
   page={{
     total: Math.ceil(total / ITEMS_PRE_PAGE),
     current: 1

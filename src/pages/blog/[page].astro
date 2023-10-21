@@ -3,6 +3,7 @@ import type { GetStaticPathsOptions, Page } from 'astro';
 import { ITEMS_PRE_PAGE } from '~/consts';
 import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts } from '~/lib/content';
+import { blogPagination } from '~/lib/pagination';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const astronautPages = usePosts();
@@ -18,7 +19,9 @@ const { page } = Astro.props;
 ---
 
 <ListLayout
+  title="All Posts"
   posts={page.data}
+  pagination={blogPagination}
   page={{
     prev: page.url.prev,
     next: page.url.next,
