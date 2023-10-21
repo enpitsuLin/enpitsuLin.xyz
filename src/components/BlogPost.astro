@@ -102,7 +102,7 @@ function isBlogPost(
         underline="hover:~ focus-visible:~ focus:~"
       >
         <a
-          href={`/blog/${slug}`}
+          href={`/weekly/${slug}`}
           data-umami-event="Weekly link"
           data-umami-event-slug={slug}
         >
@@ -122,7 +122,7 @@ function isBlogPost(
         text-sm
         c="neutral-6 dark:neutral-3"
       >
-        <a href={`/blog/${slug}`}>{data.remark}</a>
+        <a href={`/weekly/${slug}`}>{data.remark}</a>
       </div>
     </article>
   )
