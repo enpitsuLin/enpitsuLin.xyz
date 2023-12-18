@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^5.0.2",
-    "date-fns": "^2.30.0",
+    "date-fns": "^3.0.0",
     "disqusjs": "^3.0.2",
     "medium-zoom": "^1.0.8",
     "solid-js": "^1.8.3"
