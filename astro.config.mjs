@@ -48,7 +48,6 @@ const rehypePlugins = [
       behavior: 'append',
       properties: {
         ariaHidden: 'true',
-        tabIndex: -1,
         className: ["ml-2"]
       },
       content: {
