@@ -1,7 +1,7 @@
 @import '@unocss/reset/tailwind-compat.css';
 
 :root {
-  --e-bg: #f1f2f3;
+  --e-bg: #e9e9e9;
   --e-scrollbar: #cccccc;
   --e-scrollbar-hover: #999999;
   /* extends unocss typography */
@@ -52,4 +52,19 @@ html {
 
 a[data-disabled] {
   cursor: not-allowed;
+}
+
+.remark-code-container {
+  @apply relative bg-neutral-200 dark:bg-neutral-800 rounded;
+}
+.remark-code-container:not([data-title])::before {
+  content: attr(data-language);
+  @apply absolute left-2 -top-1 rounded-b dark:bg-neutral-300 bg-neutral-700 px-2 py-0.5 font-mono text-sm font-bold dark:text-neutral-600 text-neutral-200;
+}
+.remark-code-container::after {
+  content: attr(data-title);
+  @apply absolute left-2 -top-1 rounded-b dark:bg-neutral-300 bg-neutral-700 px-2 py-0.5 font-mono text-sm font-bold dark:text-neutral-600 text-neutral-200;
+}
+.remark-code-container .code-copy-button {
+  @apply w-7 h-7 absolute right-2 -top-1 flex items-center justify-center dark:bg-neutral-300 bg-neutral-700 dark:text-neutral-600 text-neutral-200 rounded-b select-none;
 }

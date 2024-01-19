@@ -1,12 +1,11 @@
-import mdx from '@astrojs/mdx';
-import sitemap from '@astrojs/sitemap';
 import { defineConfig } from 'astro/config';
+
+import mdx from '@astrojs/mdx';
+import node from '@astrojs/node';
+import sitemap from '@astrojs/sitemap';
+import solidJs from '@astrojs/solid-js';
 import Unocss from 'unocss/astro';
 
-import solidJs from '@astrojs/solid-js';
-import { refractor } from 'refractor/lib/all';
-import rehypePrismDiff from 'rehype-prism-diff';
-import rehypePrismGenerator from 'rehype-prism-plus/generator';
 import rehypeRewrite from 'rehype-rewrite';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
@@ -14,11 +13,6 @@ import remarkDirective from 'remark-directive';
 import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkCodeTitles from 'remark-flexible-code-titles';
 import remarkEmoji from 'remark-emoji';
-import { toc } from 'mdast-util-toc';
-import node from '@astrojs/node';
-
-refractor.alias('html', ['vue', 'svelte']);
-const rehypePrismPlus = rehypePrismGenerator(refractor);
 
 const remarkPlugins = [
   remarkEmoji,
@@ -31,18 +25,10 @@ const remarkPlugins = [
       })
     }
   ],
-  () => (tree, file) => {
-    file.data.astro.frontmatter.toc = toc(tree, {
-      tight: true,
-      ordered: true
-    });
-  },
   remarkDirective,
   remarkDirectiveRehype
 ]
 const rehypePlugins = [
-  [rehypePrismPlus, { ignoreMissing: true }],
-  rehypePrismDiff,
   rehypeSlug,
   [
     rehypeAutolinkHeadings, {
@@ -83,8 +69,10 @@ export default defineConfig({
   site: 'https://enpitsulin.xyz',
   integrations: [mdx(), sitemap(), Unocss(), solidJs()],
   markdown: {
-    gfm: true,
-    syntaxHighlight: false,
+    shikiConfig: {
+      theme: 'one-dark-pro',
+      wrap: true
+    },
     remarkPlugins,
     rehypePlugins
   },
