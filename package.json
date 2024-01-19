@@ -16,6 +16,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "astro": "^4.2.1",
     "date-fns": "^3.2.0",
     "disqusjs": "^3.0.2",
     "medium-zoom": "^1.1.0",
@@ -34,7 +35,6 @@
     "@typescript-eslint/eslint-plugin": "^6.19.0",
     "@typescript-eslint/parser": "^6.19.0",
     "@unocss/reset": "^0.58.3",
-    "astro": "^4.2.1",
     "astro-eslint-parser": "^0.16.2",
     "eslint": "^8.56.0",
     "eslint-plugin-astro": "^0.31.3",
