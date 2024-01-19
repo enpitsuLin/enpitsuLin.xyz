@@ -5,6 +5,8 @@ import { ITEMS_PRE_PAGE, SITE_DESCRIPTION, SITE_TITLE } from '~/consts';
 import BasicLayout from '~/layouts/BasicLayout.astro';
 import { useAllTags, usePostsByTag } from '~/lib/content';
 
+export const prerender = true
+
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const allTags = useAllTags();
   const pages = await Promise.all(

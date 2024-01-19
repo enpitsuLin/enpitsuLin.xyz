@@ -89,6 +89,6 @@ export default defineConfig({
     remarkPlugins,
     rehypePlugins
   },
-  output: "hybrid",
+  output: "server",
   adapter: node({ mode: "standalone" })
 });

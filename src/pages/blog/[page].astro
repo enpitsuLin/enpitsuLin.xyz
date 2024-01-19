@@ -4,6 +4,8 @@ import { ITEMS_PRE_PAGE } from '~/consts';
 import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts } from '~/lib/content';
 
+export const prerender = true
+
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const astronautPages = usePosts();
   return paginate(astronautPages, { pageSize: ITEMS_PRE_PAGE });
