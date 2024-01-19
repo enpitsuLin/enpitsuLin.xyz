@@ -5,6 +5,8 @@ import ListLayout from '~/layouts/ListLayout.astro';
 import { usePosts } from '~/lib/content';
 import { blogPagination } from '~/lib/pagination';
 
+export const prerender = true
+
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const astronautPages = usePosts();
   return paginate(astronautPages, { pageSize: ITEMS_PRE_PAGE });
