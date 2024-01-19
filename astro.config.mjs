@@ -15,7 +15,8 @@ import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkCodeTitles from 'remark-flexible-code-titles';
 import remarkEmoji from 'remark-emoji';
 import { toc } from 'mdast-util-toc';
-import vercel from "@astrojs/vercel/serverless";
+import node from '@astrojs/node';
+
 refractor.alias('html', ['vue', 'svelte']);
 const rehypePrismPlus = rehypePrismGenerator(refractor);
 
@@ -89,5 +90,5 @@ export default defineConfig({
     rehypePlugins
   },
   output: "hybrid",
-  adapter: vercel({ functionPerRoute: false })
+  adapter: node({ mode: "standalone" })
 });
