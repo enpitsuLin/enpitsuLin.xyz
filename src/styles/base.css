@@ -68,3 +68,19 @@ a[data-disabled] {
 .remark-code-container .code-copy-button {
   @apply w-7 h-7 absolute right-2 -top-1 flex items-center justify-center dark:bg-neutral-300 bg-neutral-700 dark:text-neutral-600 text-neutral-200 rounded-b select-none;
 }
+
+.astro-code {
+  counter-reset: line;
+  padding-left: 2.5rem;
+}
+
+.astro-code .line {
+  position: relative;
+}
+
+.astro-code .line::before {
+  counter-increment: line;
+  content: counter(line);
+  left: -1.125rem;
+  @apply absolute top-1/2 -translate-y-1/2 op-60;
+}
