@@ -16,6 +16,7 @@
     "lint:fix": "eslint . --fix"
   },
   "dependencies": {
+    "@astrojs/cloudflare": "^9.1.0",
     "astro": "^4.5.4",
     "date-fns": "^3.5.0",
     "disqusjs": "^3.0.3-canary.1",

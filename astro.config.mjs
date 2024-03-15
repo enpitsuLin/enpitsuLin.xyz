@@ -15,7 +15,7 @@ import remarkDirectiveRehype from 'remark-directive-rehype';
 import remarkCodeTitles from 'remark-flexible-code-titles';
 import remarkEmoji from 'remark-emoji';
 import { toc } from 'mdast-util-toc';
-import node from '@astrojs/node';
+import cloudflare from '@astrojs/cloudflare';
 
 refractor.alias('html', ['vue', 'svelte']);
 const rehypePrismPlus = rehypePrismGenerator(refractor);
@@ -90,5 +90,5 @@ export default defineConfig({
     rehypePlugins
   },
   output: "server",
-  adapter: node({ mode: "standalone" })
+  adapter: cloudflare()
 });
