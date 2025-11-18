@@ -25,7 +25,7 @@
   },
   "devDependencies": {
     "@astrojs/mdx": "^2.2.0",
-    "@astrojs/node": "^8.2.3",
+    "@astrojs/node": "^9.0.0",
     "@astrojs/rss": "^4.0.5",
     "@astrojs/sitemap": "^3.1.1",
     "@astrojs/solid-js": "^4.0.1",
