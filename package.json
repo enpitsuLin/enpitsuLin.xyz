@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@astrojs/cloudflare": "^9.1.0",
-    "astro": "^4.5.4",
+    "astro": "^5.0.0",
     "date-fns": "^3.5.0",
     "disqusjs": "^3.0.3-canary.1",
     "medium-zoom": "^1.1.0",
